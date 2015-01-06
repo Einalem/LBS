@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.28)  6 JAN 2015 13:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.28)  6 JAN 2015 15:56
 entering extended mode
 **lbs.tex
 (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.tex
@@ -744,42 +744,58 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lol=\write7
  [2]
 (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\theorie.tex)
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\praxis.tex [3]
-Overfull \hbox (0.3532pt too wide) in paragraph at lines 12--12
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\praxis.tex
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 6.
+LaTeX Font Info:    No file OMScmss.fd. on input line 6.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 6.
+
+[3]
+Overfull \hbox (0.3532pt too wide) in paragraph at lines 32--32
 []\T1/cmss/bx/n/12 Aufzählen vie-ler An-wen-dungs-bei-spie-le mit Er-läu-te-run
 g des Nut-
  []
 
-) (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\prototyp.tex)
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\abschluss.tex [4])
-[5] (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\extra\anlage.tex)
-
-LaTeX Warning: Empty bibliography on input line 27.
+) (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\prototyp.tex [4])
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\abschluss.tex) [5]
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\extra\anlage.tex)
+Overfull \hbox (5.17224pt too wide) in paragraph at lines 28--28
+[]\T1/cmss/m/n/12 Allan Bri-mi-com-be und Chao Li. \T1/cmss/m/it/12 Location-Ba
+sed Ser-vices and Geo-Information
+ []
 
 [6] (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package logreq Info: Writing requests to 'lbs.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 9796 strings out of 493921
- 149510 string characters out of 3148885
- 369645 words of memory out of 3000000
- 12906 multiletter control sequences out of 15000+200000
- 18583 words of font info for 53 fonts, out of 3000000 for 9000
+ 9921 strings out of 493921
+ 151688 string characters out of 3148885
+ 369646 words of memory out of 3000000
+ 13028 multiletter control sequences out of 15000+200000
+ 19408 words of font info for 54 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
- 39i,6n,51p,908b,2552s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,6n,51p,909b,2552s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecsx1440.pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecsx1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\admin\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1095.pk> <C:\Users\admin\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1095.pk> <C:\Users\admin\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.pk> <C:\Us
-ers\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss2074.
-pk>
-Output written on lbs.pdf (6 pages, 95605 bytes).
+ecsi1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecsx1440.pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecsx1200.pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecsx1728.pk> <C:\Users\admin\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\admin\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1095.pk> <C:\Users\admin\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1095.pk> <C:\Us
+ers\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.
+pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecss2074.pk><C:/Program Files/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+>
+Output written on lbs.pdf (6 pages, 117619 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
+ 351 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

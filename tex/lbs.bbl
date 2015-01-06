@@ -16,6 +16,29 @@
   {}
 \endgroup
 
+\entry{brimicombe_li:application_area}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Brimicombe}{B.}%
+     {Allan}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Chao}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {John Wiley + Sons Ltd.}%
+  }
+  \strng{namehash}{BALC1}
+  \strng{fullhash}{BALC1}
+  \field{sortinit}{B}
+  \field{title}{Location-Based Services and Geo-Information Engineering}
+  \field{year}{2009}
+\endentry
+
 \lossort
 \endlossort
 

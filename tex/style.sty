@@ -1,0 +1,41 @@
+\ProvidesPackage{style}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ngerman,german]{babel}
+\usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{
+	\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont
+}
+%\usepackage[scaled]{arial}
+%\fontfamily{arial}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{footmisc}
+\usepackage{csquotes}
+\usepackage[backend=bibtex8,style=numeric]{biblatex}
+\addbibresource{./extra/lbsBib.bib}
+\usepackage{here}
+\usepackage{listings}
+%\changefont{pag}{m}{n}
+\lstset{language=Cobol,
+	identifierstyle=\ttfamily,
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\ttfamily\color[rgb]{0.627,0.126,0.941},
+	showstringspaces=false,
+	basicstyle=\small,
+	numberstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	numbersep=10pt,
+	tabsize=2,
+	breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	breakatwhitespace=false,
+	aboveskip={1.5\baselineskip},
+	columns=fixed,
+  	extendedchars=true
+}
+\usepackage{enumitem}

@@ -1,0 +1,51 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {german}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {german}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Theoretische Betrachtung von Location based Services}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Was sind Location based Services?}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Welche Bedeutung haben sie?}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}Welche M\IeC {\"o}glichkeiten der Standortermittlung gibt es?}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Location based Services in der Praxis}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Anwendungsbereiche (Einsatzgebiete) von Location based Services}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.1.1}Praxis Teil 1}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Typen von Location based Services (proaktiv und reaktiv)}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.1}Typen Teil 1}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Location based Services auf mobilen Endger\IeC {\"a}ten}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.1}Aufz\IeC {\"a}hlen vieler Anwendungsbeispiele mit Erl\IeC {\"a}uterung des Nutzens}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.2}Umsetzungsm\IeC {\"o}glichkeiten f\IeC {\"u}r die Beispiele nennen}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Prototyp}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Auswahl eines Beispiels f\IeC {\"u}r einen Prototyp}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Nutzen und Ziel der Anwendung}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Umsetzung f\IeC {\"u}r mobile Endger\IeC {\"a}te}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4}Technologie zur Umsetzung}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5}Implementierung}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Fazit und Ausblick}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Genereller Ausblick und Fazit f\IeC {\"u}r LBS}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Speziell auf unsere Anwendung bezogener Ausblick + Fazit}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Anlage}{6}

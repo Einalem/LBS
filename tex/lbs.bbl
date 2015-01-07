@@ -39,6 +39,25 @@
   \field{year}{2009}
 \endentry
 
+\entry{goldmedia:lbs}{report}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Goldhammer}{G.}%
+     {Prof. Dr.~Klaus}{P.~D.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GPDK1}
+  \strng{fullhash}{GPDK1}
+  \field{sortinit}{G}
+  \field{title}{Location-based Services Monitor 2014}
+  \list{institution}{1}{%
+    {Goldmedia GmbH Strategy Consulting}%
+  }
+  \field{type}{techreport}
+  \field{year}{2014}
+\endentry
+
 \lossort
 \endlossort
 

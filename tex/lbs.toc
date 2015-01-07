@@ -18,34 +18,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}Anwendungsbereiche}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.1}Praxis Teil 1}{4}
+\contentsline {paragraph}{Theoretische Einsatzgebiete}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Typen von Location based Services (proaktiv und reaktiv)}{4}
+\contentsline {paragraph}{Praktische Einsatzgebiete}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.2.1}Typen Teil 1}{4}
+\contentsline {paragraph}{Gemeinsamkeiten und Unterschiede}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Location based Services auf mobilen Endger\IeC {\"a}ten}{4}
+\contentsline {subsection}{\numberline {2.2}Typen von Location based Services (proaktiv und reaktiv)}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Aufz\IeC {\"a}hlen vieler Anwendungsbeispiele mit Erl\IeC {\"a}uterung des Nutzens}{4}
+\contentsline {subsubsection}{\numberline {2.2.1}Typen Teil 1}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Location based Services auf mobilen Endger\IeC {\"a}ten}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.1}Aufz\IeC {\"a}hlen vieler Anwendungsbeispiele mit Erl\IeC {\"a}uterung des Nutzens}{5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2}Umsetzungsm\IeC {\"o}glichkeiten f\IeC {\"u}r die Beispiele nennen}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Prototyp}{5}
+\contentsline {section}{\numberline {3}Prototyp}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Auswahl eines Beispiels f\IeC {\"u}r einen Prototyp}{5}
+\contentsline {subsection}{\numberline {3.1}Auswahl eines Beispiels f\IeC {\"u}r einen Prototyp}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Nutzen und Ziel der Anwendung}{5}
+\contentsline {subsection}{\numberline {3.2}Nutzen und Ziel der Anwendung}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Umsetzung f\IeC {\"u}r mobile Endger\IeC {\"a}te}{5}
+\contentsline {subsection}{\numberline {3.3}Umsetzung f\IeC {\"u}r mobile Endger\IeC {\"a}te}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Technologie zur Umsetzung}{5}
+\contentsline {subsection}{\numberline {3.4}Technologie zur Umsetzung}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5}Implementierung}{5}
+\contentsline {subsection}{\numberline {3.5}Implementierung}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Fazit und Ausblick}{5}
+\contentsline {section}{\numberline {4}Fazit und Ausblick}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Genereller Ausblick und Fazit f\IeC {\"u}r LBS}{5}
+\contentsline {subsection}{\numberline {4.1}Genereller Ausblick und Fazit f\IeC {\"u}r LBS}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Speziell auf unsere Anwendung bezogener Ausblick + Fazit}{5}
+\contentsline {subsection}{\numberline {4.2}Speziell auf unsere Anwendung bezogener Ausblick + Fazit}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Anlage}{6}
+\contentsline {section}{\numberline {5}Anlage}{7}

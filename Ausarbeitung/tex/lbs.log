@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.28)  7 JAN 2015 11:18
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.28)  8 JAN 2015 09:32
 entering extended mode
 **lbs.tex
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.tex
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -30,7 +30,7 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\style.sty
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\style.sty
 Package: style 
 
 ("C:\Program Files\miktex\tex\latex\base\inputenc.sty"
@@ -680,7 +680,7 @@ Package biblatex Info: ... file 'german.lbx' found.
 ("C:\Program Files\miktex\tex\latex\biblatex\lbx\german.lbx"
 File: german.lbx 2014/06/25 v2.9a biblatex localization (PK/JW/AB)
 )
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.aux
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.aux
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -714,7 +714,7 @@ Package biblatex Warning: Data encoding is 'utf8'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'lbs.bbl' found.
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.bbl)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.bbl)
 Package biblatex Info: Reference section=0 on input line 5.
 Package biblatex Info: Reference segment=0 on input line 5.
 \c@lstlisting=\count233
@@ -728,23 +728,26 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 7.
 ("C:\Program Files\miktex\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\extra\abstract.tex) [1
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\extra\abstract.te
+x) [1
 
 {C:/Users/admin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.toc)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.toc)
 \tf@toc=\write4
 
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.lof)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.lof)
 \tf@lof=\write5
 
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.lot)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.lot)
 \tf@lot=\write6
 
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.lol)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.lol)
 \tf@lol=\write7
  [2]
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\theorie.tex)
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\praxis.tex
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\inhalt\theorie.te
+x)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\inhalt\praxis.tex
+
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -762,15 +765,19 @@ Overfull \hbox (0.3532pt too wide) in paragraph at lines 54--54
 g des Nut-
  []
 
-) (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\prototyp.tex [5])
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\inhalt\abschluss.tex) [6]
-(C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\extra\anlage.tex)
+)
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\inhalt\prototyp.t
+ex [5])
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\inhalt\abschluss.
+tex) [6]
+(C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\extra\anlage.tex)
+
 Overfull \hbox (5.17224pt too wide) in paragraph at lines 28--28
 []\T1/cmss/m/n/12 Allan Bri-mi-com-be und Chao Li. \T1/cmss/m/it/12 Location-Ba
 sed Ser-vices and Geo-Information
  []
 
-[7] (C:\Users\admin\Documents\GitHub\LBS.git\LBS\tex\lbs.aux)
+[7] (C:\Users\admin\Documents\GitHub\LBS.git\LBS\Ausarbeitung\tex\lbs.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -778,7 +785,7 @@ Package logreq Info: Writing requests to 'lbs.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  9924 strings out of 493921
- 151749 string characters out of 3148885
+ 152178 string characters out of 3148885
  368646 words of memory out of 3000000
  13031 multiletter control sequences out of 15000+200000
  19408 words of font info for 54 fonts, out of 3000000 for 9000
@@ -796,7 +803,7 @@ ers\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440.
 pk> <C:\Users\admin\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \ecss2074.pk><C:/Program Files/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 >
-Output written on lbs.pdf (7 pages, 122958 bytes).
+Output written on lbs.pdf (7 pages, 123048 bytes).
 PDF statistics:
  367 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

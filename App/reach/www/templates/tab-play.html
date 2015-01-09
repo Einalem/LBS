@@ -1,0 +1,29 @@
+<ion-view view-title="REACH">
+  <ion-content class="padding">
+      <div class="list">
+        <h3>Username</h3>
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="user.username">
+        </label>
+      </div>
+
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            <h2>Radius (Default=3)</h2>
+          </div>
+          <select ng-model="user.radius">
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </label>
+      </div>
+
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="saveUser(user)" type="item-text-wrap" href="#/tab/play/{{user.username}}">
+        <p>Los geht´s!</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+  </ion-content>
+</ion-view>

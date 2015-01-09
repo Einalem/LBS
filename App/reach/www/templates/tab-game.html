@@ -1,0 +1,24 @@
+<ion-view view-title="Game">
+    <ion-content class="padding">
+        <center>
+            <h2>
+                Spiel für Spieler: {{player.username}}
+            </h2>
+            <p>
+                Gewählter Radius: {{player.radius}}
+            </p>
+        </center>
+
+            <h3>1. Berechne jetzt deine Startposition.</h3>
+            <button
+                    class="button button-block button-positive"
+                    ng-click="positionMe()">
+                Startposition finden
+            </button>
+            <div>
+                <p>Position: {{here}}</p>
+            </div>
+
+    </ion-content>
+</ion-view>
+

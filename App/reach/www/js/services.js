@@ -1,0 +1,93 @@
+angular.module('starter.services', [])
+
+.factory('Highscores', function() {
+  // Might use a resource here that returns a JSON array
+  // Some fake testing data
+  var highscores = [{
+    id: 0,
+    username: 'Ben Sparrow',
+    radius: '2',
+    highscore: '100'
+  }, {
+    id: 1,
+    username: 'Max Lynx',
+    radius: '3',
+    highscore: '30'
+  }, {
+    id: 2,
+    username: 'Andrew Jostlin',
+    radius: '4',
+    highscore: '29'
+  }];
+
+  return {
+    all: function() {
+      return highscores;
+    },
+    remove: function(x) {
+      highscores.splice(highscores.indexOf(x), 1);
+    },
+    get: function(highId) {
+      for (var i = 0; i < highscores.length; i++) {
+        if (highscores[i].id === parseInt(highId)) {
+          return highscores[i];
+        }
+      }
+      return null;
+    }
+  }
+})
+
+    .factory('Player', function($timeout, $cordovaGeolocation) {
+      // Might use a resource here that returns a JSON array
+      // Some fake testing data
+      var player = {username: "",
+                    radius: "",
+                    startposition: ""};
+
+      var position = "";
+
+      return {
+        setData: function(name,ra) {
+          player.username = name;
+          player.radius = ra;
+        },
+        getData: function() {
+          return player;
+        },
+        getUsername: function() {
+          return player.username;
+        },
+        getRadius: function() {
+          return player.radius;
+        },
+        setStartposition: function(p){
+          player.startposition = p;
+        },
+        getStartposition: function(){
+          return player.Startposition;
+        },
+
+        getMyPosition: function(){
+          console.log("start");
+          position = "";
+
+          $cordovaGeolocation
+              .getCurrentPosition()
+              .then(function (position) {
+                var lat  = position.coords.latitude
+                var long = position.coords.longitude
+                console.log(lat);
+                console.log(long);
+                position = "lat: " + lat + " long: " + long;
+                alert(position);
+                return position;
+              }, function(err) {
+                // error
+                position = "kein Ergebnis!!";
+                alert(position);
+                return position;
+              });
+        }
+      }
+    })

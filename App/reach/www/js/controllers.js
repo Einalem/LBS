@@ -14,9 +14,13 @@ angular.module('starter.controllers', [])
     .controller('GameCtrl', function($scope, Player){
         $scope.player = Player.getData();
 
+        $scope.position = "kA";
         $scope.positionMe = function() {
-//            $scope.here = Player.getMyPosition();
-            console.log("set here variable to: " + Player.getMyPosition());
+            console.log("startPos controller");
+            var p = Player.getMyPosition();
+            console.log("set position variable to: " + p);
+            $scope.position = p;
+            console.log("endPos controller");
         }
     })
 

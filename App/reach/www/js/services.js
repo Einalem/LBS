@@ -38,7 +38,7 @@ angular.module('starter.services', [])
   }
 })
 
-    .factory('Player', function($timeout, $cordovaGeolocation) {
+    .factory('Player', function($cordovaGeolocation) {
       // Might use a resource here that returns a JSON array
       // Some fake testing data
       var player = {username: "",
@@ -74,9 +74,9 @@ angular.module('starter.services', [])
 
           $cordovaGeolocation
               .getCurrentPosition()
-              .then(function (position) {
-                var lat  = position.coords.latitude
-                var long = position.coords.longitude
+              .then(function (p) {
+                var lat  = p.coords.latitude
+                var long = p.coords.longitude
                 console.log(lat);
                 console.log(long);
                 position = "lat: " + lat + " long: " + long;
@@ -87,7 +87,7 @@ angular.module('starter.services', [])
                 position = "kein Ergebnis!!";
                 alert(position);
                 return position;
-              });
+              })
         }
       }
     })

@@ -43,7 +43,8 @@ angular.module('starter.services', [])
       // Some fake testing data
       var player = {username: "",
                     radius: "",
-                    startposition: ""};
+                    startpositionLat: "",
+                    startpositionLong: ""};
 
       var position = "";
 
@@ -61,13 +62,18 @@ angular.module('starter.services', [])
         getRadius: function() {
           return player.radius;
         },
-        setStartposition: function(p){
-          player.startposition = p;
+        setStartpositionLat: function(p){
+          player.startpositionLat = p;
         },
-        getStartposition: function(){
-          return player.Startposition;
+        setStartpositionLong: function(p){
+          player.startpositionLong = p;
         },
-
+        getStartpositionLat: function(){
+          return player.startpositionLat;
+        },
+        getStartpositionLong: function(){
+          return player.startpositionLong;
+        },
         getMyPosition: function(){
           console.log("start");
           position = "";
@@ -88,6 +94,6 @@ angular.module('starter.services', [])
                 alert(position);
                 return position;
               })
-        }
+          }
       }
     })

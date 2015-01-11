@@ -11,16 +11,33 @@ angular.module('starter.controllers', [])
       }
     })
 
-    .controller('GameCtrl', function($scope, Player){
+    .controller('GameCtrl', function($scope, $cordovaGeolocation, Player){
         $scope.player = Player.getData();
 
         $scope.position = "kA";
         $scope.positionMe = function() {
-            console.log("startPos controller");
-            var p = Player.getMyPosition();
-            console.log("set position variable to: " + p);
-            $scope.position = p;
-            console.log("endPos controller");
+            console.log("positionMe");
+            var position = {};
+            $cordovaGeolocation
+                .getCurrentPosition()
+                .then(function (p) {
+                    var lat  = p.coords.latitude.toString();
+                    var long = p.coords.longitude.toString();
+                    var p = {
+                        lat: lat,
+                        long: long
+                    }
+                    window.localStorage["position"] = JSON.stringify(p);
+                    console.log(lat);
+                    console.log(long);
+                    position.lat = lat;
+                    position.long = long;
+                    $scope.position = position;
+                }, function(err) {
+                    // error
+                    position = "kein Ergebnis!!";
+                    $scope.position = position;
+                })
         }
     })
 

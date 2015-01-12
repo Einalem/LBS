@@ -9,14 +9,22 @@
             </p>
         </center>
 
-            <h3>1. Berechne jetzt deine Startposition.</h3>
-            <button
-                    class="button button-block button-positive"
-                    ng-click="positionMe()">
-                Startposition finden
-            </button>
-            <div>
-                <p>Position: {{position.lat}} + {{position.long}}</p>
-            </div>
+        <h3>1. Berechne jetzt deine Startposition.</h3>
+        <button
+                class="button button-block button-positive"
+                ng-click="positionMe()">
+            Startposition finden
+        </button>
+
+        <center>
+            <div id="pic" style="width:400px;height:400px;"></div>
+        </center>
+        <button
+                class="button button-block button-positive"
+                ng-click="play()"
+                disabled>
+            Position spielen...
+        </button>
+
     </ion-content>
 </ion-view>

@@ -38,15 +38,13 @@ angular.module('starter.services', [])
   }
 })
 
-    .factory('Player', function($cordovaGeolocation) {
+    .factory('Player', function($ionicLoading) {
       // Might use a resource here that returns a JSON array
       // Some fake testing data
       var player = {username: "",
                     radius: "",
                     startpositionLat: "",
                     startpositionLong: ""};
-
-      var position = "";
 
       return {
         setData: function(name,ra) {
@@ -74,26 +72,59 @@ angular.module('starter.services', [])
         getStartpositionLong: function(){
           return player.startpositionLong;
         },
-        getMyPosition: function(){
-          console.log("start");
-          position = "";
+        getStartPosition: function(radius){
+          $ionicLoading.show({
+            showBackdrop: false
+          });
 
-          $cordovaGeolocation
-              .getCurrentPosition()
-              .then(function (p) {
-                var lat  = p.coords.latitude
-                var long = p.coords.longitude
-                console.log(lat);
-                console.log(long);
-                position = "lat: " + lat + " long: " + long;
-                alert(position);
-                return position;
-              }, function(err) {
-                // error
-                position = "kein Ergebnis!!";
-                alert(position);
-                return position;
-              })
+          var x = document.getElementById("pic");
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(pos) {
+              //setzen der Koordinaten
+              var latitude = pos.coords.latitude.toString();
+              var longitude = pos.coords.longitude.toString();
+              console.log("Position: lat: " + latitude + " long: " + longitude);
+
+              //Map Einstellungen
+              var myCenter=new google.maps.LatLng(latitude,longitude);
+                var mapProp = {
+                  center:myCenter,
+                  zoom:12,
+                  mapTypeId:google.maps.MapTypeId.ROADMAP
+                };
+
+              //Setzen der Startposition
+              var map=new google.maps.Map(document.getElementById("pic"), mapProp);
+              var marker=new google.maps.Marker({
+                position:myCenter
+              });
+              marker.setMap(map);
+
+              //Markierung der Gesamtfläche entsprechend gewähltem Radius
+              var area = new google.maps.Circle({
+                center:myCenter,
+                radius:radius*1000,   //Angabe in Metern gefordert (radius in km uebergeben)
+                strokeColor:"#0000FF",
+                strokeOpacity:0.3,
+                strokeWeight:2,
+                fillColor:"#0000FF",
+                fillOpacity:0.2
+              });
+              area.setMap(map);
+
+              $ionicLoading.hide();
+            }, function(error) {
+              x.innerHTML = "Ihre Position kann leider nicht ermittelt werden.";
+              console.log('Unable to get location. Error: ' + error.message);
+
+              $ionicLoading.hide();
+            }, {enableHighAccuracy: true, timeout: 30000, maximumAge:30000 });
+          } else {
+            x.innerHTML = "Geolocation wird vom Browser nicht unterstützt.";
+            console.log('Geolocation is not supported by the browser');
+
+            $ionicLoading.hide();
           }
+        }
       }
-    })
+    });

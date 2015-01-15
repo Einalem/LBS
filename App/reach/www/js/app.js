@@ -60,7 +60,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       })
 
-  .state('tab.highscores', {
+      .state('tab.task', {
+        url: '/task/:taskName',
+        views: {
+          'tab-play': {
+            templateUrl: 'templates/tab-task.html',
+            controller: 'TaskCtrl'
+          }
+        }
+      })
+
+      .state('tab.tasks', {
+        url: '/tasks',
+        views: {
+          'tab-play': {
+            templateUrl: 'templates/tab-tasks.html',
+            controller: 'TasksCtrl'
+          }
+        }
+      })
+
+      .state('tab.highscores', {
       url: '/highscores',
       views: {
         'tab-highscores': {

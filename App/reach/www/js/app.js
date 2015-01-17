@@ -10,18 +10,24 @@ var db = null;
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ui.router', 'ngCordova'])
 
 .run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+      $ionicPlatform.ready(function() {
+              //läuft noch nicht !?!
+              if(navigator.splashscreen){
+                  navigator.splashscreen.hide();
+              }
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if (window.StatusBar) {
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+              cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+
+            if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
+              StatusBar.styleDefault();
+            }
+          }
+      );
+    })
 
 .config(function($stateProvider, $urlRouterProvider) {
 

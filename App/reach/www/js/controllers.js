@@ -1,14 +1,16 @@
 angular.module('starter.controllers', [])
 
-    .controller('PlayCtrl', function($scope, Player) {
+    .controller('PlayCtrl', function($scope, Player, DataBase) {
+        DataBase.openDataBase();
+        DataBase.createHighscoreTable();
 
-      $scope.saveUser = function (user) {
-        if(user.radius==null) {
-          user.radius = "3";
+        $scope.saveUser = function (user) {
+          if(user.radius==null) {
+              user.radius = "3";
+          }
+          Player.setData(user.username, user.radius);
+            DataBase.insertPlayerResult(Player.getData());
         }
-        Player.setData(user.username, user.radius);
-      }
-
     })
 
     .controller('GameCtrl', function($scope, $ionicLoading, Player, Game){
@@ -22,24 +24,32 @@ angular.module('starter.controllers', [])
         };
     })
 
-    .controller('TasksCtrl', function($scope, Game){
+    .controller('TasksCtrl', function($scope, Player, Game){
         $scope.tasks = Game.getTasks();
+        $scope.player = Player.getData();
+        $scope.scores = "<h3>Punkte: " + Player.getData().score + "</h3>";
+
         $scope.play = function(taskID){
             Game.setActualTask(taskID);
         }
+
         $scope.ignore = function(taskID){
             Game.ignoreTask(taskID);
         }
     })
 
-    .controller('TaskCtrl', function($scope, Player, Game, Task){
+    .controller('TaskCtrl', function($scope, Player, Game){
+        Player.resetLastDist();
+
         var t = Game.getActualTask();
         var player = Player.getData();
 
+        Game.watch(t, player);
+
         $scope.task = t;
         $scope.player = player;
+        $scope.scores = "<h3>Punkte: " + Player.getData().score + "</h3>";
 
-        Task.watch(t, player);
     })
 
     .controller('HighscoresCtrl', function($scope, Highscores) {

@@ -1,46 +1,44 @@
 angular.module('starter.services', [])
-
-.factory('Highscores', function() {
-  // Might use a resource here that returns a JSON array
-  // Some fake testing data
-  var highscores = [{
-    id: 0,
-    username: 'Ben Sparrow',
-    radius: '2',
-    highscore: '100'
-  }, {
-    id: 1,
-    username: 'Max Lynx',
-    radius: '3',
-    highscore: '30'
-  }, {
-    id: 2,
-    username: 'Andrew Jostlin',
-    radius: '4',
-    highscore: '29'
-  }];
-
-  return {
-    all: function() {
-      return highscores;
-    },
-    remove: function(x) {
-      highscores.splice(highscores.indexOf(x), 1);
-    },
-    get: function(highId) {
-      for (var i = 0; i < highscores.length; i++) {
-        if (highscores[i].id === parseInt(highId)) {
-          return highscores[i];
+    .factory('Highscores', function() {
+      var highscores = [
+        {
+          id: 0,
+          username: 'Ben Sparrow',
+          radius: '2',
+          highscore: '100'
+        },
+        {
+          id: 1,
+          username: 'Max Lynx',
+          radius: '3',
+          highscore: '30'
+        },
+        {
+          id: 2,
+          username: 'Andrew Jostlin',
+          radius: '4',
+          highscore: '29'
+        }
+      ];
+      return {
+        all: function() {
+          return highscores;
+        },
+        remove: function(x) {
+          highscores.splice(highscores.indexOf(x), 1);
+        },
+        get: function(highId) {
+          for (var i = 0; i < highscores.length; i++) {
+            if (highscores[i].id === parseInt(highId)) {
+              return highscores[i];
+            }
+          }
+          return null;
         }
       }
-      return null;
-    }
-  }
-})
+    })
 
     .factory('Player', function($ionicLoading) {
-      // Might use a resource here that returns a JSON array
-      // Some fake testing data
       var player = {
         username: "",
         radius: 3,
@@ -49,19 +47,22 @@ angular.module('starter.services', [])
         startpositionLong: 0,
         lastDist: 100
       };
-
       return {
-        setData: function(name,ra) {
+        setData: function (name, ra) {
           player.username = name;
           player.radius = ra;
         },
-        getData: function() {
+        getData: function () {
           return player;
         },
-        getStartPosition: function(radius){
+        resetLastDist: function(){
+          player.lastDist = 100;
+        },
+        getStartPosition: function(){
           $ionicLoading.show({
             showBackdrop: false
           });
+          var map = null;
 
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(pos) {
@@ -69,9 +70,9 @@ angular.module('starter.services', [])
               var latitude = pos.coords.latitude;
               var longitude = pos.coords.longitude;
               document.getElementById("text").innerHTML = "Deine Position ist hier: [" + latitude + ", " + longitude + "]";
-              document.getElementById('map').innerHTML = "";
-              
-              var map = L.map('map', {
+              document.getElementById('mapDiv').innerHTML = "<div id='map' style='height: 180px;'></div>";
+
+              map = L.map('map', {
                 center: [latitude, longitude],
                 zoom: 10
               });
@@ -81,7 +82,7 @@ angular.module('starter.services', [])
               }).addTo(map);
 
               var marker = L.marker([latitude, longitude]).addTo(map);
-              var circle = L.circle([latitude, longitude], radius*1000, {
+              var circle = L.circle([latitude, longitude], player.radius*1000, {
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.3
@@ -91,7 +92,7 @@ angular.module('starter.services', [])
               player.startpositionLat = latitude;
               player.startpositionLong = longitude;
 
-              //freigeben des Buttons
+              //freigeben des Buttons ('Aufgaben erstellen')
               document.getElementById('createTasks').style.display = 'block';
 
               $ionicLoading.hide();
@@ -112,7 +113,6 @@ angular.module('starter.services', [])
     })
 
     .factory('Game', function($ionicLoading) {
-
       function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2 - lat1);
@@ -126,13 +126,12 @@ angular.module('starter.services', [])
         var d = R * c; // Distance in km
         return d;
       }
-
       function deg2rad(deg) {
         return deg * (Math.PI / 180)
       }
-
       var taskCollection = [
         {
+          //proven
           id: 0,
           name: "Mannheim Hbf",
           difficulty: 0,
@@ -205,11 +204,12 @@ angular.module('starter.services', [])
           points: 5
         },
         {
+          //proven
           id: 9,
           name: "Frankfurt Hbf",
           difficulty: 0,
-          taskPosLat: 50.10681977924821,
-          taskPosLong: 8.662529288013502,
+          taskPosLat: 50.1054545,
+          taskPosLong: 8.6602485,
           points: 5
         },
         {
@@ -218,17 +218,37 @@ angular.module('starter.services', [])
           difficulty: 0,
           taskPosLat: 49.479352432064466,
           taskPosLong: 8.462160182345542,
-          points: 5        },
+          points: 5
+        },
         {
+          //proven
           id: 11,
           name: "Frankfurt Messe",
           difficulty: 0,
-          taskPosLat: 50.114022,
-          taskPosLong: 8.6445889,
+          taskPosLat: 50.1115285,
+          taskPosLong: 8.6437032,
+          points: 5
+        },
+        {
+          //proven
+          id: 12,
+          name: "Frankfurt Test 1",
+          difficulty: 0,
+          taskPosLat: 50.1146029,
+          taskPosLong: 8.6391511,
+          points: 5
+        },
+        {
+          //proven
+          id: 13,
+          name: "Berlin Test 1",
+          difficulty: 0,
+          taskPosLat: 52.52029,
+          taskPosLong: 13.40491511,
           points: 5
         }
-      ];
 
+      ];
       var tasks = [];
       var actualTask = {};
 
@@ -247,7 +267,6 @@ angular.module('starter.services', [])
           return actualTask;
         },
         newTasks: function (player) {
-          console.log("check all Tasks for match");
           $ionicLoading.show({
             showBackdrop: false
           });
@@ -258,7 +277,7 @@ angular.module('starter.services', [])
           for(var i=0; i<taskCollection.length; i++) {
             var distance = getDistanceFromLatLonInKm(player.startpositionLat, player.startpositionLong, taskCollection[i].taskPosLat, taskCollection[i].taskPosLong);
             if(distance<=radius) {
-              console.log(i + ": im Rahmen = " + distance);
+//              console.log(i + ": im Rahmen = " + distance);
               tasks.push({
                 id: tasks.length+1,
                 name: taskCollection[i].name,
@@ -269,8 +288,8 @@ angular.module('starter.services', [])
                 stateFinished: false,
                 stateIgnore: false
               });
-            }else{
-              console.log(i + ": nicht im Rahmen = " + distance);
+//            }else{
+//              console.log(i + ": nicht im Rahmen = " + distance);
             }
           }
 //          console.log(JSON.stringify(tasks));
@@ -282,60 +301,80 @@ angular.module('starter.services', [])
               tasks[i].stateIgnore = true;
             }
           }
-        }
-      }
-    })
-
-    .factory('Task', function() {
-
-      function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-        var R = 6371; // Radius of the earth in km
-        var dLat = deg2rad(lat2 - lat1);
-        var dLon = deg2rad(lon2 - lon1);
-        var a =
-                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2)
-            ;
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var d = R * c; // Distance in km
-        return d;
-      }
-
-      function deg2rad(deg) {
-        return deg * (Math.PI / 180)
-      }
-
-      return {
+        },
         watch: function(task, player){
           var id;
-          console.log("in Task: " + JSON.stringify(task));
-          console.log("for Player: " + JSON.stringify(player));
-          document.getElementById("Entfernung").innerHTML = "";
-
           if (navigator.geolocation) {
             id = navigator.geolocation.watchPosition(
                 //Successfunktion
                 function(pos) {
-                //setzen der Koordinaten
+                  //setzen der Koordinaten
                   var latitude = pos.coords.latitude.toString();
                   var longitude = pos.coords.longitude.toString();
                   var distance = getDistanceFromLatLonInKm(latitude, longitude, task.taskPosLat, task.taskPosLong);
-                  document.getElementById("Entfernung").innerHTML =
-                      document.getElementById("Entfernung").innerHTML + "<br\>" +
-                      "neue Position: [" + latitude + ", " + longitude + "]" +
-                      "<p align=right>Rest: " + distance + "</p>";
+                  distance = distance.toFixed(4);
 
-                  if(distance<=player.lastDist){
-                    //Auf 5meter "genau"
-                    if(distance<=0.005){
-                      document.getElementById("color").innerHTML = '<center><img src="img/stern.png" alt="Ziel_erreicht"></center>';
-                    }else{
+                  var date = new Date();
+                  document.getElementById("Entfernung").innerHTML = "Rest: " +
+                      date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() +
+                      "[" + parseFloat(latitude).toFixed(3) + "," + parseFloat(longitude).toFixed(3) + "] " +
+                      parseFloat(distance).toFixed(5) + " km";
+
+                  if(distance<=0.005) {
+                    document.getElementById("color").innerHTML = '<center><img src="img/stern.png" alt="Ziel_erreicht"></center>';
+                    player.score = player.score + task.points;
+                    navigator.geolocation.clearWatch(id);
+                    window.location="#/tab/tasks";
+                  }else {
+                    if(distance<=player.lastDist){
                       document.getElementById("color").innerHTML = '<center><img src="img/daumen_hoch.jpg" alt="gut"></center>';
+                      player.score++;
+                    }else{
+                      document.getElementById("color").innerHTML = '<center><img src="img/daumen_runter.jpg" alt="schlecht"></center>';
+                      player.score--;
                     }
-                  }else{
-                    document.getElementById("color").innerHTML = '<center><img src="img/daumen_runter.jpg" alt="schlecht"></center>';
                   }
+
+                  if (navigator.compass)
+                  {
+                    navigator.compass.getCurrentHeading(function(heading){
+                          document.getElementById("heading").innerHTML = "Orientierung: " + heading.magneticHeading;
+                    },
+                        function(error){
+                          document.getElementById("heading").innerHTML = "Orientierung - Error: " + error.code;
+                        });
+                  }else{
+                    document.getElementById("heading").innerHTML = "Orientierung: navigator not supported!";
+                  }
+
+                  var canvas = document.getElementById("arrow");
+                  // Create an empty project and a view for the canvas:
+                  paper.setup(canvas);
+
+                  // Create a Paper.js Path to draw a line into it:
+                  var path = new paper.Path();
+                  // Give the stroke a color
+                  path.strokeColor = 'black';
+                  var start = new paper.Point(latitude, longitude);
+                  // Move to start and draw a line from there
+                  path.moveTo(start);
+                  // Note that the plus operator on Point objects does not work
+                  // in JavaScript. Instead, we need to call the add() function:
+                  path.lineTo(new paper.Point(task.taskPosLat, task.taskPosLong));
+
+                  path.simplify(300);
+                  var point = path.getPointAt(path.length)
+                  var vector  = point.subtract(path.getPointAt(path.length-5));
+                  console.log(vector);
+                  var arrowVector = vector.normalize(18);
+                  var path2 = new paper.Path({
+                    segments: [point.add(arrowVector.rotate(145)), point, point.add(arrowVector.rotate(-145))],
+                    fillColor: 'black',
+                    strokeWidth: 6
+                  });
+                  path2.scale(1.3);
+                  paper.view.draw();
+                  // Draw the view now:
 
                   player.lastDist = distance;
                 },
@@ -352,4 +391,39 @@ angular.module('starter.services', [])
           }
         }
       }
-    });
+    })
+
+    .factory('DataBase', function() {
+      var db = null;
+
+      return {
+        openDataBase: function(){
+          if(window.openDatabase) {
+            var shortName = 'lbsApp';
+            var version = '1.0';
+            var displayName = 'Test DB';
+            var maxSize = 65536; // in bytes
+            db = openDatabase(shortName, version, displayName, maxSize);
+          }else{
+            alert("Database not supported!!");
+          }
+        },
+        createHighscoreTable: function(){
+          if(db!=null){
+            db.transaction(function (tx) {
+              tx.executeSql('CREATE TABLE IF NOT EXISTS highscores (id unique, player, radius, score)');
+            });
+          }
+        },
+        insertPlayerResult: function(player){
+          console.log("INSERT");
+          if(db!=null){
+            db.transaction(function (tx) {
+              tx.executeSql('INSERT INTO highscores (player, radius, score) VALUES (?, ?, ?), [player.username, player.radius, player.score]');
+            });
+          }
+        }
+      }
+    }
+);
+

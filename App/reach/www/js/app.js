@@ -9,12 +9,10 @@ var db = null;
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ui.router', 'ngCordova'])
 
-.run(function($ionicPlatform) {
-      $ionicPlatform.ready(function() {
-              //läuft noch nicht !?!
-              if(navigator.splashscreen){
-                  navigator.splashscreen.hide();
-              }
+.run(function($ionicPlatform, $ionicPopup, $cordovaSplashscreen) {
+//        $cordovaSplashscreen.show();
+        $ionicPlatform.ready(function() {
+//                $cordovaSplashscreen.hide();
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -25,6 +23,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
               StatusBar.styleDefault();
             }
+
+              // Check for network connection
+              if(window.Connection) {
+                  if(navigator.connection.type == Connection.NONE) {
+                      $ionicPopup.confirm({
+                          title: 'No Internet Connection',
+                          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+                      })
+                          .then(function(result) {
+                              if(!result) {
+                                  ionic.Platform.exitApp();
+                              }
+                          });
+                  }
+              }
           }
       );
     })

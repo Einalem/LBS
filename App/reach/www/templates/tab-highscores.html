@@ -1,16 +1,12 @@
-<ion-view view-title="Highscores">
+<ion-view view-title="Highscores" cache-view=false>
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="hs in highscores" type="item-text-wrap" href="#/tab/chats/{{hs.id}}">
-        <h2>{{hs.username}}</h2>
-        <p>Radius: {{hs.radius}}</p>
-        <p>Highscore: {{hs.highscore}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(hs)">
-          Delete
-        </ion-option-button>
-      </ion-item>
+          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="hs in highscores" type="item-text-wrap">
+            <p style="align: right"> [{{$index + 1}}]</p>
+            <h2>{{hs.username}}</h2>
+            <p>Radius: {{hs.radius}}</p>
+            <p>Highscore: {{hs.score}}</p>
+          </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

@@ -1,23 +1,25 @@
-<ion-view view-title="Aufgabe: {{task.name}}">
+<ion-view view-title="Aufgabe">
     <ion-content class="padding">
-        ID: {{task.id}}
-        <br/>
-        Name: {{task.name}}
-        <br/>
-        Startposition: [{{player.startpositionLat}}, {{player.startpositionLong}}]
-        <br/>
-        Zielposition: [{{task.taskPosLat}}, {{task.taskPosLong}}]
-        <br/>
-        Startentfernung: {{task.distance}}
-        <br/>
-        <p id="distance"></p>
-<!--        <p id="heading"></p> -->
+        <h2>{{task.name}}</h2>
+        <div class="card">
+            <div class="item item-divider">Zielposition</div>
+            <div class="item item-text-wrap">[{{task.taskPosLat}}, {{task.taskPosLong}}]</div>
+        </div>
+
+        <div class="card">
+            <div class="item item-divider">Startentfernung</div>
+            <div class="item item-text-wrap">{{task.distance}}</div>
+        </div>
+
+        <div class="card">
+            <div id="distTitel" class="item item-divider"></div>
+            <div id="distance" class="item item-text-wrap"></div>
+        </div>
+        <p>{{finished}}</p>
         <div class="row">
             <div class="col" id="color"></div>
-<!--            <div class="col" align="center">
-                <canvas id="arrow" resize></canvas>
-            </div>-->
         </div>
+        <div id="Verlauf"></div>
     </ion-content>
     <div style="position: absolute; bottom: 0px; width: 100%">
         <div id='scores' style="text-align: center"></div>

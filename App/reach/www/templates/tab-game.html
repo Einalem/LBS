@@ -1,35 +1,25 @@
 <ion-view view-title="Game">
     <ion-content class="padding">
         <center>
-            <h3>
-                Spiel für Spieler: {{player.username}}
-            </h3>
-            <p>
-                Gewählter Radius: {{player.radius}}
-            </p>
+            <h3>Spiel für Spieler: {{player.username}}</h3>
+            <p>Gewählter Radius: {{player.radius}}</p>
         </center>
 
-        <h4>1. Berechne jetzt deine Startposition.</h4>
-        <button
-                class="button button-block button-positive"
-                ng-click="positionMe()">
-            Startposition finden
-        </button>
+        <h4>Berechne jetzt deine Startposition.</h4>
+        <button class="button button-block button-positive" ng-click="positionMe()">Startposition finden</button>
 
         <center>
-            <p id="text"></p>
+            <p id="infotext"></p>
             <div id="mapDiv" style="height: 180px;"></div>
         </center>
-
-        <h4>2. Erstelle deine Aufgaben</h4>
-        <div id='createTasks' style="display:none">
+        <br/>
+        <div id='playTasks' style="display:none">
             <ion-list>
                 <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-click="tasks()" href="#/tab/tasks">
-                    <h2>Aufgaben erstellen</h2>
+                    <h2>zu deinen Aufgaben</h2>
                     <i class="icon ion-chevron-right icon-accessory"></i>
                 </ion-item>
             </ion-list>
         </div>
-
     </ion-content>
 </ion-view>

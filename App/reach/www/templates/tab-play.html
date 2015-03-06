@@ -3,21 +3,21 @@
           <div class="list">
               <h4>Spielername</h4>
               <label class="item item-input" style="height: 40px;">
-                  <input type="text" placeholder="Spielername" ng-model="user.username">
+                  <input type="text" placeholder="Spielername" ng-model="player.username">
               </label>
 
               <h4>Radius (Default=3)</h4>
               <label class="item item-input item-select" style="height: 40px;">
-                  <select ng-model="user.radius">
+                  <select ng-model="player.radius">
                       <option>2</option>
                       <option selected="selected">3</option>
                       <option>4</option>
                       <option>5</option>
                   </select>
               </label>
-          </div>
 
-          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="saveUser(user)" type="item-text-wrap" href="#/tab/play/{{user.username}}">
+          </div>
+          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="savePlayer(player)" type="item-text-wrap" href="#/tab/game/{{player.username}}">
               <h2>Los geht´s!</h2>
               <i class="icon ion-chevron-right icon-accessory"></i>
           </ion-item>

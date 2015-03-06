@@ -3,8 +3,8 @@
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="play({{task.id}})" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task/{{task.taskName}}">
                 <h3>{{task.name}}</h3>
-                <p>Entfernung: {{task.distance}}</p>
-                <p>Punkte: {{task.points}}</p>
+                <p>Entfernung: {{task.distance}} km</p>
+                <p>Punkte: {{task.score}}</p>
                 <p>Finished: {{task.stateFinished}}</p>
                 <i class="icon ion-chevron-right icon-accessory"></i>
             </ion-item>

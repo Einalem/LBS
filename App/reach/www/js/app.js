@@ -28,8 +28,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
               if(window.Connection) {
                   if(navigator.connection.type == Connection.NONE) {
                       $ionicPopup.confirm({
-                          title: 'No Internet Connection',
-                          content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+                          title: 'Fehlende Internetverbindung',
+                          content: 'Bitte aktivieren Sie Ihre Internetverbindung und versuchen Sie es erneut.'
                       })
                           .then(function(result) {
                               if(!result) {
@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
       .state('tab.game', {
-        url: '/play/:player',
+        url: '/game/:player',
         views: {
           'tab-play': {
             templateUrl: 'templates/tab-game.html',

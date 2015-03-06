@@ -1,74 +1,67 @@
 angular.module('starter.controllers', [])
 
     .controller('PlayCtrl', function($scope, Player) {
-        $scope.saveUser = function (user) {
-          if(user.radius==null) {
-              user.radius = "3";
+        $scope.savePlayer = function (p) {
+          if(p.radius==null) {
+              p.radius = "3";
           }
-          Player.setData(user.username, user.radius);
+          Player.setData(p.username, p.radius);
         }
     })
-
     .controller('GameCtrl', function($scope, $ionicLoading, Player, Location, Task){
-        $scope.player = Player.getData();
-        $scope.positionMe = function() {
-            //Positionsbestimmung mit Map-Ausgabe + Speichern der Spielerdaten als Callback
-            Location.getPosition(Player.setStartPosition);
-        };
+        $scope.$on('$ionicView.beforeEnter', function() {
+            $scope.player = Player.getData();
 
-        $scope.tasks = function(){
-            Task.newTasks(Player.getData());
-        };
+            document.getElementById("infotext").innerHTML = "";
+            document.getElementById('mapDiv').innerHTML = "";
+            document.getElementById('playTasks').style.display = 'none';
+
+            $scope.positionMe = function() {
+                //Positionsbestimmung mit Map-Ausgabe + Speichern der Spielerdaten als Callback
+                Location.getPosition(Player.getData(), Player.setStartPosition);
+            };
+
+            $scope.tasks = function(){
+                Task.newTasks(Player.getData());
+            };
+        });
     })
+    .controller('TasksCtrl', function($scope, Player, Task, Location){
+        $scope.$on('$ionicView.beforeEnter', function() {
 
-    .controller('TasksCtrl', function($scope, Player, Task){
-        $scope.tasks = Task.getTasks();
-        $scope.player = Player.getData();
-//        $scope.scores = "<h3>Punkte: " + Player.getData().score + "</h3>";
+            var id = Location.getActualWatchID();
+            if(id!=null) {Location.clearWatchID(id);}
 
-        $scope.play = function(taskID){
-            Task.setActualTask(taskID);
-        };
+            $scope.player = Player.getData();
+            $scope.tasks = Task.getTasks();
 
-  /*      $scope.ignore = function(taskID){
-            Task.ignoreTask(taskID);
-        };
-  */
+            $scope.play = function (taskID) {
+                Task.setActualTask(taskID);
+            }
+        });
     })
-
     .controller('TaskCtrl', function($scope, Player, Task, Location){
-        Player.resetLastDist();
+        $scope.$on('$ionicView.beforeEnter', function() {
+            var t = Task.getActualTask();
+            $scope.task = t;
 
-        var t = Task.getActualTask();
-        var player = Player.getData();
-
-        Location.watch(t, player, Player.updatePlayer);
-
-        $scope.task = t;
-        $scope.player = player;
+            Player.resetLastDist(t.distance);
+            if(t.stateFinished==false){
+                Location.watch(t, Player.getData(), Player.updatePlayer, Task.updateTasks);
+                $scope.finished = "";
+            }else{
+                $scope.finished = "Sie haben dieses Ziel bereits erreicht!";
+            }
+        });
     })
-
     .controller('HighscoresCtrl', function($scope, Player) {
         $scope.$on('$ionicView.beforeEnter', function(){
             $scope.highscores = Player.getHighscores();
         });
     })
-
     .controller('CreditsCtrl', function($scope) {})
-
     .controller('AccountCtrl', function($scope, Player) {
-/*        $scope.settingList = [{ text: "Highscore aktivieren", checked: true }];
-        $scope.pushNotificationChange = function() {
-//            console.log('Push Notification Change', $scope.pushNotification.checked);
-            if($scope.pushNotification.checked==true){
-                document.getElementById('high').style.disabled = true;
-            }else{
-                document.getElementById('high').style.display = false;
-            }
-        };
-        $scope.pushNotification = { checked: true };
-*/
         $scope.emptyHighscores = function(){
-          Player.emptyHighscores(function(){alert('Highscores gelöscht');});
+          Player.emptyHighscores();
         };
     });

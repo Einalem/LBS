@@ -2,10 +2,10 @@
   <ion-content>
     <ion-list>
           <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="hs in highscores" type="item-text-wrap">
-            <p style="align: right"> [{{$index + 1}}]</p>
-            <h2>{{hs.username}}</h2>
+            <p> [{{$index + 1}}]</p>
+            <h2><b>{{hs.username}}</b> ({{hs.lastUpdate}})</h2>
             <p>Radius: {{hs.radius}}</p>
-            <p>Highscore: {{hs.score}}</p>
+            <p>Highscore: <b>{{hs.score}}</b></p>
           </ion-item>
     </ion-list>
   </ion-content>

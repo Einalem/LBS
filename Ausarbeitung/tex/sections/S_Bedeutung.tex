@@ -31,26 +31,49 @@ Eine eindeutige Definition zu Location-based Services wurde von Jochen Schiller 
 
 Obwohl die Definition für Location-based Services von Jochen Schniller klar und eindeutig erscheint, besteht nach der Aussage von Alex Küpper noch Klärungsbedarf bezüglich der andren oft synonym verwendeten Begriffen:
 \begin{itemize}
+\item location service
 \item location-based service
-\item and location service
-\item location-related service
 \item location-aware service
+\item and location-related service
 \end{itemize}
 
-\textbf{location-based service} \\
-In Definition ?.? abgehandelt.
-
+TODO: immer breiter gefasst LBS LRS 
 
 \textbf{location service} \\
 Der Hauptunterschied zwischen Location Service und Location-based Services besteht in der Verarbeitung der Standortdaten. Bei einem Location Service wird der Standort eines Objekts (z.B eines Handys) bestimmt. Dieser ermittelte Standort wird dann als Service extern bereitgestellt. Die Standortdaten werden also erfasst und zur Verfügung gestellt, ohne diese zu verarbeiten.
 Der Unterschied zu einem Location-based Service besteht darin, dass bei diesem die Standortdaten weiterverarbeitet werden. Ein location service ist also einer der wichtigsten Bestandteile eines Location-based Service, der dabei die Standortdaten nicht extern bereitstellt, sondern zu Weiterverarbeitung dem Location-based Service zu Verfügung stellt.
 
+\textbf{location-based service} \\
+In Definition ?.? abgehandelt. (Schiller)
+
+
 \textbf{location-aware service} \\
-?
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{16cm}|}\hline
+		\textbf{Definition ?.?:} \glqq Generally, context-aware services are defined to be services that automatically adapt their behavior, for example, filtering or presenting information, to one or several parameters reflecting the context of a target. These parameters are termed context information.\grqq \cite[S.2]{Kuepper2005}\\ \hline
+		\textbf{Übersetzung:} Im Allgemeinen sind context-aware services als solche definiert, dass sie automatisch ihr Verhalten, z.B. filtern oder darstellen von Informationen, an ein oder mehrere Parameter anpassen, die den Kontext des Ergebnisses widerspiegeln. Diese Parameter werden als Kontext Informationen bezeichnet. \\ \hline
+	\end{tabular}
+\end{table}
+
+TODO Übersetzung prüfen.
+
+Die in Definition ?.? beschriebene Kontext Parameter können einerseits Daten sein, die direkt von einem Sensor wie zum Beispiel einem Thermometer oder Positionssensor sein. Diese Rohdaten bilden den Primären Kontext. Andererseits gibt es noch aus Rohdaten abgeleitete Kontextdaten. Diese entstehen durch Kombination und oder Filterung von Rohdaten. Das sind die Sekundär Kontextdaten.
+
+Die beispielhafte Aufzählung von Rohdaten zeigt, dass context-aware services location-aware services mit einschließen könne allerdings nicht müssen. Verdeutlicht wird das durch Grafik ?.
+
+\includegraphics[width=0.99\textwidth]{ref/images/definitionK.png} \cite{Kuepper2005}
+
 
 \textbf{location-related service} \\
-?
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{16cm}|}\hline
+		\textbf{Definition ?.?:} \glqq Therefore, mobile services relying on this importance of location will be referred to in the following as locationrelated services (LRS). Location Based Services (LBS) are a sub-category of LRS \grqq \cite[S.5]{strueker2003}\\ \hline
+	\end{tabular}
+\end{table}
 
 
-Bild definitionK.png
+
+
 

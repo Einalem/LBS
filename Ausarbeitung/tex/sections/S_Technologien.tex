@@ -58,6 +58,8 @@ Die \underline{nichtfunktionalen Anforderungen} sind:
 
 Die \underline{funktionalen Anforderungen} an das interaktive Kartenmaterial sind:
 \begin{enumerate}
+\item JavaScript API
+\item Unterstütze Browser
 \item Eigenen Standort anzeigen
 \item Markierungen auf der Karte setzen
 \item Markierungen bündeln (optional)
@@ -65,18 +67,123 @@ Die \underline{funktionalen Anforderungen} an das interaktive Kartenmaterial sin
 
 Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Maps\grqq bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
 
-TODO: Hier Anforderungen erklären. Warum und wie die Umsetzung gewünscht ist.
+Zuerst widmen wir uns den nichtfunktionalen Anforderungen.
+\begin{enumerate}
+\item Kostenlose Abfragen \\
+Da es sich bei der Implementierung um einen Prototypen für diese Studienarbeit handelt und dieser nicht kommerziell verwendet werden soll, sollen auch die Abfragen (map-loads) kostenlos sein. Zudem sollten genug kostenlose Abfragen zur Verfügung stehen. Bei 3 Entwicklern und Tests über die Dauer der Studienarbeit (8-9 Monate) darf das Kontingent der kostenlosen Abfragen nicht aufgebraucht sein.
 
-Bsp.: Kostenlose Abfragen, da es sich nur um einen prototypische Implementierung handelt sollten bei der Entwicklung keine Kosten entstehen.
-Bsp.: Ohne Account nutzbar, da studentisches Projekt mit mehr als einem Teammitglied
-Bsp.: Gute Dokumentation mit Codebeispielen, da der Einstieg für die Entwickler leichter ist.
-Bsp.: Zukunftssicherheit, da diese Arbeit nicht nur den aktuellen Stand der Technik abbilden soll, sondern auch einen Ausblick geben soll ist es wichtig, dass auch beim Kartenmaterial auf die Zukunftssicherheit geachtet wird.
+\item Ohne Account nutzbar\\
+Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und sollte deshalb gewährleistet sein. Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
+
+\item Gute Dokumentation mit Codebeispielen\\
+Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da alle Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben ist dies eine wichtige Anforderung. 
+
+\item Zukunftssicherheit\\
+Da diese Arbeit nicht nur den aktuellen Stand der Technik abbilden soll, sondern auch einen Ausblick geben soll ist es wichtig, dass auch beim Kartenmaterial auf die Zukunftssicherheit geachtet wird.
+\end{enumerate}
+
+
+
+TODO: Überleitung
+
+\begin{enumerate}
+\item JavaScript API\\
+Eine JavaScript API ist essentiell wichtig, da der Prototyp mit HTML, CSS und Java Script entwickelt wird. 
+
+\item Unterstütze Browser\\
+Android ??, IOS, 
+
+\item Eigenen Standort anzeigen\\
+Der eigene Standort muss grafisch auf einer interaktiven Karte angezeigt werden. Das zentrieren des Kartenmaterials auf den eigenen Standort soll auch möglich sein.
+
+\item Markierungen auf der Karte setzen\\
+Eigenen Markierungen müssen auf der Karte gesetzt werden könne. Dies muss grafisch erfolgen, denn es ist für den Prototypen besonders wichtig zu veranschaulichen, wo sich das gesuchte Ziel befindet. 
+
+\item Markierungen bündeln (optional)\\
+Markierungen auf der Karte sollten gebündelt werden, wenn der Zoom-Faktor zu klein wird. Dies soll der Übersichtlichkeit bei vielen Markierungen auf der Karte dienen. Hierbei soll der Radius, in dem Markierungen gebündelt werden eingestellt werden könne.
+
+\end{enumerate}
+
+\textbf{\underline{Google Maps}}
+
+2500 Abfragen pro Tag frei
+https://developers.google.com/maps/licensing?hl=de
+
+ohne Key nutzbar (seit version 3)
+http://googlegeodevelopers.blogspot.de/2010/03/introducing-new-google-geocoding-web.html
+
+Gute Dokumentation mit vielen Beispielen:
+fast 150 Beispiel von Google selbst
+https://developers.google.com/maps/documentation/javascript/examples/?hl=de
+
+Nicht nur Beispiele von Google 
+
+w3schools.com
+- Center Map on Position
+- Add a Marker + eigenes Bild + Infowindow for Marker
 
 
 
 
 
 
+\textbf{funktionale Anforderungen}
+
+\underline{JavaScript API}
+
+JavaScript API Version 3
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(-34.397, 150.644)
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
+
+
+
+
+\textbf{\underline{Bing Maps}}
+
+Kostenlose Abfragen für education use
+Viele unterschiedliche Lizenzmodelle 
+125.000 Abfragen pro Jahr
+
+Man muss allerdings einen Bing Maps Account erstellen
+
+http://www.microsoft.com/maps/Licensing/licensing.aspx\#StepTitle
+
+
+Ausführliche Dokumentation mit vielen Beispielen
++ für in Browser Tests auf der Webseite
+https://www.bingmapsportal.com/Isdk/AjaxV7\#CreateMapWithMapOptions1
+
+https://msdn.microsoft.com/en-us/library/gg427610.aspx
+
+\textbf{funktionale Anforderungen}
+JavaScript gegeben
+
+Supported Browsers
+https://msdn.microsoft.com/en-us/library/gg427618.aspx
+
+
+\textbf{\underline{Open Street Maps}}
+
+Kostenlos und unbegrenzt viele Abfragen
+
+ohne Account nutzbar
+
+Gute Dokumentation mit vielen Beispielen leider nicht gegeben
 
 
 

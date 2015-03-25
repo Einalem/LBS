@@ -104,50 +104,115 @@ Markierungen auf der Karte sollten gebündelt werden, wenn der Zoom-Faktor zu kl
 
 \end{enumerate}
 
-\textbf{\underline{Google Maps}}
 
-2500 Abfragen pro Tag frei
+
+\textbf{\underline{Google Maps}}
+Seit 2005 gehört zu dem Produktportfolio von dem Suchmaschinenriesen Google ein Internet Kartendienst namens Google Maps. 
+Google Maps gehört zu den verbreitetsten und erfolgreichsten Internet Kartendiensten der Welt. \cite[Lexikon Google Maps]{itwissen}\cite[S.88]{gruber2015}
+
+Zunächst wird Google Maps anhand der nichtfunktionalen Anforderungen bewertet, danach werden die funktionalen Anforderungen betrachtet.
+
+\textbf{Nichtfunktionale Anforderungen}
+\begin{enumerate}
+\item Kostenlose Abfragen \\
+Die Google Maps API steht generell als kostenloser Dienst zur Verfügung. Dieser darf in Webseiten, sowie mobile Apps eingebaut werden. Als Voraussetzung für die kostenlose Nutzung gilt allerdings, dass die eigene Webseite oder mobile App für alle Endnutzern kostenlos ist und öffentlich zugänglich sein muss.\\
+Unter der kostenlosen Lizenz dürfen bis zu 25.000 Kartenladevorgänge pro Tag erfolgen. Ein Kartenladevorgang ist als Initiales Laden der Karte Definiert. Das bedeutet, dass Nutzerinteraktion mit der Karten nicht als erneuter Ladevorgang gewertet wird. 
+In den Nutzungsbedingungen von Google wird darauf verwiesen, dass eine Sperre von mehr als 25.000 Abfragen pro Tag erst dann durchgeführt wird, wenn die Begrenzung mehr als 90 Tage in Folge überschritten werden sollte.
+Diese Auslegung erscheint sehr nutzerfreundlich. Für diese Studienarbeit sollten die 25.000 Abfragen pro Tag in jedem Fall völlig ausreichen. \cite[Nutzungsbedingungen]{googlemaps}\cite[Lizenzierung]{googlemaps}
 https://developers.google.com/maps/licensing?hl=de
 
-ohne Key nutzbar (seit version 3)
+\item Ohne Account nutzbar\\
+Seit dem die Google Maps JavaScript API in der Version 3 vorliegt ist die Nutzung ohne einen Schlüssel möglich. Das bedeutet, dass keine Registrierung bzw. Anmeldung zum nutzen nötig ist. Diese Praxis erleichtert den Einstieg in Google Maps, da man sofort starten kann.
 http://googlegeodevelopers.blogspot.de/2010/03/introducing-new-google-geocoding-web.html
 
-Gute Dokumentation mit vielen Beispielen:
-fast 150 Beispiel von Google selbst
+\item Gute Dokumentation mit Codebeispielen\\
+Google Maps bietet ein Entwicklerhandbuch für die JavaScript API v3, dass sowohl ausführlich ist, als auch viele Beispiele bietet. Zudem ist das Benutzerhandbuch in deutsch abrufbar, was das erarbeiten und nachlesen vereinfacht. 
+Zu dem ausführlichen Entwicklerhandbuch gibt es nochmals fast 150 Beispiele, zu denen die jeweils passende Output (Karte) angezeigt wird.\cite[Documentation]{googlemaps} \\
+Neben der Dokumentation von Google selbst gibt es auch andere Tutorials im Netz. Eines davon ist von der Webseite www.w3schools.com, dass versucht von Grund auf eine Einführung in Google Maps zu geben. 
 https://developers.google.com/maps/documentation/javascript/examples/?hl=de
 
-Nicht nur Beispiele von Google 
+\item Zukunftssicherheit\\
+Der Internet Kartendienst ist sehr erfolgreich und weltweit verbreitet, was darauf schließen lässt, dass Google selbst ein großes Interesse daran hat diesen auch in Zukunft weiter zu führen und weiter zu entwickeln. 
+Man sollte sich allerdings bewusst sein, dass die Anzahl der kostenlosen Abfragen sich ändern kann, oder dass der Dienst irgendwann generell kostenpflichtig wird.
 
-w3schools.com
-- Center Map on Position
-- Add a Marker + eigenes Bild + Infowindow for Marker
-
-
-
-
+\end{enumerate}
 
 
 \textbf{funktionale Anforderungen}
+\begin{enumerate}
+\item JavaScript API\\
+Mit der Google Maps JavaScript API Version 3 bietet Google eine JavaScript API die sich sehr leicht in Webseiten integrieren lässt. 
+
+Bei einer HTML-Webseite muss lediglich ein Script Tag eingefügt werden, in dem als Quelle (src) die Google Maps API zu finden ist. Vergleiche Listing Zeile 1. Danach können mit JavaScript Karten von Google Maps erstellt werden. Vergleiche Listing Zeile 2 - 12.
+\begin{lstlisting}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+		var map;
+		function initialize() {
+		  var mapOptions = {
+		    zoom: 8,
+		    center: new google.maps.LatLng(-34.397, 150.644)
+		  };
+		  map = new google.maps.Map(document.getElementById('map-canvas'),
+	      mapOptions);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+\end{lstlisting} \cite[Codebeispiel Simple Map]{googlemaps}
+
+
+\item Unterstütze Browser\\
+TODO
+
+\item Eigenen Standort anzeigen\\
+Den eigenen Standort kann man, sofern dieser bestimmt werden konnte (Listing Zeile 1 - 5), mit der Google Maps API auf der Karte anzeigen. Dies kann man zum Beispiel mit einer Informationsbox, die man mit \glqq new google.maps.Infowindow \grqq auf dem eigenen Standort erstellt erfolgen. (Listing Zeile 7 - 11) Zur besseren Veranschaulichung wird die Karten dann noch auf die Eigene Position zentriert (Listing Zeile 13)
+
+\begin{lstlisting}
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+      });
+
+      map.setCenter(pos);
+    }
+\end{lstlisting} \cite[Codebeispiel Geolocation]{googlemaps}
+
+\item Markierungen auf der Karte setzen\\
+Markierungen könne mit der API sehr leicht gesetzt werden. Neben der Position der Markierung muss noch eine Referenz auf die Google Maps Karte, sowie ein Name bei der Erstellung angegeben werden. Vergleiche Listing.
+
+\begin{lstlisting}
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(-25.363882,131.044922),
+      map: map,
+      title: 'Hello World!'
+  });
+
+\end{lstlisting} \cite[Codebeispiel Simple Markers]{googlemaps}
+
+Den Markierungen auf der Karte können allerdings auch Bilder mit dem Attribut \glqq icon \grqq zugeordnet werden. Des Weiteren kann man mit dem Attribut \glqq draggable \grqq einstellen, ob man die Markierung verschieben kann oder nicht.
+
+\item Markierungen bündeln (optional)\\
+Markierungen können in der Standard JavaScript API in Version 3 nicht gebündelt werden. 
+Mit einer zusätzlichen Bibliothek kann dieser Funktionalität allerdings ergänzt werden. Die Bibliothek heißt \glqq google-maps-utility-library-v3 \grqq. 
+
+https://googlemaps.github.io/js-marker-clusterer/docs/examples.html
+
+\end{enumerate}
+
 
 \underline{JavaScript API}
 
 JavaScript API Version 3
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <script>
-var map;
-function initialize() {
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644)
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-}
 
-google.maps.event.addDomListener(window, 'load', initialize);
 
-    </script>
 
 
 

@@ -106,7 +106,7 @@ Markierungen auf der Karte sollten gebündelt werden, wenn der Zoom-Faktor zu kl
 
 
 
-\textbf{\underline{Google Maps}}
+\textbf{\underline{Google Maps}}\\
 Seit 2005 gehört zu dem Produktportfolio von dem Suchmaschinenriesen Google ein Internet Kartendienst namens Google Maps. 
 Google Maps gehört zu den verbreitetsten und erfolgreichsten Internet Kartendiensten der Welt. \cite[Lexikon Google Maps]{itwissen}\cite[S.88]{gruber2015}
 
@@ -200,25 +200,79 @@ Den Markierungen auf der Karte können allerdings auch Bilder mit dem Attribut \
 
 \item Markierungen bündeln (optional)\\
 Markierungen können in der Standard JavaScript API in Version 3 nicht gebündelt werden. 
-Mit einer zusätzlichen Bibliothek kann dieser Funktionalität allerdings ergänzt werden. Die Bibliothek heißt \glqq google-maps-utility-library-v3 \grqq. 
+Mit einer zusätzlichen Bibliothek  von Google kann dieser Funktionalität allerdings ergänzt werden. Die Bibliothek heißt \glqq google-maps-utility-library-v3 \grqq. 
+Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf dei Karte, sowie Markercluster-Einstellungen.
+TODO: Formulierung an Listing anpassen
+\begin{lstlisting}
+var mcOptions = {gridSize: 50, maxZoom: 15};
+var markers = [...]; // Create the markers you want to add and collect them into a array.
+var mc = new MarkerClusterer(map, markers, mcOptions);
+\end{lstlisting}
 
 https://googlemaps.github.io/js-marker-clusterer/docs/examples.html
 
 \end{enumerate}
 
 
-\underline{JavaScript API}
-
-JavaScript API Version 3
 
 
 
+\textbf{\underline{Bing Maps}}\\
+TODO: Einleitung
+
+\textbf{Nichtfunktionale Anforderungen}
+\begin{enumerate}
+\item Kostenlose Abfragen \\
+Bing Maps bietet für öffentlich zugängliche Webseiten, sowie für mobile Apps für Konsumenten ein kostenloses Kontingent von 125.000 Transaktionen pro Jahr. Will man dieses Kontingent von Transaktionen überschreiten, werden Kosten fällig.
+
+\item Ohne Account nutzbar\\
+Bing Maps ist nicht ohne einen Account nutzbar. Bevor man mit der dazugehörigen API entwickeln kann ist es nötig zuerst eine Microsoft ID anzulegen, mit der man dann wiederum einen Entwickler Key für Bing Maps anfordern kann. Ein schneller Einstieg ist auf Grund von Registrierungen nicht möglich. Zudem gibt es unterschiedliche Lizenzmodelle, die zwischen Webseite und mobile App unterscheiden, was zur Folge hat, dass man für eine neue Plattform einen neuen Key benötigt.
+
+\item Gute Dokumentation mit Codebeispielen\\
+Bing Maps bietet eine ausführliche Dokumentation für die Bing Maps AJAX Control Version 7.0. Dabei werden die Klassen beschrieben und fast jede mit einem Beispiel verdeutlicht. 
+Zusätzlich gibt es über 200 Codebeispiele, die man direkt im Browser ausprobieren und editieren kann. Diese Beispiele kann man auch ohne Account (Key) nutzen.
+
+\item Zukunftssicherheit\\
+TODO
+
+\end{enumerate}
 
 
 
+\textbf{funktionale Anforderungen}
+\begin{enumerate}
+\item JavaScript API\\
+\begin{lstlisting}
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+      <script type="text/javascript">
+      var map = null;
+      function getMap()
+      {
+          map = new Microsoft.Maps.Map(document.getElementById('myMap'), {credentials: 'Your Bing Maps Key'});
+      }   
+      </script>
+\end{lstlisting} \cite[Codebeispiel CreateMap1]{bingmaps}
+\item Unterstütze Browser\\
+TODO
+\item Eigenen Standort anzeigen\\
+\begin{lstlisting}
+map.entities.clear(); 
+var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);  
+geoLocationProvider.getCurrentPosition(); 
+displayAlert('Current location set, based on your browser support for geo location API');
+\end{lstlisting}\cite[Codebeispiel GetUserLocation1]{bingmaps}
+\item Markierungen auf der Karte setzen\\
+\begin{lstlisting}
+map.entities.clear(); 
+var pushpin= new Microsoft.Maps.Pushpin(map.getCenter(), null); 
+map.entities.push(pushpin); 
+pushpin.setLocation(new Microsoft.Maps.Location(47.5, -122.33)); 
+displayAlert('Pushpin Location Updated to ' + pushpin.getLocation() + '. Pan map to location, if pushpin is not visible');
+\end{lstlisting}\cite[Pushpins7]{bingmaps}
+\item Markierungen bündeln (optional)\\
+TODO: ix
+\end{enumerate}
 
-
-\textbf{\underline{Bing Maps}}
 
 Kostenlose Abfragen für education use
 Viele unterschiedliche Lizenzmodelle 

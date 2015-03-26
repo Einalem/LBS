@@ -35,10 +35,9 @@ Die Geographischen Koordinaten geben die Position am genausten an, sind für fas
 
 Die Adresse ist im Alltag am geläufigsten und somit für Nutzer am verständlichsten. Allerdings ist die Angabe nicht so genau, wie die Geographischen Koordinaten. Denn die Angabe Hausnummer 1-9 gibt einen relativ großen Bereich an.
 
-Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel der eigene Standort, an denen sich ein Nutzer Orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte die Zuhilfenahme von externen Quellen und einem erhöhten TODO: Programmieraufwand mit sich bringen.
+Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel der eigene Standort, an denen sich ein Nutzer Orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte die Zuhilfenahme von externen Quellen und einem erhöhten TODO: Bringt höheren Programmieraufwand mit sich.
 
 
-TODO: Quelle finden
 Auf Smartphones gehört Kartenmaterial und dessen Integration in Apps mittlerweile zum Standard, an welchen sich Nutzer gewöhnt haben. (44 Mio Deutsche nutzen ein Smartphone http://www.bitkom.org/de/presse/8477\_81896.aspx) Aus diesem Grund sollte auch Kartenmaterial in die Location based Services App integriert werden, welche die Autoren bei dieser Studienarbeit entwickeln. 
 
 Mögliche Quellen für das Kartenmaterial sind \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Maps\grqq.
@@ -218,7 +217,7 @@ https://googlemaps.github.io/js-marker-clusterer/docs/examples.html
 
 
 \textbf{\underline{Bing Maps}}\\
-TODO: Einleitung
+Bing Maps ist der Kartendienst des Softwarekonzerns Microsoft. Neben Kartenmaterial bietet der Internet-basierte Dienst auch Satellitenbilder und Luftaufnahmen.
 
 \textbf{Nichtfunktionale Anforderungen}
 \begin{enumerate}
@@ -242,6 +241,7 @@ TODO
 \textbf{funktionale Anforderungen}
 \begin{enumerate}
 \item JavaScript API\\
+Bing Maps bietet eine JavaScript API, die \glqq Bing Maps AJAX Control Version 7.0 \grqq. Es ist möglich diese einfach in einem script-Tag in eine Webseite einzubinden (Listing Zeile 1). Danach kann man eine Karte erstellen indem man ein neues Map Objekt erzeugt. (Listing Zeile 6) 
 \begin{lstlisting}
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
       <script type="text/javascript">
@@ -252,51 +252,52 @@ TODO
       }   
       </script>
 \end{lstlisting} \cite[Codebeispiel CreateMap1]{bingmaps}
+
+
 \item Unterstütze Browser\\
-TODO
+Die JavaScript API von Bing Maps wird laut Microsoft von fast allen Browsern unterstützt. 
+Die unterstützen Desktop Browser sind:
+\begin{itemize}
+\item Internet Explorer 7.0 and later
+\item Firefox 3.6 and later
+\item Safari 5 and later
+\item Google Chrome
+\end{itemize}
+
+Die unterstützen mobilen Browser sind:
+\begin{itemize}
+\item Internet Explorer Mobile Browser
+\item Apple iPhone Browser
+\item Google Android Browser
+\item Research in Motion (RIM) BlackBerry Browser
+\end{itemize}
+
+https://msdn.microsoft.com/en-us/library/gg427618.aspx
+
 \item Eigenen Standort anzeigen\\
+Der Eigene Standort kann bei Bing Maps mit einem \glqq GeoLocationProvider \grqq ermittelt werden. Dieser erhält eine Referenz auf das Kartenobjekt, in dem der Standort angezeigt werden soll (Listing Zeile 2). Mit der Funktion \glqq getCurrentPosition \grqq kann dann der Standort des Nutzers ermittelt werden.
 \begin{lstlisting}
 map.entities.clear(); 
 var geoLocationProvider = new Microsoft.Maps.GeoLocationProvider(map);  
 geoLocationProvider.getCurrentPosition(); 
-displayAlert('Current location set, based on your browser support for geo location API');
 \end{lstlisting}\cite[Codebeispiel GetUserLocation1]{bingmaps}
+
 \item Markierungen auf der Karte setzen\\
+Mit Bing Maps ist es möglich Markierungen auf der Karte zu platzieren. Dieser werden bei hierbei PushPins genannt. Diese Pushpins werden an zum Anzeigen dem Map Objekt übergeben (Listing Zeile 3). Eine nachträgliche Positionsänderung der gesetzten Pushpins ist einfach möglich, indem man diesem eine neue Position zuweist (Listing Zeile 4).
 \begin{lstlisting}
 map.entities.clear(); 
 var pushpin= new Microsoft.Maps.Pushpin(map.getCenter(), null); 
 map.entities.push(pushpin); 
 pushpin.setLocation(new Microsoft.Maps.Location(47.5, -122.33)); 
-displayAlert('Pushpin Location Updated to ' + pushpin.getLocation() + '. Pan map to location, if pushpin is not visible');
 \end{lstlisting}\cite[Pushpins7]{bingmaps}
+
 \item Markierungen bündeln (optional)\\
-TODO: ix
+Microsoft bietet keine Funktion mit der man Markierungen(Pushpins) zusammenfassen kann. Um diese Funktionalität dennoch mit Bing Maps nutzen zu können kann man auf Code von Drittherstellen zurückgreifen. Dieser Code kann allerdings in einer neuen Version von Bing Maps unbrauchbar sein. Und eine Weiterentwicklung ist nicht sehr wahrscheinlich, da hinter den Drittherstellen meist nur eine Person steht. \cite[S. 92]{gruber2015}
 \end{enumerate}
 
 
-Kostenlose Abfragen für education use
-Viele unterschiedliche Lizenzmodelle 
-125.000 Abfragen pro Jahr
-
-Man muss allerdings einen Bing Maps Account erstellen
-
-http://www.microsoft.com/maps/Licensing/licensing.aspx\#StepTitle
-
-
-Ausführliche Dokumentation mit vielen Beispielen
-+ für in Browser Tests auf der Webseite
-https://www.bingmapsportal.com/Isdk/AjaxV7\#CreateMapWithMapOptions1
-
-https://msdn.microsoft.com/en-us/library/gg427610.aspx
-
-\textbf{funktionale Anforderungen}
-JavaScript gegeben
-
-Supported Browsers
-https://msdn.microsoft.com/en-us/library/gg427618.aspx
-
-
 \textbf{\underline{Open Street Maps}}
+TODO:
 
 Kostenlos und unbegrenzt viele Abfragen
 

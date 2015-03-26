@@ -230,18 +230,25 @@
                             var latitude = pos.coords.latitude;
                             var longitude = pos.coords.longitude;
                             var distance = getDistanceFromLatLonInKm(latitude, longitude, task.taskPosLat, task.taskPosLong);
-                            distance = distance.toFixed(2);
+                            distance = distance.toFixed(3);
 
-                            var diff = ((task.distance - distance)*1000).toFixed(3);
-                            document.getElementById("distTitel").innerHTML =
-                                "Rest: " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" +
+                            var diff = (task.distance - distance).toFixed(3);
+/*                            document.getElementById("distTitel").innerHTML =
+                                date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" +
                                 date.getMilliseconds() + " [" + latitude.toFixed(3) + "," + longitude.toFixed(3) + "]";
+  */
+                            document.getElementById("distTitel").innerHTML =
+                                "Geschafft (" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" +
+                                date.getMilliseconds() + ")";
+
+                            document.getElementById("distance").innerHTML = diff + " km";
+                            /*
                             document.getElementById("distance").innerHTML =
                                 distance + " km<br/>Geschafft: " + diff + " Meter";
                             document.getElementById("Verlauf").innerHTML =
                                 document.getElementById("Verlauf").innerHTML +
                                 "<br/>alt:" + player.lastDist +", neu:" + distance + " --> Diff:" + (distance-player.lastDist).toFixed(2);
-
+*/
                             if (distance <= 0.01) {
                                 document.getElementById("color").innerHTML = "<center><img src='img/stern.png' alt='Ziel_erreicht'></center>";
                                 //Bonus für das Erreichen der Zielkoordinaten (mit Abweichung von 10meter)
@@ -259,7 +266,7 @@
                                 navigator.geolocation.clearWatch(id);
                             } else {
                                 if (distance <= player.lastDist) {
-                                    document.getElementById("color").innerHTML = "<center><img src='img/daumen_hoch.jpg' alt='gut'></center>";
+                                    document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: green;'>"+ distance + " km</h1></center>";
                                     //Bonus für korrekte Richtung
                                     task.score++;
                                     /*
@@ -272,7 +279,7 @@
                                      }, 900);
                                      */
                                 } else {
-                                    document.getElementById("color").innerHTML = "<center><img src='img/daumen_runter.jpg' alt='schlecht'></center>";
+                                    document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: red;'>"+ distance + " km</h1></center>";
                                     //Abzug für falsche Richtung
                                     task.score--;
                                     /*

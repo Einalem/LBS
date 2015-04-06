@@ -64,7 +64,7 @@ Die \underline{funktionalen Anforderungen} an das interaktive Kartenmaterial sin
 \item Markierungen bündeln (optional)
 \end{enumerate}
 
-Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Maps\grqq bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
+Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Map\grqq bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
 
 Zuerst widmen wir uns den nichtfunktionalen Anforderungen.
 \begin{enumerate}
@@ -296,15 +296,131 @@ Microsoft bietet keine Funktion mit der man Markierungen(Pushpins) zusammenfasse
 \end{enumerate}
 
 
-\textbf{\underline{Open Street Maps}}
+\textbf{\underline{Open Street Maps}}\\
+Open Street Map ist die sogenannte \glqq offenste aller Karten \grqq \cite[S.92]{gruber2015}. Das bedeutet, dass das Kartenmaterial von der OpenStreetMap Foundation jedem frei und kostenlos zu Verfügung gestellt wird. Das Kartenmaterial selbst kann von jedem Nutzer überarbeitet werden oder es kann als Basis für neues Kartenmaterial dienen (Points of Interest). So steht es auch jedem frei Fehler zu finden und verbessertes Kartenmaterial einzureichen.
+
+Mit Open Streetmap ist es sogar möglich seine eigenen Karten zu verwenden.
+
+TODO: Hinweis auf Leaflet
+
+
+\textbf{Nichtfunktionale Anforderungen}
+\begin{enumerate}
+\item Kostenlose Abfragen \\
+Open Steet Map bietet jedem privaten oder Kommerziellen Nutzer die Möglichkeit auf das Kartenmaterial zuzugreifen. Abfragen sind dabei generell umsonst. Des Weiteren ist die Anzahl der Abfragen weder für einen Tag, noch für ein Jahr begrenzt.
+
+\item Ohne Account nutzbar\\
+TODO: Überprüfen!!!
+Für die Nutzung von Open Street Map ist weder eine Registrierung, noch ein Account erforderlich. Nach der Angabe der Ressource im Script Tag (Leaflet API) einer Webseite kann mit JavaScript auf das Kartenmaterial von Open Street Map zugegriffen werden.
+
+\item Gute Dokumentation mit Codebeispielen\\
 TODO:
+Durch Wiki-Beiträge ist es nahezu immer möglich auch schwierige Aufgaben zu lösen.
 
-Kostenlos und unbegrenzt viele Abfragen
+\item Zukunftssicherheit\\
+TODO:
+Community + OpenStreetMap Foundation + Viele andere Karten basieren darauf
 
-ohne Account nutzbar
+\end{enumerate}
 
-Gute Dokumentation mit vielen Beispielen leider nicht gegeben
+\textbf{funktionale Anforderungen}
+\begin{enumerate}
+\item JavaScript API\\
+Die OpenStreetMap Foundation selbst bietet nur Kartenmaterial an. Eine JavaScript API von der OpenStreetMap Foundation ist nicht vorhanden. Allerdings gibt es Bibliotheken, die von anderen Projekten veröffentlicht wurden, die diese Funktionalitäten abbilden. Die bekannteste dürfte \glqq Leaflet \grqq sein. Leaflet wird nämlich auch auf der Webseite von Open Steet Map, \glqq www.openstreetmap.org \grqq , genutzt.
+
+Die API von Fremdprojekten haben zum Nachteil, dass nicht mehr alles aus einer Hand kommt.
+
+\item Unterstütze Browser\\
+TODO
+
+\item Eigenen Standort anzeigen\\
+Der Eigene Standort lässt sich mit Leaflet mit einer einzigen Funktion bestimmen. Vergleiche hierzu Listing Zeile 17. 
+
+Um den Standort anzuzeigen ist zunächst ein Kartenobjekt nötig. Dieses wird in Zeile 1 des Listings initialisiert. Um die eigene Position auf der Karte grafisch anzeigen zu können ist die Funktion \glqq onLocationFound  \grqq, im Listing Zeile 3 bis 8,  nötig. Diese Funktion wird aktiviert, wenn der eigene Standort gefunden wurde. Dann wird ein die Genauigkeit des Standorts ermittelt und grafisch über einen circle dargestellt (Zeile 4 und 7). Das Zentrum des Standorts wird durch einen Marker (Zeile 5) dargestellt.
+
+Wenn der Standort nicht bestimmt werden konnte wird dem Nutzer mit der Funktion \glqq onLocationError \grqq eine Fehlermeldung angezeigt.
+
+\begin{lstlisting} 
+var map = L.map('map');
+
+function onLocationFound(e) {
+	var radius = e.accuracy / 2;
+	L.marker(e.latlng).addTo(map)
+		.bindPopup("You are within " + radius + " meters from this point").openPopup();
+	L.circle(e.latlng, radius).addTo(map);
+}
+
+function onLocationError(e) {
+	alert(e.message);
+}
+
+map.on('locationfound', onLocationFound);
+map.on('locationerror', onLocationError);
+
+map.locate({setView: true, maxZoom: 16});
+\end{lstlisting}  \cite{leaflet}
+
+Dieses Beispiel zeigt gut, wie die Leaflet JavaScript API aufgebaut ist. Hier ist alle Funktion separat und können einzeln genutzt werden. So kann man als Programmierer genau die Funktionalitäten nutzen, die man braucht. In diesem Beispiel ist es auch Möglich die Karte stets auf den eigenen Standort zu zentrieren und diesen nicht zusätzlich grafisch anzuzeigen.
+
+\item Markierungen auf der Karte setzen\\
+Markierungen können mit der Funktion \glqq marker(latitude, longitude) \grqq erstellt werden und der Karte hinzugefügt werden. Ein Beispiel dafür ist schon im Listing der Funktionalen Anforderung 3 in Zeile 5 bis 6 enthalten.
+
+\item Markierungen bündeln (optional)\\
+Mit LeafletJS lassen sich Marker nicht bündeln. Diese Funktionalität kann durch das einbinden eines weiteren Projekts, \glqq  Leaflet.markercluster \grqq ergänzt werden. \cite[S.92]{gruber2015}
+
+Das Markercluster kann eine Sammlung von Markern auf der Karte gebündelt anzeigen. Die Marker können mit \glqq .addLayer() \grqq zum Markercluster hinzugefügt werden. Dieses wird wiederum als Layer zur Karte hinzugefügt. (Listing Zeile 6)
+
+\begin{lstlisting}
+var markers = new L.MarkerClusterGroup();
+
+markers.addLayer(L.marker([175.3107, -37.7784]));
+// add more markers here...
+
+map.addLayer(markers);
+\end{lstlisting} \cite{leaflet}
+
+\end{enumerate}
 
 
+\textbf{\underline{Fazit Kartenmaterial}}\\
+Um ein Fazit zu ziehen, welches Kartenmaterial zum Einsatz in der Location-based Services App kommt, wird hierbei zuerst auf die Vor und Nachteile der einzelnen Anbieter eingegangen.
+
+Google:
+
+Vorteile:
+Alles aus einer Hand
+Keine Registrierung nötig
+Gute und ausführliche Dokumentation mit vielen Beispielen
+
+Nachteile:
+Lizenzkosten fallen an, wenn 25000 Abfragen pro Tag häufig überschritten werden
+
+Bing:
+
+Vorteile:
+Gute und ausführliche Dokumentation mit vielen Beispielen
+
+Nachteile:
+Cluster nur mit externer Bibliothek nutzbar
+Registrierung und unterschiedliche Lizenzmodelle für Web und mobile
+Anzahl der kostenlosen Abfragen ist sehr begrenzt
 
 
+Open Street Map:
+
+Vorteile:
+Unbegrenzt viele kostenlose Abfragen
+Individualisierbarkeit(eigenes Kartenmaterial)
+
+Nachteile:
+Man ist auf 3 Hersteller bzw. Quellen angewiesen
+Dokumentation ist nicht so ausführlich wie bei Google- und Bing Maps
+
+
+Die gewünschte funktionalen Anforderungen konnte nur Google Maps ohne zur Hilfenahme von externen Bibliotheken erfüllen. 
+
+Bei den nichtfunktionalen ist nur Bing Maps negativ aufgefallen, da dort eine Registrierung mit unterschiedlichen Lizenzmodellen vorausgesetzt wird und die Anzahl der kostenlosen Abfragen im Vergleich zu Google Maps und Open Street Maps bescheiden ist.
+
+Bei der Betrachtung der Vor und Nachteile liegt auch Google vorne.
+
+Das Fazit ist, dass sich Google Maps am besten für den Einsatzzweck dieser Studienarbeit und der damit verbundenen Location-based Services App eignet, da alles aus einer Hand kommt, sowie eine ausführliche Dokumentation mit vielen Beispielen den Einstieg vereinfacht und die hohe Anzahl an kostenloser Abfragen für diese Studienarbeit mehr als ausreichen sollte.

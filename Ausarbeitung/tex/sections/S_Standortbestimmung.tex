@@ -1,4 +1,4 @@
-\subsection{Standortbestimmung}
+\subsection{Positionsbestimmung}
 UND FUNKTIONSWEISE
 
 TODO:
@@ -7,10 +7,51 @@ Semester5 Studienarbeit Ortungv1.docx
 TODO:
 Schiller Seite 66
 
+In diesem Kapitel wird zunächst einmal geklärt, was Positionsbestimmung ist. 
+Nach Alex Küpper ist die Positionsbestimmung wie folgt definiert:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{16cm}|}\hline
+		\textbf{Zitat ?:} \glqq Positioning is a process to obtain the spatial position of a target \grqq  \cite[S.121]{Kuepper2005} \\ \hline
+		\textbf{Übersetzung:} Positionsbestimmung ist ein Prozess, um die räumliche Position eines Ziels zu erhalten. \\ \hline
+	\end{tabular}
+\end{table}
+
+Mit räumlicher Position ist hierbei ein Standort gemeint, der zu einem geeigneten Bezugssystem bestimmt wird. Das bedeutet ein Position der sich auf das Bezugssystem „Weltkarte“ bezieht repräsentiert den geografischen Standort auf der Weltkarte. Die Position mit dem Bezugssystem eines bestimmten Gebäudes repräsentiert den Standort in dem Gebäude. Bsp.: Stockwerk 1 Raum 139b.
+
+Ein weiteres Zitat bezüglich der Positionsbestimmung grenzt den Begriff Positionsbestimmung deutlich von Ortung ab. Dieser Unterschied soll hier auch aufgezeigt werden. Hierzu das Zitat der Webseite www.itwissen.info:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{16cm}|}\hline
+		\textbf{Zitat ?:} \glqq Die Begriffe Positionsbestimmung und Ortung werden häufig synonym benutzt; sie unterscheiden sich allerdings im Detail. So wird mit der Positionsbestimmung der Ort von Objekten oder Personen eindeutig in einem geografischen Koordinatensystem festgelegt. Sie bildet die Basis für die Ortung und wird dann zur Ortung, wenn Dritten die ermittelte Position mitgeteilt wird. \grqq  \cite[Positionsbestimmung]{itwissen} \\ \hline
+	\end{tabular}
+\end{table}
+
+Das Zitat ist aussagekräftig und grenz Positionsbestimmung und Ortung eindeutig voneinander ab.
+
+In diesem Kapitel wird, wie es der Titel vorgibt, nur die Positionsbestimmung betrachtet. Dieser ist die Voraussetzung, um Ortung (die Übertragung der Position) überhaupt durchzuführen. Allerdings wird im weiteren Teil dieser Arbeit verstärkt die Ortung betrachtet werden. Die Übertragung der Position spielt nämlich zur Bereitstellung eines „location based Services“ in nahezu allen Fällen eine große Rolle. Da die Positionsbestimmung für die Ortung benötigt wird, diese hier im Detail vorgestellt.
+
+
+Bei einer Positionsbestimmung werden Messdaten gesammelt, um die eigenen Position festzulegen. Die Messdaten beziehen sich dabei immer auf festgelegte Fixpunkte, von welchen die Position schon bekannt ist.  Diese Daten sind zum Beispiel Winkel, Geschwindigkeit und Entfernung.
+
+In den kommenden Kapiteln werden unterschiedliche Methoden/Techniken zur Positionsbestimmung aufgezeigt. Diese werden in drei Kategorien eingeordnet, die satellitengestützte Positionierung, Positionierung in Mobilfunknetzen und Positionsbestimmung in Gebäuden.
+
+
 \textbf{GPS, Mobilfunk, WLAN, Bluetooth}
 
 \subsubsection{Kriterien für die Standortbestimmung}
 Genauigkeit, Bestimmungszeit, Robustheit
+
+Kein Verfahren zur Positionsbestimmung ist perfekt. Gemessen und verglichen werden diese Verfahren anhand von:
+
+\begin{enumerate}
+\item Bereich (scope)
+\item Abdeckung (coverage)
+\item Präzision (precision)
+\end{enumerate}
+\cite[S.183]{Schiller2004}
 
 \subsubsection{Arten der Standortbestimmung}
 GPS, Mobilfunk, WLAN, Sterne, Beacons

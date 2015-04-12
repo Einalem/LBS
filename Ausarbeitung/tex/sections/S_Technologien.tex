@@ -53,7 +53,6 @@ Die \underline{nichtfunktionalen Anforderungen} sind:
 \item Kostenlose Abfragen
 \item Ohne Account nutzbar
 \item Gute Dokumentation mit Codebeispielen
-\item Zukunftssicherheit
 \end{enumerate}
 
 Die \underline{funktionalen Anforderungen} an das interaktive Kartenmaterial sind:
@@ -78,8 +77,7 @@ Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und so
 \item Gute Dokumentation mit Codebeispielen\\
 Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da alle Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben ist dies eine wichtige Anforderung. 
 
-\item Zukunftssicherheit\\
-Da diese Arbeit nicht nur den aktuellen Stand der Technik abbilden soll, sondern auch einen Ausblick geben soll ist es wichtig, dass auch beim Kartenmaterial auf die Zukunftssicherheit geachtet wird.
+
 \end{enumerate}
 
 
@@ -131,9 +129,6 @@ Zu dem ausführlichen Entwicklerhandbuch gibt es nochmals fast 150 Beispiele, zu
 Neben der Dokumentation von Google selbst gibt es auch andere Tutorials im Netz. Eines davon ist von der Webseite www.w3schools.com, dass versucht von Grund auf eine Einführung in Google Maps zu geben. 
 
 
-\item Zukunftssicherheit\\
-Der Internet Kartendienst ist sehr erfolgreich und weltweit verbreitet, was darauf schließen lässt, dass Google selbst ein großes Interesse daran hat diesen auch in Zukunft weiter zu führen und weiter zu entwickeln. 
-Man sollte sich allerdings bewusst sein, dass die Anzahl der kostenlosen Abfragen sich ändern kann, oder dass der Dienst irgendwann generell kostenpflichtig wird.
 
 \end{enumerate}
 
@@ -163,6 +158,7 @@ Bei einer HTML-Webseite muss lediglich ein Script Tag eingefügt werden, in dem 
 
 \item Unterstütze Browser\\
 Von der Google Maps JavaScript API 3 werden alle gängigen Browser unterstützt. Diese sind:
+
 \glqq 
     IE 7.0 und höher (Windows)
     
@@ -218,8 +214,8 @@ Den Markierungen auf der Karte können allerdings auch Bilder mit dem Attribut \
 \item Markierungen bündeln (optional)\\
 Markierungen können in der Standard JavaScript API in Version 3 nicht gebündelt werden. 
 Mit einer zusätzlichen Bibliothek  von Google kann dieser Funktionalität allerdings ergänzt werden. Die Bibliothek heißt \glqq google-maps-utility-library-v3 \grqq. 
-Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf dei Karte, sowie Markercluster-Einstellungen.
-TODO: Formulierung an Listing anpassen
+Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf die Karte, sowie Markercluster-Einstellungen.
+TODO: Formulierung an Listing anpassen ? markers anstatt Markierungen
 \begin{lstlisting}
 var mcOptions = {gridSize: 50, maxZoom: 15};
 var markers = [...]; // Create the markers you want to add and collect them into a array.
@@ -247,9 +243,6 @@ Bing Maps ist nicht ohne einen Account nutzbar. Bevor man mit der dazugehörigen
 \item Gute Dokumentation mit Codebeispielen\\
 Bing Maps bietet eine ausführliche Dokumentation für die Bing Maps AJAX Control Version 7.0. Dabei werden die Klassen beschrieben und fast jede mit einem Beispiel verdeutlicht. 
 Zusätzlich gibt es über 200 Codebeispiele, die man direkt im Browser ausprobieren und editieren kann. Diese Beispiele kann man auch ohne Account (Key) nutzen.
-
-\item Zukunftssicherheit\\
-TODO
 
 \end{enumerate}
 
@@ -339,9 +332,6 @@ Ein großer Vorteil der Dokumentation von Leaflet sind die Tutorials. Diese besc
 
 Bei schwierigen Aufgaben ist es durch Wiki-Beiträge nahezu immer diese zu lösen.
 
-\item Zukunftssicherheit\\
-TODO:
-Community + OpenStreetMap Foundation + Viele andere Karten basieren darauf
 
 \end{enumerate}
 
@@ -467,16 +457,41 @@ Vorteile:
 Unbegrenzt viele kostenlose Abfragen
 Individualisierbarkeit(eigenes Kartenmaterial)
 Unterstützte Browser
+Gute und ausführliche Dokumentation mit vielen Beispielen
 API Struktur
 
 Nachteile:
 Man ist auf 3 Hersteller bzw. Quellen angewiesen
 
-TODO: OpenStreetMap
-Die gewünschte funktionalen Anforderungen konnte nur Google Maps ohne zur Hilfenahme von externen Bibliotheken erfüllen. 
 
-Bei den nichtfunktionalen ist nur Bing Maps negativ aufgefallen, da dort eine Registrierung mit unterschiedlichen Lizenzmodellen vorausgesetzt wird und die Anzahl der kostenlosen Abfragen im Vergleich zu Google Maps und Open Street Maps bescheiden ist.
+Bewertung der nichtfunktionale Anforderungen:
+\begin{enumerate}
+\item Kostenlose Abfragen: \\
+OpenStreetMap bietet unlimitiert viele kostenlose Abfragen und kann damit überzeugen.
+\item Ohne Account nutzbar: \\
+OpenStreetMap kann generell ohne Account genutzt werden.
+\item Gute Dokumentation mit Codebeispielen:\\
+Alle drei Anbieter bieten ausführliche Dokumentationen mit Tutorials an.
+\end{enumerate}
 
-Bei der Betrachtung der Vor und Nachteile liegt auch Google vorne.
+Bei den nichtfunktionalen Anforderungen schneidet Open Steet Maps am besten ab. 
 
-Das Fazit ist, dass sich Google Maps am besten für den Einsatzzweck dieser Studienarbeit und der damit verbundenen Location-based Services App eignet, da alles aus einer Hand kommt, sowie eine ausführliche Dokumentation mit vielen Beispielen den Einstieg vereinfacht und die hohe Anzahl an kostenloser Abfragen für diese Studienarbeit mehr als ausreichen sollte.
+Bewertung der funktionalen Anforderungen:
+\begin{enumerate}
+\item JavaScript API:\\
+Alle Anbieter bieten eine JavaScript API und überzeugen damit. Die Kapselung der Funktionen von OpenStreetMap scheint aber für die Autoren am sinnvollsten gewählt zu sein.
+\item Unterstützte Browser:\\
+Google Maps unterstützt den Internet Explorer für Windows Phone Geräte offiziell nicht. Bing Maps und OpenStreetMap können mit den unterstützten Browsern überzeugen.
+\item Eigenen Standort anzeigen:\\
+Alle drei Anbieter überzeugen hierbei gleichermaßen.
+\item Markierungen auf der Karte setzen:\\
+Auch hierbei überzeugen alle drei Anbieter gleichermaßen.
+\item Markierungen bündeln:\\
+Google Maps liefert alles aus einer Hand sowohl bei Bing Maps, als auch bei OpenStreetMap muss auf Bibliotheken dritter zurückgegriffen werden.
+\end{enumerate}
+
+Durch die fehlende offizielle Unterstützung von Google Maps für den Windows Phone Browser ist es nicht für diese Studienarbeit geeignet eine plattformübergreifende mobile LBS App zu entwickeln.
+
+Im Vergleich der Vor und Nachteile und den nichtfunktionalen Anforderungen überzeugt OpenStreetMaps bei den gewählten Anforderungen deutlich mehr als Bing Maps.
+
+Das Fazit ist, dass sich OpenStreetMaps am besten für den Einsatzzweck dieser Studienarbeit und der damit verbundenen Location-based Services App eignet.

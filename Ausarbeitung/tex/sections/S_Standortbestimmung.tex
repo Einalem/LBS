@@ -58,7 +58,37 @@ Ein Positionssystem kann einen Standort nicht exakt, sondern mit einer gewissen 
 
 Satellitengestützte Positionierung basiert, wie der Name schon vermuten lässt, auf Satelliten. 
 
-Das bekannteste System zur satellitengestützte Positionierung ist das Global Positioning System, dass mit GPS abgekürzt wird.
+Das bekannteste System zur satellitengestützte Positionierung ist das Global Positioning System, dass mit GPS abgekürzt wird. Auf GPS wird nach einer Erläuterung über das generelle Funktionsprinzip von Satellitenpositionierung eingegangen.
+
+Gegeben für eine Positionsbestimmung sind Satelliten, die sich in der Erdumlaufbahn befinden und elektromagnetische Wellen auf die Erde funken. Damit eine Position auf der Erdoberfläche mit Hilfe von Satelliten errechnet/bestimmt werden kann, muss zuerst einmal ein Gerät vorhanden sein, dass die elektromagnetischen Wellen der Satelliten empfangen kann.
+
+Ist das gegeben kann prinzipiell die Position des Nutzers auf der Erdoberfläche anhand von der exakten Position von mindestens drei Satelliten ($s_{n}$) und des Abstands zu diesen Satelliten ($r_{m}$) bestimmt werden.
+
+\cite[S. 188]{Schiller2004}
+
+Vergleiche hierzu Abbildung \ref{fig:Grundprinzip Satelliten}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{ref/images/prinzip_satelliten.png}
+\caption[Grundprinzip Satelliten Positionsbestimmung]{Grundprinzip Satelliten Positionsbestimmung}
+\label{fig:Grundprinzip Satelliten}
+\cite[S. 188]{Schiller2004}
+\end{figure}
+
+In Abbildung \ref{fig:Grundprinzip Satelliten} a) stellen die Kreise Positionen auf der Erde dar, an denen ein User-Position anhand des gemessenen Abstands ($r_{m}$) möglich ist. In dieser Darstellung mit drei Satelliten ist die User-Position eindeutig an dem Schnittpunkt aller drei Kreise. In Abbildung \ref{fig:Grundprinzip Satelliten} b) wird die Darstellung ins dreidimensionale überführt. Hierbei ist nun zu erkennen, dass die Kreise zu Kugeln geworden sind. Daraus resultierend gibt es nun einen zweiten Schnittpunkt. Für die Positionsbestimmung gibt es nun zwei mögliche User-Positionen. Dieses Problem beseitigt man einfach, indem man die logisch wahrscheinlichere Position als richtige ansieht. In der Abbildung wäre das Intersection Point 1, da Intersection Point 2 im Weltall liegt und davon auszugehen ist, dass sich Menschen auf der Erdoberfläche befinden.
+
+Es wurde nun erläutert, wie sich die Position ermitteln lässt, wenn dem Nutzer die Position der Satelliten und der Abstand zu diesen bekannt ist. Wie diese Werte ermittelt werden wurde noch nicht erwähnt. Darauf wird nun eingegangen.
+
+Satelliten Positionen:\\
+%ref/images/GPS_Umlaufbahn.PNG S.164 Küpper
+Bild + Erklärung fixe Umlaufbahnen. Die Positionen können aus Daten über Satellitenname und Umlaufbahn errechnet werden. Diese Daten werden mit einem GPS gerät ausgeliefert und bei Bedarf (Ausfall eines Satelliten oder neuer Satellit aktualisiert)
+
+Abstand zu den Satelliten:\\
+Der Abstand zu Satelliten wird anhand von der Zeit berechnet, die das Signal vom Satelliten bis zum Empfänger benötigt. Diese Zeit wird dadurch ermittelt, dass ein vom Satelliten die aktuelle Zeit gesendet wird. Sobald diese beim Empfänger ankommt wird der Zeitunterschied $ \bigtriangleup t $ zur aktuellen Zeit ermittelt. Da sich elektromagnetische Wellen mit Lichtgeschwindigkeit $ c $ fortbewegen, beträgt die Geschwindigkeit näherungsweise 300.000 $km/s$. Mit der Formel $ r = c \bigtriangleup t$ lässt sich dann die Entfernung zum Satelliten ermitteln. Das Verfahren funktioniert allerdings nur, wenn die Uhren vom Satelliten und des Empfängers exakt synchronisiert sind. 
+
+Verfahren zur Uhren Synchronisation:\\
+Eine Abweichung der Uhren von nur $1\mu s$ ergibt aufgrund der hohen Geschwindigkeit der elektromagnetischen Wellen eine Abweichung der bestimmten Position von ca. 300 Metern. \cite[S. 189]{Schiller2004}
 
 
 --> Bereich (Scope) prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich

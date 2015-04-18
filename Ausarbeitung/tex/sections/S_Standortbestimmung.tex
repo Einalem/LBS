@@ -1,11 +1,6 @@
 \subsection{Positionsbestimmung}
 UND FUNKTIONSWEISE
 
-TODO:
-Semester5 Studienarbeit Ortungv1.docx
-
-TODO:
-Schiller Seite 66
 
 In diesem Kapitel wird zunächst einmal geklärt, was Positionsbestimmung ist. 
 Nach Alex Küpper ist die Positionsbestimmung wie folgt definiert:
@@ -33,10 +28,56 @@ Das Zitat ist aussagekräftig und grenz Positionsbestimmung und Ortung eindeutig
 
 In diesem Kapitel wird, wie es der Titel vorgibt, nur die Positionsbestimmung betrachtet. Dieser ist die Voraussetzung, um Ortung (die Übertragung der Position) überhaupt durchzuführen. Allerdings wird im weiteren Teil dieser Arbeit verstärkt die Ortung betrachtet werden. Die Übertragung der Position spielt nämlich zur Bereitstellung eines „location based Services“ in nahezu allen Fällen eine große Rolle. Da die Positionsbestimmung für die Ortung benötigt wird, diese hier im Detail vorgestellt.
 
+TODO: Küpper S.123
+Fundamentals ergänzen??
 
 Bei einer Positionsbestimmung werden Messdaten gesammelt, um die eigenen Position festzulegen. Die Messdaten beziehen sich dabei immer auf festgelegte Fixpunkte, von welchen die Position schon bekannt ist.  Diese Daten sind zum Beispiel Winkel, Geschwindigkeit und Entfernung.
 
 In den kommenden Kapiteln werden unterschiedliche Methoden/Techniken zur Positionsbestimmung aufgezeigt. Diese werden in drei Kategorien eingeordnet, die satellitengestützte Positionierung, Positionierung in Mobilfunknetzen und Positionsbestimmung in Gebäuden.
+
+TODO: Robustheit ergänzen???
+
+Kein Verfahren zur Positionsbestimmung ist perfekt. 
+Deshalb werden die unterschiedlichen Methoden/Techniken zur Positionsbestimmung anhand von drei ?Qualitäts?-Merkmalen betrachtet. Diese werden hier kurz erläutert.
+
+\begin{enumerate}
+\item Bereich (Scope)\\
+Ein Positionssystem ist immer auf einen Bereich bezogen, in dem eine Position theoretisch bestimmt werden kann. Dieser Bereich kann stark variieren von einem Raum bis zu einem weltweiten Bereich.\\
+--> Ein großer Scope ist besser
+\item Abdeckung (Coverage)\\
+Die Abdeckung eines Positionssystems kann maximal so groß sein, wie es der Bereich zulässt. Die Abdeckung ist die Teilmenge des Bereichs, in dem tatsächlich die Position bestimmt werden kann. So ist es beispielsweise bei einem Satellitenpositionssystem nicht möglich eine Abdeckung in Gebäuden oder unter der Erde zu gewährleisten.\\
+--> Eine große Abdeckung ist besser
+\item Präzision (Precision)\\
+Ein Positionssystem kann einen Standort nicht exakt, sondern mit einer gewissen Abweichung bestimmen. Diese Abweichung kann von Umwelteinflüssen abhängen und für eine Positionsbestimmung an der selben Stelle abweichende Ergebnisse liefern. Die Robustheit eines Positionssystem trägt somit zur Präzision bei. \\
+-->Eine höhere Präzision ist besser
+\end{enumerate}
+\cite[S.183]{Schiller2004}
+
+
+\textbf{Satellitengestützte Positionierung}
+
+Satellitengestützte Positionierung basiert, wie der Name schon vermuten lässt, auf Satelliten. 
+
+Das bekannteste System zur satellitengestützte Positionierung ist das Global Positioning System, dass mit GPS abgekürzt wird.
+
+
+--> Bereich (Scope) prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich
+
+--> Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung
+
+--> Präzision (Precision) eine hohe Präzision wird durch vielen Satelliten und Korrektursignale ermöglicht. Die Position ist recht robust gegen Umwelteinflüsse, wie Wolken oder 
+
+\cite{Schiller2004}
+
+\underline{GPS}
+
+
+
+\textbf{Positionierung in Mobilfunknetzen}
+
+
+\textbf{Positionsbestimmung in Gebäuden}
+
 
 
 \textbf{GPS, Mobilfunk, WLAN, Bluetooth}
@@ -44,14 +85,6 @@ In den kommenden Kapiteln werden unterschiedliche Methoden/Techniken zur Positio
 \subsubsection{Kriterien für die Standortbestimmung}
 Genauigkeit, Bestimmungszeit, Robustheit
 
-Kein Verfahren zur Positionsbestimmung ist perfekt. Gemessen und verglichen werden diese Verfahren anhand von:
-
-\begin{enumerate}
-\item Bereich (scope)
-\item Abdeckung (coverage)
-\item Präzision (precision)
-\end{enumerate}
-\cite[S.183]{Schiller2004}
 
 \subsubsection{Arten der Standortbestimmung}
 GPS, Mobilfunk, WLAN, Sterne, Beacons

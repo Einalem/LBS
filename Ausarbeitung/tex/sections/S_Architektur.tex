@@ -1,9 +1,15 @@
 \subsection{Architektur}
 Die App ist streng nach dem Konzept des Model-View-Controller aufgebaut.
 \\
-\textbf{...Exkurs zu Model-View-Controller...
-}\\
-Einfach gesagt, besteht die App lediglich aus einer index.html Seite. Diese wird jedoch mithilfe von Javascript ständig mit neuem Inhalt (einer neuen View) gefüllt.
+Model-View-Controller ist ein Design Pattern, das häufig für heutige Programmierung eingesetzt wird. Es setzt eine strikte Trennung von Teilkomponenten voraus, die für eine hohe Wiederverwendbarkeit und einen strukturierten Aufbau sorgen. Im Falle einer GUI-Anwendung trennt man bei Anwendung dieses Patter das Model, die View und den Controller. Das Pattern ist also lediglich eine Erweiterung der schon seit langem verbreiteten Trennung von Eingabe (Controller), Verarbeitung (Model) und Ausgabe (View). 
+\\
+Das Model sorgt sich dabei allein um die Verarbeitung der Daten einer Anwendung. Alle Änderungen, die an den Daten ausgeführt werden sollen, finden im Model statt. Ein Model kann mit beliebig vielen Views verbunden werden und so Informationen austauschen. 
+\\
+Eine View kümmert sich um die graphische Darstellung der Anwendungsdaten, die es von seinem konkret zugewiesenen Model erhält. 
+\\
+Der Controller ist für die Möglichkeiten des Anwendungsnutzers zur Interaktion zuständig. Er übernimmt die Zuordnung von Benutzereingaben zu Funktionen des Models. Um diese Überleitung zu ermöglichen müssen sowohl Verbindungen zu Models als auch zu den Views existieren.
+\\
+Entsprechend dieses Patterns ist die Architektur der hier beschriebenen App ebenfalls strukturiert gehalten. Einfach gesagt, besteht die App lediglich aus einer HTML-Seite, die immer wieder mit verändertem Inhalt dargestellt wird. Diese wird mithilfe von Javascript (Angular JS) ständig mit dem Inhalt einer neuen View gefüllt.
 \\
 Für jede dargestellte Seite der App existiert eine View. Diese besteht ebenfalls wieder aus einer einfache HTML-Seite, die allerdings über einen extra dafür definierten Controller mittels Variablenzuweisung verändert werden kann. Dieser Controller implementiert auch die Methoden, die dann z.B. bei einem Button-Druck ausgeführt werden können.
 \\

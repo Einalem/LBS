@@ -151,13 +151,56 @@ Da es ab dieser Stelle nur noch eine mathematische Aufgabe ist die Lösung zu fi
 
 \underline{GPS}
 
-TODO: Position auf Erde nach Küpper + Präzisionswerte nach Schiller 
+Das Global Position System wurde vom Amerikanischen Verteidigungsministerium entwickelt. Es gibt eine Variante, die nur dem Militär zugänglich ist und eine, die der Zivilbevölkerung frei zur Verfügung steht. 
 
---> Bereich (Scope) prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich
+Das GPS System besteht auf 24 Satelliten, die um die Erde kreisen. Die Satelliten können über Basisstationen, die auf der ganzen Erde verteilt sind, ihre Uhren synchronisieren und ihre richtige Umlaufbahn beibehalten. 
+\cite[S. 162]{Kuepper2005}
 
---> Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung
 
---> Präzision (Precision) eine hohe Präzision wird durch vielen Satelliten und Korrektursignale ermöglicht. Die Position ist recht robust gegen Umwelteinflüsse, wie Wolken oder 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{ref/images/GPS_Basisstation.PNG}
+\caption[GPS Basissationen]{GPS Basissationen}
+\label{fig:GPS Basissationen}
+\cite[S. 163]{Kuepper2005}
+\end{figure}
+
+Das GPS basiert grundsätzlich auf den zuvor vorgestellten Mechanismen zur Standortbestimmung. 
+
+Es gibt allerdings einen Unterschied in der militärischen und der zivilen Variante. Die militärische Variante bietet eine höhere Präzision, steht allerdings nur Ländern die der NATO angehören zur Verfügung. 
+
+Die zivile Variante bietet im Normalfall eine fast so hohe Präzision, wie die militärische, kann aber von der U.S. Army durch einen Mechanismus, der Selective Avaulability (SA) heißt deutlich ungenauer gemacht werden.
+
+Vergleiche hierzu Abbildung \ref{fig:GPS Praezision}.
+
+PPS steht für die militärische Variante wohingegen SPS für die zivile Variante des GPS steht.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{ref/images/GPS_Praezision.PNG}
+\caption[GPS Präzision]{GPS Präzision}
+\label{fig:GPS Praezision}
+\cite[S. 195]{Schiller2004}
+\end{figure}
+
+Die Präzision von GPS kann durch Differential GPS nochmals verbessert werden. Dazu wird in einer Basisstation, zu der eine exakte Position vorhanden ist, die GPS Position ermittelt. Gibt es Abweichungen durch die Atmosphäre wird von der Basistation eine Korrektur erstellt, die dann an den User weitergeleitet werden kann, um auch dessen Präzision zu verbessern.
+
+Vergleiche hierzu Abbildung \ref{fig:DGPS}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{ref/images/DGPS.PNG}
+\caption[Präzision Differential GPS]{Präzision Differential GPS}
+\label{fig:DGPS}
+\cite[S. 196]{Schiller2004}
+\end{figure}
+
+Betrachtet man Satelliten Positionierung und im speziellen GPS kann man für die Qualitätskriterien die folgende Bewertung abgeben.
+
+--> Bereich (Scope) Prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich.
+
+--> Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung.
+
+--> Präzision (Precision) Eine hohe Präzision wird durch viele Satelliten und Korrektursignale ermöglicht. Die Position ist so  robust gegen Umwelteinflüsse.
 
 \cite[S. 187]{Schiller2004}
 

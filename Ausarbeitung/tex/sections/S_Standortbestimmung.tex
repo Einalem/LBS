@@ -81,15 +81,77 @@ In Abbildung \ref{fig:Grundprinzip Satelliten} a) stellen die Kreise Positionen 
 Es wurde nun erläutert, wie sich die Position ermitteln lässt, wenn dem Nutzer die Position der Satelliten und der Abstand zu diesen bekannt ist. Wie diese Werte ermittelt werden wurde noch nicht erwähnt. Darauf wird nun eingegangen.
 
 Satelliten Positionen:\\
-%ref/images/GPS_Umlaufbahn.PNG S.164 Küpper
-Bild + Erklärung fixe Umlaufbahnen. Die Positionen können aus Daten über Satellitenname und Umlaufbahn errechnet werden. Diese Daten werden mit einem GPS gerät ausgeliefert und bei Bedarf (Ausfall eines Satelliten oder neuer Satellit aktualisiert)
+Satelliten kreisen um die Erde. Sie sind also Ständig in Bewegung. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{ref/images/GPS_Umlaufbahn.PNG}
+\caption[Umlaufbahn von GPS Satelliten]{Umlaufbahn von GPS Satelliten}
+\label{fig:Umlaufbahn Satelliten}
+\cite[S. 164]{Kuepper2005}
+\end{figure}
+
+Da sie in zuvor festgelegten Umlaufbahnen kreisen, kann die Position eines Satelliten abhängig von der Zeit errechnet werden. 
+Diese Berechnung kann ohne Probleme auf einem Smartphone stattfinden. Die einzigen Daten die dazu nötig sind, ist eine aktuelle Uhrzeit, sowie die Satellitennamen mit der dazugehörigen Umlaufbahn. Solche Daten befinden sich standardmäßig auf GPS fähigen Geräten. Bei Bedarf, durch den Ausfall oder das Hinzukommen neuer Satelliten, werden diese Daten aktualisiert.
+
 
 Abstand zu den Satelliten:\\
 Der Abstand zu Satelliten wird anhand von der Zeit berechnet, die das Signal vom Satelliten bis zum Empfänger benötigt. Diese Zeit wird dadurch ermittelt, dass ein vom Satelliten die aktuelle Zeit gesendet wird. Sobald diese beim Empfänger ankommt wird der Zeitunterschied $ \bigtriangleup t $ zur aktuellen Zeit ermittelt. Da sich elektromagnetische Wellen mit Lichtgeschwindigkeit $ c $ fortbewegen, beträgt die Geschwindigkeit näherungsweise 300.000 $km/s$. Mit der Formel $ r = c \bigtriangleup t$ lässt sich dann die Entfernung zum Satelliten ermitteln. Das Verfahren funktioniert allerdings nur, wenn die Uhren vom Satelliten und des Empfängers exakt synchronisiert sind. 
+\cite[S. 189]{Schiller2004}
 
 Verfahren zur Uhren Synchronisation:\\
-Eine Abweichung der Uhren von nur $1\mu s$ ergibt aufgrund der hohen Geschwindigkeit der elektromagnetischen Wellen eine Abweichung der bestimmten Position von ca. 300 Metern. \cite[S. 189]{Schiller2004}
+Eine Abweichung der Uhren von nur $1\mu s$ ergibt aufgrund der hohen Geschwindigkeit der elektromagnetischen Wellen eine Abweichung der bestimmten Position von ca. 300 Metern.
+\cite[S. 189]{Schiller2004}
 
+Jeder Satellit ist mit einer Atomuhr ausgestattet um immer die richtige Zeit zu senden. Eine Atomuhr in ein Smartphone einzubauen macht allein schon aus wirtschaftlicher Sicht keinen Sinn. Deshalb muss es ein Verfahren geben, mit dem die Uhren synchronisiert werden könne, oder der Unterschied zwischen den Uhren bestimmt werden kann.
+
+Das Grundprinzip dieses Verfahrens wird nun erläutert. Dazu werden zunächst einige Variablen definiert.
+
+$ t_{s} $ steht für die Systemzeit des Satelliten, an der das Signal gesendet wurde.
+
+$ \tilde{t}_{s = t_{s} + \delta t_{s}} $ ist die Zeit des Satelliten unter Berücksichtigung der Abweichung $ \delta t_{s} $ zur exakten Zeit.
+
+$ t_{u} $ steht für die Systemzeit der Users, zu der er das Signal empfangen hat.
+
+Die Systemzeit des Users kann eine Abweichung zur exakten Zeit haben. Deshalb wird für die weitere Betrachtung $ \tilde{t}_{u = t_{u} + \delta t_{u}} $ unter Berücksichtigung der Abweichung $ \delta t_{u} $ zur exakten Zeit verwendet.
+
+$ \bigtriangleup \tilde{t} = \tilde{t}_{u} - \title{t}_{s} $ ist die gemessene Zeit zwischen dem Abschicken des Signals vom Satelliten bis zum Empfang des Signals beim User.
+
+$ c $ gibt die Lichtgeschwindigkeit an.
+
+Im Abschnitt \glqq Abstand zu den Satelliten \grqq wurde schon die Formel zur Berechnung des Abstands $ r = c \bigtriangleup t $ erwähnt. Diese basiert allerdings darauf, dass beide Uhren synchronisiert sind.
+
+Hier wir diese Formel dahingehend angepasst, dass die Abweichungen $\bigtriangleup t$ von den Systemzeiten berücksichtigt werden. Das ist dann der gemessen Abstand $p$:
+
+\glqq 
+\begin{align}
+p &= c * \bigtriangleup \tilde{t} \\
+  &= c * (\tilde{t}_{u} - \tilde{t}_{s}) \\
+  &= c * ((t_{u} + \delta t_{u}) - (t_{s} + \delta t_{s})) \\
+  &= c * (t_{u} - t_{s}) + c * (\delta t_{u} - \delta t_{s}) \\
+  &= r + c * (\delta t_{u} - \delta t_{s})
+\end{align}
+\grqq \cite[S. 190]{Schiller2004}
+
+Die Systemzeit des Satelliten ist bei dieser Betrachtung als exakt anzusehen, da Satelliten mit einer Atomuhr ausgestattet sind und von Bodenstationen kontrolliert werden. $\delta t_{s}$ ist damit als 0 anzusehen.
+
+Daraus erhalten wir $p = r + c * \delta t_{u}$
+
+$r$ kann hierbei durch die Koordinaten des Satelliten und des Users dargestellt werden: $p = \sqrt{(s_{x} - u_{x})^{2} + (s_{y} - u_{y})^{2} + (s_{z}-u_{z})^{2}} + c * \delta t_{u}$
+
+Diese Gleichung enthält nun vier unbekannte Variablen $u_{x}, u_{y}, u_{z} und \delta t_{u}$. 
+
+Um diese Gleichung zu lösen benötigt man diese vier unbekannten Variablen. Jeder dieser Variable kann selbst wieder über eine Gleichung bestimmt werden. Um alle vier Gleichungen zu lösen sind dann vier Satelliten nötig. 
+
+Es gibt nun mehrere Möglichkeiten diese Lösung anzugehen. Es kann zum Beispiel durch ein Näherungsverfahren geschehen. Herr Schiller verweist in deiner Arbeit dabei auf die Möglichkeit eine Taylor Reihe.
+
+Da es ab dieser Stelle nur noch eine mathematische Aufgabe ist die Lösung zu finden, und es dafür wiederum unterschiedliche Ansätze gibt, wird darauf nicht weiter eingegangen.
+\cite[S. 190]{Schiller2004}
+
+
+\underline{GPS}
+
+TODO: Position auf Erde nach Küpper + Präzisionswerte nach Schiller 
 
 --> Bereich (Scope) prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich
 
@@ -97,10 +159,7 @@ Eine Abweichung der Uhren von nur $1\mu s$ ergibt aufgrund der hohen Geschwindig
 
 --> Präzision (Precision) eine hohe Präzision wird durch vielen Satelliten und Korrektursignale ermöglicht. Die Position ist recht robust gegen Umwelteinflüsse, wie Wolken oder 
 
-\cite{Schiller2004}
-
-\underline{GPS}
-
+\cite[S. 187]{Schiller2004}
 
 
 \textbf{Positionierung in Mobilfunknetzen}

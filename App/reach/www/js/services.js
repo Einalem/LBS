@@ -19,6 +19,17 @@
                     sessionStorage.setItem('player', JSON.stringify(player));
                 } else alert("sessionStorage not available!");
             },
+            checkSave: function(player, callback){
+                if(player==null){
+                    alert("Bitte Spielername angeben!");
+                }else{
+                    if(player.radius==null) {
+                        player.radius = "3";
+                    }
+                    callback(player.username, player.radius);
+                    $state.go("tab.game");
+                }
+            },
             setStartPosition: function (latitude, longitude) {
                 var date = new Date();
                 if (sessionStorage && localStorage) {
@@ -207,7 +218,7 @@
                 });
 
                 //Initialisieren der zu befüllenden Felder
-                document.getElementById("Verlauf").innerHTML = "";
+//                document.getElementById("Verlauf").innerHTML = "";
                 document.getElementById("distTitel").innerHTML = "";
                 document.getElementById("distance").innerHTML = "";
                 document.getElementById("color").innerHTML = "";
@@ -306,7 +317,7 @@
                         //Errorfunktion
                         function (error) {
                             $ionicLoading.hide();
-                            console.log('Unable to get location. Error: ' + error.message);
+                            alert('Unable to get location. Error: ' + error.message);
                         },
                         //options
                         {enableHighAccuracy: true, timeout: 60000, maximumAge: 30000});

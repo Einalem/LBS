@@ -1,12 +1,12 @@
 <ion-view view-title="REACH">
   <ion-content class="padding">
           <div class="list">
-              <h4>Spielername</h4>
+              <h4><center>Spielername</center></h4>
               <label class="item item-input" style="height: 40px;">
                   <input type="text" placeholder="Spielername" ng-model="player.username">
               </label>
-
-              <h4>Radius (Default=3)</h4>
+              <br/>
+              <h4><center>Radius (standardmäßig 3)</center></h4>
               <label class="item item-input item-select" style="height: 40px;">
                   <select ng-model="player.radius">
                       <option>2</option>
@@ -17,7 +17,7 @@
               </label>
 
           </div>
-          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="savePlayer(player)" type="item-text-wrap" href="#/tab/game/{{player.username}}">
+          <ion-item class="item-avatar item-icon-right" ng-click="savePlayer(player)" type="item-text-wrap">
               <h2>Los geht´s!</h2>
               <i class="icon ion-chevron-right icon-accessory"></i>
           </ion-item>

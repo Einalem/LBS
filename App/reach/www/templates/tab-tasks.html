@@ -1,7 +1,7 @@
 <ion-view view-title="Aufgaben">
     <ion-content class="padding">
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="play({{task.id}})" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task/{{task.taskName}}">
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-click="play({{task.id}})" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task">
                 <h3>{{task.name}}</h3>
                 <p>Entfernung: {{task.distance}} km</p>
                 <p>Punkte: {{task.score}}</p>

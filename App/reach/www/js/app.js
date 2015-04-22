@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   })
 
       .state('tab.game', {
-        url: '/game/:player',
+        url: '/game',
         views: {
           'tab-play': {
             templateUrl: 'templates/tab-game.html',
@@ -80,7 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
 
       .state('tab.task', {
-        url: '/task/:taskName',
+        url: '/task',
         views: {
           'tab-play': {
             templateUrl: 'templates/tab-task.html',

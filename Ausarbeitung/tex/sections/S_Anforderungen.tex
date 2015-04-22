@@ -1,6 +1,5 @@
 \subsection{Anforderungen}
-Die Analyse im Vorfeld der Implementierung ergab die folgenden Anforderungen:
-.. Tabelle der Anforderungsanalyse noch einfügen..
+Die Analyse im Vorfeld der Implementierung ergab die folgenden Anforderungen. Unterschieden wurden diese im Bezug auf Fachlichkeit und technischen Anspruch.
 \begin{enumerate}
 \item Fachliche Anforderungen
 	\begin{enumerate}
@@ -10,7 +9,7 @@ Die Analyse im Vorfeld der Implementierung ergab die folgenden Anforderungen:
 			\item Spielradius		
 			\item Startposition
 		\end{enumerate}
-		\item Aufgaben erstellen (entsprechend Startposition)
+		\item Aufgaben erstellen (entsprechend Startposition eines Spielers)
 		\begin{enumerate}
 			\item Erreichen von definierten Orten/Koordinaten
 			\begin{enumerate}
@@ -21,10 +20,12 @@ Die Analyse im Vorfeld der Implementierung ergab die folgenden Anforderungen:
 		\end{enumerate}
 		\item Aufgaben spielen
 		\begin{enumerate}
-			\item Prüfung der aktuellen Position
+			\item Prüfung der aktuellen Position 
 			\item Vergleich zwischen Aufgabe und aktueller Position
+			\item ständige Rückmeldung (verbleibende Entfernung zum Ziel) an den Spieler
 			\item Punkte neu berechnen (sammeln oder verlieren)
 			\item Punkte in Highscore speichern
+			\item Möglichkeit, das Spiel zu unterbrechen und später wieder zu starten
 		\end{enumerate}
 	\end{enumerate}
 	\item Technische Anforderungen
@@ -36,6 +37,6 @@ Die Analyse im Vorfeld der Implementierung ergab die folgenden Anforderungen:
 			\item Erwartungskonformität
 			\item Fehlertoleranz
 		\end{enumerate}
-		\item gute Animation der Wünschelrute
+		\item gute Animation der '"Wünschelrute'"
 	\end{enumerate}
 \end{enumerate}

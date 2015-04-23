@@ -43,13 +43,13 @@ Deshalb werden die unterschiedlichen Methoden/Techniken zur Positionsbestimmung 
 \begin{enumerate}
 \item Bereich (Scope)\\
 Ein Positionssystem ist immer auf einen Bereich bezogen, in dem eine Position theoretisch bestimmt werden kann. Dieser Bereich kann stark variieren von einem Raum bis zu einem weltweiten Bereich.\\
-\longrightarrow Ein großer Scope ist besser
+$\longrightarrow$ Ein großer Scope ist besser
 \item Abdeckung (Coverage)\\
 Die Abdeckung eines Positionssystems kann maximal so groß sein, wie es der Bereich zulässt. Die Abdeckung ist die Teilmenge des Bereichs, in dem tatsächlich die Position bestimmt werden kann. So ist es beispielsweise bei einem Satellitenpositionssystem nicht möglich eine Abdeckung in Gebäuden oder unter der Erde zu gewährleisten.\\
-\longrightarrow Eine große Abdeckung ist besser
+$\longrightarrow$ Eine große Abdeckung ist besser
 \item Präzision (Precision)\\
 Ein Positionssystem kann einen Standort nicht exakt, sondern mit einer gewissen Abweichung bestimmen. Diese Abweichung kann von Umwelteinflüssen abhängen und für eine Positionsbestimmung an der selben Stelle abweichende Ergebnisse liefern. Die Robustheit eines Positionssystem trägt somit zur Präzision bei. \\
-\longrightarrow Eine höhere Präzision ist besser
+$\longrightarrow$ Eine höhere Präzision ist besser
 \end{enumerate}
 \cite[S.183]{Schiller2004}
 
@@ -196,11 +196,11 @@ Vergleiche hierzu Abbildung \ref{fig:DGPS}
 
 Betrachtet man Satelliten Positionierung und im speziellen GPS kann man für die Qualitätskriterien die folgende Bewertung abgeben.
 
-\longrightarrow Bereich (Scope) Prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich.
+$\longrightarrow$ Bereich (Scope) Prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich.
 
-\longrightarrow Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung.
+$\longrightarrow$ Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung.
 
-\longrightarrow Präzision (Precision) Eine hohe Präzision wird durch viele Satelliten und Korrektursignale ermöglicht. Die Position ist so  robust gegen Umwelteinflüsse.
+$\longrightarrow$ Präzision (Precision) Eine hohe Präzision wird durch viele Satelliten und Korrektursignale ermöglicht. Die Position ist so  robust gegen Umwelteinflüsse.
 
 \cite[S. 187]{Schiller2004}
 
@@ -211,8 +211,8 @@ Die Kosten zum Betreiben von Satelliten sind immens hoch. Es gibt allerdings auc
 GSM
 
 190 Länder. In Gebäuden und außerhalb verfügbar. Nicht in dünn besiedelten Gebieten, wie Bergen oder das offene Meer. 
-\longleftrightarrow großer Bereich (Überall Funktmasten installiert werden können.
-\longleftrightarrow Abdeckung sehr flächendeckend. sogar in Gebäuden.
+$\longrightarrow$ großer Bereich (Überall Funktmasten installiert werden können.
+$\longrightarrow$ Abdeckung sehr flächendeckend. sogar in Gebäuden.
 
 Verschiedene Ansätze der Positionsbestimmung. Unterscheidung liegt in Präzision. 
 
@@ -229,20 +229,38 @@ Figure 7.9
 \cite[S. 206 - 209]{Schiller2004}
 
 
-\textbf{Positionsbestimmung in geringer Abdeckung}
+\textbf{Positionsbestimmung mit geringer Abdeckung}
 
-Beispiel Gebäude, da dort andere Positionierungssysteme versagen (GPS)
+Positionsbestimmung mit einer geringen Abdeckung bieten sich besonders für den Einsatz in Gebäuden an, da dort Verfahren wie GPS versagen und Gebäudeflächen nicht so groß sind. 
 
-Auf zwei Methoden wird eingegangen. Erst auf Positionsbestimmung anhand von WLAN Netzwerken. Danach auf Radio Beacons.
+Auf zwei Verfahren, die Positionsbestimmung mit geringer Abdeckung wird nun im genauer eingegangen. Zuerst wird die Positionsbestimmung anhand von WLAN Netzwerken dargestellt. Danach werden Radio Beacons genauer betrachtet.
 
-WLAN Netzwerke
-Gebäude mit vielen WLAN AccesPoints ausgestattet. 
-Position kann anhand der Signalstärke zu den Accespoints ermittelt werden.
+\textbf{WLAN Netzwerke}
+Heutzutage sind in vielen Gebäuden WLAN-Netzwerke verfügbar. Ein gutes Beispiel dazu ist die DBHW-Mannheim. Dort ist in jedem Raum ein WLAN Accesspoint vorhanden.
+
+Von Microsoft gibt es ein prototypisches Verfahren, welches anhand der Signalstärke aller verfügbaren WLAN Accespoints eine Positionierung in WLAN-Netzwerken ermöglicht. 
+
+Das Verfahren basiert darauf, dass man Messpunkte erstellt. Zu den erstellten Messpunkten ist die Position bekannt. Aus vielen Messpunkten ergibt sich dann eine Tabelle.
+
+Eine solche Tabelle sieht nach Herr Schillers Buch Location-based Services so aus:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{ref/images/WLAN_Tabelle.PNG}
+\caption[WLAN Messwerttabelle]{WLAN Messwerttabelle}
+\label{fig:DGPS}
+\cite[S. 210]{Schiller2004}
+\end{figure}
+
+
+
+Position kann anhand der Signalstärke zu den Accesspoints ermittelt werden.
 Dazu kann man ein Verfahren von Microsoft verwenden, welches auf Messwerten basiert. Table 7.2
 
 Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wird die Position schnell ungenau. Außerdem sind Messerung zum Konfigurieren erforderlich. Ein alternativer Ansatz wäre Triangulation.
 
-Radio Beacons
+\textbf{Radio Beacons}
+Küpper S. 195
 Seite 203
 
 

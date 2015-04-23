@@ -43,13 +43,13 @@ Deshalb werden die unterschiedlichen Methoden/Techniken zur Positionsbestimmung 
 \begin{enumerate}
 \item Bereich (Scope)\\
 Ein Positionssystem ist immer auf einen Bereich bezogen, in dem eine Position theoretisch bestimmt werden kann. Dieser Bereich kann stark variieren von einem Raum bis zu einem weltweiten Bereich.\\
---> Ein großer Scope ist besser
+\longrightarrow Ein großer Scope ist besser
 \item Abdeckung (Coverage)\\
 Die Abdeckung eines Positionssystems kann maximal so groß sein, wie es der Bereich zulässt. Die Abdeckung ist die Teilmenge des Bereichs, in dem tatsächlich die Position bestimmt werden kann. So ist es beispielsweise bei einem Satellitenpositionssystem nicht möglich eine Abdeckung in Gebäuden oder unter der Erde zu gewährleisten.\\
---> Eine große Abdeckung ist besser
+\longrightarrow Eine große Abdeckung ist besser
 \item Präzision (Precision)\\
 Ein Positionssystem kann einen Standort nicht exakt, sondern mit einer gewissen Abweichung bestimmen. Diese Abweichung kann von Umwelteinflüssen abhängen und für eine Positionsbestimmung an der selben Stelle abweichende Ergebnisse liefern. Die Robustheit eines Positionssystem trägt somit zur Präzision bei. \\
--->Eine höhere Präzision ist besser
+\longrightarrow Eine höhere Präzision ist besser
 \end{enumerate}
 \cite[S.183]{Schiller2004}
 
@@ -196,20 +196,54 @@ Vergleiche hierzu Abbildung \ref{fig:DGPS}
 
 Betrachtet man Satelliten Positionierung und im speziellen GPS kann man für die Qualitätskriterien die folgende Bewertung abgeben.
 
---> Bereich (Scope) Prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich.
+\longrightarrow Bereich (Scope) Prinzipiell ist eine Standortbestimmung auf der ganzen Welt möglich.
 
---> Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung.
+\longrightarrow Abdeckung (Coverage) Die Position kann überall auf der Erdoberfläche, mit einer Ausnahme, der Positionsbestimmung in Gebäuden, bestimmt werden. Das bietet eine sehr große Abdeckung.
 
---> Präzision (Precision) Eine hohe Präzision wird durch viele Satelliten und Korrektursignale ermöglicht. Die Position ist so  robust gegen Umwelteinflüsse.
+\longrightarrow Präzision (Precision) Eine hohe Präzision wird durch viele Satelliten und Korrektursignale ermöglicht. Die Position ist so  robust gegen Umwelteinflüsse.
 
 \cite[S. 187]{Schiller2004}
 
+Die Kosten zum Betreiben von Satelliten sind immens hoch. Es gibt allerdings auch andere Positionierungssysteme, die auf vorhandene Funknetze setzen. Diese werden nun vorgestellt.
 
-\textbf{Positionierung in Mobilfunknetzen}
+\textbf{Positionierung in (Mobil)Funknetzen}
+
+GSM
+
+190 Länder. In Gebäuden und außerhalb verfügbar. Nicht in dünn besiedelten Gebieten, wie Bergen oder das offene Meer. 
+\longleftrightarrow großer Bereich (Überall Funktmasten installiert werden können.
+\longleftrightarrow Abdeckung sehr flächendeckend. sogar in Gebäuden.
+
+Verschiedene Ansätze der Positionsbestimmung. Unterscheidung liegt in Präzision. 
+
+MPS mobile positioning system von Ericsson
+
+- Cell of Globar identify
+- Segment antennas
+Bild zur Erklärung (vielleicht selber zeichnen
+- Timing advance
+Figure 7.9
+-Uplink Time of Arrical 
+Figure 7.9
+
+\cite[S. 206 - 209]{Schiller2004}
 
 
-\textbf{Positionsbestimmung in Gebäuden}
+\textbf{Positionsbestimmung in geringer Abdeckung}
 
+Beispiel Gebäude, da dort andere Positionierungssysteme versagen (GPS)
+
+Auf zwei Methoden wird eingegangen. Erst auf Positionsbestimmung anhand von WLAN Netzwerken. Danach auf Radio Beacons.
+
+WLAN Netzwerke
+Gebäude mit vielen WLAN AccesPoints ausgestattet. 
+Position kann anhand der Signalstärke zu den Accespoints ermittelt werden.
+Dazu kann man ein Verfahren von Microsoft verwenden, welches auf Messwerten basiert. Table 7.2
+
+Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wird die Position schnell ungenau. Außerdem sind Messerung zum Konfigurieren erforderlich. Ein alternativer Ansatz wäre Triangulation.
+
+Radio Beacons
+Seite 203
 
 
 \textbf{GPS, Mobilfunk, WLAN, Bluetooth}

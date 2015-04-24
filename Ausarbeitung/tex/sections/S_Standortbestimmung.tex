@@ -208,13 +208,63 @@ Die Kosten zum Betreiben von Satelliten sind immens hoch. Es gibt allerdings auc
 
 \textbf{Positionierung in (Mobil)Funknetzen}
 
-GSM
+Ein weit verbreitetes Funknetz ist das Mobilfunknetz Es ist in über 190 Ländern verfügbar.\cite[206]{Schiller2004} Um zu verdeutlichen, wie groß die Abdeckung in Deutschland ist, wird die Netzabdeckung von drei großen Mobilfunkanbietern aufgezeigt. Vergleiche hierzu Abbildung \ref{fig:GSM}.
 
-190 Länder. In Gebäuden und außerhalb verfügbar. Nicht in dünn besiedelten Gebieten, wie Bergen oder das offene Meer. 
-$\longrightarrow$ großer Bereich (Überall Funktmasten installiert werden können.
-$\longrightarrow$ Abdeckung sehr flächendeckend. sogar in Gebäuden.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{ref/images/GSM.PNG}
+\caption[GSM Abdeckung in Deutschland]{GSM Abdeckung in Deutschland}
+\label{fig:GSM}
+\cite{Telekom} \cite{Vodafone} \cite{Eplus}
+\end{figure}
 
-Verschiedene Ansätze der Positionsbestimmung. Unterscheidung liegt in Präzision. 
+Die Abbildungen zeigen eine nahezu vollständige Abdeckung Deutschlands durch das GSM Netz. Partiell ist je nach Netzbetreiber die Abdeckung durch GSM nicht gegeben.
+
+Zu Abbildung \ref{fig:GSM} ist noch anzumerken, dass es sich hierbei um Darstellungen der einzelnen Mobilfunkanbietern handelt. Es ist davon auszugehen, dass auf Grund von Marketingeinflüssen auf die Grafiken eine höhere Abdeckung dargestellt wird, als in der Realität vorhanden ist. Um einen groben Eindruck für die Abdeckung in Deutschland zu bekomme, sollten diese Abbildungen ausreichend sein.
+
+
+Basierend auf GSM gibt es verschieden präzise Ansätze die Position eines Netzers über dessen Handy zu finden.
+
+
+Der technisch einfachste aber auch unpräziseste Ansatz ist die Positionsbestimmung anhand des Funkmasten, an dem des Handy angemeldet ist. Das Prinzip dahinter ist, dass sich ein Handy immer mit dem stärksten Signal eines Funkmasten verbindet. Von dem Funkmast mit dem stärksten Signal ist auszugehen, dass es der nächstgelegene ist. Die Position, sowie ein Radius, in dem dessen Signal empfangen werden kann ist zu jedem Funkmasten ist dessen Betreiber bekannt. 
+
+Sobald sich ein Handy mit einem Funkmasten verbindet, wird das in einer dezentralen Datenbank (Visitor Location Register) erfasst. Die Informationen aus der VLR Datenbank werden anschließend in die zentrale Datenbank des Betreibers des Funkmasten, dem Home Location Register, übertragen. Der Betreiber kann anhand seiner Positionsinformationen des Funkmasten ermitteln, in welchem Bereich die Position des Handys bzw. des Nutzers ist. Vergleiche Abbildung \ref{fig:CoO}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.2\textwidth]{ref/images/CellOfOrigin.PNG}
+\caption[Cell of Origin]{Cell of Origin}
+\label{fig:CoO}
+\cite[S. 209]{Schiller2004}
+\end{figure}
+
+Die Präzision dieser Positionierung hängt von der Größe der Funkzelle ab. So ist in Städten von einem Radius von ca. 1 km auszugehen, wohingegen in ländlicheren Regionen der Radius einer Funkzelle bis zu 35 km betragen kann.
+\cite[S. 207]{Schiller2004}
+
+
+Ein präziseres Verfahren wurde von Ericsson entwickelt und heißt Mobile Positioning System (MPS).
+
+Dieses Verfahren besteht aus mehreren Teilverfahren, die hier nacheinander vorgestellt werden.
+
+\begin{enumerate}
+\item Cell of Global Identity \\
+Dieses Verfahren entspricht den zuvor beschriebenen Positionsbestimmung anhand der Funkzelle. Vergleiche Abbildung \ref{fig:CoO}. Diese Variante des MPS bildet die Grundlage für alle weiteren.
+\item Segment antennas \\
+Eine Funkzelle breitet sich meist $360^{o}$ um einen Funkmasten aus. Dieser Bereich kann nicht von einer Antenne abdeckt werden. Dafür werden normalerweise drei bis vier Antennen benötigt. Jede einzelne Antenne ist dann für einen geringeren Winkel zuständig ($90^{o}$ oder $120^{o}$).
+
+Die Position eines Handys kann anhand der genutzten Antenne auf ein Segment der Funkzelle eingeschränkt werden.
+Vergleich hierzu Abbildung \ref{fig:SA}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.2\textwidth]{ref/images/SegmentAntennas.PNG}
+\caption[Antennen Segment]{Antennen Segment}
+\label{fig:SA}
+\cite[S. 209]{Schiller2004}
+\end{figure}
+
+\item Timing Advance
+\end{enumerate}
 
 MPS mobile positioning system von Ericsson
 
@@ -228,6 +278,10 @@ Figure 7.9
 
 \cite[S. 206 - 209]{Schiller2004}
 
+
+
+$\longrightarrow$ großer Bereich (Überall Funktmasten installiert werden können.
+$\longrightarrow$ Abdeckung sehr flächendeckend. sogar in Gebäuden.
 
 \textbf{Positionsbestimmung mit geringer Abdeckung}
 
@@ -252,12 +306,18 @@ Eine solche Tabelle sieht nach Herr Schillers Buch Location-based Services so au
 \cite[S. 210]{Schiller2004}
 \end{figure}
 
+Anhand solch einer Tabelle kann zur Positionierung die Signalstärke der einzelnen WLAN Accesspoints ermittelt werden und auf den am besten passenden Standort gemappt werden. So ist eine Positionierung in einem zuvor festgelegtem Raster möglich.
 
+Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wird die Position schnell ungenau. Außerdem sind Messerung zum Konfigurieren erforderlich. 
 
-Position kann anhand der Signalstärke zu den Accesspoints ermittelt werden.
-Dazu kann man ein Verfahren von Microsoft verwenden, welches auf Messwerten basiert. Table 7.2
+Ein alternativer Ansatz wäre Triangulation. Das ist ähnlich zum dem Verfahren, das bei GPS vorgestellt wurde. Der Abstand zu den Accesspoint kann anhand er Signalstärke errechnet werden. Die Position von den Accesspoint ändert sich nicht und ist bekannt. Damit kann aus dem Schnittpunkt der Radium am die Accesspoints der eigene Standort ermittelt werden.
+\cite[S. 209-211]{Schiller2004}
 
-Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wird die Position schnell ungenau. Außerdem sind Messerung zum Konfigurieren erforderlich. Ein alternativer Ansatz wäre Triangulation.
+$\longrightarrow$ Bereich (Scope) 
+
+$\longrightarrow$ Abdeckung (Coverage)
+
+$\longrightarrow$ Präzision (Precision) 
 
 \textbf{Radio Beacons}
 Küpper S. 195

@@ -253,6 +253,8 @@ Dieses Verfahren entspricht den zuvor beschriebenen Positionsbestimmung anhand d
 Eine Funkzelle breitet sich meist $360^{o}$ um einen Funkmasten aus. Dieser Bereich kann nicht von einer Antenne abdeckt werden. Dafür werden normalerweise drei bis vier Antennen benötigt. Jede einzelne Antenne ist dann für einen geringeren Winkel zuständig ($90^{o}$ oder $120^{o}$).
 
 Die Position eines Handys kann anhand der genutzten Antenne auf ein Segment der Funkzelle eingeschränkt werden.
+\cite[S. 208]{Schiller2004}
+
 Vergleich hierzu Abbildung \ref{fig:SA}.
 
 \begin{figure}[h]
@@ -263,25 +265,48 @@ Vergleich hierzu Abbildung \ref{fig:SA}.
 \cite[S. 209]{Schiller2004}
 \end{figure}
 
-\item Timing Advance
+\item Timing Advance \\
+In einer Funkzelle gibt es mehr als ein Gerät. Deshalb gibt es ein \glqq Time-division multiplexing \grqq , was jedem Gerät einen Zeitslot gibt, in dem es mit der Funkzelle kommunizieren kann. Dieses Verfahren berücksichtigt auch die Laufzeit des Signals von einem Handy zu einem Funkmasten. Die Informationen über die Laufzeit des Signals können dazu verwendet werden die Entfernung des Geräts zu einem Funkmasten zu bestimmen. Die Entfernung kann dabei in Abstufungen von ca. 555 Metern ermittelt werden. Unter Zuhilfenahme des Segment antenna Verfahrens kann die Präzision der Position so weiter verbessert werden.
+\cite[S. 208]{Schiller2004}
+
+Vergleiche hierzu Abbildung \ref{fig:TA}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{ref/images/TimingAdvance.PNG}
+\caption[Timing Advance mit Segment antenna]{Timing Advance mit Segment antenna}
+\label{fig:TA}
+\cite[S. 209]{Schiller2004}
+\end{figure}
+
+\item Uplink Time of Arrival \\
+Befindet sich ein Handy in mindestens 4 Funknetzen kann zu allen verfügbaren Funknetzen nach dem \glqq Timing Advance \grqq Verfahren die Entfernung bestimmt werden. 
+
+Ähnlich wie bei der Satelliten Positionierung ist es dann möglich eine genaue Position zu ermitteln. Diese ist dann auch 50 - 150 Meter genau.
+\cite[S. 209]{Schiller2004}
+
+Vergleiche Abbildung \ref{fig:Up}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.2\textwidth]{ref/images/Uplink.PNG}
+\caption[Uplink Time of Arrival]{Uplink Time of Arrival}
+\label{fig:Up}
+\cite[S. 209]{Schiller2004}
+\end{figure}
+
 \end{enumerate}
-
-MPS mobile positioning system von Ericsson
-
-- Cell of Globar identify
-- Segment antennas
-Bild zur Erklärung (vielleicht selber zeichnen
-- Timing advance
-Figure 7.9
--Uplink Time of Arrical 
-Figure 7.9
-
-\cite[S. 206 - 209]{Schiller2004}
 
 
 
 $\longrightarrow$ großer Bereich (Überall Funktmasten installiert werden können.
 $\longrightarrow$ Abdeckung sehr flächendeckend. sogar in Gebäuden.
+
+$\longrightarrow$ Bereich (Scope) Die Standortbestimmung ist in 190 Ländern möglich. 
+
+$\longrightarrow$ Abdeckung (Coverage) Die Abdeckung der Funknetze ist in den Ländern sehr hoch. Es ist sogar möglich in Gebäuden den Standort zu bestimmen.
+
+$\longrightarrow$ Präzision (Precision) Die Präzision liegt im besten Fall bei 50 - 150 Metern, was für viele LBS schon ausreichend sein dürfte.
 
 \textbf{Positionsbestimmung mit geringer Abdeckung}
 
@@ -313,15 +338,40 @@ Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wir
 Ein alternativer Ansatz wäre Triangulation. Das ist ähnlich zum dem Verfahren, das bei GPS vorgestellt wurde. Der Abstand zu den Accesspoint kann anhand er Signalstärke errechnet werden. Die Position von den Accesspoint ändert sich nicht und ist bekannt. Damit kann aus dem Schnittpunkt der Radium am die Accesspoints der eigene Standort ermittelt werden.
 \cite[S. 209-211]{Schiller2004}
 
-$\longrightarrow$ Bereich (Scope) 
+$\longrightarrow$ Bereich (Scope) Die Reichweite eines WLAN Accesspoint beträgt maximal 100 Meter. In Deutschland und anderen Ländern ist WLAN nicht flächendeckend Verfügbar, sondern nur in wenigen Städten vorhanden. Der Bereich ist meist auf ein Gebäude beschränkt.
 
-$\longrightarrow$ Abdeckung (Coverage)
+$\longrightarrow$ Abdeckung (Coverage) Die Abdeckung von WLAN Netzwerken entspricht ziemlich genau dem Scope. 
 
-$\longrightarrow$ Präzision (Precision) 
+$\longrightarrow$ Präzision (Precision) Die Präzision von WLAN Positionierung ist bis auf wenige Meter genau. Damit ist eine hohe Präzision gegeben.
 
 \textbf{Radio Beacons}
-Küpper S. 195
-Seite 203
+
+Radio Beacons sind kleine Geräte, die ständig elektromagnetische Wellen senden. Diese übermitteln Daten, wie die ID des Radio Beacons, bis zu einer Entfernung von 30 Metern.
+
+Alleine durch die Lokalisation eines Beacons (Funkzelle) ist eine hohe Genauigkeit gegeben. Beacons können so konfiguriert werden, dass ihr Signal nur in einem Radius von ca. 5 Meter empfangen werden kann. Ermittelt ein Gerät (Handy) solch einen Beacon ist die eigene Position schon sehr präzise bestimmt.
+
+Auch bei dieser Technologie ist es wieder möglich Signale von mehreren Beacons zur Positionsbestimmung zu verwenden. Dadurch wird die ermittelte Position genauer. Bei Beacons ist es sogar möglich eine 3D-Position zu ermitteln.
+
+Ähnlich zu dem bei Satelliten Positionsbestimmung beschriebenem Verfahren ist es auch hier wieder möglich eine genaue Position zu ermitteln, wenn man Signale von mehreren Beacons empfängt. Das Verfahren beruht auf einer Abstandsmessung anhand der Time of Arrival von Signalen. Ein beispielhaftes Verfahren dafür heißt SpotOn.
+Nutz man SpotOn wird eine Präzision der Position von 3 Meter erreicht. Das ist ein sehr gutes Wert.
+
+Vergleiche Abbildung \ref{fig:SpotOn}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{ref/images/SpotOn.PNG}
+\caption[SpotOn]{SpotOn}
+\label{fig:SpotOn}
+\cite[S. 201]{Schiller2004}
+\end{figure}
+
+
+$\longrightarrow$ Bereich (Scope) Der Bereich kommt auf die Anzahl der Beacons an, ist aber als klein einzustufen.
+
+$\longrightarrow$ Abdeckung (Coverage) Die Abdeckung in dem Gegebenen Scope sollte 100 prozentig sein.
+
+$\longrightarrow$ Präzision (Precision) Die Präzision ist mit 3 Metern sehr gut. 
+
 
 
 \textbf{GPS, Mobilfunk, WLAN, Bluetooth}

@@ -6,6 +6,160 @@ TODO: Einleitung
 Aus den Anforderungen heraus wurde sich im Rahmen dieser Arbeit für diverse Technologien entschieden, welche eine Umsetzung der Anforderungen ermöglichen.
 Eine dieser Anforderungen ist es, die Funktionen über ein Smartphone zu nutzen. Um möglichst vielen Anwendern die Möglichkeit der Nutzung zu geben, viel die Wahl auf Phonegap und Apache Cordova.
 
+TODO: Einleitung
+
+Eine Hauptanforderungen für die Prototypische Umsetzung einer LBS Applikation ist 
+die Lauffähigkeit auf einem Smartphone. Diese Anforderung fällt nicht weiter auf, 
+ist aber entscheidend für die Auswahl der zu nutzenden Technologien.
+
+Möchte man eine Applikation für Smartphones entwickeln muss sich erst Gedanken 
+darüber gemacht werden, welche Smartphones bzw. mobile Betriebssystem unterstützt 
+werden sollen.
+
+Unterschieden wird meist nur zwischen drei Betriebssystemen, da diese die größten 
+Marktanteile besitzen. Es handelt sich um folgende Betriebssysteme: \\
+Android \\
+iOS \\
+Windows \\
+
+Um den implementier Aufwand geringer zu halten, wurde entschieden, die Applikation 
+soll auf den zwei Betriebssystemen mit dem meisten Marktanteil lauffähig sein. 
+Android und iOS haben gemeinsam einen Anteil von über 50 Prozent. Aus dieser 
+Anforderung ergaben sich drei verschiedene Möglichkeiten zur Entwicklung:
+
+Implementierung als WebApp
+Bei dieser Art von Programm handelt es sich um eine Webseite, welche für mobile 
+Geräte optimiert ist.
+
+Implementierung des Programm als native App. Bei einer App handelt es sich um ein 
+Programm welches speziell für ein mobiles Betriebssystem entwickelt wurde.
+
+Implementierung als HybridApp
+Eine HybridApp ermöglicht es mit einem Quellcode mehrere App's erstellen zu lassen. 
+Zur Verwendung kommen WebTechnologien
+
+Diese drei Möglichkeiten sollen im folgenden Abschnitt anhand von definierten 
+Kriterien bewertet werden.
+
+
+Folgende Kriterien wurden für die Auswahl einer Implentierungsmethode betrachtet:
+
+Zugriff auf Hardware des mobil
+Telefons
+Zur Implementierung einer LBS Applikation wird der eigene Standort benötigt. Um 
+diesen zu bestimmen gibt es mehrere Verfahren (siehe Kapitel Standohrbestimmung). 
+Die Informationen welche dafür benötigt werden, sind über die Hardware des 
+Smartphones erreichbar. Beispielsweise kann der Standort über den eingebauten GPS-
+Empfänger bestimmt werden. Für die Implementierung der App ist es von Nöten, dass 
+diese Informationen ausgelesen werden können.
+
+Voraussetzungen und Vorkenntnisse
+Da diese Studienarbeit innerhalb von (?) Monaten entstanden ist und andere Projekte 
+parallel bearbeitet werden mussten, ist ein Kriterium über welche Vorkenntnisse die 
+Entwickler verfügen. Dieses Kriterium betrachtet die eingesetzten 
+Programmiersprachen und technischen Geräte welche benötigt werden um eine LBS-App 
+entwickeln zu können.
+
+
+Aufwand
+Dieses Kriterium ergänzt das vorhergehende. Lässt sich aber auch klar abgrenzen. Da 
+die Zeit für diese Studienarbeit begrenzt ist, darf die Implementierung nicht zu 
+viel Zeit in Anspruch nehmen, da sonst die Anforderungen nicht umgesetzt werden 
+können. Betrachtet wird hierbei wie viel Aufwand es ist die Anforderungen zu 
+Implementieren und die App betriebssystemunabhängig zu Entwickeln.
+
+WebApp
+
+Bei einer WebApp (Webapplikation) handelt es sich um eine Anwendung welche im 
+Browser ausgeführt wird. Eine für Smartphones optimierte WebApp fokusiert sich 
+darauf, die Darstellung für kleine Bildschirme zu optimieren. Auch wird darauf 
+geachtet, dass diese mit einem Touchscreen bedient werden kann. Ziel ist es, dass 
+der Benutzer kaum einen Unterschied zu einer Nativen App erkennt. Berechnungen 
+werden bei dieser Variante meist serverseitig durchgeführt. 
+
+Kriterium 1, zugriff auf Hardware Komponenten
+
+Ein Nachteil der Webapplikation ist, dass es keine Standard-Hardwareschnittstellen 
+für eine Browser-Anwendung gibt. Das Bedeutetet, eine WebApp kann nicht auf die 
+Hardware zugreifen. Beispielsweise eine Standortbestimmung über GPS  oder der 
+Zugriff auf ein Bluetooth Modul nicht möglich.
+
+Kriterium 2, Voraussetzungen und Vorkenntnisse
+
+Da es sich um eine Webseite handelt kommen die bekannten Technologien zur 
+Entwicklung zum Einsatz. Hierzu zählen:HTML Hypertext Markup Language, Casscading 
+Stylesheets und JavaScript.
+
+Durch die an der dualen Hochschule erworbenen Kenntnisse in den Vorlesungen Web 
+Engineering und Software Engineering, sind erweiterte Vorkenntnisse über diese 
+Technologien von allen Entwicklern dieser Arbeit vorhanden und stellen kein Problem 
+dar. Zur Entwicklung reicht ein Editor sowie ein Internetbrowser. 
+
+Kriterium 3, Aufwand
+
+Betrachtet man die aufgezählten Technologien und Werkzeuge, so ist der Aufwand für 
+die Entwicklung einer LBS- WebApp gering. Auf die Plattformunabhängigkeit stellt 
+für eine WebApp keine Schwierigkeiten dar, da die genannten Web Technologien 
+standartisiert sind. Allerdings fehlen definierte Schnittstellen für die Hardware 
+Ansteuerung. Der Aufwand eine Schnittstelle zu entwickeln würde den Rahmen dieser 
+Studienarbeit überschreiten. Selbst wenn eine Schnittstellen Implementierung 
+gelingt, so wäre diese nicht Geräte und damit plattformunabhängig.
+
+http://www.sepia.de/webanwendungen-vs-mobile-apps.html
+
+http://www.smart-digits.com/2012/02/native-app-oder-web-app-teil-1-definitionen-
+und-entscheidungskriterien/
+
+TODO: Zusammenfassung?
+
+
+
+Native App
+
+Bei nativen Apps handelt es sich um Programme, welche für ein spezifisches mobiles 
+Betriebssystem lauffähig sind. Eine Ausführung auf einem Computer oder anderem 
+Betriebssystem ist wenn überhaupt nur schwer umsetzbar.
+Installiert werden kann dies über einen betriebssystemabhängigen Marktplatz. Wie 
+bereits in der Anforderungen erwähnt, soll die Applikation auf iOS und Android 
+Geräten verfügbar sein, weshalb die zu untersuchenden Kriterien für beide 
+Betriebssysteme betrachtet werden.
+
+Kriterium 1, Zugriff auf Hardware Komponenten
+
+Sowohl Android wie auch iOS unterstützen einen Zugriff auf die Hardware. 
+Dieser erfolgt über APIs (Applikation Programming Interface) und bietet alle mit 
+dem Gerät zur Verfügung stehenden Funktionalitäten an.
+
+
+
+Kriterium 2, Voraussetzungen und Vorkenntnisse
+
+Android Entwicklung:
+Die Programmiersprache für native Android Apps ist Java. Durch die Vorlesung Java 
+Programmierung sind erweiterte Kenntnisse vorhanden. Zur komfortablen Entwicklung 
+werden eine Entwicklungsumgebung (z.B. Eclipse), das aktuelle Java SDK (Software 
+Development Kit) und Android SDK benötigt. Alle diese Komponenten sind kostenfrei 
+verfügbar.
+
+iOS Entwicklung:
+Die Programmiersprache für native iOS Apps ist Objective-C. Zwar sind Kenntnisse 
+über die Sprache C von zwei Entwicklern vorhanden, allerdings ist die Sprach C nur 
+bedingt mit Objective-C vergleichbar. Es sind auf Grund dessen nur minimale 
+Kenntnisse vorhanden.
+
+Zur Implementierung einer iOS App wird neben einem Apple Computer diverse Software 
+benötigt. Hierzu zählt die Entwicklungsumgebung Xcode. Möchte man die App auf einem 
+Gerät Testen, so wird ein Apple Developer Account sowie das IOS Developer Programm, 
+dieses ist Kostenpflichtig.
+
+
+
+Kriterium 3, Aufwand
+
+Möchte man eine App für beide Betriebssysteme erstellen, so muss jede App einzeln 
+geschrieben werden. Es kann kein Code wiederverwendet werden, da sich die 
+Programmiersprachen unterscheiden. Ebenfalls sind andere APIs vorhanden, was die 
+Entwicklung erschwert. Der Aufwand ist hierbei so hoch wie für zwei Apps.
 
 \subsubsection{Phonegap und Apache Cordova}
 PhoneGap entstand als Framework zur Entwicklung von Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft welche das Produkt weiter unter dem Namen Apache Cordova fokussierten. 

@@ -1,12 +1,12 @@
 \subsection{Technologien und Entscheidungen}
 
 
-TODO: Einleitung
 
-Aus den Anforderungen heraus wurde sich im Rahmen dieser Arbeit für diverse Technologien entschieden, welche eine Umsetzung der Anforderungen ermöglichen.
-Eine dieser Anforderungen ist es, die Funktionen über ein Smartphone zu nutzen. Um möglichst vielen Anwendern die Möglichkeit der Nutzung zu geben, viel die Wahl auf Phonegap und Apache Cordova.
 
-TODO: Einleitung
+Aus den Anforderungen heraus wurde sich im Rahmen dieser Arbeit für diverse Technologien entschieden, welche eine Umsetzung der Anforderungen des Prototypen ermöglichen.
+%Eine dieser Anforderungen ist es, die Funktionen über ein Smartphone zu nutzen. Um möglichst vielen Anwendern die %Möglichkeit der Nutzung zu geben, viel die Wahl auf Phonegap und Apache Cordova.
+
+%TODO: Einleitung
 
 Eine Hauptanforderungen für die Prototypische Umsetzung einer LBS Applikation ist 
 die Lauffähigkeit auf einem Smartphone. Diese Anforderung fällt nicht weiter auf, 
@@ -17,7 +17,12 @@ darüber gemacht werden, welche Smartphones bzw. mobile Betriebssystem unterstü
 werden sollen.
 
 Unterschieden wird meist nur zwischen drei Betriebssystemen, da diese die größten 
-Marktanteile besitzen. TODO hier Diagramm Marktanteil Es handelt sich um folgende Betriebssysteme: 
+Marktanteile in Deutschland besitzen. 
+
+\includegraphics[width=1\textwidth]{ref/images/marktanteil.jpg} 
+
+
+Es handelt sich um folgende Betriebssysteme: 
 \begin{description}
   \item[$\bullet$] Android
   \item[$\bullet$] iOS
@@ -29,41 +34,38 @@ Um den implementier Aufwand geringer zu halten, wurde entschieden, die Applikati
 soll auf den zwei Betriebssystemen mit dem meisten Marktanteil lauffähig sein. 
 Android und iOS haben gemeinsam einen Anteil von über 50 Prozent. Aus dieser 
 Anforderung ergaben sich drei verschiedene Möglichkeiten zur Entwicklung:
-
-Implementierung als WebApp
+\\Implementierung als WebApp
 Bei dieser Art von Programm handelt es sich um eine Webseite, welche für mobile 
 Geräte optimiert ist.
-
-Implementierung des Programm als native App. Bei einer App handelt es sich um ein 
-Programm welches speziell für ein mobiles Betriebssystem entwickelt wurde.
-
-Implementierung als HybridApp
+\\Implementierung des Programm als native App
+Bei einer nativen App handelt es sich um ein Programm welches speziell für ein mobiles Betriebssystem entwickelt wurde.
+\\Implementierung als HybridApp
 Eine HybridApp ermöglicht es mit einem Quellcode mehrere App's erstellen zu lassen. 
-Zur Verwendung kommen WebTechnologien
+Zur Verwendung kommen dabei Web-Technologien.
 
 Diese drei Möglichkeiten sollen im folgenden Abschnitt anhand von definierten 
 Kriterien bewertet werden.
 
 
-Folgende Kriterien wurden für die Auswahl einer Implentierungsmethode betrachtet:
+Folgende Kriterien wurden für die Auswahl einer Methode betrachtet:
 \begin{enumerate}
-\item Zugriff auf Hardware des mobil Telefons
-Zur Implementierung einer LBS Applikation wird der eigene Standort benötigt. Um 
+\item \underline{Zugriff auf Hardware des mobil Telefons}
+\\Zur Implementierung einer LBS Applikation wird der eigene Standort benötigt. Um 
 diesen zu bestimmen gibt es mehrere Verfahren (siehe Kapitel Standohrbestimmung). 
 Die Informationen welche dafür benötigt werden, sind über die Hardware des 
 Smartphones erreichbar. Beispielsweise kann der Standort über den eingebauten GPS-
 Empfänger bestimmt werden. Für die Implementierung der App ist es von Nöten, dass 
 diese Informationen ausgelesen werden können.
 
-\item Voraussetzungen und Vorkenntnisse
-Da diese Studienarbeit innerhalb von (?) Monaten entstanden ist und andere Projekte 
+\item \underline{Voraussetzungen und Vorkenntnisse}
+Da diese Studienarbeit innerhalb von wenigen Monaten entstanden ist und andere Projekte 
 parallel bearbeitet werden mussten, ist ein Kriterium über welche Vorkenntnisse die 
 Entwickler verfügen. Dieses Kriterium betrachtet die eingesetzten 
 Programmiersprachen und technischen Geräte welche benötigt werden um eine LBS-App 
 entwickeln zu können.
 
 
-\item Aufwand
+\item \underline{Aufwand}
 Dieses Kriterium ergänzt das vorhergehende. Lässt sich aber auch klar abgrenzen. Da 
 die Zeit für diese Studienarbeit begrenzt ist, darf die Implementierung nicht zu 
 viel Zeit in Anspruch nehmen, da sonst die Anforderungen nicht umgesetzt werden 
@@ -73,7 +75,7 @@ Implementieren und die App betriebssystemunabhängig zu Entwickeln.
 
 \textbf{\underline{WebApp}}\\
 Bei einer WebApp (Webapplikation) handelt es sich um eine Anwendung welche im 
-Browser ausgeführt wird. Eine für Smartphones optimierte WebApp fokusiert sich 
+Browser ausgeführt wird. Eine für Smartphones optimierte WebApp fokussiert sich 
 darauf, die Darstellung für kleine Bildschirme zu optimieren. Auch wird darauf 
 geachtet, dass diese mit einem Touchscreen bedient werden kann. Ziel ist es, dass 
 der Benutzer kaum einen Unterschied zu einer Nativen App erkennt. Berechnungen 
@@ -85,11 +87,11 @@ werden bei dieser Variante meist serverseitig durchgeführt.
 Ein Nachteil der Webapplikation ist, dass es keine Standard-Hardwareschnittstellen 
 für eine Browser-Anwendung gibt. Das Bedeutetet, eine WebApp kann nicht auf die 
 Hardware zugreifen. Beispielsweise eine Standortbestimmung über GPS  oder der 
-Zugriff auf ein Bluetooth Modul nicht möglich.
+Zugriff auf ein Bluetooth Modul ist nicht möglich.
 
 \item Kriterium 2: Voraussetzungen und Vorkenntnisse
 
-Da es sich um eine Webseite handelt kommen die bekannten Technologien zur 
+Da es sich um eine Webseite handelt, kommen die bekannten Technologien zur 
 Entwicklung zum Einsatz. Hierzu zählen:HTML Hypertext Markup Language, Casscading 
 Stylesheets und JavaScript.
 
@@ -101,12 +103,12 @@ dar. Zur Entwicklung reicht ein Editor sowie ein Internetbrowser.
 \item Kriterium 3: Aufwand
 
 Betrachtet man die aufgezählten Technologien und Werkzeuge, so ist der Aufwand für 
-die Entwicklung einer LBS- WebApp gering. Auf die Plattformunabhängigkeit stellt 
+die Entwicklung einer LBS- WebApp gering. Auch die Plattformunabhängigkeit stellt 
 für eine WebApp keine Schwierigkeiten dar, da die genannten Web Technologien 
-standartisiert sind. Allerdings fehlen definierte Schnittstellen für die Hardware 
+standardisiert sind. Allerdings fehlen definierte Schnittstellen für die Hardware 
 Ansteuerung. Der Aufwand eine Schnittstelle zu entwickeln würde den Rahmen dieser 
 Studienarbeit überschreiten. Selbst wenn eine Schnittstellen Implementierung 
-gelingt, so wäre diese nicht Geräte und damit plattformunabhängig.
+gelingt, so wäre diese nicht geräte- und damit plattformunabhängig.
 \end{enumerate}
 
 http://www.sepia.de/webanwendungen-vs-mobile-apps.html
@@ -114,13 +116,11 @@ http://www.sepia.de/webanwendungen-vs-mobile-apps.html
 http://www.smart-digits.com/2012/02/native-app-oder-web-app-teil-1-definitionen-
 und-entscheidungskriterien/
 
-TODO: Zusammenfassung?
-
 
 
 \textbf{\underline{Native App}}\\
 Bei nativen Apps handelt es sich um Programme, welche für ein spezifisches mobiles 
-Betriebssystem lauffähig sind. Eine Ausführung auf einem Computer oder anderem 
+Betriebssystem optimiert und lauffähig sind. Eine Ausführung auf einem Computer oder anderem 
 Betriebssystem ist wenn überhaupt nur schwer umsetzbar.
 Installiert werden kann dies über einen betriebssystemabhängigen Marktplatz. Wie 
 bereits in der Anforderungen erwähnt, soll die Applikation auf iOS und Android 
@@ -150,7 +150,7 @@ Kenntnisse vorhanden.
 
 Zur Implementierung einer iOS App wird neben einem Apple Computer diverse Software 
 benötigt. Hierzu zählt die Entwicklungsumgebung Xcode. Möchte man die App auf einem 
-Gerät Testen, so wird ein Apple Developer Account sowie das IOS Developer Programm, 
+Gerät Testen, so wird ein Apple Developer Account sowie das IOS Developer Programm benötigt, 
 dieses ist Kostenpflichtig.
 
 
@@ -160,21 +160,21 @@ dieses ist Kostenpflichtig.
 Möchte man eine App für beide Betriebssysteme erstellen, so muss jede App einzeln 
 geschrieben werden. Es kann kein Code wiederverwendet werden, da sich die 
 Programmiersprachen unterscheiden. Ebenfalls sind andere APIs vorhanden, was die 
-Entwicklung erschwert. Der Aufwand ist hierbei so hoch wie für zwei Apps. !!Erweitern
+Entwicklung erschwert. Der Aufwand ist hierbei so hoch wie für zwei Apps. 
 \end{enumerate}
 
 \textbf{\underline{Hybrid App}}\\
-Eine Definition laut Duden für den Begriff Hybrid lautet gemischt. Dies ist auch bei solchen Apps der Fall. Mit bekannten WebTechnologien wird der Code für die Apps geschrieben. Ein Framework übernimmt im Anschluss daran, die Generierung der nativen Apps.  
+Eine Definition laut Duden für den Begriff Hybrid lautet gemischt. Dies ist auch bei solchen Apps der Fall. Mit bekannten Web-Technologien wird der Code für die Apps geschrieben. Ein Framework übernimmt im Anschluss daran, die Generierung der nativen Apps.  
 \begin{enumerate}
 \item Kriterium 1: Zugriff auf Hardware Komponenten
 
-Es gibt verschiedene Frameworks um eine Hybride App zu entwickeln, deshalb kann man nicht pauschal sagen welche Zugriffe auf Hardware Komponenten möglich sind. Allerdings bieten bekannte Frameworks wie: Angular UI, Intel XDK oder Adobe Phonegab eine direkte Ansteuerung an Komponeten an. Hierzu zählen beispielsweise die Kamera, Kompass, Beschleunigungssenesor. Realisiert wird der Zugriff über APIs. Neben dem mitgelieferten APIs der Frameworks gibt es Plug-Ins welche von anderen Entwicklern zur Verfügung gestellt werden. Damit sind fast alle Hardware Komponenten Zugreifbar mit Hybrid Apps.
+Es gibt verschiedene Frameworks um eine Hybride App zu entwickeln, deshalb kann man nicht pauschal sagen welche Zugriffe auf Hardware Komponenten möglich sind. Allerdings bieten bekannte Frameworks wie: Angular UI, Intel XDK oder Adobe Phonegab eine direkte Ansteuerung an Komponeten an. Hierzu zählen beispielsweise die Kamera, Kompass, Beschleunigungssenesor. Realisiert wird der Zugriff über APIs. Neben dem mitgelieferten APIs der Frameworks gibt es Plug-Ins welche von anderen Entwicklern zur Verfügung gestellt werden. Damit sind eine Vielzahl von Hardware Komponenten Zugreifbar mit Hybrid Apps.
 
 \item Kriterium 2: Voraussetzungen und Vorkenntnisse
 
 Entwickelt werden Hybrid Apps mit Web Technologien diese sind bereits bei Kriterium 2 von WebApps behandelt worden, ebenfalls die Vorkenntnisse.
 
-Zu den Voraussetzungen zählt die Installation von Software. Ein Framework wird benötigt, diese unterscheiden sich in den bereitgestellten Funktionalitäten. Zur Entwicklung mit Web Technologien wird mindestens ein Editor benötigt. Damit das Framework native Apps generieren kann, wird für die diversen Betriebssysteme SDKs benötigt. Außerdem ist es hilfreich ein Gerät pro Betriebssystem zu besitzen um die App zu testen. Ein andere Möglichkeit ist der Einsatz eines Emulators welcher ein Smartphone auf dem PC simuliert.
+Zu den Voraussetzungen zählt die Installation von Software. Ein Framework wird benötigt, diese unterscheiden sich in den bereitgestellten Funktionalitäten. Zur Entwicklung mit Web-Technologien wird mindestens ein Editor benötigt. Damit das Framework native Apps generieren kann, wird für die diversen Betriebssysteme SDKs benötigt. Außerdem ist es hilfreich ein Gerät pro Betriebssystem zu besitzen um die App zu testen. Ein andere Möglichkeit ist der Einsatz eines Emulators welcher ein Smartphone auf dem PC simuliert.
 
 Alle diese Werkzeuge können kostenlos heruntergeladen werden.
 TODO: klappt das mit Apple auch
@@ -187,22 +187,25 @@ Möchte man eine App für verschiedene Betriebssysteme entwickeln und den Aufwan
 
 \textbf{\underline{Zusammenfassung und Fazit}}\\
 
-WebApp
-Vorkenntnisse vorhanden
-Aufwand ist gering
-Hardware nicht komplett unterstütz
+%WebApp
+%Vorkenntnisse vorhanden
+%Aufwand ist gering
+%Hardware nicht komplett unterstütz
 
-Native App
-sehr wenig vorkenntnisse was viel Zeit in anspruch nehemen würde
-Aufwand ist sehr hoch,weil man sich in zwei sprachen einarbeiten muss
- Dafür volle hardware zur verfügung
+%Native App
+%sehr wenig vorkenntnisse was viel Zeit in anspruch nehemen würde
+%Aufwand ist sehr hoch,weil man sich in zwei sprachen einarbeiten muss
+ %Dafür volle hardware zur verfügung
 
-Hybrid app
-Vorkenntnisse vorhanden
-Hardware meist unterstützt ansosnten Plgu-Ins
- Aufwand ist mittel bis gering
+%Hybrid app
+%Vorkenntnisse vorhanden
+%Hardware meist unterstützt ansosnten Plgu-Ins
+ %Aufwand ist mittel bis gering
 
-Fazit IN dieser ARbeit wird eine Hybrid umgestezt. Da Unerfahren was Frameworks angeht und meiste entwicklung mit Cordova und Plug ins  Wahl viel auf Apache Cordova mit Ionic
+%Fazit IN dieser ARbeit wird eine Hybrid umgestezt. Da Unerfahren was Frameworks angeht und meiste entwicklung mit %Cordova und Plug ins  Wahl viel auf Apache Cordova mit Ionic
+
+\underline{TODO: An dieser Stelle wird ein Zusammenfassung der Erkenntnisse sowie ein Fazit hinzugefügt. }\\
+\underline{sowie ein Fazit hinzugefügt.}
 
 \subsubsection{Phonegap und Apache Cordova}
 PhoneGap entstand als Framework zur Entwicklung von Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft welche das Produkt weiter unter dem Namen Apache Cordova fokussierten. 

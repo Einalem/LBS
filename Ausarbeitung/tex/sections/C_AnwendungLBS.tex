@@ -1,45 +1,42 @@
 \section{Anwendungsfälle für LBS}
 
-Aufzählen wie in SE (Nutzer Potentiale, welches Nutzerproblem wird befriedigt, wie ist Konkurrenz)
-
-Wecker
-Restaurantfinder
-Navigation
-Freunde finden
-Reiseführer
-Spiele
+%Aufzählen wie in SE (Nutzer Potentiale, welches Nutzerproblem wird befriedigt, wie ist Konkurrenz)
+%
+%Wecker
+%Restaurantfinder
+%Navigation
+%Freunde finden
+%Reiseführer
+%Spiele
+Dieses Kapitel zeigt auf, welche Funktionen und Möglichkeiten durch LBSs vorhanden sind. Unterteil ist das Kapitel in mehrere Abschnitte. Der Erste erläutert die Historie von LBSs, anschließend wird im Abschnitt "Theoretische Einsatzgebiete" aufgezeigt welche Funktionen durch LBSs gegeben sind. Diese Funktionen werden anschließend im Abschnitt "Hauptnutzer von LBS" mit Beispielen aus der Umwelt erläutert.
 
 
 \subsection{Historie von LBS}
-Bedeutung von Location Based Services in der heutigen Zeit. Erfunden wurden LBS von der U.S. abwehr behörde. Hierfür wurde das System Navstar entwickelt. Mit Hilfe von Sattelitten kann die Position bis auf wenige Meter bestimmt werde. Bekannt geworden ist diese System unter dem Namen Global Positioning System (GPS). Nutzer dieses System war das Militär. 1980 entschied man sich dazu, dass System der Öffentlichkeit bereitzustellen. Ziel dieses Schrittes war es, Fortschritte in der Entwicklung von Satelliten Systemen zu machen.
+Erfunden wurden LBS von der U.S. Abwehr Behörde. Hierfür wurde das System Navstar entwickelt. Mit Hilfe von Satellitten kann die Position bis auf wenige Meter bestimmt werde. Bekannt geworden ist diese System unter dem Namen Global Positioning System (GPS). Nutzer dieses System war das Militär. 1980 entschied man sich dazu, dass System der Öffentlichkeit bereitzustellen. Ziel dieses Schrittes war es, Fortschritte in der Entwicklung von Satelliten Systemen zu machen. Mit dieser Entscheidung wurden die Voraussetzungen geschaffen LBS im privaten Umfeld zu benutzen.
 
-Die Europäische Union entwickelte daraufhin mit der Europäischen Raumfahrt Behörde (ESA) einen eigenes System namens Galileo. Galileo verwendet ähnliche Frequenzen wie GPS, würde die UN oder die USA diese Signale blockieren, wären beide Systeme gestört, was politisch von hoher Bedeutung ist.
+Die Europäische Union entwickelte daraufhin mit der Europäischen Raumfahrt Behörde (ESA) einen eigenes System namens Galileo.
 
-
-
-
-Location Based Services, also mobile, positionsbezogene Dienste haben allgemein ein sehr breites Einsatzgebiet.\\
 \paragraph{Theoretische Einsatzgebiete}
-Der Autoren Allan J Brimicombe und Chao Li unterscheiden in ihrem Buch "'Location-Based Services and Geo-Information Engineering"' ~\cite[S.132]{brimicombe_li:application_area} zehn verschiedene Einsatzgebiete:
+Die Autoren Allan J Brimicombe und Chao Li unterscheiden in ihrem Buch "'Location-Based Services and Geo-Information Engineering"' ~\cite[S.132]{brimicombe_li:application_area} zehn verschiedene Einsatzgebiete, einige davon werden in den folgenden Abschnitten erläutert:
 \begin{itemize}
-	\item Navigation\\
-The process or activity of accurately ascertaining one’s position and planning and following a route.
-Seit der kostenfreien und öffentlichen Nutzung des GPS hat sich viel in der Navigationsbranche getan. Immer mehr Geräte verfügen über GPS Empfänger, welche eine Lokalisierung ermöglichen. Mit Hilfe des genauen Standortes, ist es möglich den Nutzer des Gerätes zu navigieren. Bei einer Navigation, benötigt das System einen Start- und Zielpunkt. Das Gerät berechnet eine Route und informiert den Nutzer über Distanzen und Richtungsänderungen kurz vor bevor diese ausgeführt werden müssen um der Route folgen zu können. Dies ist dem Gerät möglich, das es ständig den eigenen Standort abfragt. Folgt der Nutzer den Anweisungen befindet er sich am Ende der Navigation am Ziel.
+	\item Navigation
+%The process or activity of accurately ascertaining one’s position and planning and following a route.
+Seit der kostenfreien und öffentlichen Nutzung des GPS hat sich viel in der Navigationsbranche getan. Immer mehr Geräte verfügen über GPS Empfänger, welche eine Lokalisierung ermöglichen. Mit Hilfe des genauen Standortes, ist es möglich den Nutzer des Gerätes zu navigieren. Bei einer Navigation, benötigt das System einen Start- und Zielpunkt. Das Gerät berechnet eine Route und informiert den Nutzer über Distanzen und Richtungsänderungen kurz vor bevor diese ausgeführt werden müssen um der Route folgen zu können. Dies ist dem Gerät möglich, das es sich um einen proaktiven LBS handelt, der ständig den eigenen Standort abfragt. Folgt der Nutzer den Anweisungen befindet er sich am Ende der Navigation am Ziel.
 
 	\item Wegfindung\\
-Im Gegensatz zur Navigation wird bei der Wegfindung nur bei der Planung der Route der Standort benötigt. Eine Führung zum Ziel findet nicht statt. Im Umfeld von LBS wird bei einer Wegfindung der eigene Standort als Startpunkt gesetzt und ein Zielpunkt muss vom Nutzer angegeben werden. Ein Wegfindungsalgorithmus berechnet daraufhin eine Route. Diese kann beispielsweise auf einer Kartedargestellt werden oder jeder Richtungsänderung wird mit einer Strecke in Textform aufgelistet. Moderne Wegfindungsprogramme erlauben die zusätzliche Angabe von Routen- Kriterien. Unter anderem kann die kürzeste Strecke favorisiert werden oder die schnellste.  Hierfür benötigt das Systeme nicht nur die Streckenlänge sondern auch Tempolimits wie auf Autobahnen. 
+Im Gegensatz zur Navigation wird bei der Wegfindung nur bei der Planung der Route der Standort benötigt. Deshalb handelt es sich um einen reaktiven LBS. Eine Führung zum Ziel findet nicht statt. Im Umfeld von LBS wird bei einer Wegfindung der eigene Standort als Startpunkt gesetzt und ein Zielpunkt muss vom Nutzer angegeben werden. Ein Wegfindungsalgorithmus berechnet daraufhin eine Route. Diese kann beispielsweise auf einer Kartedargestellt werden oder jeder Richtungsänderung wird mit einer Strecke in Textform aufgelistet. Moderne Wegfindungsprogramme erlauben die zusätzliche Angabe von Routen- Kriterien. Unter anderem kann die kürzeste Strecke favorisiert werden oder die schnellste.   
 	\item Echtzeit-Verfolgung\\
-Ein weiteres Einsatzgebiet von LBS sind Verfolgungs- und Tracking-Systeme. Diese liefern in Echtzeit den Standort des Gerätes welches den Empfänger enthält. Dies kann beispielsweise genutzt werden um einen Freund in einem schwer überschaubaren Gebiet zu finden. Derjenige der gefunden werden möchte muss seinen Standort bestimmen lassen und diesen an den suchenden übermitteln. Möglich ist dies voll automatisiert durch Apps bei Smartphones. Ein ähnlicher Anwendungsfall ist die Ortung des eigenen Kindes. Das Handy des Kindes sendet in regelmäßigen Abständen die Position an eine Webseite und die Eltern können sich den Standort über eine Karte betrachten.\cite{FreundeFinden} \cite{KiFinden} 
+Ein weiteres Einsatzgebiet von LBS sind Verfolgungs- und Tracking-Systeme. Diese liefern in Echtzeit den Standort des Gerätes welches den Empfänger enthält. Dies kann beispielsweise genutzt werden um einen Freund in einem schwer überschaubaren Gebiet zu finden. Derjenige der gefunden werden möchte muss seinen Standort bestimmen lassen und diesen an den suchenden übermitteln. Möglich ist dies voll automatisiert durch Apps bei Smartphones. Ein ähnlicher Anwendungsfall ist die Ortung des eigenen Kindes. Das Handy des Kindes sendet in regelmäßigen Abständen die Position an eine Webseite und die Eltern können sich den Standort über eine Karte betrachten. Diese LBS können sowohl als reaktiver bzw. proaktiver Dienst implementiert sein. Dies ist abhängig davon, ob der Standort dauerhaft gesendet wird oder nur einmalig.\cite{FreundeFinden} \cite{KiFinden} 
 	\item Elektronischer Handel\\
-Im Zeitalter des Internets können viele Informationen und Aufgaben kostenlos im Internet abgerufen werden können. Einige Beispiele sind: Zeitung lesen, Recherchen durchführen, Musik hören, einkaufen. Daher gewinnt das Werbung schalten im Internet immer mehr an Bedeutung. Neben der personalisierten Werbung welche durch Nutzerdaten Erfassung ermöglicht wird, spielt der Standort des Nutzers eine Rolle zum schalten geeigneter Werbung. Neben Versand- und Online-Händlern gibt es viele Firmen welche ihre Produkte überwiegend in der Produktionsregion verkaufen für diese Händler ist Hyperlokale Werbung von großer Bedeutung. Das Verfahren ist wie folgende, zuerst wird der Standort des Nutzers ermittelt. Je nachdem auf was der Zugriff erlaubt ist kann der Standort bis auf wenige Meter bestimmt werden. Anschließend kann gezielt Werbung über das mobile Internet geschaltet werden. Diese kann auf Webseiten oder in Applikationen angezeigt werden. \cite{HyperWerbung} \cite{Adwords}
+Im Zeitalter des Internets können viele Informationen und Aufgaben kostenlos im Internet abgerufen und bearbeitet werden. Einige Beispiele sind: Zeitung lesen, Recherchen durchführen, Musik hören, einkaufen. Daher gewinnt das Werbung schalten im Internet immer mehr an Bedeutung. Neben der personalisierten Werbung welche durch Nutzerdaten Erfassung ermöglicht wird, spielt der Standort des Nutzers eine Rolle zum schalten geeigneter Werbung. Neben Versand- und Online-Händlern gibt es viele Firmen welche ihre Produkte überwiegend in der Produktionsregion verkaufen für diese Händler ist Hyperlokale Werbung von großer Bedeutung. Das Verfahren ist wie folgend, zuerst wird der Standort des Nutzers ermittelt. Je nachdem auf was der Zugriff (GPS,WLAN) durch den Nutzer erlaubt ist kann der Standort bis auf wenige Meter bestimmt werden. Anschließend kann gezielt Werbung über das mobile Internet geschaltet werden. Diese kann auf Webseiten oder in Applikationen angezeigt werden. \cite{HyperWerbung} \cite{Adwords}
 	\item User-solicited Informations (vom Nutzer gewünschte Informationen)\\
-Unter diese Kategorie fallen alle Anwendungen, die vom Nutzer für den geschäftlichen oder sozialen Gebrauch genutzt werden. Beispiele dafür sind: Wetterprognosen, Zugverspätungen und Filmvorführungen.
+Unter diese Kategorie fallen alle Anwendungen, die vom Nutzer für den geschäftlichen oder sozialen Gebrauch genutzt werden. Beispiele hierfür sind: Wetterprognosen, Zugverspätungen und Filmvorführungen.
 	\item Ortsgebundene Tarife\\
-	Am Anfang der 1990er Jahre wurden flächendeckend digitale Mobilfunknetzte ausgebaut. Mit dieser Technik war es mit einem Handy möglich von überall aus zu telefonieren. Abgerechnet wirde pro telefonierter Minute bzw. Sekunde. Die Preise sind deutlich teurer im Vergleich zu Festnetz Telefonen. Aus diesem Grund hat man Ortsgebundene Tarife eingeführt. Über die Cell-ID, welche den ungefähren Standort des Handys mitteilt, können Anbieter günstigere Tarife anbieten. Bei Vertragsabschluss kann der Kunde seine Heimatadresse angeben. In einem definierten Radius beispielsweise 3km, wird dann beim Telefonieren über das Handy ein günstigerer Tarif berechnet. Ziel ist es, dem Kunden eine alternative für das Festnetzt zu bieten. Je nach Anbieter kann sich bei Vertragsabschluss zusätzlich zur Handynummer eine Festnetznummer gegeben werden, welche nur aktiv wird wenn der Kunde sich in dem definierten Radius befindet. Bekannte Beispiele sind: Homezone des Anbieters O2, Vodafone Zuhause von Vodafone oder T-Mobile@home von Telekom.
-	\item Fulfilment
-	\item Koordination
-	\item Kunstvoller Ausdruck
-	\item Mobile Spiele
+	Am Anfang der 1990er Jahre wurden flächendeckend digitale Mobilfunknetzte ausgebaut. Mit dieser Technik ist es mit einem Handy möglich von überall aus zu telefonieren. Abgerechnet wird pro telefonierter Minute bzw. Sekunde. Die Preise waren deutlich teurer im Vergleich zu Festnetz Telefonen. Aus diesem Grund hat man Ortsgebundene Tarife eingeführt. Über die Cell-ID, welche den ungefähren Standort des Handys mitteilt, können Anbieter günstigere Tarife anbieten. Bei Vertragsabschluss kann der Kunde seine Heimatadresse angeben. In einem definierten Radius beispielsweise 3km, wird dann beim Telefonieren über das Handy ein günstigerer Tarif berechnet. Ziel ist es, dem Kunden eine alternative für das Festnetzt zu bieten. Je nach Anbieter kann sich bei Vertragsabschluss zusätzlich zur Handynummer eine Festnetznummer gegeben werden, welche nur aktiv wird wenn der Kunde sich in dem definierten Radius befindet. Bekannte Beispiele sind: Homezone des Anbieters O2, Vodafone Zuhause von Vodafone oder T-Mobile@home von Telekom. Im Laufe der Zeit haben sich diese Tarife nicht durchgesetzt und mit der Einführung von Flat-Rates haben sie immer mehr an Bedeutung verloren.
+%	\item Fulfilment
+%	\item Koordination
+%	\item Kunstvoller Ausdruck
+%	\item Mobile Spiele
 \end{itemize}
 
 
@@ -47,9 +44,12 @@ Unter diese Kategorie fallen alle Anwendungen, die vom Nutzer für den geschäft
 
 LBS wurden erstmals vom amerikanischen Militär erfunden und genutzt. Nachdem die Services der Öffentlichkeit bereitgestellt wurden, führte dies zu immer mehr Anwendungsbereichen beispielsweise zur Lokalisierung von Notrufen. In Europa findet dies über die Rufnummer „112“ statt, in Amerika „911“.  Seit 1996 besteht in den USA eine Pflicht, den ungefähren Standort mitzusenden bei einem Notruf. 
 
-Im Laufe der letzten Jahre wurden immer mehr Möglichkeiten geschaffen, mobil Telefone zu lokalisieren und den Standort für beispielsweise Informationsdarstellung zu nutzen. Damit ergibt sich der dritte große Anwendungsbereich von LBS, die kommerzielle Nutzung für privat Personen und Unternehmen.
+Im Laufe der letzten Jahre wurden immer mehr Möglichkeiten geschaffen, mobil Telefone zu lokalisieren und den Standort für beispielsweise Informationsdarstellung zu nutzen. Damit ergeben sich drei große Anwendungsbereich von LBS:
+\\Militär
+\\Lokalisierung von Notrufe
+\\Kommerzielle Nutzung für privat Personen und Unternehmen.
 
-Im folgenden Abschnitt werden die genannten Hauptnutzer von LBS genauer erläutert und aufgezeigt wofür LBS verwendet wird.
+Im folgenden Abschnitt werden die genannten Hauptnutzer von LBS genauer erläutert und aufgezeigt wofür LBS verwendet werden.
 
 
 \underline{LBS im Umfeld des Militärs}
@@ -58,7 +58,7 @@ Den eigenen Standort zu kennen und beschreiben zu können ist nicht immer auf An
 
 Wesentlich schwieriger ist die Standortbestimmung wenn man sich an einem Ort befindet, der sehr allgemein ist und keine Besonderheiten bzw. identifikations Merkmale aufweist. Oft befindet sich das Militär an solchen schwer zu definierenden Orten. Einige Beispiele für solche Orte sind: Wüsten, Wälder, Berge und Gebirge. Vermutlich war dies einer der Hauptgründe ein System zur Bestimmung des Standortes zu entwickeln. 
 
-Die Anwenudng FBCB2 ist ein Beispiel für die Verwendung von mehreren Standorten. Sie wird bereits seit 10 Jahren vom amerikanischen Militär eingesetzt. FBCB2 ist die Abkürzung für „Force-Twenty-One Battle Command Brigade and Below“. Die Anwendung ist bei Panzer Brigaden anführern im Einsatz. Auf einer Karte wird dem Nutzer angezeigt welche verbündeten Panzer in der Nähe sind. Zu jedem dieser Panzer werden einem weiter Informationen bereitgestellt. Mit diesem System braucht man keinen Kompass und keine Papier- Karte mehr um sich eine Überblick zu verschaffen. 
+Die Anwenudng FBCB2 ist ein Beispiel für die Verwendung von mehreren Standorten. Sie wird bereits seit 10 Jahren vom amerikanischen Militär eingesetzt. FBCB2 ist die Abkürzung für „Force-Twenty-One Battle Command Brigade and Below“. Die Anwendung ist bei Panzer Brigaden im Einsatz. Auf einer Karte wird dem Nutzer angezeigt welche verbündeten Panzer in der Nähe sind. Zu jedem dieser Panzer werden einem weiter Informationen bereitgestellt. Mit diesem System braucht man keinen Kompass und keine Papier- Karte mehr um sich eine Überblick zu verschaffen. 
 
 Im Kriegs Geschehen allgemein nimmt die Bedeutung von LBS stark zu. Genutzt wird dies Technik unter anderem bei Lenkraketen. Der Befehlshaber braucht nur die Koordinaten anzugeben und die Rakete berechnet den optimalen Weg zum Ziel. Essenziel wichtig ist dabei für die Rakete zu jedem Zeitpunkt im Flug zu wissen an welchen Standort sie sich befindet um gegebenenfalls die Geschwindigkeit oder Höhe anzupassen. 
 
@@ -68,20 +68,22 @@ Neben Lenkraketen gibt es immer mehr unbemannte Kriegsflugzeuge, sogenannte Droh
 
 Benötigt man schnelle Hilfe, dann ist es von großem Vorteil, wenn der jenige, der einem Helfen soll schnellst möglich an seinem Ziel ankommt. Voraussetzung dafür ist es, das Ziel zu kennen.
 
-Deshalb werden LBS bei Notrufen verwendet. Die Idee dahinter ist, wenn jemand den Notruf wählt, in Deutschland ist das die Nummer „112“ und Amerika „911“, wird der Leitstelle, welche den Anruf entgegen nimmt der Standort des Anrufers übermittelt. Dies ist nur bei Notrufen von mobil Telefonen möglich. Noch während des Anrufes kann ein Rettungswagen oder ein Einsatzwagen der Feuerwehr in Richtung des Anrufers aufbrechen. Der Anrufer hat so mehr Zeit seinen Standort detailliert mitzuteilen.
+Deshalb werden LBS bei Notrufen verwendet. Die Idee dahinter ist, wenn jemand den Notruf wählt, in Deutschland ist das die Nummer „112“, wird der Leitstelle, welche den Anruf entgegen nimmt der Standort des Anrufers übermittelt. Dies ist nur bei Notrufen von mobil Telefonen möglich. Noch während des Anrufes kann ein Rettungswagen oder ein Einsatzwagen der Feuerwehr in Richtung des Anrufers aufbrechen. Hilfe ist bereits für den Anrufer unterwegs während der Standort detailliert mitgeteilt wird.
 
 Bereits 1996 wurde in Amerika ein Gesetz verabschiedet welches den Mobilfunkanbieter dazu verpflichtet den ungefähren Standort des Anrufers bei einem Notruf mit zu übermitteln.  2003 wurde für Europa ein ähnliches Gesetzt verabschiedet. Das amerikanische Gesetz wurde 2001 überarbeitet und die Genauigkeit des Standortes muss nun zwischen 50-300 m liegen.  
 
 Aus einer Quelle von 2004 lässt sich entnehmen, dass in den USA ca. 33\% (170.000 täglich) und in Europa 50-70\% (220.000 täglich) der Notruf mit Hilfe eines mobil Telefons getätigt werden. Man geht davon aus, dass mit dieser Technik ca. 5000 Menschenleben jährlich gerettet werden können.
 
-Zur Ortung wird kein GPS- Modul benötigt, über sogenannten ID-Zellen kann der Standort des Anrufes auf bis zu 100m genau bestimmt werden. Die einzelnen Techniken werden in Kapitel XX genauer erläutert werden. 
+Zur Ortung wird kein GPS- Modul benötigt, über sogenannten ID-Zellen kann der Standort des Anrufes bestimmt werden.
+
+http://www.heise.de/ct/artikel/Handys-lassen-sich-nicht-genau-lokalisieren-1901337.html
 
 
 \textbf{ \underline{Nutzung im Kommerziellen Umfeld } }
 
 \paragraph{Praktische Einsatzgebiete}
-Nach einer Goldmedia-Analyse~\cite[S.9]{goldmedia:lbs} verteilten sich die deutsche LBS-Marktstruktur 2014 auf 15 unterschiedliche Gebiete.\\
-In der Studie werden folgende Punkte unterschieden:
+Nach einer Goldmedia-Analyse~\cite[S.9]{goldmedia:lbs} verteilten sich die deutsche LBS-Marktstruktur 2014 auf 15 unterschiedliche Gebiete, einige werden in den folgenden Abschnitten erläutert:\\
+
 \begin{itemize}
 	\item Tourismus\\
 	Mit Hilfe von LBS ist es möglich auf einen Stadtführer aus Papier zu verzichten. Informationen können für Touristen in einer Applikation über das Smartphone breitgestellt werden. So bekommt der Tourist immer genau die Informationen angezeigt, die für die Gegenstände oder Gebäude in der Nähe relevant sind. Ebenfalls kann der Tourist seine eigne Stadttour bestreiten, da eine integrierte Navigation zu Interessenten Punkten realisiert werden kann. Des Weiteren können POI „Points of Intererst“ in Abhängigkeit vom eigenen Standort als mögliche Ziele vorgeschlagen werden. POI können beispielsweise Sehenswürdigkeiten, Musen, Restaurants, Parkhäuser sein.
@@ -89,7 +91,7 @@ Alle diese Informationen können mit einem Gerät bereitgestellt werden.
 
 	\item Beförderung und Verkehr\\
 	Im Bereich öffentlicher Personen Nahverkehr ergeben sich durch LBS neue Möglichkeiten. Der Verkehrsverbund Rhein –Neckar beispielsweise bietet eine App an, welche unter anderem den Standort des Nutzers ermittelt und daraufhin die nächste Haltestelle in der Nähe als Start definiert und anzeigt, welche Linien der Busse und Straßenbahnen von dieser Haltestelle abfahren. Auch wird beschrieben wie man zu dieser Haltestelle gelangt.
-Auch für Autofahrer kann LBS von Vorteil sein, in der App „Maps“ von Google kann sich der aktuelle Verkehr auf öffentlichen Straßen angezeigt werden. So ist es dem Fahrer möglich vor der Abfahrt zu überprüfen ob auf den geplanten Strecken eine Stau ist. Mit Hilfe von LBS werden anonymisierte Standort Daten an Google gesendet, erkennt der Algorithmus, dass auf einer Autobahn viele Standortdaten mit geringer Geschwindigkeit vorhanden sind, wird auf der Karte ein Stau dargestellt und in die Routenplanung von Google Maps aufgenommen. Dies ist wiederum ein weiteres Einsatzgebiet von LBS. \cite{StauWarnung}
+\\Auch für Autofahrer kann LBS von Vorteil sein, in der App „Maps“ von Google kann sich der aktuelle Verkehr auf öffentlichen Straßen angezeigt werden. So ist es dem Fahrer möglich vor der Abfahrt zu überprüfen ob auf den geplanten Strecken eine Stau ist. Mit Hilfe von LBS werden anonymisierte Standort Daten an Google gesendet, erkennt der Algorithmus, dass auf einer Autobahn viele Standortdaten mit geringer Geschwindigkeit vorhanden sind, wird auf der Karte ein Stau dargestellt und in die Routenplanung von Google Maps aufgenommen. Dies ist wiederum ein weiteres Einsatzgebiet von LBS. \cite{StauWarnung}
 
 	
 	\item Navigation und Maps\\
@@ -99,21 +101,21 @@ Auch für Autofahrer kann LBS von Vorteil sein, in der App „Maps“ von Google
 	Im Gastronomiebereich finden LBS auch einen Anwendungsbereich. Beispielsweise können sich Nutzer über Restaurants in der Nähe informieren. Diese können auf einer Karte mit weiterführenden Informationen dargestellt werden. Diese Informationen sind Öffnungszeiten, Richtung der Küche (Asiatisch, deutsch, Pizzaria…), Bewertungen durch andere Nutzer.
 Bekannt aus dem TV sind aber auch Apps welche viele Lieferdienste in der Umgebung anzeigen. Anhand des Standortes wird dem Nutzer eine Liste von Lieferdiensten in seiner Umgebung zusammengestellt. Zwei Beispiele sind: Lieferando und Lieferheld.
 
-	\item Couponing und Einkauf
-	\item Social
+	
 	\item Taxi,Carsharing und Bikesharing\\
 	In städtischen Gebieten braucht man für den Alltag nicht unbedingt ein Auto. Meist befinden sich viele Geschäfte in der Nähe oder sind über öffentliche Verkehrsmittel gut erreichbar. Trotzdem kommt es vor, dass ein Auto gebraucht wird. Zum Beispiel für größere Einkäufe wie Möbel oder lange Gegenstände. Deshalb gibt es Carsharing Anbieter. Über eine Internetseite kann sich ein Nutzer dort registrieren und sich dann Stunden oder Minutenweise ein Auto mieten. Besonders ist hierbei, dass es keine expliziten Mietstationen gibt. Die Autos werden einfach in der Stadt geparkt. Möchte ein Kunde ein Auto mieten, kann er das in der Nähe parkende nehmen. An dieser Stelle spielt LBS eine wichtige Rolle. Die Autos sind mit Transpondern ausgestattet. Auf einer Karte des Nutzers werden alle Autos in der Nähe abgebildet. Mit dieser Technik ist es möglich schnell und einfach ein Auto des Vermieters zu finden. Ähnlich ist das Verfahren bei Bikesharing Anbietern und Taxis. In diesem Fall sind die Fahrräder bzw. Taxis mit Transpondern ausgestattet und der Nutzer kann sich das nächstgelegenen Aussuchen.
 	\item Sport\\
 	Sogenannte Sport-Apps nutzen ebenfalls LBS. Es handelt sich hierbei um Programme zur Aufzeichnung und Dokumentation sportlicher Aktivitäten. Fährt der Nutzer mit dem Fahrrad oder geht Joggen, wird die zurückgelegte Streck über den eigenen Standort ermittelt  sowie die Geschwindigkeiten. Mit einem Computer oder Smartphone kann anschließend die eigenen Aktivitäten betrachtet werden. 
-	\item Augmented Reality
-	\item Allgemeine Informationen
-	\item Carsharing
-	\item Gaming
-	\item Gesundheit
-	\item Media
-	\item Sonstiges
+%	\item Couponing und Einkauf
+%	\item Social
+%	\item Augmented Reality
+%	\item Allgemeine Informationen
+%	\item Carsharing	\item Gaming
+%	\item Gesundheit
+%	\item Media
+%	\item Sonstiges
 \end{itemize}
-Ganz offensichtlich ist diese Unterteilung vielschichtiger als die von Allan J Brimicombe und Chao Li. Es werden jeweils andere Schwerpunkte gesetzt. Es gibt jedoch auch Gemeinsamkeiten.
+%Ganz offensichtlich ist diese Unterteilung vielschichtiger als die von Allan J Brimicombe und Chao Li. Es werden %jeweils andere Schwerpunkte gesetzt. Es gibt jedoch auch Gemeinsamkeiten.
 
-\paragraph{Gemeinsamkeiten und Unterschiede}
-Navigation ist ein wichtiger Punkt in beiden Übersichten. Den Standort anzuzeigen bzw. den Nutzer zu navigieren ist eine der ersten Anwendungsbereiche von LBS.
+%\paragraph{Gemeinsamkeiten und Unterschiede}
+%Navigation ist ein wichtiger Punkt in beiden Übersichten. Den Standort anzuzeigen bzw. den Nutzer zu navigieren ist %eine der ersten Anwendungsbereiche von LBS.

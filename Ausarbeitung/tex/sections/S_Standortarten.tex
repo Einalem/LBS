@@ -1,53 +1,46 @@
 \subsection{Standortarten}
+Betrachtet man sich den Titel dieser Arbeit „Location Based Services“ (Standort bezogene Dienste) wird schnell klar aus welchen Bestandteilen sich LBS zusammensetzt. Zum Einen der eigene Standort und zum Anderen ein Dienst der diesen nutzt. Dieses Kapitel beschäftigt sich mit ersterem, dem Standort. Es wird aufgezeigt wie ein Standort definiert werden kann.
+\\Als einleitendes Beispiel kann man sich vorstellen, man steht mitten in einer groß Stadt wie Mannheim. Für einen selbst ist klar wo der eigene Standort ist. Will man diesem einem Freund mitteilen kann dies schwierig sein. Deshalb gibt es definierte Arten seinen Standort bis auf wenige Zentimeter genau zu bestimmen. Dieses Kapitel ist in mehrere Abschnitte unterteilt, jeder Abschnitt erläutert eine mögliche Beschreibung des eigenen Standortes.
+TODO Beschreibung Aufbau des Kapitels
 
+Zu beachten ist an dieser Stelle, dass es sich hierbei nicht um alle Möglichkeiten handelt einen Standort zu beschreiben. Es ist immer möglich eine individuelle Beschreibung des eigenen Standortes weiter zu geben. 
 
-
-
-Betrachtet man sich den Titel dieser Arbeit „Location Based Services“ (Standort bezogene Dienste) wird schnell klar aus welchen Bestandteilen sich LBS zusammensetzt. Zum einen der eigene Standort und ein Dienst der diesen nutzt. Dieses Kapitel beschäftigt sich mit ersterem, dem Standort. Es wird aufgezeigt wie ein Standort definiert werden kann.
-Als einleitendes Beispiel kann man sich vorstellen, man steht mitten in einer groß Stadt wie Mannheim. Für einen selbst ist klar wo der eigene Standort ist. Will man diesem einem Freund mitteilen kann dies schwierig sein. Deshalb gibt es definierte Arten seinen Standort bis auf wenige Zentimeter genau zu bestimmen. Aufgebaut ist dieses Kapitel anhand der genauigkeit des angegbenen Ortes mit dem beschrieben Hilsmittel. Begonnen wird mit dem ungenauesten Typ und als letztes wird die genauste Art zur Standortbeschreibung genannt. Im Anschluss folgt eine Zusammenfassung zur Standortbeschreibung in Gebäuden.
-
-TO DO
-Wichtig ist noch zu sagen, dass es sich hierbei nicht um alle möglichkeiten Handelt, es ist immer möglich eine individuelle Beschreibung des eigenen Standortes zu geben. Beispielsweise über eine Kombination von Straßennamen und Bekannten Gebäuden wie einem Rathaus oder Wasserturm. 
-TO DO
-Standortbeschreibung anhand von Objekten in der Nähe
-Man sucht sich Punkte in der Umgebung welche gesehen werden können. Diese gibt man dann weiter. Was sehr ungenau sein kann.
-
-\textbf{Standortbeschreibung anhand der Sterne}
+\textbf{Standortbeschreibung anhand der Sterne}\\
 \textbf{Standortbeschreibung mit einem Kompass}
-Dieser Abschnitt beschreibt wie man mit Hilfe eines Kompasses seine Position bestimmen bzw. angeben kann. Hierfür wird erst vorgestellt wie ein Kompass funktioniert und welche Voraussetzungen zur Standortbestimmung gegeben sein müssen.
-Bei einem Kompass handelt es sich um ein Gerät dessen Aufgabe es ist, in die Richtung zu zeigen in der der Norpol liegt. Dieses Ziel wird durch das Erdmagnetfeld erreicht.
+\\Dieser Abschnitt beschreibt wie man mit Hilfe eines Kompasses seine Position bestimmen bzw. angeben kann. Hierfür wird erst vorgestellt wie ein Kompass funktioniert und welche Voraussetzungen zur Standortbestimmung gegeben sein müssen.
+\\Bei einem Kompass handelt es sich um ein Gerät dessen Aufgabe es ist, in die Richtung zu zeigen in der der Norpol liegt. Dieses Ziel wird durch das Erdmagnetfeld erreicht.
 
 \includegraphics[width=0.50\textwidth]{ref/images/magnetfeld.jpg}
  
 Das Erdmagnetfeld ist in Abbildung XX zu sehen. Durch dieses Feld ist die komplette Erdkugel magnetisiert. In der Nähe des geografischen Südpols liegt der magnetische Nordpol. Umgekehrtes gilt für den geografischen und magnetischen Nord- bzw. Südpol.
-Damit ein Kompass dieses Feld nutzen kann wird ein magnetisches Metallstück benötigt. Da die magnetische Anziehung nicht sehr stark ist, sollte das Metallstück sehr leichtgängig sein. Hierfür besitzen die meisten Kompasse ein rundes Gehäuse welches mit einer Flüssigkeit gefüllt ist. In dieser Flüssigkeit ist das Metallstück in der Mitte fixiert und kann sich so mit sehr geringem Reibungswiderstand drehen. Hält man den Kompass waagerecht und dreht sich nicht dabei, wird sich das magnetisierte Metallstück Richtung geografischem Nordpol ausrichten. Bei einem Kompass wird dieses Metallstück Nadel genannt und ist meist in den Farben rot und grün lackiert. Die Rote Spitze der Nadel zeigt nach Norden.
+Mit Hilfe eines magnetisiertem Metallstücks kann dieses Feld genutzt werden. Meist ist das Metallstück, eine Nadel,  diese zeigt dann Richtung Norden.
 
 \includegraphics[width=0.50\textwidth]{ref/images/kompassrose.jpg}
  
-Bei einem Kompass kommt neben der Nadel auch eine Kompassrose zum Einsatz. Diese ist unter der Nadel angebracht und entweder fest mit dem Gehäuse oder der Nadel verbunden. Mit Hilfe dieser Rose lässt sich eine Gradzahl ablesen diese Gradzahl orientiert sich immer am Abstand von der angezeigten Richtung des Norpols. Diese Gradzahl kann für die Beschreibung des eigenen Standort genutzt werden. Wie dieses Verfahren funktioniert wird im nächsten Abschnitt erklärt.
+Bei einem Kompass kommt neben der Nadel auch eine Kompassrose zum Einsatz. Mit Hilfe dieser Rose lässt sich eine Gradzahl ablesen diese Gradzahl orientiert sich immer am Abstand von der angezeigten Richtung des Norpols. Diese Gradzahl kann für die Beschreibung des eigenen Standort genutzt werden. Wie dieses Verfahren funktioniert wird im nächsten Abschnitt erklärt.
 
 Standortbeschreibung mit zwei Fixpunkten
 Möchte man seinen geografischen Standpunkt jemandem Mitteilen oder sich dieses notieren, muss man diesen beschreiben. Hat man dafür nur einen Kompass zur Verfügung, kann man sich zwei Fixpunkte zur Hilfe nehmen um den eigenen Standort zu bestimmen.
-Anhand eines Beispiels soll dieses Verfahren erklärt werden. Befindet man sich auf einem Boot in der Nähe der Küste und möchte den Standort mit einem Kompass bestimmen, so sucht man sich zwei gut sichtbare Punkte an der Küste, dies können beispielsweise Leuchttürme oder eindeutig identifizierbare Felswände sein. Nun fixiert man den ersten Punkt mit dem Kompass. Anschließend liest man die exakte Grad Zahl auf der Kompassrose ab.  In Abbildung XX entspricht dies der blauen Linie (TODO). Mit Hilfe der Angabe von Gradzahl und erstem Fixpunkt, kann der eigene Standort auf eine Linie differenziert werden. Um nun den Standort auf einen Punkt zu differenzieren fixiert man mit dem Kompass den zweiten Fixpunkt und liest ebenfalls die Grad Zahl ab. Zeichnet man diese Informationen in eine Karte ergibt sich ein Schnittpunkt von zwei Geraden. An dieser Stelle befindet man sich. Die Beschreibung des eigenen Standortes könnte beispielsweise wie folgt aussehen:
-270 Grad von Leuchtturm X
-250 Grad von Gebäude Y
-Vorteil, verfahren kann überall angewendet werden wo es fixpunkte Gibt (excl. Offenes Meer)
+Anhand eines Beispiels soll dieses Verfahren erklärt werden. Befindet man sich auf einem Boot in der Nähe der Küste und möchte den Standort mit einem Kompass bestimmen, so sucht man sich zwei gut sichtbare Punkte an der Küste, dies können beispielsweise Leuchttürme oder eindeutig identifizierbare Felswände sein. Nun fixiert man den ersten Punkt mit dem Kompass und liest die exakte Grad Zahl auf der Kompassrose ab. Mit Hilfe der Angabe von Gradzahl und erstem Fixpunkt, kann der eigene Standort auf eine Linie differenziert werden. Um nun den Standort auf einen Punkt zu differenzieren fixiert man mit dem Kompass den zweiten Fixpunkt und liest ebenfalls die Grad Zahl ab. Zeichnet man diese Informationen in eine Karte ergibt sich ein Schnittpunkt von zwei Geraden. An dieser Stelle befindet man sich. Die Beschreibung des eigenen Standortes könnte beispielsweise wie folgt aussehen:
+\\270 Grad von Leuchtturm X
+\\250 Grad von Gebäude Y
+\\Der Vorteil dieses Verfahren ist, es kann überall angewendet werden wo es Fixpunkte gibt.
 Nachteile dieser Methode sind, es wird keine Höhe angegeben und es kann eine große Ungenauigkeit beim Ablesen des Kompasses entstehen.
 
 \textbf{Standortbeschreibung mittels einer Adresse}
-Im Gegensatz zur eben Vorgestellten Standortbeschreibung ist die in diesem Abschnitt behandelt wird wesentlich bekannte. Es handelt sich um die Anschrift bzw. Adresse. Bei dieser Beschreibung wird kein exakter Standort angeben, sondern ein Haushalt. Dies geschieht über einen Namen, eine Straße mit Hausnummer und die Angabe einer Stadt welche konkretisiert über die Postleitzahl angeben wird.  
+\\Im Gegensatz zur eben Vorgestellten Standortbeschreibung ist die in diesem Abschnitt behandelt wird wesentlich bekannter. Es handelt sich um die Anschrift bzw. Adresse. Bei dieser Beschreibung wird kein exakter Standort angeben, sondern ein Haushalt. Dies geschieht über einen Namen, eine Straße mit Hausnummer und die Angabe einer Stadt welche konkretisiert über die Postleitzahl angeben wird.  
 Eine Adresse kann in Deutschland beispielsweise wie folgt aus:
-Max Mustermann 
-Coblitzalle 53
-12345 Mannheim
+\\Max Mustermann 
+\\Coblitzalle 53
+\\12345 Mannheim
+
 
 3. Zeile: Postleitzahl und Stadtname
-Die letzte Zeile der Adresse enthält den Namen einer Stadt sowie eine Postleitzahl. Bei der Angabe der Stadt handelt es sich um die gröbste Angabe innerhalb der Adresse. Mit Hilfe des Städtenames soll eine erste Orientierung innerhalb deutschlands ermöglicht werden. Es handelt sich nicht nur um Großstädte wie Berlin, Frankfurt, Hamburg etc. sondern alle Gemeinden welche den Titel Stadt tragen .
+\\Die letzte Zeile der Adresse enthält den Namen einer Stadt sowie eine Postleitzahl. Bei der Angabe der Stadt handelt es sich um die gröbste Angabe innerhalb der Adresse. Mit Hilfe des Städtenames soll eine erste Orientierung innerhalb deutschlands ermöglicht werden. Es handelt sich nicht nur um Großstädte wie Berlin, Frankfurt, Hamburg etc. sondern alle Gemeinden welche den Titel Stadt tragen .
 Da manche Städtenamen mehrfach vorkommen oder die Angabe zu ungenau ist wird der Stadname mit der Postleitzahl (PLZ) definiert bzw. konkretierst. Alleine für die Stadt Mannheim gibt es über 15 verschieden PLZs. Diese sind teilweise jedem Stadtteil zugeordnet.
 
 \includegraphics[width=0.50\textwidth]{ref/images/plzgebiete.png}
-
- Die PLZs in Deutschland haben sich im Laufe der Jahre häufig geändert, seit 1993 gibt es fünfstellige PLZs in Deutschland. Die erste Ziffer 0-9 gibt ein Gebiet an. Mit jeder weiteren Ziffer wird das Gebiet konkretisiert. Siehe Abbildung XX. Da die Angabe von einer Stadt und dazugehörigen PLZ, das Gebiet noch nicht weit genug einschränkt um einzelne Häuser bzw. Haushalte zu identifizieren, wird ein Straßenname angegeben.
+Da die Angabe von einer Stadt und dazugehörigen PLZ, das Gebiet noch nicht weit genug einschränkt um einzelne Häuser bzw. Haushalte zu identifizieren, wird ein Straßenname angegeben.
 Die europäischen Straßennamen sind meist mit Wort Namen angeben.
 Einige Beispiele hierfür sind:
 -	Lindenstraße

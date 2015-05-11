@@ -1,8 +1,5 @@
 \subsection{Technologien und Entscheidungen}
 
-
-
-
 Aus den Anforderungen heraus wurde sich im Rahmen dieser Arbeit für diverse Technologien entschieden, welche eine Umsetzung der Anforderungen des Prototypen ermöglichen.
 %Eine dieser Anforderungen ist es, die Funktionen über ein Smartphone zu nutzen. Um möglichst vielen Anwendern die %Möglichkeit der Nutzung zu geben, fiel die Wahl auf Phonegap und Apache Cordova.
 
@@ -65,7 +62,7 @@ Empfänger bestimmt werden. Für die Implementierung der App ist es von Nöten, 
 diese Informationen ausgelesen werden können.
 
 \item \underline{Voraussetzungen und Vorkenntnisse}
-Da diese Studienarbeit innerhalb von wenigen Monaten entstanden ist und andere Projekte 
+\\Da diese Studienarbeit innerhalb von wenigen Monaten entstanden ist und andere Projekte 
 parallel bearbeitet werden mussten, ist ein Kriterium über welche Vorkenntnisse die 
 Entwickler verfügen. Dieses Kriterium betrachtet die eingesetzten 
 Programmiersprachen und technischen Geräte, die benötigt werden um eine LBS-App 
@@ -73,8 +70,8 @@ entwickeln zu können.
 
 
 \item \underline{Aufwand}
-Dieses Kriterium ergänzt das vorhergehende, lässt sich aber auch klar abgrenzen. Da 
-die Zeit für diese Studienarbeit begrenzt ist, darf die Implementierung nicht zu 
+
+\\Dieses Kriterium ergänzt das vorhergehende. Lässt sich aber auch klar abgrenzen. Da die Zeit für diese Studienarbeit begrenzt ist, darf die Implementierung nicht zu 
 viel Zeit in Anspruch nehmen, da sonst die Anforderungen nicht umgesetzt werden 
 können. Betrachtet wird hierbei der Aufwand um die Anforderungen zu 
 Implementieren und die App betriebssystemunabhängig zu entwickeln.
@@ -227,7 +224,8 @@ Möchte man eine App für verschiedene Betriebssysteme entwickeln und den Aufwan
 \subsubsection{Phonegap und Apache Cordova}
 PhoneGap entstand als Framework zur Entwicklung von Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft, die das Produkt weiter unter dem Namen Apache Cordova fokussierten. 
 \\
-Im Rahmen der hier vorgestellten Arbeit wurde Cordova genutzt, um eine hybride App zu entwickeln, da der Vorteil des Frameworks vor allem aus seiner Wiederverwendbarkeit besteht. Der geschriebene HTML-, CSS- und JavaScript-Code kann nämlich über Cordova entsprechend der verschiedenen Mobilplattformen unterschiedlich transformiert werden, um die entsprechende Applikation im richtigen Format zu erstellen. Unterstützt werden dabei die verbreitetsten Betriebssysteme Andorid und iOS, aber auch weitere wie Windows Phones, Blackberrys oder sogar FirefoxOS.
+Im Rahmen der hier vorgestellten Arbeit wurde Cordova genutzt, um eine hybride App zu entwickeln. Da der Vorteil des Frameworks vor allem aus seiner Wiederverwendbarkeit besteht. Der geschriebene HTML-, CSS- und JavaScript-Code kann nämlich über Cordova entsprechend der verschiedenen Mobilplattformen unterschiedlich transformiert werden, um die entsprechende Applikation im richtigen Format zu erstellen. Unterstützt werden dabei die verbreitetsten Betriebssysteme Andorid und iOS, aber auch weitere wie Windows Phones, Blackberrys oder sogar FirefoxOS. Damit ist die fertige App später für alle zuvor vorgestellten Betriebssysteme verfügbar.
+
 
 \subsubsection{Ionic}
 Ein weiteres genutztes Framework ist Ionic. Es handelt sich dabei um ein HTML5-Framework, das sich um das Benutzerinterface einer Web-Applikation kümmert. Der Fokus des Frameworks liegt dabei speziell auf mobilen Endgeräten.
@@ -254,7 +252,8 @@ http://www.w3.org/standards/webdesign/htmlcss
 Angular JS ist ein Framwork, das voll auf JavaScript aufbaut und komplett klientenseitig ausgeführt wird.
 
 \subsubsection{Kartenmaterial}
-Kartenmaterial im Browser bzw. der Hybrid-App ist ein essentieller Bestandteil von Location based Services. Durch eine Positionsbestimmung alleine erhält man nur Daten, die für den Nutzer nicht anschaulich sind. Diese liegen normalerweise als geografische Koordinaten vor, die in geografischer Breite und geografischer Länge angegeben werden. Eine Beispielposition soll die Bedeutung von Kartenmaterial für den Nutzer von Location based Services verdeutlichen.
+Kartenmaterial im Browser bzw. einer Hybrid-App ist ein essentieller Bestandteil von Location based Services. Durch eine Positionsbestimmung alleine erhält man nur Daten die für den Nutzer nicht anschaulich sind. Diese liegen normalerweise als geografische Koordinaten vor, die in geografischer Breite und geografischer Länge angegeben werden. Eine Beispielposition soll die Bedeutung von Kartenmaterial für den Nutzer von Location based Services verdeutlichen.
+
 
 Als Beispiel hierfür wurde die Position der DHBW Mannheim in der Coblitzallee gewählt. Hierbei werden die geografischen Koordinaten, eine Adresse und ein Kartenausschnitt in einer Tabelle gegenübergestellt. Siehe hierzu Tabelle \ref{BedeutungVonKartenmaterial}.
 
@@ -275,14 +274,14 @@ Coblitzallee 1-9 \newline
 
 In der Tabelle sind verschiedenen Ortsdaten zur Verfügung gestellt, die jeweils Vor- und Nachteile aufweisen.
 
-Die geographischen Koordinaten geben die Position am genausten an, sind jedoch für fast keine Nutzer einer App von Bedeutung. 
+Die geographischen Koordinaten geben die Position am genausten an, sind aber für fast keine Nutzer einer App anschaulich und bieten deshalb keinen großen Nutzen. 
 
 Die Adresse ist im Alltag am geläufigsten und somit für Nutzer am verständlichsten. Allerdings ist die Angabe nicht so genau wie die geographischen Koordinaten, denn die Angabe Hausnummer 1-9 gibt einen relativ großen Bereich an.
 
-Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel der eigene Standort, an denen sich ein Nutzer orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte eine Abhängigkeit von externen Quellen und einem erhöhten höheren Programmieraufwand mit sich bringen.
+Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel den eigene Standort, an denen sich ein Nutzer orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte eine Abhängigkeit von externen Quellen und einem höheren Programmieraufwand mit sich bringen.
 
 
-Auf Smartphones gehört Kartenmaterial und dessen Integration in Apps mittlerweile zum Standard, an den sich Nutzer gewöhnt haben. Und über die Hälfte der Deutschen, 44 Millionen Menschen, nutzen schon ein Smartphone. Die Tendenz ist dabei steigend. Dies ist das Ergebnis einer Bitkom Studie. \cite{bitkom} Aus diesem Grund sollte auch Kartenmaterial in die Location based Services App integriert werden, welche die Autoren bei dieser Studienarbeit entwickeln. 
+Auf Smartphones gehört Kartenmaterial und dessen Integration in Apps mittlerweile zum Standard, an welchen sich Nutzer gewöhnt haben. Und über die Hälfte der Deutschen, 44 Millionen nutzen schon ein Smartphone. Die Tendenz ist dabei steigend. Dies ist das Ergebnis einer Bitkom Studie. \cite{bitkom} Aus diesem Grund sollte auch Kartenmaterial in die Location based Services App integriert werden, welche die Autoren bei dieser Studienarbeit prototypisch entwickeln. 
 
 Mögliche Quellen für das Kartenmaterial sind \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Maps\grqq.
 
@@ -290,7 +289,8 @@ Da Kartenmaterial eine zentrale Quelle der App darstellen wird, ist die Auswahl 
 
 \textbf{Anforderungen an das Kartenmaterial}
 
-Die Anforderungen an interaktives Kartenmaterial, bezüglich des in dieser Studienarbeit entwickelten Projektes, lassen sich in zwei Gruppen einteilen: die funktionalen und nichtfunktionalen Anforderungen.
+
+Die Anforderungen an interaktives Kartenmaterial, bezüglich der in dieser Studienarbeit entwickelten App, lassen sich in zwei Gruppen einteilen, die funktionalen und nichtfunktionalen Anforderungen.
 
 Die \underline{nichtfunktionalen Anforderungen} sind:
 \begin{enumerate}
@@ -308,7 +308,7 @@ Die \underline{funktionalen Anforderungen} an das interaktive Kartenmaterial sin
 \item Markierungen bündeln (optional)
 \end{enumerate}
 
-Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Map\grqq bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
+Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Map\grqq  bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
 
 Zuerst widmen wir uns den nichtfunktionalen Anforderungen.
 \begin{enumerate}
@@ -316,41 +316,47 @@ Zuerst widmen wir uns den nichtfunktionalen Anforderungen.
 Da es sich bei der Implementierung um einen Prototypen für diese Studienarbeit handelt und dieser nicht kommerziell verwendet werden soll, sollen auch die Abfragen (map-loads) kostenlos sein. Zudem sollten genug kostenlose Abfragen zur Verfügung stehen. Bei drei Entwicklern und Tests über die Dauer der Studienarbeit (8-9 Monate) darf das Kontingent der kostenlosen Abfragen nicht aufgebraucht sein.
 
 \item Ohne Account nutzbar\\
-Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und sollte deshalb gewährleistet sein. Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
+Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und sollte deshalb gewährleistet sein. 
+%Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
 
 \item Gute Dokumentation mit Codebeispielen\\
-Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da alle Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben, ist dies eine wichtige Anforderung. 
+
+Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da die Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben, ist dies eine besonders wichtige Anforderung. 
 
 
 \end{enumerate}
 
 
 
-TODO: Überleitung
+Als nächstes werden die funktionalen Anforderungen genauer erläutert.
 
 \begin{enumerate}
 \item JavaScript API\\
 Eine JavaScript API ist essentiell wichtig, da der Prototyp mit HTML, CSS und Java Script entwickelt wird. 
 
 \item Unterstütze Browser\\
-Als unterstützte Browser sollten die Browser von den drei großen Smartphone-Betriebssystemen Android, IOS und Windows Phone unterstützt werden.  
+Als unterstützte Browser sollten die Browser von den drei großen Smartphone-Betriebssystemen Android, IOS und Windows Phone unterstützt werden, um sich die Möglichkeit offen zu halten die prototypische App auch auf anderen Plattformen zu nutzen.
 
 \item Eigenen Standort anzeigen\\
-Der eigene Standort muss grafisch auf einer interaktiven Karte angezeigt werden. Das Zentrieren des Kartenmaterials auf den eigenen Standort sollte auch möglich sein.
+
+Der eigene Standort muss grafisch auf einer interaktiven Karte angezeigt werden. Das Zentrieren des Kartenmaterials auf den eigenen Standort soll zudem möglich sein.
 
 \item Markierungen auf der Karte setzen\\
-Eigenen Markierungen müssen auf der Karte gesetzt werden könne. Dies muss grafisch erfolgen, denn es ist für den Prototypen besonders wichtig zu veranschaulichen, wo sich das gesuchte Ziel befindet. 
+Eigenen Markierungen müssen auf der Karte gesetzt werden könne. Dies muss grafisch erfolgen, denn es ist für den Prototypen besonders wichtig zu veranschaulichen, in welchem Bereich sich Ziele befinden. 
 
 \item Markierungen bündeln (optional)\\
 Markierungen auf der Karte sollten gebündelt werden, wenn der Zoom-Faktor zu klein wird. Dies soll der Übersichtlichkeit bei vielen Markierungen auf der Karte dienen. Hierbei soll der Radius, in dem Markierungen gebündelt werden, eingestellt werden können.
+
+Diese Anforderung ist als optional gekennzeichnet, da eine Bündelung erst bei vielen Zielen zu Übersichtlichkeit nötig ist und zunächst einmal mit wenig Zielen entwickelt wird.
 
 \end{enumerate}
 
 
 
 \textbf{\underline{Google Maps}}\\
+
 Seit 2005 gehört zu dem Produktportfolio von dem Suchmaschinenriesen Google ein Internet-Kartendienst namens Google Maps. 
-Google Maps gehört zu den verbreitetsten und erfolgreichsten Internet-Kartendiensten der Welt. \cite[Lexikon Google Maps]{itwissen}\cite[S.88]{gruber2015}
+Er gehört zu den verbreitetsten und erfolgreichsten Internet-Kartendiensten der Welt. \cite[Lexikon Google Maps]{itwissen}\cite[S.88]{gruber2015}
 
 Zunächst wird Google Maps anhand der nichtfunktionalen Anforderungen bewertet, danach werden die funktionalen Anforderungen betrachtet.
 
@@ -364,13 +370,15 @@ Diese Auslegung erscheint sehr nutzerfreundlich. Für diese Studienarbeit sollte
 
 
 \item Ohne Account nutzbar\\
-Seit dem die Google Maps JavaScript API in der Version 3 vorliegt ist die Nutzung ohne einen Schlüssel möglich. Das bedeutet, dass keine Registrierung bzw. Anmeldung zum Gebrauch nötig ist. Diese Praxis erleichtert den Einstieg in Google Maps, da man sofort starten kann. \cite{googlemapsblog}
+
+
+Seit dem die Google Maps JavaScript API in der Version 3 vorliegt ist die Nutzung ohne einen Schlüssel möglich. Das bedeutet, dass keine Registrierung bzw. Anmeldung zum Nutzen nötig ist. Diese Praxis erleichtert es den Einstieg in Google Maps, da man sofort starten kann. \cite{googlemapsblog}
 
 
 \item Gute Dokumentation mit Codebeispielen\\
 Google Maps bietet ein Entwicklerhandbuch für die JavaScript API v3, dass sowohl ausführlich ist, als auch viele Beispiele bietet. Zudem ist das Benutzerhandbuch in deutsch abrufbar, was das Erarbeiten und Nachlesen vereinfacht. 
-Zum ausführlichen Entwicklerhandbuch gibt es nochmals fast 150 Beispiele, zu denen die jeweils passende Output (Karte) angezeigt wird.\cite[Documentation]{googlemaps} \\
-Neben der Dokumentation von Google selbst gibt es auch andere Tutorials im Netz. Eines davon ist von der Webseite www.w3schools.com, das versucht von Grund auf eine Einführung in Google Maps zu geben. 
+Zum ausführlichen Entwicklerhandbuch gibt es nochmals fast 150 Beispiele, zu denen der jeweils passende Output (Karte) angezeigt wird.\cite[Documentation]{googlemaps} \\
+Neben der Dokumentation von Google selbst gibt es auch andere Tutorials im Netz. Eines davon ist von der Webseite www.w3schools.com, dass versucht von Grund auf eine Einführung in Google Maps zu geben. 
 
 
 
@@ -401,7 +409,7 @@ Bei einer HTML-Webseite muss lediglich ein Script Tag eingefügt werden, in dem 
 
 
 \item Unterstütze Browser\\
-Von der Google Maps JavaScript API 3 werden alle gängigen Browser unterstützt. Diese sind:
+Von der Google Maps JavaScript API 3 werden fast alle gängigen Browser unterstützt. Diese sind:
 
 \glqq 
     IE 7.0 und höher (Windows)
@@ -442,7 +450,7 @@ Den eigenen Standort kann man, sofern dieser bestimmt werden konnte (Listing Zei
 \end{lstlisting} \cite[Codebeispiel Geolocation]{googlemaps}
 
 \item Markierungen auf der Karte setzen\\
-Markierungen könne mit der API sehr leicht gesetzt werden. Neben der Position der Markierung muss noch eine Referenz auf die Google Maps Karte, sowie ein Name bei der Erstellung angegeben werden. Vergleiche Listing.
+Markierungen könne mit der API sehr leicht gesetzt werden. Neben der Position der Markierung muss noch eine Referenz auf die Google Maps Karte, sowie ein Name bei der Erstellung angegeben werden. Vergleiche Listing:
 
 \begin{lstlisting}
   var marker = new google.maps.Marker({
@@ -457,9 +465,11 @@ Den Markierungen auf der Karte können allerdings auch Bilder mit dem Attribut \
 
 \item Markierungen bündeln (optional)\\
 Markierungen können in der Standard JavaScript API in Version 3 nicht gebündelt werden. 
+
 Mit einer zusätzlichen Bibliothek  von Google kann diese Funktionalität allerdings ergänzt werden. Die Bibliothek heißt \glqq google-maps-utility-library-v3 \grqq. 
-Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf die Karte, sowie Markercluster-Einstellungen hinzugefügt.
-TODO: Formulierung an Listing anpassen ? markers anstatt Markierungen
+Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf die Karte, sowie Markercluster-Einstellungen.
+%TODO: Formulierung an Listing anpassen ? markers anstatt Markierungen
+
 \begin{lstlisting}
 var mcOptions = {gridSize: 50, maxZoom: 15};
 var markers = [...]; // Create the markers you want to add and collect them into a array.
@@ -480,9 +490,11 @@ Bing Maps ist der Kartendienst des Softwarekonzerns Microsoft. Neben Kartenmater
 \begin{enumerate}
 \item Kostenlose Abfragen \\
 Bing Maps bietet für öffentlich zugängliche Webseiten, sowie für mobile Apps für Konsumenten ein kostenloses Kontingent von 125.000 Transaktionen pro Jahr. Will man dieses Kontingent von Transaktionen überschreiten, werden Kosten fällig.
+\cite{microsoft}
 
 \item Ohne Account nutzbar\\
-Bing Maps ist nicht ohne einen Account nutzbar. Bevor man mit der dazugehörigen API entwickeln kann, ist es nötig zuerst eine Microsoft ID anzulegen, mit der man dann wiederum einen Entwickler Key für Bing Maps anfordern kann. Ein schneller Einstieg ist auf Grund von Registrierungen nicht möglich. Zudem gibt es unterschiedliche Lizenzmodelle, die zwischen Webseite und mobile App unterscheiden, was zur Folge hat, dass man für eine neue Plattform einen neuen Key benötigt.
+
+Bing Maps ist nicht ohne einen Account nutzbar. Bevor man mit der dazugehörigen API entwickeln kann, ist es nötig zuerst eine Microsoft ID anzulegen, mit der man dann wiederum einen Entwickler Key für Bing Maps anfordern kann. Ein schneller Einstieg ist auf Grund von Registrierungen nicht möglich. Zudem gibt es unterschiedliche Lizenzmodelle, die zwischen Webseite und mobile App unterscheiden, was zur Folge hat, dass man für eine neue Plattform einen neuen Key benötigt. \cite{gruber2015} \cite{microsoft}
 
 \item Gute Dokumentation mit Codebeispielen\\
 Bing Maps bietet eine ausführliche Dokumentation für die Bing Maps AJAX Control Version 7.0. Dabei werden die Klassen beschrieben und fast jede mit einem Beispiel verdeutlicht. 
@@ -510,7 +522,9 @@ Bing Maps bietet eine JavaScript API, die \glqq Bing Maps AJAX Control Version 7
 
 \item Unterstütze Browser\\
 Die JavaScript API von Bing Maps wird laut Microsoft von fast allen Browsern unterstützt. 
+
 Die unterstützen Desktop Browser sind:
+
 \glqq
 \begin{itemize}
 \item Internet Explorer 7.0 and later
@@ -528,7 +542,7 @@ Die unterstützen mobilen Browser sind:
 \end{itemize}
 \grqq \cite{microsoftbrowser}
 
-Alle relevanten Browser für Smartphone werden unterstützt.
+Alle relevanten Browser für Smartphones werden unterstützt.
 
 \item Eigenen Standort anzeigen\\
 Der eigene Standort kann bei Bing Maps mit einem \glqq GeoLocationProvider \grqq ermittelt werden. Dieser erhält eine Referenz auf das Kartenobjekt, in dem der Standort angezeigt werden soll (Listing Zeile 2). Mit der Funktion \glqq getCurrentPosition \grqq kann dann der Standort des Nutzers ermittelt werden.
@@ -539,7 +553,9 @@ geoLocationProvider.getCurrentPosition();
 \end{lstlisting}\cite[Codebeispiel GetUserLocation1]{bingmaps}
 
 \item Markierungen auf der Karte setzen\\
-Mit Bing Maps ist es möglich Markierungen auf der Karte zu platzieren. Dieser werden bei hierbei PushPins genannt. Diese Pushpins werden dann zum Anzeigen dem Map Objekt übergeben (Listing Zeile 3). Eine nachträgliche Positionsänderung der gesetzten Pushpins ist möglich, indem man diesem eine neue Position zuweist (Listing Zeile 4).
+
+Mit Bing Maps ist es möglich Markierungen auf der Karte zu platzieren. Dieser werden hierbei PushPins genannt. Diese Pushpins werden zum Anzeigen dem Map Objekt übergeben (Listing Zeile 3). Eine nachträgliche Positionsänderung der gesetzten Pushpins ist einfach möglich, indem man diesem eine neue Position zuweist (Listing Zeile 4).
+
 \begin{lstlisting}
 map.entities.clear(); 
 var pushpin= new Microsoft.Maps.Pushpin(map.getCenter(), null); 
@@ -552,29 +568,38 @@ Microsoft bietet keine Funktion mit der man Markierungen(Pushpins) zusammenfasse
 \end{enumerate}
 
 
+
+
+
+
+
+
 \textbf{\underline{Open Street Maps}}\\
 Open Street Map ist die sogenannte \glqq offenste aller Karten \grqq \cite[S.92]{gruber2015}. Das bedeutet, dass das Kartenmaterial von der OpenStreetMap Foundation jedem frei und kostenlos zu Verfügung gestellt wird. Das Kartenmaterial selbst kann von jedem Nutzer überarbeitet werden oder es kann als Basis für neues Kartenmaterial dienen (Points of Interest). So steht es auch jedem frei Fehler zu finden und verbessertes Kartenmaterial einzureichen.
 
 Mit Open Streetmap ist es sogar möglich seine eigenen Karten zu verwenden.
 
-TODO: Hinweis auf Leaflet
+Da Open Streetmap nur Karten liefert und keine dazugehörigen API's ist man auf eine API von einer anderen Quelle angewiesen. Auf der Webseite www.openstreetmap.org wird als JavaScript API LeafletJS verwendet. 
+In der weiteren Betrachtung ist Open Streetmap immer unter der Verwendung von LeafletJS zu sehen.
 
 
 \textbf{Nichtfunktionale Anforderungen}
 \begin{enumerate}
 \item Kostenlose Abfragen \\
-Open Steet Map bietet jedem privaten oder kommerziellen Nutzer die Möglichkeit auf das Kartenmaterial zuzugreifen. Abfragen sind dabei generell umsonst. Des Weiteren ist die Anzahl der Abfragen weder für einen Tag, noch für ein Jahr begrenzt.
+Open Steet Map bietet jedem privaten oder Kommerziellen Nutzer die Möglichkeit auf das Kartenmaterial zuzugreifen. Abfragen sind dabei generell kostenlos. Des Weiteren ist die Anzahl der Abfragen weder für einen Tag, noch für ein Jahr begrenzt. \cite{gruber2015}
+
 
 \item Ohne Account nutzbar\\
-TODO: Überprüfen!!!
-Für die Nutzung von Open Street Map ist weder eine Registrierung, noch ein Account erforderlich. Nach der Angabe der Ressource im Script Tag (Leaflet API) einer Webseite kann mit JavaScript auf das Kartenmaterial von Open Street Map zugegriffen werden.
+Für die Nutzung von Open Street Map ist weder eine Registrierung, noch ein Account erforderlich. Nach der Angabe der Ressource im Script Tag (Leaflet API) einer Webseite kann mit JavaScript auf das Kartenmaterial von Open Street Map zugegriffen werden. 
+\cite{leaflet}
 
 \item Gute Dokumentation mit Codebeispielen\\
 Eine gute Dokumentation ist durch die Webseite von Leaflet gegeben. Alle Funktionen werden dort übersichtlich beschrieben, sowie anhand von Beispielen erläutert. 
 
 Ein großer Vorteil der Dokumentation von Leaflet sind die Tutorials. Diese beschränken sich auf die wesentlichen Funktionen, wie beispielsweise die Nutzung von Leaflet unter mobilen Geräten. 
+\cite{leaflet}
 
-Bei schwierigen Aufgaben ist es durch Wiki-Beiträge nahezu immer diese zu lösen.
+Bei schwierigen Aufgaben ist es durch Wiki-Beiträge nahezu immer diese zu lösen. \cite{gruber2015}
 
 
 \end{enumerate}
@@ -585,6 +610,7 @@ Bei schwierigen Aufgaben ist es durch Wiki-Beiträge nahezu immer diese zu löse
 Die OpenStreetMap Foundation selbst bietet nur Kartenmaterial an. Eine JavaScript API von der OpenStreetMap Foundation ist nicht vorhanden. Allerdings gibt es Bibliotheken, die von anderen Projekten veröffentlicht wurden, die diese Funktionalitäten abbilden. Die bekannteste dürfte \glqq Leaflet \grqq sein. Leaflet wird nämlich auch auf der Webseite von Open Steet Map, \glqq www.openstreetmap.org \grqq , genutzt.
 
 Die API von Fremdprojekten haben zum Nachteil, dass nicht mehr alles aus einer Hand kommt.
+\cite{gruber2015}
 
 \item Unterstütze Browser\\
 Leaflet untersützt Browser nahezu alle Browser. Generell werden Browser unterstützt, die unter der HTML-Rendering-Engine WebKit laufen, was schon fast alle Browser abdeckt. Die unterstützten Browser sind im einzelnen:
@@ -623,7 +649,7 @@ Alle relevanten Browser von Smartphones werden unterstützt.
 \item Eigenen Standort anzeigen\\
 Der Eigene Standort lässt sich mit Leaflet mit einer einzigen Funktion bestimmen. Vergleiche hierzu Listing Zeile 17. 
 
-Um den Standort anzuzeigen ist zunächst ein Kartenobjekt nötig. Dieses wird in Zeile 1 des Listings initialisiert. Um die eigene Position auf der Karte grafisch anzeigen zu können ist die Funktion \glqq onLocationFound  \grqq, im Listing Zeile 3 bis 8,  nötig. Diese Funktion wird aktiviert, wenn der eigene Standort gefunden wurde. Dann wird ein die Genauigkeit des Standorts ermittelt und grafisch über einen circle dargestellt (Zeile 4 und 7). Das Zentrum des Standorts wird durch einen Marker (Zeile 5) dargestellt.
+Um den Standort anzuzeigen ist zunächst ein Kartenobjekt nötig. Dieses wird in Zeile 1 des Listings initialisiert. Um die eigene Position auf der Karte grafisch anzeigen zu können ist die Funktion \glqq onLocationFound  \grqq, im Listing Zeile 3 bis 8,  nötig. Diese Funktion wird aktiviert, wenn der eigene Standort gefunden wurde. Dann wird die Genauigkeit des Standorts ermittelt und grafisch über einen circle dargestellt (Zeile 4 und 7). Das Zentrum des Standorts wird durch einen Marker (Zeile 5) dargestellt.
 
 Wenn der Standort nicht bestimmt werden konnte wird dem Nutzer mit der Funktion \glqq onLocationError \grqq eine Fehlermeldung angezeigt.
 
@@ -672,55 +698,70 @@ map.addLayer(markers);
 \textbf{\underline{Fazit Kartenmaterial}}\\
 Um ein Fazit zu ziehen, welches Kartenmaterial zum Einsatz in der Location-based Services App kommt, wird hierbei zuerst auf die Vor und Nachteile der einzelnen Anbieter eingegangen.
 
-Google:
+\textbf{Google}
 
 Vorteile:
-Alles aus einer Hand
-Keine Registrierung nötig
-Gute und ausführliche Dokumentation mit vielen Beispielen
+\begin{itemize}
+\item Alles kommt aus einer Hand
+\item Keine Registrierung nötig
+\item Gute und ausführliche Dokumentation mit vielen Beispielen
+\end{itemize}
 
 Nachteile:
-Lizenzkosten fallen an, wenn 25000 Abfragen pro Tag häufig überschritten werden
-Der Internetexplorer für Windows Phone wird offiziell nicht unterstützt
+\begin{itemize}
+\item Lizenzkosten fallen an, wenn 25000 Abfragen pro Tag häufig überschritten werden
+\item Der Internetexplorer für Windows Phone wird offiziell nicht unterstützt
+\end{itemize}
 
-Bing:
+
+\textbf{Bing}
 
 Vorteile:
-Gute und ausführliche Dokumentation mit vielen Beispielen
-Untersützte Browser
+\begin{itemize}
+\item Gute und ausführliche Dokumentation mit vielen Beispielen
+\item Alle relevanten Browser werden unterstützt
+\end{itemize}
 
 Nachteile:
-Cluster nur mit externer Bibliothek nutzbar
-Registrierung und unterschiedliche Lizenzmodelle für Web und mobile
-Anzahl der kostenlosen Abfragen ist sehr begrenzt
+\begin{itemize}
+\item Cluster nur mit externer Bibliothek nutzbar
+\item Registrierung ist erforderlich 
+\item Unterschiedliche Lizenzmodelle für Web und mobile Anwendungen
+\item Anzahl der kostenlosen Abfragen ist sehr begrenzt
+\end{itemize}
 
 
-Open Street Map:
+\textbf{Open Street Map}
 
 Vorteile:
-Unbegrenzt viele kostenlose Abfragen
-Individualisierbarkeit(eigenes Kartenmaterial)
-Unterstützte Browser
-Gute und ausführliche Dokumentation mit vielen Beispielen
-API Struktur
+\begin{itemize}
+\item Unbegrenzt viele kostenlose Abfragen
+\item Individualisierbarkeit(eigenes Kartenmaterial)
+\item Alle relevanten Browser werden unterstützt
+\item Gute und ausführliche Dokumentation mit vielen Beispielen
+\item Verständliche API Struktur
+\end{itemize}
 
 Nachteile:
-Man ist auf 3 Hersteller bzw. Quellen angewiesen
+\begin{itemize}
+\item Man ist auf mindestens 3 Hersteller bzw. Quellen angewiesen
+\end{itemize}
 
 
-Bewertung der nichtfunktionale Anforderungen:
+
+\underline{Bewertung der nichtfunktionale Anforderungen:}
 \begin{enumerate}
 \item Kostenlose Abfragen: \\
 OpenStreetMap bietet unlimitiert viele kostenlose Abfragen und kann damit überzeugen.
 \item Ohne Account nutzbar: \\
-OpenStreetMap kann generell ohne Account genutzt werden.
+OpenStreetMap und Google Maps können ohne Account genutzt werden.
 \item Gute Dokumentation mit Codebeispielen:\\
 Alle drei Anbieter bieten ausführliche Dokumentationen mit Tutorials an.
 \end{enumerate}
 
 Bei den nichtfunktionalen Anforderungen schneidet Open Steet Maps am besten ab. 
 
-Bewertung der funktionalen Anforderungen:
+\underline{ Bewertung der funktionalen Anforderungen:}
 \begin{enumerate}
 \item JavaScript API:\\
 Alle Anbieter bieten eine JavaScript API und überzeugen damit. Die Kapselung der Funktionen von OpenStreetMap scheint aber für die Autoren am sinnvollsten gewählt zu sein.
@@ -734,8 +775,98 @@ Auch hierbei überzeugen alle drei Anbieter gleichermaßen.
 Google Maps liefert alles aus einer Hand sowohl bei Bing Maps, als auch bei OpenStreetMap muss auf Bibliotheken dritter zurückgegriffen werden.
 \end{enumerate}
 
-Durch die fehlende offizielle Unterstützung von Google Maps für den Windows Phone Browser ist es nicht für diese Studienarbeit geeignet eine plattformübergreifende mobile LBS App zu entwickeln.
+Durch die fehlende offizielle Unterstützung von Google Maps für den Windows Phone Browser ist es nicht für diese Studienarbeit geeignet, die Möglichkeit zu haben eine plattformübergreifende mobile LBS App zu entwickeln.
 
 Im Vergleich der Vor und Nachteile und den nichtfunktionalen Anforderungen überzeugt OpenStreetMaps bei den gewählten Anforderungen deutlich mehr als Bing Maps.
 
 Das Fazit ist, dass sich OpenStreetMaps am besten für den Einsatzzweck dieser Studienarbeit und der damit verbundenen Location-based Services App eignet.
+
+\subsubsection{iBeacons}
+Umsetzung der Anforderung X.X "Erkennen des Ziels mit einer Abweichung von einem Meter".
+\\Dieser Abschnitt erläutert die Umsetzung der Anforderung X.X. Wie bereits erläutert wird GPS zur Abstandsermittlung des Prototypen verwendet. Das bedeutet, während der Nutzer sich auf das Ziel zubewegt wird der Standort über GPS bestimmt. Bereits in Kapitel X ist die Genauigkeit von GPS Positionen angegeben.  Sie liegt bei x Metern. Um mit dieser Genauigkeit erkennen zu können, ob sich ein Spieler am Ziel befindet wurde ein Radius von 10 Metern um den Zielpunkt gewählt. Nach einigen Praxistests wurde deutlich, dass dieser Radius nicht ausreicht. Die Testkandidaten konnten den Zielpunkt trotz des Radius nicht erreichen. Aus diesem Grund entschied man sich dazu die Genauigkeit am Zielpunkt deutlich zu erhöhen, mit iBeacons. In Kapitel X ist bereits auf RadioButtons eingegangen worden. Eine Unterkategorie bilden von diesen, bilden die iBeacons.
+
+iBeacons
+
+Bei iBeacons handelt es sich um eine neue Technologie zur Abstands bzw. Standortbestimmung von Smartphones welche vom Hersteller Apple stammt. Auf Materieller Ebene betrachtet ist ein iBeacon ein kleines Gerät welches ständig Bluetooth Signale sendet. Die verwendete Technik ist Bluetooth Low Energy (BLE). Das Gerät besteht aus
+
+"einer kleinen Platine mit Bluetooth-Sender und einer Knopfzelle. Beides steckt in einem Kunststoffgehäuse, das in der Größe zwischen einem dicken 2-Euro-Stück und einer PC-Maus rangiert."
+http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeuer-1403-105331-2.html
+
+Übertragen werden mit dem Signal nur eine eindeutige ID sowie drei Zahlen. Vorteil der BLE Technologie ist der geringe Stromverbrauch. Laut Hersteller soll ein iBeacon zwischen sechs und vierundzwanzig Monaten ein Signal senden können. Abhängig ist dies von der Signalstärke und dem Sendeintervall. Mit dem 2,4 GHz Signal werden Reichweiten von bis zu 50 Metern erreicht. Ein Smartphones welches das Signal empfängt kann einen ungefähren Abstand zum iBeacon ermitteln. Verwendet man mehrere iBeacons, kann über Triangulation ein genauer Standort bestimmt werden. Besonders an dieser Standortbestimmung ist, dass sie auch in Gebäuden funktioniert. Hier ist GPS teilweise gar nicht oder nur schlecht empfangbar. Daraus resultieren diverse Anwendungsbereich im folgenden sind ein paar aufgelistet:
+
+\begin{description}
+\item[$\bullet$]die Navigation und Präsentation von Informationen im Museum
+
+\item[$\bullet$]das Dirigieren von Bahnfahrern zum richtigen Bahnsteig und Wagen
+
+\item[$\bullet$]Rabattprogramme und Kundenkarten
+
+\item[$\bullet$]Abholbenachrichtigungen für vorbestellte Waren beim Betreten des Ladens
+
+\item[$\bullet$]die Automatisierung von Gebäudefunktionen wie Heizung, Licht und Jalousiestellung
+
+\item[$\bullet$]Hinweise auf die Stadion-Einlasskontrolle mit den kürzesten Wartezeiten
+
+\item[$\bullet$]Live-Umfragen unter Teilnehmern einer Vortragsveranstaltung
+
+\item[$\bullet$]kostenlose Lektüre einer Zeitschrift beim Aufenthalt in einem Café
+
+\item[$\bullet$]Bereitstellung der Tageskarte eines Restaurants auf dem Smartphone
+
+\end{description}
+
+http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeuer-1403-105331.html
+
+\includegraphics[width=0.5\textwidth]{ref/images/ibeacon.jpg}
+
+
+iBeacons der Firma Estimote
+
+Empfangen werden können die Signale der iBeacons mit Bluetooth 4.0 Empfangsmodulen, welche in den aktuellen Smartphones verbaut sind. Dies funktioniert sowohl mit Apple sowie Android Geräten, was für diese Arbeit von großer Bedeutung ist.
+
+
+Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden. Während der gesamten Ortungsphase läuft im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
+
+Um dies zu implementieren, muss das Zielpunkt Objekt angepasst werden. Standortobjekte benötigen neben Namen und Positionen noch eine iBeacon ID sowie Major und Minor Werte. TODO Listing
+
+Mit den neuen Werten sind alle Vorraussetzungen geschaffen um einen iBeacon Scanner zu implementieren. Hierfür wird das Plug-In "Cordova / Phonegap iBeacon plugin" von Peter Metz verwendet. Es ist open Source und kann von Git Hub heruntergeladen werden.
+
+Das Plug-In enthält Schnittstellen und Funktionen zum finden von iBeacons. Hierbei werden zwei unterschiedliche Funktionalitäten geboten.
+
+
+1. Monitoring von iBeacons
+Beim Monitoring wird ständig überprüft ob das Smartphone welches das Plug-In nutzt in einen Bereich eintritt, indem ein iBeacon Signale sendet. Ebenfalls wird überprüft ob das Smartphone den Bereich verlässt. Diese Funktion wird in dieser Arbeit genutzt um dem User anzuzeigen, dass bei Eintritt in eine iBeacon Zone nicht mehr GPS genutzt wird, sondern die Abstandsbestimmung mit Hilfe des iBeacons erfolgt.
+
+2. Ranging von iBeacons
+Während Monitoring nur den Aus- bzw. Einritt in eine Zone überprüft, ermittelt das iBeacon Ranging alle in der nähe befindlichen iBeacons und gibt eine ungefähre Distanz zu diesen an. Diese Funktionalität wird genutzt um die Distanz zum Zielort in der App darzustellen.
+
+https://community.estimote.com/hc/en-us/articles/203356607-What-are-region-Monitoring-and-Ranging-
+
+
+Im folgenden wird die Umsetzung anhand von Quellcode Beispielen erläutert:
+
+Installation
+Damit das Plug-In genutzt werden kann, muss es erst über die Console des Betreibssystem installiert werden.
+
+Hierfür navigiert man in der Console zum Hauptordner der App. Dort führt man den Befehl:
+
+\begin{lstlisting}
+cordova plugin add https://github.com/petermetz/cordova-plugin-ibeacon.git
+\end{lstlisting} 
+
+
+aus. Draufhin erfolgt die Automatische Installation im Ordner "plugin" der App und es kann auf die Schnittstellen zugegriffen werden.
+
+Der allgemeine Ablauf besteht aus mehreren Schritten:
+\begin{enumerate}
+\item Schritt Anlegen eines Arrays mit iBeacon Informationen
+\item Schritt Hauptfunktion mit for-Schleife aufrufen
+\item Schritt Warten auf einen iBeacon in Reichweite
+\item Schritt Gefundenes iBeacon-Objekt in Variable schreiben
+\item Schritt Daten aus Objekt auslesen und anzeigen
+\end{enumerate}
+
+
+
+\underline{TODO: An dieser Stelle wird mit Code-Listings die Umsetzung der Schritte }\\
+\underline{detailliert erläutert werden.}

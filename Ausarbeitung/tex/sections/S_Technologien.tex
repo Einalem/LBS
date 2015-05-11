@@ -237,7 +237,7 @@ http://www.w3.org/standards/webdesign/htmlcss
 Angular JS ist ein Framwork, das voll auf JavaScript aufbaut und komplett klientseitig ausgeführt wird.
 
 \subsubsection{Kartenmaterial}
-Kartenmaterial im Browser bzw. der Hybrid-App ist ein essentieller Bestandteil von Location based Services. Durch eine Positionsbestimmung alleine erhält man nur Daten die für den Nutzer nicht anschaulich sind. Diese liegen normalerweise als geografische Koordinaten vor, die in geografischer Breite und geografischer Länge angegeben werden. Eine Beispielposition soll die Bedeutung von Kartenmaterial für den Nutzer von Location based Services verdeutlichen.
+Kartenmaterial im Browser bzw. einer Hybrid-App ist ein essentieller Bestandteil von Location based Services. Durch eine Positionsbestimmung alleine erhält man nur Daten die für den Nutzer nicht anschaulich sind. Diese liegen normalerweise als geografische Koordinaten vor, die in geografischer Breite und geografischer Länge angegeben werden. Eine Beispielposition soll die Bedeutung von Kartenmaterial für den Nutzer von Location based Services verdeutlichen.
 
 Als Beispiel hierfür wurde die Position der DHBW Mannheim in der Coblitzallee gewählt. Hierbei werden die geografischen Koordinaten, eine Adresse und ein Kartenausschnitt in einer Tabelle gegenübergestellt. Siehe hierzu Tabelle \ref{BedeutungVonKartenmaterial}.
 
@@ -258,14 +258,14 @@ Coblitzallee 1-9 \newline
 
 In der Tabelle sind verschiedenen Ortsdaten zur Verfügung gestellt, die alle Vor- und Nachteile aufweisen.
 
-Die Geographischen Koordinaten geben die Position am genausten an, sind für fast keine Nutzer einer App von Bedeutung. 
+Die Geographischen Koordinaten geben die Position am genausten an, sind aber für fast keine Nutzer einer App anschaulich und bieten deshalb keinen großen Nutzen. 
 
 Die Adresse ist im Alltag am geläufigsten und somit für Nutzer am verständlichsten. Allerdings ist die Angabe nicht so genau, wie die Geographischen Koordinaten. Denn die Angabe Hausnummer 1-9 gibt einen relativ großen Bereich an.
 
-Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel der eigene Standort, an denen sich ein Nutzer Orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte eine Abhängigkeit von externen Quellen und einem erhöhten höheren Programmieraufwand mit sich bringen.
+Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel den eigene Standort, an denen sich ein Nutzer Orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte eine Abhängigkeit von externen Quellen und einem höheren Programmieraufwand mit sich bringen.
 
 
-Auf Smartphones gehört Kartenmaterial und dessen Integration in Apps mittlerweile zum Standard, an welchen sich Nutzer gewöhnt haben. Und über die Hälfte der Deutschen, 44 Millionen nutzen schon ein Smartphone. Die Tendenz ist dabei steigend. Dies ist das Ergebnis einer Bitkom Studie. \cite{bitkom} Aus diesem Grund sollte auch Kartenmaterial in die Location based Services App integriert werden, welche die Autoren bei dieser Studienarbeit entwickeln. 
+Auf Smartphones gehört Kartenmaterial und dessen Integration in Apps mittlerweile zum Standard, an welchen sich Nutzer gewöhnt haben. Und über die Hälfte der Deutschen, 44 Millionen nutzen schon ein Smartphone. Die Tendenz ist dabei steigend. Dies ist das Ergebnis einer Bitkom Studie. \cite{bitkom} Aus diesem Grund sollte auch Kartenmaterial in die Location based Services App integriert werden, welche die Autoren bei dieser Studienarbeit prototypisch entwickeln. 
 
 Mögliche Quellen für das Kartenmaterial sind \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Maps\grqq.
 
@@ -273,7 +273,7 @@ Da Kartenmaterial eine zentrale Quelle der App darstellen wird ist die Auswahl e
 
 \textbf{Anforderungen an das Kartenmaterial}
 
-Die Anforderungen an interaktives Kartenmaterial bezüglich der in dieser Studienarbeit entwickeltem Projekt lassen sich in zwei Gruppen einteilen, die funktionalen und nichtfunktionalen Anforderungen.
+Die Anforderungen an interaktives Kartenmaterial bezüglich der in dieser Studienarbeit entwickelten App lassen sich in zwei Gruppen einteilen, die funktionalen und nichtfunktionalen Anforderungen.
 
 Die \underline{nichtfunktionalen Anforderungen} sind:
 \begin{enumerate}
@@ -291,7 +291,7 @@ Die \underline{funktionalen Anforderungen} an das interaktive Kartenmaterial sin
 \item Markierungen bündeln (optional)
 \end{enumerate}
 
-Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Map\grqq bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
+Bevor \glqq Google Maps\grqq, \glqq Bing Maps\grqq  und \glqq Open Street Map\grqq  bezüglich der Anforderungen untersucht werden, müssen diese genauer spezifiziert werden.
 
 Zuerst widmen wir uns den nichtfunktionalen Anforderungen.
 \begin{enumerate}
@@ -299,33 +299,36 @@ Zuerst widmen wir uns den nichtfunktionalen Anforderungen.
 Da es sich bei der Implementierung um einen Prototypen für diese Studienarbeit handelt und dieser nicht kommerziell verwendet werden soll, sollen auch die Abfragen (map-loads) kostenlos sein. Zudem sollten genug kostenlose Abfragen zur Verfügung stehen. Bei 3 Entwicklern und Tests über die Dauer der Studienarbeit (8-9 Monate) darf das Kontingent der kostenlosen Abfragen nicht aufgebraucht sein.
 
 \item Ohne Account nutzbar\\
-Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und sollte deshalb gewährleistet sein. Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
+Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und sollte deshalb gewährleistet sein. 
+%Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
 
 \item Gute Dokumentation mit Codebeispielen\\
-Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da alle Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben ist dies eine wichtige Anforderung. 
+Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da die Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben ist dies eine besonders wichtige Anforderung. 
 
 
 \end{enumerate}
 
 
 
-TODO: Überleitung
+Als nächstes werden die funktionalen Anforderungen genauer erläutert.
 
 \begin{enumerate}
 \item JavaScript API\\
 Eine JavaScript API ist essentiell wichtig, da der Prototyp mit HTML, CSS und Java Script entwickelt wird. 
 
 \item Unterstütze Browser\\
-Als unterstützte Browser sollten die Browser von den drei großen Smartphone-Betriebssystemen Android, IOS und Windows Phone unterstützt werden.  
+Als unterstützte Browser sollten die Browser von den drei großen Smartphone-Betriebssystemen Android, IOS und Windows Phone unterstützt werden, um sich die Möglichkeit offen zu halten die prototypische App auch auf anderen Plattformen zu nutzen.
 
 \item Eigenen Standort anzeigen\\
-Der eigene Standort muss grafisch auf einer interaktiven Karte angezeigt werden. Das zentrieren des Kartenmaterials auf den eigenen Standort soll auch möglich sein.
+Der eigene Standort muss grafisch auf einer interaktiven Karte angezeigt werden. Das zentrieren des Kartenmaterials auf den eigenen Standort soll zudem möglich sein.
 
 \item Markierungen auf der Karte setzen\\
-Eigenen Markierungen müssen auf der Karte gesetzt werden könne. Dies muss grafisch erfolgen, denn es ist für den Prototypen besonders wichtig zu veranschaulichen, wo sich das gesuchte Ziel befindet. 
+Eigenen Markierungen müssen auf der Karte gesetzt werden könne. Dies muss grafisch erfolgen, denn es ist für den Prototypen besonders wichtig zu veranschaulichen, in welchem Bereich sich Ziele befinden. 
 
 \item Markierungen bündeln (optional)\\
 Markierungen auf der Karte sollten gebündelt werden, wenn der Zoom-Faktor zu klein wird. Dies soll der Übersichtlichkeit bei vielen Markierungen auf der Karte dienen. Hierbei soll der Radius, in dem Markierungen gebündelt werden eingestellt werden könne.
+
+Diese Anforderung ist als optional gekennzeichnet, da eine Bündelung erst bei vielen Zielen zu Übersichtlichkeit nötig ist und zunächst einmal mit wenig Zielen entwickelt wird.
 
 \end{enumerate}
 
@@ -333,7 +336,7 @@ Markierungen auf der Karte sollten gebündelt werden, wenn der Zoom-Faktor zu kl
 
 \textbf{\underline{Google Maps}}\\
 Seit 2005 gehört zu dem Produktportfolio von dem Suchmaschinenriesen Google ein Internet Kartendienst namens Google Maps. 
-Google Maps gehört zu den verbreitetsten und erfolgreichsten Internet Kartendiensten der Welt. \cite[Lexikon Google Maps]{itwissen}\cite[S.88]{gruber2015}
+Er gehört zu den verbreitetsten und erfolgreichsten Internet Kartendiensten der Welt. \cite[Lexikon Google Maps]{itwissen}\cite[S.88]{gruber2015}
 
 Zunächst wird Google Maps anhand der nichtfunktionalen Anforderungen bewertet, danach werden die funktionalen Anforderungen betrachtet.
 
@@ -347,7 +350,7 @@ Diese Auslegung erscheint sehr nutzerfreundlich. Für diese Studienarbeit sollte
 
 
 \item Ohne Account nutzbar\\
-Seit dem die Google Maps JavaScript API in der Version 3 vorliegt ist die Nutzung ohne einen Schlüssel möglich. Das bedeutet, dass keine Registrierung bzw. Anmeldung zum nutzen nötig ist. Diese Praxis erleichtert den Einstieg in Google Maps, da man sofort starten kann. \cite{googlemapsblog}
+Seit dem die Google Maps JavaScript API in der Version 3 vorliegt ist die Nutzung ohne einen Schlüssel möglich. Das bedeutet, dass keine Registrierung bzw. Anmeldung zum nutzen nötig ist. Diese Praxis erleichtert es den Einstieg in Google Maps, da man sofort starten kann. \cite{googlemapsblog}
 
 
 \item Gute Dokumentation mit Codebeispielen\\

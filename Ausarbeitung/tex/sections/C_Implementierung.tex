@@ -17,10 +17,24 @@ Alle folgenden Statusbeschreibungen trennen View, Controller und Modell schemati
 \\
 Die App besitzt einen getabbten Aufbau, das heißt es existiert eine Kopfzeile, die dem Nutzer 4 verschiedene Tabs anbietet: Spielen, Highscores, Account und Credits. Jeder der Tabs wird im Folgenden näher beschrieben werden.
 \subsection{Spielen}
-Der Spielen-Tab bietet dem Nutzer die Möglichkeit sich für ein Spiel anzumelden. Er gibt dafür einen Namen und einen Spielradius an. Unter dieser Kombination wird er später seinen Highscore dieses Spiels finden können. Die View, die dahinter steht ist die Play-View, welche prinzipiell als Startseite der Applikation angezeigt wird. Sie hat ein Textfeld, dass den Spielernamen übernehmen kann und eine Selectbox, die den Radius auf zwei bis fünf Kilometern beschränkt. Bei fehlender Eingabe wird auf drei Kilometer als Defaultwert gesetzt. Außerdem bietet die View einen Button, der das Spiel startet. 
+Der Spielen-Tab bietet dem Nutzer die Möglichkeit sich für ein Spiel anzumelden. Er gibt dafür einen Namen und einen Spielradius an. Unter dieser Kombination wird er später seinen Highscore dieses Spiels finden können. Die View, die dahinter steht ist die Play-View, welche prinzipiell als Startseite der Applikation angezeigt wird. 
+\subsubsection{Play}
+Die Play-View hat ein Textfeld, dass den Spielernamen übernehmen kann und eine Selectbox, die den Radius auf zwei bis fünf Kilometern beschränkt. Bei fehlender Eingabe wird auf drei Kilometer als Defaultwert gesetzt. Außerdem bietet die View einen Button, der das Spiel startet. 
 \\
 Schon während der Eingabe der benötigten Informaitonen (Name und Radius) wird ein Objekt 'player' generiert, des diese Daten enthält, und mit Druck auf den Button an die Funktion savePlayer übergeben wird. Die Funktion 'savePlayer(p)' wurde der View durch den Controller 'PlayCtrl' (zugewiesen über app.js) bereitgestellt.
 \\
 \includegraphics[width=1\textwidth]{ref/images/play.png} \\ 
 \\
-Der Controller leitet bei Aufruf dieser Funktion die Objektdaten Name und Radius an den dazugehörigen Service 'Player', der zuerst auf gültige Befüllung des Spielernamen prüft und bei Befüllung diesen speichert.
+Der Controller leitet bei Aufruf dieser Funktion die Objektdaten Name und Radius an den dazugehörigen Service 'Player', der zuerst auf gültige Befüllung des Spielernamen prüft und bei Befüllung diesen speichert. Der genutzte Speicher ist der sessionStorage des Geräts, der für die Dauer der Session die Daten des Spielers als Objekt mit den folgenden Eigenschaften speichert: 
+\begin{enumerate}
+\item Spielername und Radius (beides über Nutzer eingegeben und über Controller an Service zur Speicherung übergeben)
+\item Score
+\item StartpositionLat (Breitengrad der Startposition)
+\item startpositionLong (Längengrad der Startposition)
+\item lastDist (letzte Distanz zum Ziel für Verlaufsvergleich)
+\item dbID (ID des Spielers im Spielerarray des Sessionstorage)
+\item lastUpdate (Zeitpunkt der letzten Änderung)
+\end{enumerate}
+Wenn der Spielername nicht angegeben wurde erhält der Nutzer eine Aufforderung und das Spielerobjekt wird nicht weitergeleitet und gespeichert. Bei erfolgreichem Speichern hingegen erfolgt eine Weiterleitung in den Zustand 'tab-game'.
+\subsubsection{Game}
+Die Game-View liegt ebenfalls im Tab 'Spielen' und ist für die aktuelle Standortbestimmung - also die Bestimmung des Startpunkts des Nutzers zuständig.

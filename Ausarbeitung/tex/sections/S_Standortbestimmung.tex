@@ -1,5 +1,5 @@
-\subsection{Positionsbestimmung}
-UND FUNKTIONSWEISE
+\newpage
+\subsection{Positionsbestimmung und Funktionsbestimmung}
 
 
 In diesem Kapitel wird zunächst einmal geklärt, was Positionsbestimmung ist. 
@@ -8,65 +8,74 @@ Nach Alex Küpper ist die Positionsbestimmung wie folgt definiert:
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|p{16cm}|}\hline
-		\textbf{Zitat ?:} \glqq Positioning is a process to obtain the spatial position of a target \grqq  \cite[S.121]{Kuepper2005} \\ \hline
+		\textbf{Zitat 2.1:} \glqq Positioning is a process to obtain the spatial position of a target \grqq  \cite[S.121]{Kuepper2005} \\ \hline
 		\textbf{Übersetzung:} Positionsbestimmung ist ein Prozess, um die räumliche Position eines Ziels zu erhalten. \\ \hline
 	\end{tabular}
 \end{table}
 
-Mit räumlicher Position ist hierbei ein Standort gemeint, der zu einem geeigneten Bezugssystem bestimmt wird. Das bedeutet ein Position der sich auf das Bezugssystem „Weltkarte“ bezieht repräsentiert den geografischen Standort auf der Weltkarte. Die Position mit dem Bezugssystem eines bestimmten Gebäudes repräsentiert den Standort in dem Gebäude. Bsp.: Stockwerk 1 Raum 139b.
+Mit räumlicher Position ist hierbei ein Standort gemeint, der zu einem geeigneten Bezugssystem bestimmt wird. Das bedeutet ein Position die sich auf das Bezugssystem „Weltkarte“ bezieht repräsentiert den geografischen Standort auf der Weltkarte. Die Position mit dem Bezugssystem eines bestimmten Gebäudes repräsentiert den Standort in dem Gebäude. Bsp.: Stockwerk 1 Raum 139b in der DHBW-Mannheim.
 
 Ein weiteres Zitat bezüglich der Positionsbestimmung grenzt den Begriff Positionsbestimmung deutlich von Ortung ab. Dieser Unterschied soll hier auch aufgezeigt werden. Hierzu das Zitat der Webseite www.itwissen.info:
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|p{16cm}|}\hline
-		\textbf{Zitat ?:} \glqq Die Begriffe Positionsbestimmung und Ortung werden häufig synonym benutzt; sie unterscheiden sich allerdings im Detail. So wird mit der Positionsbestimmung der Ort von Objekten oder Personen eindeutig in einem geografischen Koordinatensystem festgelegt. Sie bildet die Basis für die Ortung und wird dann zur Ortung, wenn Dritten die ermittelte Position mitgeteilt wird. \grqq  \cite[Positionsbestimmung]{itwissen} \\ \hline
+		\textbf{Zitat 2.2:} \glqq Die Begriffe Positionsbestimmung und Ortung werden häufig synonym benutzt; sie unterscheiden sich allerdings im Detail. So wird mit der Positionsbestimmung der Ort von Objekten oder Personen eindeutig in einem geografischen Koordinatensystem festgelegt. Sie bildet die Basis für die Ortung und wird dann zur Ortung, wenn Dritten die ermittelte Position mitgeteilt wird. \grqq  \cite[Positionsbestimmung]{itwissen} \\ \hline
 	\end{tabular}
 \end{table}
 
-Das Zitat ist aussagekräftig und grenz Positionsbestimmung und Ortung eindeutig voneinander ab.
+Das Zitat ist aussagekräftig und grenzt Positionsbestimmung und Ortung eindeutig voneinander ab.
 
-In diesem Kapitel wird, wie es der Titel vorgibt, nur die Positionsbestimmung betrachtet. Dieser ist die Voraussetzung, um Ortung (die Übertragung der Position) überhaupt durchzuführen. Allerdings wird im weiteren Teil dieser Arbeit verstärkt die Ortung betrachtet werden. Die Übertragung der Position spielt nämlich zur Bereitstellung eines „location based Services“ in nahezu allen Fällen eine große Rolle. Da die Positionsbestimmung für die Ortung benötigt wird, diese hier im Detail vorgestellt.
+In diesem Kapitel wird, wie es der Titel vorgibt, nur die Positionsbestimmung betrachtet. Dieser ist die Voraussetzung, um Ortung
+%(die Übertragung der Position) 
+überhaupt durchzuführen. Allerdings wird im weiteren Teil dieser Arbeit verstärkt die Ortung betrachtet werden. Die Übertragung der Position spielt nämlich zur Bereitstellung eines location-based Services in nahezu allen Fällen eine große Rolle. Da die Positionsbestimmung für die Ortung benötigt wird, diese hier im Detail vorgestellt. 
 
-TODO: Küpper S.123
-Fundamentals ergänzen??
 
 Bei einer Positionsbestimmung werden Messdaten gesammelt, um die eigenen Position festzulegen. Die Messdaten beziehen sich dabei immer auf festgelegte Fixpunkte, von welchen die Position schon bekannt ist.  Diese Daten sind zum Beispiel Winkel, Geschwindigkeit und Entfernung.
 
-In den kommenden Kapiteln werden unterschiedliche Methoden/Techniken zur Positionsbestimmung aufgezeigt. Diese werden in drei Kategorien eingeordnet, die satellitengestützte Positionierung, Positionierung in Mobilfunknetzen und Positionsbestimmung in Gebäuden.
+In den kommenden Kapiteln werden unterschiedliche Methoden und Techniken zur Positionsbestimmung vorgestellt. Diese werden in drei Kategorien eingeordnet, die satellitengestützte Positionierung, Positionierung in Mobilfunknetzen und Positionsbestimmung in Gebäuden.
+Abbildung \ref{fig:Positionsbestimmung} gibt für die drei Kategorien einen Überblick.
 
-TODO: Robustheit ergänzen???
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{ref/images/Positionsbestimmung.PNG}
+\caption[Infrastruktur zur Positionsbestimmung]{Infrastruktur zur Positionsbestimmung}
+\label{fig:Positionsbestimmung}
+\cite[S. 124]{Kuepper2005}
+\end{figure}
+
+\subsubsection{Kriterien für die Standortbestimmung}
 
 Kein Verfahren zur Positionsbestimmung ist perfekt. 
-Deshalb werden die unterschiedlichen Methoden/Techniken zur Positionsbestimmung anhand von drei ?Qualitäts?-Merkmalen betrachtet. Diese werden hier kurz erläutert.
+Deshalb werden die unterschiedlichen Methoden und Techniken zur Positionsbestimmung anhand von drei Qualitäts-Kriterien betrachtet. Diese werden hier kurz erläutert.
 
 \begin{enumerate}
 \item Bereich (Scope)\\
-Ein Positionssystem ist immer auf einen Bereich bezogen, in dem eine Position theoretisch bestimmt werden kann. Dieser Bereich kann stark variieren von einem Raum bis zu einem weltweiten Bereich.\\
+Ein Positionssystem ist immer auf einen Bereich bezogen, in dem eine Position theoretisch bestimmt werden kann. Dieser Bereich kann stark, von einem Raum bis zu einem weltweiten Bereich, variieren.\\
 $\longrightarrow$ Ein großer Scope ist besser
 \item Abdeckung (Coverage)\\
 Die Abdeckung eines Positionssystems kann maximal so groß sein, wie es der Bereich zulässt. Die Abdeckung ist die Teilmenge des Bereichs, in dem tatsächlich die Position bestimmt werden kann. So ist es beispielsweise bei einem Satellitenpositionssystem nicht möglich eine Abdeckung in Gebäuden oder unter der Erde zu gewährleisten.\\
 $\longrightarrow$ Eine große Abdeckung ist besser
 \item Präzision (Precision)\\
-Ein Positionssystem kann einen Standort nicht exakt, sondern mit einer gewissen Abweichung bestimmen. Diese Abweichung kann von Umwelteinflüssen abhängen und für eine Positionsbestimmung an der selben Stelle abweichende Ergebnisse liefern. Die Robustheit eines Positionssystem trägt somit zur Präzision bei. \\
+Ein Positionssystem kann einen Standort nicht exakt, sondern mit einer gewissen Abweichung bestimmen. Diese Abweichung kann von Umwelteinflüssen abhängen und für eine Positionsbestimmung an der selben Stelle abweichende Ergebnisse liefern. Die Robustheit eines Positionssystem trägt somit auch zur Präzision bei. \\
 $\longrightarrow$ Eine höhere Präzision ist besser
 \end{enumerate}
 \cite[S.183]{Schiller2004}
 
 
-\textbf{Satellitengestützte Positionierung}
+\subsubsection{Satellitengestützte Positionierung}
 
 Satellitengestützte Positionierung basiert, wie der Name schon vermuten lässt, auf Satelliten. 
 
 Das bekannteste System zur satellitengestützte Positionierung ist das Global Positioning System, dass mit GPS abgekürzt wird. Auf GPS wird nach einer Erläuterung über das generelle Funktionsprinzip von Satellitenpositionierung eingegangen.
 
-Gegeben für eine Positionsbestimmung sind Satelliten, die sich in der Erdumlaufbahn befinden und elektromagnetische Wellen auf die Erde funken. Damit eine Position auf der Erdoberfläche mit Hilfe von Satelliten errechnet/bestimmt werden kann, muss zuerst einmal ein Gerät vorhanden sein, dass die elektromagnetischen Wellen der Satelliten empfangen kann.
+Eine Grundvoraussetzung für Satellitengestützte Positionierung sind Satelliten, die sich in der Erdumlaufbahn befinden und elektromagnetische Wellen auf die Erde funken. Damit eine Position auf der Erdoberfläche mit Hilfe von Satelliten errechnet/bestimmt werden kann, muss auch ein Gerät vorhanden sein, dass die elektromagnetischen Wellen der Satelliten empfangen und verarbeiten kann.
 
 Ist das gegeben kann prinzipiell die Position des Nutzers auf der Erdoberfläche anhand von der exakten Position von mindestens drei Satelliten ($s_{n}$) und des Abstands zu diesen Satelliten ($r_{m}$) bestimmt werden.
 
 \cite[S. 188]{Schiller2004}
 
-Vergleiche hierzu Abbildung \ref{fig:Grundprinzip Satelliten}
+%Vergleiche hierzu Abbildung \ref{fig:Grundprinzip Satelliten}
 
 \begin{figure}[h]
 \centering
@@ -76,11 +85,13 @@ Vergleiche hierzu Abbildung \ref{fig:Grundprinzip Satelliten}
 \cite[S. 188]{Schiller2004}
 \end{figure}
 
-In Abbildung \ref{fig:Grundprinzip Satelliten} a) stellen die Kreise Positionen auf der Erde dar, an denen ein User-Position anhand des gemessenen Abstands ($r_{m}$) möglich ist. In dieser Darstellung mit drei Satelliten ist die User-Position eindeutig an dem Schnittpunkt aller drei Kreise. In Abbildung \ref{fig:Grundprinzip Satelliten} b) wird die Darstellung ins dreidimensionale überführt. Hierbei ist nun zu erkennen, dass die Kreise zu Kugeln geworden sind. Daraus resultierend gibt es nun einen zweiten Schnittpunkt. Für die Positionsbestimmung gibt es nun zwei mögliche User-Positionen. Dieses Problem beseitigt man einfach, indem man die logisch wahrscheinlichere Position als richtige ansieht. In der Abbildung wäre das Intersection Point 1, da Intersection Point 2 im Weltall liegt und davon auszugehen ist, dass sich Menschen auf der Erdoberfläche befinden.
+In Abbildung \ref{fig:Grundprinzip Satelliten} a) stellen die Kreise Positionen auf der Erde dar, an denen eine User-Position anhand des gemessenen Abstands ($r_{m}$) möglich ist. In dieser Darstellung mit drei Satelliten ist die User-Position eindeutig an dem Schnittpunkt aller drei Kreise. 
+In Abbildung \ref{fig:Grundprinzip Satelliten} b) wird die Darstellung ins dreidimensionale überführt. Hierbei ist nun zu erkennen, dass die Kreise zu Kugeln geworden sind. Daraus resultierend gibt es nun einen zweiten Schnittpunkt. Für die Positionsbestimmung gibt es nun zwei mögliche User-Positionen. Dieses Problem beseitigt man einfach, indem man die logisch wahrscheinlichere Position als richtige ansieht. In der Abbildung wäre das Intersection Point 1, da Intersection Point 2 im Weltall liegt und davon auszugehen ist, dass sich Menschen auf der Erdoberfläche befinden.
+\cite[S. 188]{Schiller2004}
 
-Es wurde nun erläutert, wie sich die Position ermitteln lässt, wenn dem Nutzer die Position der Satelliten und der Abstand zu diesen bekannt ist. Wie diese Werte ermittelt werden wurde noch nicht erwähnt. Darauf wird nun eingegangen.
+Es wurde nun erläutert, wie sich die Position ermitteln lässt, wenn dem Nutzer die Position der Satelliten und der Abstand zu diesen bekannt ist. Wie diese Werte ermittelt werden, wurde noch nicht erwähnt. Darauf wird nun eingegangen.
 
-Satelliten Positionen:\\
+\textbf{Satelliten Positionen:}\\
 Satelliten kreisen um die Erde. Sie sind also Ständig in Bewegung. 
 
 \begin{figure}[h]
@@ -93,17 +104,23 @@ Satelliten kreisen um die Erde. Sie sind also Ständig in Bewegung.
 
 Da sie in zuvor festgelegten Umlaufbahnen kreisen, kann die Position eines Satelliten abhängig von der Zeit errechnet werden. 
 Diese Berechnung kann ohne Probleme auf einem Smartphone stattfinden. Die einzigen Daten die dazu nötig sind, ist eine aktuelle Uhrzeit, sowie die Satellitennamen mit der dazugehörigen Umlaufbahn. Solche Daten befinden sich standardmäßig auf GPS fähigen Geräten. Bei Bedarf, durch den Ausfall oder das Hinzukommen neuer Satelliten, werden diese Daten aktualisiert.
-
-
-Abstand zu den Satelliten:\\
-Der Abstand zu Satelliten wird anhand von der Zeit berechnet, die das Signal vom Satelliten bis zum Empfänger benötigt. Diese Zeit wird dadurch ermittelt, dass ein vom Satelliten die aktuelle Zeit gesendet wird. Sobald diese beim Empfänger ankommt wird der Zeitunterschied $ \bigtriangleup t $ zur aktuellen Zeit ermittelt. Da sich elektromagnetische Wellen mit Lichtgeschwindigkeit $ c $ fortbewegen, beträgt die Geschwindigkeit näherungsweise 300.000 $km/s$. Mit der Formel $ r = c \bigtriangleup t$ lässt sich dann die Entfernung zum Satelliten ermitteln. Das Verfahren funktioniert allerdings nur, wenn die Uhren vom Satelliten und des Empfängers exakt synchronisiert sind. 
 \cite[S. 189]{Schiller2004}
 
-Verfahren zur Uhren Synchronisation:\\
+
+\textbf{Abstand zu den Satelliten:}\\
+Der Abstand zu Satelliten wird anhand der Zeit berechnet, die das Signal vom Satelliten bis zum Empfänger benötigt. Diese Zeit wird dadurch ermittelt, dass vom Satelliten die aktuelle Zeit gesendet wird. Sobald diese beim Empfänger ankommt wird der Zeitunterschied $ \bigtriangleup t $ zur aktuellen Zeit ermittelt. Da sich elektromagnetische Wellen mit Lichtgeschwindigkeit $ c $ fortbewegen, beträgt die Geschwindigkeit näherungsweise 300.000 $km/s$. Mit der Formel $ r = c \bigtriangleup t$ lässt sich dann die Entfernung zum Satelliten ermitteln. Das Verfahren funktioniert allerdings nur, wenn die Uhren vom Satelliten und des Empfängers exakt synchronisiert sind. 
+\cite[S. 189]{Schiller2004}
+
 Eine Abweichung der Uhren von nur $1\mu s$ ergibt aufgrund der hohen Geschwindigkeit der elektromagnetischen Wellen eine Abweichung der bestimmten Position von ca. 300 Metern.
 \cite[S. 189]{Schiller2004}
 
+Diese Aussage verdeutlicht, wie wichtig es ist die Uhren exakt zu synchronisieren. Deshalb wird nun ein Verfahren zu Synchronisation von Uhren vorgestellt.
+
+
+\textbf{Verfahren zur Uhren Synchronisation:}\\
+
 Jeder Satellit ist mit einer Atomuhr ausgestattet um immer die richtige Zeit zu senden. Eine Atomuhr in ein Smartphone einzubauen macht allein schon aus wirtschaftlicher Sicht keinen Sinn. Deshalb muss es ein Verfahren geben, mit dem die Uhren synchronisiert werden könne, oder der Unterschied zwischen den Uhren bestimmt werden kann.
+\cite[S.189]{Schiller2004}
 
 Das Grundprinzip dieses Verfahrens wird nun erläutert. Dazu werden zunächst einige Variablen definiert.
 
@@ -123,6 +140,8 @@ Im Abschnitt \glqq Abstand zu den Satelliten \grqq wurde schon die Formel zur Be
 
 Hier wir diese Formel dahingehend angepasst, dass die Abweichungen $\bigtriangleup t$ von den Systemzeiten berücksichtigt werden. Das ist dann der gemessen Abstand $p$:
 
+\grqq \cite[S. 189 - 190]{Schiller2004}
+
 \glqq 
 \begin{align}
 p &= c * \bigtriangleup \tilde{t} \\
@@ -139,17 +158,18 @@ Daraus erhalten wir $p = r + c * \delta t_{u}$
 
 $r$ kann hierbei durch die Koordinaten des Satelliten und des Users dargestellt werden: $p = \sqrt{(s_{x} - u_{x})^{2} + (s_{y} - u_{y})^{2} + (s_{z}-u_{z})^{2}} + c * \delta t_{u}$
 
-Diese Gleichung enthält nun vier unbekannte Variablen $u_{x}, u_{y}, u_{z} und \delta t_{u}$. 
+Diese Gleichung enthält nun vier unbekannte Variablen $u_{x}, u_{y}, u_{z}$ und $\delta t_{u}$. 
 
 Um diese Gleichung zu lösen benötigt man diese vier unbekannten Variablen. Jeder dieser Variable kann selbst wieder über eine Gleichung bestimmt werden. Um alle vier Gleichungen zu lösen sind dann vier Satelliten nötig. 
 
 Es gibt nun mehrere Möglichkeiten diese Lösung anzugehen. Es kann zum Beispiel durch ein Näherungsverfahren geschehen. Herr Schiller verweist in deiner Arbeit dabei auf die Möglichkeit eine Taylor Reihe.
 
 Da es ab dieser Stelle nur noch eine mathematische Aufgabe ist die Lösung zu finden, und es dafür wiederum unterschiedliche Ansätze gibt, wird darauf nicht weiter eingegangen.
+
 \cite[S. 190]{Schiller2004}
 
 
-\underline{GPS}
+\textbf{GPS}
 
 Das Global Position System wurde vom Amerikanischen Verteidigungsministerium entwickelt. Es gibt eine Variante, die nur dem Militär zugänglich ist und eine, die der Zivilbevölkerung frei zur Verfügung steht. 
 
@@ -171,6 +191,8 @@ Es gibt allerdings einen Unterschied in der militärischen und der zivilen Varia
 
 Die zivile Variante bietet im Normalfall eine fast so hohe Präzision, wie die militärische, kann aber von der U.S. Army durch einen Mechanismus, der Selective Avaulability (SA) heißt deutlich ungenauer gemacht werden.
 
+\cite[S. 194 - 196]{Schiller2004}
+
 Vergleiche hierzu Abbildung \ref{fig:GPS Praezision}.
 
 PPS steht für die militärische Variante wohingegen SPS für die zivile Variante des GPS steht.
@@ -184,6 +206,7 @@ PPS steht für die militärische Variante wohingegen SPS für die zivile Variant
 \end{figure}
 
 Die Präzision von GPS kann durch Differential GPS nochmals verbessert werden. Dazu wird in einer Basisstation, zu der eine exakte Position vorhanden ist, die GPS Position ermittelt. Gibt es Abweichungen durch die Atmosphäre wird von der Basistation eine Korrektur erstellt, die dann an den User weitergeleitet werden kann, um auch dessen Präzision zu verbessern.
+\cite[S. 196]{Schiller2004}
 
 Vergleiche hierzu Abbildung \ref{fig:DGPS}
 \begin{figure}[h]
@@ -204,11 +227,11 @@ $\longrightarrow$ Präzision (Precision) Eine hohe Präzision wird durch viele S
 
 \cite[S. 187]{Schiller2004}
 
-Die Kosten zum Betreiben von Satelliten sind immens hoch. Es gibt allerdings auch andere Positionierungssysteme, die auf vorhandene Funknetze setzen. Diese werden nun vorgestellt.
+Die Kosten zum Betreiben von Satelliten sind immens hoch. Es gibt allerdings auch andere Positionierungssysteme, die auf schon vorhandene Funknetze setzen. Diese werden nun vorgestellt.
 
-\textbf{Positionierung in (Mobil)Funknetzen}
+\subsubsection{Positionierung in (Mobil)Funknetzen}
 
-Ein weit verbreitetes Funknetz ist das Mobilfunknetz Es ist in über 190 Ländern verfügbar.\cite[206]{Schiller2004} Um zu verdeutlichen, wie groß die Abdeckung in Deutschland ist, wird die Netzabdeckung von drei großen Mobilfunkanbietern aufgezeigt. Vergleiche hierzu Abbildung \ref{fig:GSM}.
+Ein weit verbreitetes Funknetz ist das Mobilfunknetz. Es ist in über 190 Ländern verfügbar.\cite[206]{Schiller2004} Um zu verdeutlichen, wie groß die Abdeckung in Deutschland ist, wird die Netzabdeckung von drei großen Mobilfunkanbietern aufgezeigt. Vergleiche hierzu Abbildung \ref{fig:GSM}.
 
 \begin{figure}[h]
 \centering
@@ -220,15 +243,17 @@ Ein weit verbreitetes Funknetz ist das Mobilfunknetz Es ist in über 190 Länder
 
 Die Abbildungen zeigen eine nahezu vollständige Abdeckung Deutschlands durch das GSM Netz. Partiell ist je nach Netzbetreiber die Abdeckung durch GSM nicht gegeben.
 
-Zu Abbildung \ref{fig:GSM} ist noch anzumerken, dass es sich hierbei um Darstellungen der einzelnen Mobilfunkanbietern handelt. Es ist davon auszugehen, dass auf Grund von Marketingeinflüssen auf die Grafiken eine höhere Abdeckung dargestellt wird, als in der Realität vorhanden ist. Um einen groben Eindruck für die Abdeckung in Deutschland zu bekomme, sollten diese Abbildungen ausreichend sein.
+Zu Abbildung \ref{fig:GSM} ist noch anzumerken, dass es sich hierbei um Darstellungen der einzelnen Mobilfunkanbietern handelt. Es ist davon auszugehen, dass auf Grund von Marketingeinflüssen auf die Grafiken eine höhere Abdeckung dargestellt wird, als in der Realität vorhanden ist. Um einen groben Eindruck für die Abdeckung in Deutschland zu bekomme, sollten diese Abbildungen dennoch ausreichend sein.
 
 
 Basierend auf GSM gibt es verschieden präzise Ansätze die Position eines Netzers über dessen Handy zu finden.
 
 
-Der technisch einfachste aber auch unpräziseste Ansatz ist die Positionsbestimmung anhand des Funkmasten, an dem des Handy angemeldet ist. Das Prinzip dahinter ist, dass sich ein Handy immer mit dem stärksten Signal eines Funkmasten verbindet. Von dem Funkmast mit dem stärksten Signal ist auszugehen, dass es der nächstgelegene ist. Die Position, sowie ein Radius, in dem dessen Signal empfangen werden kann ist zu jedem Funkmasten ist dessen Betreiber bekannt. 
+Der technisch einfachste aber auch unpräziseste Ansatz ist die Positionsbestimmung anhand des Funkmasten, an dem des Handy angemeldet ist. Das Prinzip dahinter ist, dass sich ein Handy immer mit dem stärksten Signal eines Funkmasten verbindet. Von dem Funkmast mit dem stärksten Signal ist auszugehen, dass es der nächstgelegene ist. Die Position, sowie ein Radius, in dem dessen Signal empfangen werden kann ist dem Betreiber eines jedem Funkmasten bekannt. 
 
 Sobald sich ein Handy mit einem Funkmasten verbindet, wird das in einer dezentralen Datenbank (Visitor Location Register) erfasst. Die Informationen aus der VLR Datenbank werden anschließend in die zentrale Datenbank des Betreibers des Funkmasten, dem Home Location Register, übertragen. Der Betreiber kann anhand seiner Positionsinformationen des Funkmasten ermitteln, in welchem Bereich die Position des Handys bzw. des Nutzers ist. Vergleiche Abbildung \ref{fig:CoO}.
+
+\cite[S. 207]{Schiller2004}
 
 \begin{figure}[h]
 \centering
@@ -242,7 +267,8 @@ Die Präzision dieser Positionierung hängt von der Größe der Funkzelle ab. So
 \cite[S. 207]{Schiller2004}
 
 
-Ein präziseres Verfahren wurde von Ericsson entwickelt und heißt Mobile Positioning System (MPS).
+Ein präziseres Verfahren wurde von der Firma Ericsson entwickelt und heißt Mobile Positioning System (MPS). 
+\cite[S. 207 - 208]{Schiller2004}
 
 Dieses Verfahren besteht aus mehreren Teilverfahren, die hier nacheinander vorgestellt werden.
 
@@ -282,7 +308,7 @@ Vergleiche hierzu Abbildung \ref{fig:TA}.
 \item Uplink Time of Arrival \\
 Befindet sich ein Handy in mindestens 4 Funknetzen kann zu allen verfügbaren Funknetzen nach dem \glqq Timing Advance \grqq Verfahren die Entfernung bestimmt werden. 
 
-Ähnlich wie bei der Satelliten Positionierung ist es dann möglich eine genaue Position zu ermitteln. Diese ist dann auch 50 - 150 Meter genau.
+Ähnlich wie bei der Satelliten Positionierung ist es dann möglich eine genaue Position zu ermitteln. Diese ist dann auf 50 - 150 Meter genau.
 \cite[S. 209]{Schiller2004}
 
 Vergleiche Abbildung \ref{fig:Up}.
@@ -298,28 +324,29 @@ Vergleiche Abbildung \ref{fig:Up}.
 \end{enumerate}
 
 
-
-$\longrightarrow$ großer Bereich (Überall Funktmasten installiert werden können.
-$\longrightarrow$ Abdeckung sehr flächendeckend. sogar in Gebäuden.
-
 $\longrightarrow$ Bereich (Scope) Die Standortbestimmung ist in 190 Ländern möglich. 
 
 $\longrightarrow$ Abdeckung (Coverage) Die Abdeckung der Funknetze ist in den Ländern sehr hoch. Es ist sogar möglich in Gebäuden den Standort zu bestimmen.
 
 $\longrightarrow$ Präzision (Precision) Die Präzision liegt im besten Fall bei 50 - 150 Metern, was für viele LBS schon ausreichend sein dürfte.
 
-\textbf{Positionsbestimmung mit geringer Abdeckung}
 
-Positionsbestimmung mit einer geringen Abdeckung bieten sich besonders für den Einsatz in Gebäuden an, da dort Verfahren wie GPS versagen und Gebäudeflächen nicht so groß sind. 
 
-Auf zwei Verfahren, die Positionsbestimmung mit geringer Abdeckung wird nun im genauer eingegangen. Zuerst wird die Positionsbestimmung anhand von WLAN Netzwerken dargestellt. Danach werden Radio Beacons genauer betrachtet.
 
-\textbf{WLAN Netzwerke}
-Heutzutage sind in vielen Gebäuden WLAN-Netzwerke verfügbar. Ein gutes Beispiel dazu ist die DBHW-Mannheim. Dort ist in jedem Raum ein WLAN Accesspoint vorhanden.
+\subsubsection{Positionsbestimmung in Gebäuden}
+
+Systeme zur Positionsbestimmung in Gebäuden haben eine vergleichsweise geringe Abdeckung. Sie bieten sich besonders für den Einsatz in Gebäuden an, da diese eine Geringe Fläche haben und  da dort Verfahren wie GPS versagen. 
+
+Auf zwei Verfahren, die Positionsbestimmung in Gebäuden wird nun im genauer eingegangen. Zuerst wird die Positionsbestimmung anhand von WLAN Netzwerken dargestellt. Danach werden Radio Beacons genauer betrachtet.
+
+\textbf{WLAN Netzwerke}\\
+Heutzutage sind in vielen Gebäuden WLAN-Netzwerke verfügbar. Ein gutes Beispiel dazu ist die DBHW-Mannheim. Dort ist in nahezu jedem Raum ein WLAN Accesspoint vorhanden.
 
 Von Microsoft gibt es ein prototypisches Verfahren, welches anhand der Signalstärke aller verfügbaren WLAN Accespoints eine Positionierung in WLAN-Netzwerken ermöglicht. 
 
 Das Verfahren basiert darauf, dass man Messpunkte erstellt. Zu den erstellten Messpunkten ist die Position bekannt. Aus vielen Messpunkten ergibt sich dann eine Tabelle.
+
+\cite[S. 210]{Schiller2004}
 
 Eine solche Tabelle sieht nach Herr Schillers Buch Location-based Services so aus:
 
@@ -327,15 +354,15 @@ Eine solche Tabelle sieht nach Herr Schillers Buch Location-based Services so au
 \centering
 \includegraphics[width=0.7\textwidth]{ref/images/WLAN_Tabelle.PNG}
 \caption[WLAN Messwerttabelle]{WLAN Messwerttabelle}
-\label{fig:DGPS}
 \cite[S. 210]{Schiller2004}
 \end{figure}
 
 Anhand solch einer Tabelle kann zur Positionierung die Signalstärke der einzelnen WLAN Accesspoints ermittelt werden und auf den am besten passenden Standort gemappt werden. So ist eine Positionierung in einem zuvor festgelegtem Raster möglich.
 
-Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wird die Position schnell ungenau. Außerdem sind Messerung zum Konfigurieren erforderlich. 
+Das Problem an dem Verfahren ist, dass wenn zu wenig Accespoints vorhanden sind, wird die Position schnell ungenau. Außerdem sind Messungen zum Konfigurieren erforderlich. 
 
 Ein alternativer Ansatz wäre Triangulation. Das ist ähnlich zum dem Verfahren, das bei GPS vorgestellt wurde. Der Abstand zu den Accesspoint kann anhand er Signalstärke errechnet werden. Die Position von den Accesspoint ändert sich nicht und ist bekannt. Damit kann aus dem Schnittpunkt der Radium am die Accesspoints der eigene Standort ermittelt werden.
+
 \cite[S. 209-211]{Schiller2004}
 
 $\longrightarrow$ Bereich (Scope) Die Reichweite eines WLAN Accesspoint beträgt maximal 100 Meter. In Deutschland und anderen Ländern ist WLAN nicht flächendeckend Verfügbar, sondern nur in wenigen Städten vorhanden. Der Bereich ist meist auf ein Gebäude beschränkt.
@@ -355,6 +382,8 @@ Auch bei dieser Technologie ist es wieder möglich Signale von mehreren Beacons 
 Ähnlich zu dem bei Satelliten Positionsbestimmung beschriebenem Verfahren ist es auch hier wieder möglich eine genaue Position zu ermitteln, wenn man Signale von mehreren Beacons empfängt. Das Verfahren beruht auf einer Abstandsmessung anhand der Time of Arrival von Signalen. Ein beispielhaftes Verfahren dafür heißt SpotOn.
 Nutz man SpotOn wird eine Präzision der Position von 3 Meter erreicht. Das ist ein sehr gutes Wert.
 
+\cite[S. 201 - 204]{Schiller2004}
+
 Vergleiche Abbildung \ref{fig:SpotOn}.
 
 \begin{figure}[h]
@@ -368,17 +397,8 @@ Vergleiche Abbildung \ref{fig:SpotOn}.
 
 $\longrightarrow$ Bereich (Scope) Der Bereich kommt auf die Anzahl der Beacons an, ist aber als klein einzustufen.
 
-$\longrightarrow$ Abdeckung (Coverage) Die Abdeckung in dem Gegebenen Scope sollte 100 prozentig sein.
+$\longrightarrow$ Abdeckung (Coverage) Die Abdeckung in dem gegebenen Scope sollte 100 prozentig sein.
 
 $\longrightarrow$ Präzision (Precision) Die Präzision ist mit 3 Metern sehr gut. 
 
 
-
-\textbf{GPS, Mobilfunk, WLAN, Bluetooth}
-
-\subsubsection{Kriterien für die Standortbestimmung}
-Genauigkeit, Bestimmungszeit, Robustheit
-
-
-\subsubsection{Arten der Standortbestimmung}
-GPS, Mobilfunk, WLAN, Sterne, Beacons

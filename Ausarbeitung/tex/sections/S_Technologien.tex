@@ -319,7 +319,6 @@ Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und so
 %Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
 
 \item Gute Dokumentation mit Codebeispielen\\
-
 Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da die Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben, ist dies eine besonders wichtige Anforderung. 
 
 
@@ -337,7 +336,6 @@ Eine JavaScript API ist essentiell wichtig, da der Prototyp mit HTML, CSS und Ja
 Als unterstützte Browser sollten die Browser von den drei großen Smartphone-Betriebssystemen Android, IOS und Windows Phone unterstützt werden, um sich die Möglichkeit offen zu halten die prototypische App auch auf anderen Plattformen zu nutzen.
 
 \item Eigenen Standort anzeigen\\
-
 Der eigene Standort muss grafisch auf einer interaktiven Karte angezeigt werden. Das Zentrieren des Kartenmaterials auf den eigenen Standort soll zudem möglich sein.
 
 \item Markierungen auf der Karte setzen\\
@@ -369,8 +367,6 @@ Diese Auslegung erscheint sehr nutzerfreundlich. Für diese Studienarbeit sollte
 
 
 \item Ohne Account nutzbar\\
-
-
 Seit dem die Google Maps JavaScript API in der Version 3 vorliegt ist die Nutzung ohne einen Schlüssel möglich. Das bedeutet, dass keine Registrierung bzw. Anmeldung zum Nutzen nötig ist. Diese Praxis erleichtert es den Einstieg in Google Maps, da man sofort starten kann. \cite{googlemapsblog}
 
 
@@ -492,7 +488,6 @@ Bing Maps bietet für öffentlich zugängliche Webseiten, sowie für mobile Apps
 \cite{microsoft}
 
 \item Ohne Account nutzbar\\
-
 Bing Maps ist nicht ohne einen Account nutzbar. Bevor man mit der dazugehörigen API entwickeln kann, ist es nötig zuerst eine Microsoft ID anzulegen, mit der man dann wiederum einen Entwickler Key für Bing Maps anfordern kann. Ein schneller Einstieg ist auf Grund von Registrierungen nicht möglich. Zudem gibt es unterschiedliche Lizenzmodelle, die zwischen Webseite und mobile App unterscheiden, was zur Folge hat, dass man für eine neue Plattform einen neuen Key benötigt. \cite{gruber2015} \cite{microsoft}
 
 \item Gute Dokumentation mit Codebeispielen\\
@@ -788,11 +783,12 @@ iBeacons
 
 Bei iBeacons handelt es sich um eine neue Technologie zur Abstands bzw. Standortbestimmung von Smartphones welche vom Hersteller Apple stammt. Auf Materieller Ebene betrachtet ist ein iBeacon ein kleines Gerät welches ständig Bluetooth Signale sendet. Die verwendete Technik ist Bluetooth Low Energy (BLE). Das Gerät besteht aus
 
-" einer kleinen Platine mit Bluetooth-Sender und einer Knopfzelle. Beides steckt in einem Kunststoffgehäuse, das in der Größe zwischen einem dicken 2-Euro-Stück und einer PC-Maus rangiert."
-http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeuer-1403-105331-2.html
+\glqq einer kleinen Platine mit Bluetooth-Sender und einer Knopfzelle. Beides steckt in einem Kunststoffgehäuse, das in der Größe zwischen einem dicken 2-Euro-Stück und einer PC-Maus rangiert.\grqq
+\cite{BeaconGolem}
 
 Übertragen werden mit dem Signal nur eine eindeutige ID sowie drei Zahlen. Vorteil der BLE Technologie ist der geringe Stromverbrauch. Laut Hersteller soll ein iBeacon zwischen sechs und vierundzwanzig Monaten ein Signal senden können. Abhängig ist dies von der Signalstärke und dem Sendeintervall. Mit dem 2,4 GHz Signal werden Reichweiten von bis zu 50 Metern erreicht. Ein Smartphones welches das Signal empfängt kann einen ungefähren Abstand zum iBeacon ermitteln. Verwendet man mehrere iBeacons, kann über Triangulation ein genauer Standort bestimmt werden. Besonders an dieser Standortbestimmung ist, dass sie auch in Gebäuden funktioniert. Hier ist GPS teilweise gar nicht oder nur schlecht empfangbar. Daraus resultieren diverse Anwendungsbereich im folgenden sind ein paar aufgelistet:
 
+\glqq 
 \begin{description}
 \item[$\bullet$]die Navigation und Präsentation von Informationen im Museum
 
@@ -813,7 +809,7 @@ http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeu
 \item[$\bullet$]Bereitstellung der Tageskarte eines Restaurants auf dem Smartphone
 
 \end{description}
-
+\grqq
 \cite{BeaconGolem}
 
 
@@ -831,46 +827,4 @@ iBeacons der Firma Estimote
 Empfangen werden können die Signale der iBeacons mit Bluetooth 4.0 Empfangsmodulen, welche in den aktuellen Smartphones verbaut sind. Dies funktioniert sowohl mit Apple sowie Android Geräten, was für diese Arbeit von großer Bedeutung ist.
 
 
-Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden. Während der gesamten Ortungsphase läuft im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
 
-Um dies zu implementieren, muss das Zielpunkt Objekt angepasst werden. Standortobjekte benötigen neben Namen und Positionen noch eine iBeacon ID sowie Major und Minor Werte.
-
-Mit den neuen Werten sind alle Vorraussetzungen geschaffen um einen iBeacon Scanner zu implementieren. Hierfür wird das Plug-In "Cordova / Phonegap iBeacon plugin" von Peter Metz verwendet. Es ist open Source und kann von Git Hub heruntergeladen werden.
-
-Das Plug-In enthält Schnittstellen und Funktionen zum finden von iBeacons. Hierbei werden zwei unterschiedliche Funktionalitäten geboten.
-
-
-1. Monitoring von iBeacons
-Beim Monitoring wird ständig überprüft ob das Smartphone welches das Plug-In nutzt in einen Bereich eintritt, indem ein iBeacon Signale sendet. Ebenfalls wird überprüft ob das Smartphone den Bereich verlässt. Diese Funktion wird in dieser Arbeit genutzt um dem User anzuzeigen, dass bei Eintritt in eine iBeacon Zone nicht mehr GPS genutzt wird, sondern die Abstandsbestimmung mit Hilfe des iBeacons erfolgt.
-
-2. Ranging von iBeacons
-Während Monitoring nur den Aus- bzw. Einritt in eine Zone überprüft, ermittelt das iBeacon Ranging alle in der nähe befindlichen iBeacons und gibt eine ungefähre Distanz zu diesen an. Diese Funktionalität wird genutzt um die Distanz zum Zielort in der App darzustellen.\cite{MonitorRange}
-
-
-Im folgenden wird die Umsetzung anhand von Quellcode Beispielen erläutert:
-
-Installation
-Damit das Plug-In genutzt werden kann, muss es erst über die Console des Betreibssystem installiert werden.
-
-Hierfür navigiert man in der Console zum Hauptordner der App. Dort führt man den Befehl:
-
-\begin{lstlisting}
-cordova plugin add https://github.com/petermetz/cordova-plugin-ibeacon.git
-\end{lstlisting} 
-
-
-aus. Draufhin erfolgt die Automatische Installation im Ordner "plugin" der App und es kann auf die Schnittstellen zugegriffen werden.
-
-Der allgemeine Ablauf besteht aus mehreren Schritten:
-\begin{enumerate}
-\item Schritt Anlegen eines Arrays mit iBeacon Informationen
-\item Schritt Hauptfunktion mit for-Schleife aufrufen
-\item Schritt Warten auf einen iBeacon in Reichweite
-\item Schritt Gefundenes iBeacon-Objekt in Variable schreiben
-\item Schritt Daten aus Objekt auslesen und anzeigen
-\end{enumerate}
-
-
-
-\underline{TODO: An dieser Stelle wird mit Code-Listings die Umsetzung dieser Schritte }\\
-\underline{detailliert erläutert werden.}

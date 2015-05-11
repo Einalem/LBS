@@ -1,10 +1,9 @@
+\newpage
 \subsection{Typen von LBS}
 
-TODO: Kapitel hier oder in Einleitung platzieren?
+Location-based Services lassen sich grundsätzlich in zwei Kategorien einteilen. Diese unterscheiden sich in die Art und Weise, wann der eigene Standort bestimmt und genutzt wird. 
 
-Location-based Services lassen sich grundsätzlich in zwei Kategorien einteilen. Diese unterscheiden sich über die Art und Weise, wann der eigene Standort bestimmt und genutzt wird. 
-
-In diesem Kapitel geht es darum diese beiden Kategorien zu definieren und voneinander durch Vor und Nachteile abzugrenzen.
+In diesem Kapitel geht es darum, diese beiden Kategorien zu definieren und voneinander durch Vor und Nachteile abzugrenzen.
 
 In den Büchern von Alexander Küpper und vielen Onlinequellen sind LBS in die Kategorien reaktive und proaktive-LBS unterteilt. Der Autor Jochen Schiller verwendet die Begrifflichkeit Pull- und Push Services, die allgemein für Services gültig ist.
 Hierbei entsprechen reaktive LBS den Pull Services, sowie die proaktiven LBS den Push-Services. 
@@ -16,12 +15,12 @@ Im Weiteren wird die für Location-based Services spezifischere Notation, reakti
 
 Herr Küpper unterscheidet in seinem Buch \glqq Location-Based Services - Fundamentals and Operation \grqq grundsätzlich zwischen reaktiven- und proaktiven-LBS. Diese Unterscheidung macht er an der Nutzung der Standortdaten von dem LBS fest. Erhält ein LBS den Standort nur dann wenn dieser vom Nutzer aktiviert ist, ist es ein reaktiver LBS.
 
-Vergleiche hierzu Zitat ?:
+Vergleiche hierzu Definition 1.5:
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|p{16cm}|}\hline
-		\textbf{Zitat ?:} \glqq LBSs can be classified into reactive and proactive LBSs. A reactive LBS is always explicitly activated by the user. \grqq \cite[S.3]{Kuepper2005} \\ \hline
+		\textbf{Definition 1.5:} \glqq LBSs can be classified into reactive and proactive LBSs. A reactive LBS is always explicitly activated by the user. \grqq \cite[S.3]{Kuepper2005} \\ \hline
 		\textbf{Übersetzung:} LBSs können in reaktive und proaktive LBSs klassifiziert werden. Ein reaktiver LBS wird immer ausdrücklich durch den Nutzer aktiviert.\\ \hline
 	\end{tabular}
 \end{table}
@@ -29,33 +28,33 @@ Vergleiche hierzu Zitat ?:
 
 Herr Schiller definiert die reaktiven LBS (Pull Services) dahingehend, dass eine Applikation nur Informationen aus einem Netzwerk oder über einen Standort erhebt, wenn diese aktiv genutzt wird.
 
-Vergleiche hierzu Zitat ?:
+Vergleiche hierzu Definition 1.6:
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|p{16cm}|}\hline
-		\textbf{Zitat ?:} \glqq Pull services, in contrast, mean that a user actively uses an application and, in this context, "pulls" information from the network. This information may be location-enhanced (e.g., where to find the nearest cinema) \grqq \cite[S.20]{Schiller2004} \\ \hline
+		\textbf{Definition 1.6:} \glqq Pull services, in contrast, mean that a user actively uses an application and, in this context, "pulls" information from the network. This information may be location-enhanced (e.g., where to find the nearest cinema) \grqq \cite[S.20]{Schiller2004} \\ \hline
 		\textbf{Übersetzung:} Pull-Dienste bedeuten, dass ein Nutzer eine Applikation aktiv nutzt, und in diesem Kontext Informationen von einem Netzwerk bezieht. Diese Informationen können in Verbindung zu einem Standort sein (z.B. wo das nächste Kino zu finden ist). \\ \hline
 	\end{tabular}
 \end{table}
 
-Bezugnehmend auf die zwei Zitate/Definitionen über reaktive LBS wird dieser Begriff nochmals in Bezug auf eine Smartphone App, wie sie im Rahmen dieser Studienarbeit erstellt wird, erläutert.
+Bezugnehmend auf die zwei Definitionen über reaktive LBS wird dieser Begriff nochmals in Bezug auf eine Smartphone App, wie sie im Rahmen dieser Studienarbeit prototypisch erstellt wird, erläutert.
 
 Spezielle Definition: 
 
-Reaktive LBS sind für ein Smartphone Apps, die nur während der Benutzung auf den Standort zugreifen und diesen verwenden. Während der Benutzung bedeutet dabei, dass die App geöffnet sein muss und nicht im Hintergrund läuft.
+Reaktive LBS sind für Smartphone Apps, die nur während der Benutzung auf den Standort zugreifen und diesen verwenden. Während der Benutzung bedeutet dabei, dass die App geöffnet sein muss und nicht im Hintergrund läuft.
 
 
 \textbf{Proaktive LBS}
 
 Im Vergleich zu reaktiven LBS zeichnen sich nach Alexander Küpper proaktive LBS dadurch aus, dass diese durch Standortereignisse automatisch aktiviert werden.
 
-Vergleiche hierzu Zitat ? :
+Vergleiche hierzu Definition 1.7 :
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|p{16cm}|}\hline
-		\textbf{Zitat ?:} \glqq Proactive LBSs, on the other hand, are automatically initialized as soon as a predefined location event occurs, for example, if the user enters, approaches, or leaves a certain point of interest or if he approaches, meets, or leaves another target. \grqq \cite[S.3]{Kuepper2005} \\ \hline
+		\textbf{Definition 1.7:} \glqq Proactive LBSs, on the other hand, are automatically initialized as soon as a predefined location event occurs, for example, if the user enters, approaches, or leaves a certain point of interest or if he approaches, meets, or leaves another target. \grqq \cite[S.3]{Kuepper2005} \\ \hline
 		\textbf{Übersetzung:} Proaktive LBSs werden automatisch initialisiert, sobald ein zuvor definiertes Standortevent auftritt. Dies kann zum Beispiel sein, dass ein Nutzer eine Sehenswürdigkeit betritt, sich dieser annähert oder diese verlässt. Oder wenn der Nutzer sich einem anderen Ziel nähert, es trifft oder es verlässt. \\ \hline
 	\end{tabular}
 \end{table}
@@ -63,13 +62,13 @@ Vergleiche hierzu Zitat ? :
 
 Proaktive LBS nach Jochen Schniller stellt klar, dass der Nutzer Informationen zu seinen Standorten erhält und das sogar ohne, diese Informationen aktiv oder bewusst anzufordern. Diesen Schritt übernimmt der proaktive LBS für den Nutzer.
 
-Vergleiche hierzu Zitat ? :
+Vergleiche hierzu Definition 1.8 :
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|p{16cm}|}\hline
-		\textbf{Zitat ?:} \glqq Push services imply that the user receives information as a result of his or her whereabouts without having to actively request it. The information may be sent to the user with prior consent (e.g., a subscription-based terror attack alert system) or without prior consent (e.g., an advertising welcome message sent to the user upon entering a new town). \grqq \cite[S.20]{Schiller2004} \\ \hline
-		\textbf{Übersetzung:} TODO \\ \hline
+		\textbf{Zitat 1.8:} \glqq Push services imply that the user receives information as a result of his or her whereabouts without having to actively request it. The information may be sent to the user with prior consent (e.g., a subscription-based terror attack alert system) or without prior consent (e.g., an advertising welcome message sent to the user upon entering a new town). \grqq \cite[S.20]{Schiller2004} \\ \hline
+		\textbf{Übersetzung:} Push services implizieren, dass der Nutzer als Ergebnis zu seiner Position Informationen erhält, ohne diese aktiv anzufragen. Die Informationen können dem Nutzer mit seiner  Zustimmung (z.B. ein abonniertes Terror Angriff Warnsystem) gesendet werden oder ohne vorherige Zustimmung (z.B. eine Willkommensnachricht beim betreten einer neuen Stadt).\\ \hline
 	\end{tabular}
 \end{table}
 

@@ -788,7 +788,7 @@ iBeacons
 
 Bei iBeacons handelt es sich um eine neue Technologie zur Abstands bzw. Standortbestimmung von Smartphones welche vom Hersteller Apple stammt. Auf Materieller Ebene betrachtet ist ein iBeacon ein kleines Gerät welches ständig Bluetooth Signale sendet. Die verwendete Technik ist Bluetooth Low Energy (BLE). Das Gerät besteht aus
 
-"einer kleinen Platine mit Bluetooth-Sender und einer Knopfzelle. Beides steckt in einem Kunststoffgehäuse, das in der Größe zwischen einem dicken 2-Euro-Stück und einer PC-Maus rangiert."
+" einer kleinen Platine mit Bluetooth-Sender und einer Knopfzelle. Beides steckt in einem Kunststoffgehäuse, das in der Größe zwischen einem dicken 2-Euro-Stück und einer PC-Maus rangiert."
 http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeuer-1403-105331-2.html
 
 Übertragen werden mit dem Signal nur eine eindeutige ID sowie drei Zahlen. Vorteil der BLE Technologie ist der geringe Stromverbrauch. Laut Hersteller soll ein iBeacon zwischen sechs und vierundzwanzig Monaten ein Signal senden können. Abhängig ist dies von der Signalstärke und dem Sendeintervall. Mit dem 2,4 GHz Signal werden Reichweiten von bis zu 50 Metern erreicht. Ein Smartphones welches das Signal empfängt kann einen ungefähren Abstand zum iBeacon ermitteln. Verwendet man mehrere iBeacons, kann über Triangulation ein genauer Standort bestimmt werden. Besonders an dieser Standortbestimmung ist, dass sie auch in Gebäuden funktioniert. Hier ist GPS teilweise gar nicht oder nur schlecht empfangbar. Daraus resultieren diverse Anwendungsbereich im folgenden sind ein paar aufgelistet:
@@ -814,9 +814,16 @@ http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeu
 
 \end{description}
 
-http://www.golem.de/news/bluetooth-low-energy-ibeacon-ist-mehr-als-ein-leuchtfeuer-1403-105331.html
+\cite{BeaconGolem}
 
-\includegraphics[width=0.5\textwidth]{ref/images/ibeacon.jpg}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.5\textwidth]{ref/images/ibeacon.jpg}
+   \caption{iBeacons der Firma Estimote}
+  \label{fig:iBeacons}
+   \cite{iBeacons}
+\end{figure}
 
 
 iBeacons der Firma Estimote
@@ -826,7 +833,7 @@ Empfangen werden können die Signale der iBeacons mit Bluetooth 4.0 Empfangsmodu
 
 Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden. Während der gesamten Ortungsphase läuft im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
 
-Um dies zu implementieren, muss das Zielpunkt Objekt angepasst werden. Standortobjekte benötigen neben Namen und Positionen noch eine iBeacon ID sowie Major und Minor Werte. TODO Listing
+Um dies zu implementieren, muss das Zielpunkt Objekt angepasst werden. Standortobjekte benötigen neben Namen und Positionen noch eine iBeacon ID sowie Major und Minor Werte.
 
 Mit den neuen Werten sind alle Vorraussetzungen geschaffen um einen iBeacon Scanner zu implementieren. Hierfür wird das Plug-In "Cordova / Phonegap iBeacon plugin" von Peter Metz verwendet. Es ist open Source und kann von Git Hub heruntergeladen werden.
 
@@ -837,9 +844,7 @@ Das Plug-In enthält Schnittstellen und Funktionen zum finden von iBeacons. Hier
 Beim Monitoring wird ständig überprüft ob das Smartphone welches das Plug-In nutzt in einen Bereich eintritt, indem ein iBeacon Signale sendet. Ebenfalls wird überprüft ob das Smartphone den Bereich verlässt. Diese Funktion wird in dieser Arbeit genutzt um dem User anzuzeigen, dass bei Eintritt in eine iBeacon Zone nicht mehr GPS genutzt wird, sondern die Abstandsbestimmung mit Hilfe des iBeacons erfolgt.
 
 2. Ranging von iBeacons
-Während Monitoring nur den Aus- bzw. Einritt in eine Zone überprüft, ermittelt das iBeacon Ranging alle in der nähe befindlichen iBeacons und gibt eine ungefähre Distanz zu diesen an. Diese Funktionalität wird genutzt um die Distanz zum Zielort in der App darzustellen.
-
-https://community.estimote.com/hc/en-us/articles/203356607-What-are-region-Monitoring-and-Ranging-
+Während Monitoring nur den Aus- bzw. Einritt in eine Zone überprüft, ermittelt das iBeacon Ranging alle in der nähe befindlichen iBeacons und gibt eine ungefähre Distanz zu diesen an. Diese Funktionalität wird genutzt um die Distanz zum Zielort in der App darzustellen.\cite{MonitorRange}
 
 
 Im folgenden wird die Umsetzung anhand von Quellcode Beispielen erläutert:
@@ -867,5 +872,5 @@ Der allgemeine Ablauf besteht aus mehreren Schritten:
 
 
 
-\underline{TODO: An dieser Stelle wird mit Code-Listings die Umsetzung der Schritte }\\
+\underline{TODO: An dieser Stelle wird mit Code-Listings die Umsetzung dieser Schritte }\\
 \underline{detailliert erläutert werden.}

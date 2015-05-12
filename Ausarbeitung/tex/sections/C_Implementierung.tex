@@ -86,8 +86,9 @@ Dafür werden ihr die Spielerdaten über das Objekt 'player' übergeben und die 
 \\
 Der Befehl 'navigator.geolocation.getCurrentPosition()' ist der Weg, um auf die Geolokationsfunktionen von Cordova, bzw. des Geräts zuzugreifen. Nach diesem Aufruf werden die Felder der Game-View (Infotext, mapDiv und playTasks) entsprechend gefüllt und bei erfolgreicher Durchführung die Startpositionsdaten des Spielers (vgl. Callbackfunktion) im sessionStorage aktualisiert und der Spieler in das Spielerarray des Localstorage integriert. Der Localstorage des Geräts enthält im Vergleich zum Sessionstorage zu jeder Zeit seine Daten und wird nicht automatisch gelöscht. Das Array enthält also alle Spieler, die dann später auch im Highscore aufgelistet werden können.
 \\
-Bei erfolgreicher Positionierung werden die Koordinaten über das mapDiv, einem Bereich der Game-View, in einer Open Street Map dargestellt (vgl. Kapitel XXX). Außerdem wird in diesem Fall der Button 'Aufgaben spielen' eingeblendet.
+Wenn es bei der Positionierung zu Problemen kommt, erhält der Nutzer Rückmeldung nachdem die Timeout-Zeit von 30 Sekunden abgelaufen ist.
 \\
+Bei erfolgreicher Positionierung werden die Koordinaten über das mapDiv, einem Bereich der Game-View, in einer Open Street Map dargestellt (vgl. Kapitel XXX). Außerdem wird in diesem Fall der Button 'Aufgaben spielen' eingeblendet.
 \\
 Wird dieser Button 'Aufgaben spielen' daraufhin gedrückt, startet der Controller die Erstellung der Aufgaben für den Spieler.
 \\
@@ -173,7 +174,6 @@ Jede Aufgabe, die im Spielerradius liegt, wird mit folgenden Informationen im Sp
 \item stateFinished: Statusanzeige, ob Aufgabe erledigt wurde
 \item stateIgnore: Statusanzeige, ob Aufgabe ignoriert werden soll (im Prototypen noch ungenutzt, daher standardmäßig auf false gesetzt)
 \end{itemize}
-\\
 Am Ende wird das Spieler-Aufgabenarray ebenfalls im Sessionstorage des Geräts gespeichert. Die App ist so gestaltet, dass eine Session einem Spiel mit einer Aufgabenliste entspricht, bei der Punkte gewonnen werden können. Ein Neustart der App bedeutet eine neue Aufgabenliste für den Spieler.
 \\
 Nach Erstellung der Aufgabenliste für den Nutzer wird dieser auf die Tasks-View weitergeleitet, die diese Liste anzeigt.
@@ -195,10 +195,80 @@ Die Tasks-View wurde über app.js der Controller 'TasksCtrl' zugewiesen, der wie
 \\
 Dem Nutzer werden seine aktuell erreichen Punkte angezeigt, die über den Player Service vom Controller angefragt werden. Genauso bereitet der Controller die Liste der Aufgaben, die er vom Task Service erhält für den Nutzer auf indem er eine Liste von Elementen (Button) anzeigt, die zu der jeweiligen Aufgaben führen sollen. Diese Ermittlungen erfolgen vor dem Laden der View.
 \\
-Ebenfalls vor dem Anzeigen der HTML-Seite prüft der Controller noch, ob bereits die Position des Geräts geprüft wird. Es könnte ja auch sein, dass der Nutzer die Aufgabe, die er gerade spielt abbricht und auf die Seite mit der übersichtlichen Aufgabenliste zurückkehrt. In diesem Fall wird die sogenannte Watch-ID, die mit der Positionsüberwachung vergeben wurde, gelöscht (clearWatchID(id)).
+Ebenfalls vor dem Anzeigen der HTML-Seite prüft der Controller noch, ob bereits die Position des Geräts geprüft wird. Es könnte ja auch sein, dass der Nutzer die Aufgabe, die er gerade spielt abbricht und auf die Seite mit der übersichtlichen Aufgabenliste zurückkehrt. In diesem Fall wird die sogenannte Watch-ID, die mit der Positionsüberwachung vergeben und im Sessionstorage gespeichert wurde, gelöscht (clearWatchID(id)).
 \\
 Der Nutzer hat dann nach dem Laden der View die Möglichkeit eine Aufgabe auszuwählen, indem er auf einen der Buttons drückt. Damit stößt er im Controller die Funktion 'play' an, der er (über die Auswahl des Button) die entsprechende Aufgaben-ID übergibt. Der Controller startet diese Aufgabe über den Task Service, bzw. seine Funktion 'setActualTask(taskID)' während der Nutzer an die Task-View weitergeleitet wird.
-\subsubsection{Umsetzung iBeacons}
+\subsubsection{Task-View}
+%
+%Beschreibung der HTML-Seite
+%
+Die Task-View ist die Übersichtsseite für eine Aufgabe. Dem Spieler wird die Startentfernung, sein aktueller Punktestand für diese eine Aufgabe genannt. Außerdem bekommt er, wie bei einer Wünschelrute einen Hinweis, ob er sich vom Ziel entfernt oder ob er sich ihm nähert. Dieser Hinweis erscheint nur, wenn er sich auch bewegt, das heißt, wenn sich der Abstand zum Ziel ändert. Ab diesem Moment findet die Positionierung durch die Applikation durchgängig statt.
+%
+%Ablaufplan
+%
+\\ \includegraphics[width=1\textwidth]{ref/images/05-task-tab.png} \\
+%
+% Beschreibung des Controllers und der Services
+%
+Der Task-View wurde über app.js der Controller 'TaskCtrl' zugeordnet. Dieser sorgt dafür, dass die Informationen über die Aufgabe angezeigt werden. Dafür hat er Zugriff auf den Task Service, bei dem er über die Task-ID alles über die Aufgabe erfahren kann. Die akutelle Task-ID wurde zuvor vom Task Service im Sessionstorage abgelegt und kann jederzeit eingesehen ('getActualTask'-Funktion) und bei Bedarf auch wieder gelöscht werden.
+\\
+Die Ermittlung der aktuellen Aufgabe und ihrer Informationen findet ebenfalls wieder vor dem Laden der View statt. Genauso muss vor dem Anzeigen auch die letzte gemessene Distanz zurückgesetzt werden. Dafür ist der Player Service zuständig, da es sich bei der Distanz um einen spielerbezogenen Wert handelt. Dafür ruft der Controller die Funktion 'resetLastDist' auf, über die der Player Service diese Angabe des Spielers auf die Startdistanz der Aufgabe initialisiert.
+\\
+Wenn der Controller dann feststellt, dass die Aufgabe noch nicht zu Ende gespielt wurde (Prüfung des stateFinished), kann das Spiel beginnen und der Location Service startet die Funktion 'watch'. Wenn das Spiel bereits erfolgreich durchlaufen wurde, wird dies dem Nutzer über eine entsprechende Meldung (finished) mitgeteilt, ansonsten bleibt die Variable ohne Textinhalt.
+\\
+Die 'watch'-Funktion des Location Service nutzt wie auch bei der Startpositionsbestimmung den 'navigator.geolocation'. Dieser besitzt eine Funktion 'watchPosition', die eine ID zurückgibt (im Sessionstorage hinterlegt) und solange die Position bei Änderung ermittelt bis die ID gelöscht wird (clearWatch(ID)).
+\\
+Der Ablauf bei erfolgreicher Positionsbestimmung besagt, dass dem Nutzer jeweils seine neue Distanz, die Tendenz über eine farbliche Daumengeste, sowie die neue Punktzahl entsprechend Annäherung/Entfernung angezeigt werden (distTitel, distance, color, Verlauf, scores). Bei Annäherung bekommt der Spieler einen Punkt dazu bei Entfernung einen Punkt abgezogen.
+\\
+Wenn die Distanz kleiner als zehn Meter beträgt, gilt die Aufgabe als ab<solviert. Dafür bekommt der Spieler zehn Punkte und die Watch-ID wird gelöscht.
+\\
+Außerdem werden in diesem Fall die Aufgabe, bzw. der Score für diese Aufgabe und die Gesamtpunkte für den Spieler aktualisiert und gespeichert.
+\\
+Bei Fehlern bei der Positionsbestimmung erfolgt eine Fehlermeldung nachdem die Timeout-Zeit von 60 Sekunden abgelaufen ist. Die Zeit ist bei der 'watch'-Funktion doppelt so hoch eingestellt, wie bei der Erstbestimmung. Die Erstbestimmung muss für den Nutzer ersichtlich schnell geschehen. Wenn er erst einmal eine Aufgabe verfolgt, kann es schneller mal passieren, dass das Gerät die Position verliert. Sie sollte jedoch sehr robust gegen 'GPS-Löcher' sein und daher wurde die Zeit in dem Fall sehr hoch gewählt, sodass es zu keinem Aufgabenabbruch kommt. In diesem Fall wird natürlich auch die Watch-ID gelöscht.
+\subsection{Highscores-Tab}
+Der Highscores-Tab besteht im Gegensatz zum Spielen-Tab lediglich auch einer View - der Highscores-View.
+\subsubsection{Highscores-View}
+%
+%Beschreibung der HTML-Seite
+%
+Diese View ist die Übersichtsseite für alle gespeicherten Highscores.
+%
+%Ablaufplan
+%
+\\ \includegraphics[width=1\textwidth]{ref/images/06-highscores-tab.png} \\
+%
+% Beschreibung des Controllers und der Services
+%
+Der Highscores-View wurde über app.js der Controller 'HighscoresCtrl' zugewiesen, der Zugriff auf den Player Service hat.
+\\
+Der Controller ist lediglich für die Anzeige von Highscore-Daten zuständig und besitzt daher keine Funktionen, die über die View aufgerufen werden können. Allerdings lädt er vor der Anzeige der View die Highscore-Daten, die der Player Service über die Funktion 'getHighscores' anbietet.
+\\
+Der Player Service lädt dafür das Spielerarray, welches im Localstorage des Geräts hinterlegt wurde und sortiert es absteigend. Die Highscore-View zeigt dann lediglich die Spieler des Arrays in dieser Reihenfolge an und gibt die Hintergrundinformationen Spielername, Radius, Zeitpunkt der letzten Änderung und Punktzahl mit an.
+\subsection{Account-Tab}
+Der Account-Tab besteht ebenfalls aus einer einzigen View - der Account-View.
+\subsubsection{Account-View}
+%
+%Beschreibung der HTML-Seite
+%
+Die View ist für verschiedene Einstellungen gedacht, die der Spieler der Applikation geben können soll. Im Prototypen wurde an dieser Stelle der Reset-Button zum Zurücksetzen der Highscores implementiert.
+%
+%Ablaufplan
+%
+\\ \includegraphics[width=1\textwidth]{ref/images/07-account-tab.png} \\
+%
+% Beschreibung des Controllers und der Services
+%
+Der Account-View wurde über app.js der Controller 'AccountCtrl' zugewiesen, der Zugriff auf den Player Service hat.
+\\
+Mit Klick auf den Button 'Highscores löschen' werden über den Controller bzw. über den Player Service alle Daten aus dem lokalen und dem Sessionstorage gelöscht ('emptyHighscores'-Funktion). Im Anschluss daran wird der Nutzer auf die Startseite (Play-View) zurückgeleitet.
+\subsection{Credits-Tab}
+Der Credits-Tab besteht ebenfalls aus einer einzigen View - der Credits-View.
+\subsubsection{Credits-View}
+%
+%Beschreibung der HTML-Seite
+%
+Diese View ist besonders. Ihr wurde zwar ein Controller ('CreditsCtrl') zugewiesen. Da die Danksagungsseite jedoch keinerlei Funktionalität benötigt und auch keine Daten vor dem Laden erhalten muss, kann man sie als einfache HTML-Seite betrachten, die textuellen Inhalt im Original wiedergibt. Es existiert demnach auch kein Ablaufplan.
+\subsection{Umsetzung iBeacons}
 Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden.Damit diese die Genauigkeit der Entfernung verbessern.
 Hierfür muss die App Signale des iBeacons empfangen. Deshalb läuft während der gesamten Ortungsphase im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
 

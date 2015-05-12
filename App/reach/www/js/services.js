@@ -359,63 +359,63 @@
                 //proven
                 id: 0,
                 name: "Mannheim Hbf",
-                difficulty: 0,
+//                difficulty: 0,
                 taskPosLat: 49.479904895467314,
                 taskPosLong: 8.470357013095054
             },
             {
                 id: 1,
-                name: "Mannheim Universität",
-                difficulty: 0,
+                name: "Mannheim Universitaet",
+//                difficulty: 0,
                 taskPosLat: 49.48373966279436,
                 taskPosLong: 8.46222996711731
             },
             {
                 id: 2,
                 name: "Mannheim Wasserturm",
-                difficulty: 0,
+                //              difficulty: 0,
                 taskPosLat: 49.48336089947494,
                 taskPosLong: 8.477369150878872
             },
             {
                 id: 3,
                 name: "Mannheim Neckar",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.490776620594524,
                 taskPosLong: 8.482561907531704
             },
             {
                 id: 4,
                 name: "Mannheim Rhein",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.494403359335486,
                 taskPosLong: 8.456469378234829
             },
             {
                 id: 5,
                 name: "Mannheim Planetarium",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.47740881680398,
                 taskPosLong: 8.492545089485134
             },
             {
                 id: 6,
                 name: "Mannheim Neuostheim",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.477535848201974,
                 taskPosLong: 8.523100018501282
             },
             {
                 id: 7,
                 name: "DHBW Mannheim",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.47486305610966,
                 taskPosLong: 8.534472537387046
             },
             {
                 id: 8,
                 name: "SAP Arena",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.46291261860678,
                 taskPosLong: 8.516823649406433
             },
@@ -423,14 +423,14 @@
                 //proven
                 id: 9,
                 name: "Frankfurt Hbf",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 50.1054545,
                 taskPosLong: 8.6602485
             },
             {
                 id: 10,
                 name: "Mannheim Schlossgarten",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 49.479352432064466,
                 taskPosLong: 8.462160182345542
             },
@@ -438,49 +438,49 @@
                 //proven
                 id: 11,
                 name: "Frankfurt Messe",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 50.1115285,
                 taskPosLong: 8.6437032
             },
             {
                 id: 12,
                 name: "Frankfurt Test 1",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 50.1146029,
                 taskPosLong: 8.6391511
             },
             {
                 id: 13,
                 name: "Berlin Test 1",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 52.52029,
                 taskPosLong: 13.40491511
             },
             {
                 id: 14,
                 name: "Dortmund Test 1",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 51.43029,
                 taskPosLong: 7.661511
             },
             {
                 id: 15,
                 name: "Frankfurt Test 2",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 50.1246029,
                 taskPosLong: 8.6391511
             },
             {
                 id: 16,
                 name: "Frankfurt Test 3",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 50.1156029,
                 taskPosLong: 8.6431511
             },
             {
                 id: 17,
                 name: "Frankfurt Test 4",
-                difficulty: 0,
+                //difficulty: 0,
                 taskPosLat: 50.115111500,
                 taskPosLong: 8.6387480
             }

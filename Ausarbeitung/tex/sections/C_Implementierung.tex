@@ -56,7 +56,7 @@ Die noch nicht existierenden Werte werden mit Defaultwerten gefüllt.
 \\
 Wenn der Spielername nicht angegeben wurde erhält der Nutzer eine Aufforderung und das Spielerobjekt wird nicht weitergeleitet/gespeichert. Bei erfolgreichem Speichern hingegen erfolgt über den Service eine Weiterleitung in den Status 'tab-game'.
 
-\subsubsection{Game-Tab}
+\subsubsection{Game-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -137,7 +137,67 @@ Folgende beispielhaften Aufgaben sind im Prototypen implementiert.
             ...
             }]
 \end{lstlisting}
-
+Der Controller ruft die Erstellung der Aufgaben für den Spieler über die Funktion 'newTasks' des Service Task auf.
+\\
+Der Service berechnet daraufhin für jede Aufgabe in seiner Sammlung die Entfernung, die der Spieler zu der jeweiligen Position hätte und speichert sie in ein Spieler-Aufgabenarray, wenn die Distanz kleiner oder gleich dem vom Spieler gewählten Radius ist.
+\\
+Die Berechnung der Distanz erfolgt über die Funktion 'getDistance', welche im Folgenden aufgeführt ist.
+\begin{lstlisting}
+        function getDistance(lat1, lon1, lat2, lon2) {
+            var R = 6371; // Radius der Erde in Kilometern
+            var dLat = deg2rad(lat2 - lat1);
+            var dLon = deg2rad(lon2 - lon1);
+            var a =
+                    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2)
+                ;
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+            return d;
+        }
+        function deg2rad(deg) {
+            return deg * (Math.PI / 180)
+        }
+\end{lstlisting}
+Diese Funktion gibt die Distanz zwischen zwei Punkten in Kilometern zurück.
+\\
+Jede Aufgabe, die im Spielerradius liegt, wird mit folgenden Informationen im Spieler-Aufgabenarray hinterlegt.
+\begin{itemize}
+\item id: Aufgabenidentifikationsnummer
+\item name: Name der Aufgabe
+\item distance: Entfernung von Startposition mit vier Nachkommastellen
+\item score: Punktestand des Spielers
+\item taskPosLat: Aufgaben-Breitengrad
+\item taskPosLong: Aufgaben-Längengrad
+\item stateFinished: Statusanzeige, ob Aufgabe erledigt wurde
+\item stateIgnore: Statusanzeige, ob Aufgabe ignoriert werden soll (im Prototypen noch ungenutzt, daher standardmäßig auf false gesetzt)
+\end{itemize}
+\\
+Am Ende wird das Spieler-Aufgabenarray ebenfalls im Sessionstorage des Geräts gespeichert. Die App ist so gestaltet, dass eine Session einem Spiel mit einer Aufgabenliste entspricht, bei der Punkte gewonnen werden können. Ein Neustart der App bedeutet eine neue Aufgabenliste für den Spieler.
+\\
+Nach Erstellung der Aufgabenliste für den Nutzer wird dieser auf die Tasks-View weitergeleitet, die diese Liste anzeigt.
+\subsubsection{Tasks-View}
+%
+%Beschreibung der HTML-Seite
+%
+Die Tasks-View besteht selbst lediglich aus einer Liste von Buttons und einer Punkteanzeige für den Spieler.
+%
+%Ablaufplan
+%
+\\ \includegraphics[width=1\textwidth]{ref/images/04-tasks-tab.png} \\
+%
+% Beschreibung des Controllers und der Services
+%
+Die Tasks-View wurde über app.js der Controller 'TasksCtrl' zugewiesen, der wiederum Zugang zum Service 'Player' und 'Task' besitzt. Der 'Player'-Service kapselt alle Funktionen, die mit den Nutzerdaten im Zusammenhang stehen und 'Task' hat die volle Übersicht über die Aufgaben des Spielers.
+\\
+% Verwendungszweck
+\\
+Dem Nutzer werden seine aktuell erreichen Punkte angezeigt, die über den Player Service vom Controller angefragt werden. Genauso bereitet der Controller die Liste der Aufgaben, die er vom Task Service erhält für den Nutzer auf indem er eine Liste von Elementen (Button) anzeigt, die zu der jeweiligen Aufgaben führen sollen. Diese Ermittlungen erfolgen vor dem Laden der View.
+\\
+Ebenfalls vor dem Anzeigen der HTML-Seite prüft der Controller noch, ob bereits die Position des Geräts geprüft wird. Es könnte ja auch sein, dass der Nutzer die Aufgabe, die er gerade spielt abbricht und auf die Seite mit der übersichtlichen Aufgabenliste zurückkehrt. In diesem Fall wird die sogenannte Watch-ID, die mit der Positionsüberwachung vergeben wurde, gelöscht (clearWatchID(id)).
+\\
+Der Nutzer hat dann nach dem Laden der View die Möglichkeit eine Aufgabe auszuwählen, indem er auf einen der Buttons drückt. Damit stößt er im Controller die Funktion 'play' an, der er (über die Auswahl des Button) die entsprechende Aufgaben-ID übergibt. Der Controller startet diese Aufgabe über den Task Service, bzw. seine Funktion 'setActualTask(taskID)' während der Nutzer an die Task-View weitergeleitet wird.
 \subsubsection{Umsetzung iBeacons}
 Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden.Damit diese die Genauigkeit der Entfernung verbessern.
 Hierfür muss die App Signale des iBeacons empfangen. Deshalb läuft während der gesamten Ortungsphase im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.

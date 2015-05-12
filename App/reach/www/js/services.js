@@ -131,7 +131,7 @@
         }
     })
     .factory('Location', function ($ionicLoading) {
-        function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+        function getDistance(lat1, lon1, lat2, lon2) {
             var R = 6371; // Radius of the earth in km
             var dLat = deg2rad(lat2 - lat1);
             var dLon = deg2rad(lon2 - lon1);
@@ -240,7 +240,7 @@
                             //setzen der Koordinaten
                             var latitude = pos.coords.latitude;
                             var longitude = pos.coords.longitude;
-                            var distance = getDistanceFromLatLonInKm(latitude, longitude, task.taskPosLat, task.taskPosLong);
+                            var distance = getDistance(latitude, longitude, task.taskPosLat, task.taskPosLong);
                             distance = distance.toFixed(3);
 
                             var diff = (task.distance - distance).toFixed(3);
@@ -338,7 +338,7 @@
         }
     })
     .factory('Task', function ($ionicLoading) {
-        function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+        function getDistance(lat1, lon1, lat2, lon2) {
             var R = 6371; // Radius of the earth in km
             var dLat = deg2rad(lat2 - lat1);
             var dLon = deg2rad(lon2 - lon1);
@@ -541,7 +541,7 @@
                 var radius = player.radius;
                 var tasks = [];
                 for (var i = 0; i < taskCollection.length; i++) {
-                    var distance = getDistanceFromLatLonInKm(player.startpositionLat, player.startpositionLong, taskCollection[i].taskPosLat, taskCollection[i].taskPosLong);
+                    var distance = getDistance(player.startpositionLat, player.startpositionLong, taskCollection[i].taskPosLat, taskCollection[i].taskPosLong);
                     if (distance <= radius) {
                         tasks.push({
                             id: tasks.length + 1,

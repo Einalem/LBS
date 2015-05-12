@@ -317,6 +317,7 @@
                         //Errorfunktion
                         function (error) {
                             $ionicLoading.hide();
+                            navigator.geolocation.clearWatch(id);
                             alert('Unable to get location. Error: ' + error.message);
                         },
                         //options

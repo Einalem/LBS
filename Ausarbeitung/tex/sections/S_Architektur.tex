@@ -2,7 +2,14 @@
 Die App ist streng nach dem Konzept des Model-View-Controller aufgebaut.
 \\
 Model-View-Controller ist ein Design Pattern, das häufig für heutige Programmierung eingesetzt wird. Es setzt eine strikte Trennung von Teilkomponenten voraus, die für eine hohe Wiederverwendbarkeit und einen strukturierten Aufbau sorgen. Im Falle einer GUI-Anwendung trennt man bei Anwendung dieses Patter das Model, die View und den Controller. Das Pattern ist also lediglich eine Erweiterung der schon seit langem verbreiteten Trennung von Eingabe (Controller), Verarbeitung (Model) und Ausgabe (View). 
-\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{ref/images/mvc.png}
+\caption[Modell-View-Controller Pattern]{Modell-View-Controller Pattern}
+\label{fig:MVC}
+\end{figure} 
+
 Das Model sorgt sich dabei allein um die Verarbeitung der Daten einer Anwendung. Alle Änderungen, die an den Daten ausgeführt werden sollen, finden im Model statt. Ein Model kann mit beliebig vielen Views verbunden werden und so Informationen austauschen. 
 \\
 Eine View kümmert sich um die graphische Darstellung der Anwendungsdaten, die es von seinem konkret zugewiesenen Model erhält. 
@@ -17,4 +24,14 @@ Diese Verarbeitung findet in sogenannten Services statt. In jedem Controller bes
 \\
 Um zwischen den einzelnen View wechseln zu können, wird immer ein aktueller Status der App gespeichert. Dieser Status entscheidet, welche View und welcher dazugehörige Controller in dem Moment verwendet werden. Über den Status der App kann man ganz leicht zwischen den Views unterscheiden und jeder Status hat seinen eigenen Historienstapel. Dadurch lassen sich vergangene Klicks leicht rückgängig machen.
 \\
-\textbf{..Detaillierte Darstellung der einzelnen Views in Kombination mit ihren jeweiligen Controllern + Services - graphisch aufbereitet!..}
+\\
+Allgemein kann man zwei verschiedene Prozess-Ablaufarten unterscheiden. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/mvc-ablauf.png}
+\caption[Ablauf der Modell-View-Controller]{Ablauf der Modell-View-Controller}
+\label{fig:MVC-Ablauf}
+\end{figure} 
+
+Die View kann Daten zur Anzeige anfordern, die sie selbst nicht besorgen kann oder der Nutzer aktiviert z.B. durch Klick auf einen Button eine Funktion, die der Controller (bzw. dann der Service) anbietet.

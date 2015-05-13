@@ -1,30 +1,61 @@
 \newpage
 \section{Implementierung}
-
 Wie in Abschnitt XX bereits erwähnt ist die Applikation dem Design-Pattern Model-View-Controller nachempfunden. Im Folgenden wird nun die konkrete Implementierung beschrieben und die Architektur mittels Codebeispielen konkretisiert.
 \\
-Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite index.html vor. In diese wird mittels Javascript der jeweilige Inhalt (eine View) geladen und mit Daten und Funktionen (Controller) und versorgt.
-\\
-\includegraphics[width=1\textwidth]{ref/images/index.png} \\ 
-App.js ist eine Javascript-Datei, die die Zuordnung der Views zu ihrem jeweiligen Controller durchführt. An dieser Stelle ist pro View ein Status (state) hinterlegt, der die folgenden Informationen definiert (Name des Status, URL (innerhalb der App), View-Bezeichnung (URL der View, Controllername)). Die Informationen über die aktuell gewählte View gibt app.js an index.html zurück, welche sie nach außen dem Nutzer darstellt.
+Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite index.html vor. In diese wird mittels Javascript der jeweilige Inhalt (eine View) geladen und mit Daten und Funktionen (Controller) versorgt.
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/index.png}
+\caption[Ablauf Applikationsdarstellung]{Ablauf Applikationsdarstellung}
+\label{fig:HTML-Darstellung}
+\end{figure}
+
+App.js ist eine Javascript-Datei, die unter Anderem die Zuordnung der Views zu ihrem jeweiligen Controller durchführt. 
+\subsection{App.js}
+In der app.js ist pro View ein Status (state) hinterlegt, der alle folgenden Informationen definiert:
+\begin{itemize}
+\item Name des Status
+\item URL (innerhalb der App)
+\item View-Bezeichnung (URL der View, Controllername)
+\end{itemize}
+Die Informationen über die aktuell gewählte View gibt app.js an index.html zurück, welche sie nach außen dem Nutzer darstellt.
 \\
 App.js wird bei jedem Start der Applikation zuerst geladen. Dabei findet auch immer eine Prüfung der aktuellen Internetverbindung statt. Internet wird für die Darstellung des Kartenmaterials benötigt. Die Konsequenz einer fehlenden Internetverbindung ist demnach ein Abbruch der Applikation.
 \\
-Standardmäßig wird bei korrektem Startverhalten die play-View geladen. Das ist eine ebenfalls in app.js definierte Defaulteinstellung.
+Standardmäßig wird bei korrektem Startverhalten die play-View in die index.html geladen. Das ist eine ebenfalls in app.js definierte Defaulteinstellung.
 \\
+\subsection{Controller und Services}
+Für jede View existiert ein Controller, der dann die alleinige Macht über Service-Aufrufe hat. Insgesamt wurden für die Applikation drei Services entwickelt:
+\begin{itemize}
+\item Player Service: Zuständig für die Behandlung von Spielerdaten
+\item Location Service: Zuständig für Positionierungsaufgaben und die Handhabung der Lokalisierung
+\item Task Service: Zuständig für Aufgabenerstellung und -management
+\end{itemize}
 Alle folgenden Statusbeschreibungen trennen View, Controller und Modell schematisch voneinander, wobei der Begriff Modell durch den Cordova-spezifischen Begriff Service ersetzt wird.
 \\
+\subsection{Applikationsaufbau}
 Die App besitzt einen getabbten Aufbau, das heißt es existiert eine Kopfzeile, die dem Nutzer vier verschiedene Tabs anbietet: Spielen, Highscores, Account und Credits. 
 \\
 Die in index.html angezeigten Tabs sind ein Spezialstatus, der in app.js als abstrakt gekennzeichnet ist und ständig im Hintergrund aktiv ist. Alle folgenden Tabs bauen auf diesem abstrakten Status auf.
-\\
-\includegraphics[width=1\textwidth]{ref/images/tabs.png} \\ 
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/tabs.png}
+\caption[Tabaufbau]{Tabaufbau}
+\label{fig:Tabaufbau}
+\end{figure}
 
 Jeder der Tabs wird im Folgenden näher beschrieben werden.
 
-\subsection{Spielen-Tab}
-Der Spielen-Tab bietet dem Nutzer die Möglichkeit ein Spiel zu starten. Er gibt dafür einen Namen und einen Spielradius an. Unter dieser Kombination wird er später seinen Highscore dieses Spiels finden können. Die View, die dahinter steht ist die Play-View, welche prinzipiell im Spielen-Tab als Startseite der Applikation angezeigt wird. 
-\subsubsection{Play-View}
+\subsubsection{Spielen-Tab}
+Der Spielen-Tab bietet dem Nutzer die Möglichkeit ein Spiel zu starten. Er gibt dafür einen Namen und einen Spielradius an. Unter dieser Kombination wird er später seinen Highscore dieses Spiels finden können. Die View, die dahinter steht ist anfangs die Play-View, welche prinzipiell im Spielen-Tab als Startseite der Applikation angezeigt wird. Im Verlauf des Spiels wird der Nutzer auf verschiedene View weitergeleitet, die im Folgenden näher beschrieben werden. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/tabs_spielen.png}
+\caption[Tabaufbau Spielen-Tab]{Tabaufbau Spielen-Tab}
+\label{fig:Tabaufbau Spielen-Tab}
+\end{figure}
+
+\paragraph{Play-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -32,7 +63,12 @@ Die Play-View hat ein Textfeld, dass den Spielernamen übernehmen kann und eine 
 %
 %Ablaufplan
 %
-\\ \includegraphics[width=1\textwidth]{ref/images/02-play-tab.png} \\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/02-play-tab.png}
+\caption[Modell-View-Controller: Play-View]{Modell-View-Controller: Play-View}
+\label{fig:MVC:Play-View}
+\end{figure}
 %
 % Beschreibung des Controllers und der Services
 %
@@ -56,7 +92,7 @@ Die noch nicht existierenden Werte werden mit Defaultwerten gefüllt.
 \\
 Wenn der Spielername nicht angegeben wurde erhält der Nutzer eine Aufforderung und das Spielerobjekt wird nicht weitergeleitet/gespeichert. Bei erfolgreichem Speichern hingegen erfolgt über den Service eine Weiterleitung in den Status 'tab-game'.
 
-\subsubsection{Game-View}
+\paragraph{Game-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -67,7 +103,12 @@ Bei Fehlern bei der Positionsbestimmung erhält der Nutzer anstelle der Karte un
 %
 %Ablaufplan
 %
-\\ \includegraphics[width=1\textwidth]{ref/images/03-game-tab.png} \\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/03-game-tab.png}
+\caption[Modell-View-Controller: Game-View]{Modell-View-Controller: Game-View}
+\label{fig:MVC:Game-View}
+\end{figure}
 %
 % Beschreibung des Controllers und der Services
 %
@@ -138,6 +179,7 @@ Folgende beispielhaften Aufgaben sind im Prototypen implementiert.
             ...
             }]
 \end{lstlisting}
+
 Der Controller ruft die Erstellung der Aufgaben für den Spieler über die Funktion 'newTasks' des Service Task auf.
 \\
 Der Service berechnet daraufhin für jede Aufgabe in seiner Sammlung die Entfernung, die der Spieler zu der jeweiligen Position hätte und speichert sie in ein Spieler-Aufgabenarray, wenn die Distanz kleiner oder gleich dem vom Spieler gewählten Radius ist.
@@ -157,10 +199,16 @@ Die Berechnung der Distanz erfolgt über die Funktion 'getDistance', welche im F
             var d = R * c;
             return d;
         }
+\end{lstlisting}
+\cite{Movable-Type}
+
+\begin{lstlisting}
         function deg2rad(deg) {
             return deg * (Math.PI / 180)
         }
 \end{lstlisting}
+\cite{deg2rad}
+
 Diese Funktion gibt die Distanz zwischen zwei Punkten in Kilometern zurück.
 \\
 Jede Aufgabe, die im Spielerradius liegt, wird mit folgenden Informationen im Spieler-Aufgabenarray hinterlegt.
@@ -177,7 +225,7 @@ Jede Aufgabe, die im Spielerradius liegt, wird mit folgenden Informationen im Sp
 Am Ende wird das Spieler-Aufgabenarray ebenfalls im Sessionstorage des Geräts gespeichert. Die App ist so gestaltet, dass eine Session einem Spiel mit einer Aufgabenliste entspricht, bei der Punkte gewonnen werden können. Ein Neustart der App bedeutet eine neue Aufgabenliste für den Spieler.
 \\
 Nach Erstellung der Aufgabenliste für den Nutzer wird dieser auf die Tasks-View weitergeleitet, die diese Liste anzeigt.
-\subsubsection{Tasks-View}
+\paragraph{Tasks-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -185,7 +233,12 @@ Die Tasks-View besteht selbst lediglich aus einer Liste von Buttons und einer Pu
 %
 %Ablaufplan
 %
-\\ \includegraphics[width=1\textwidth]{ref/images/04-tasks-tab.png} \\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/04-tasks-tab.png}
+\caption[Modell-View-Controller: Tasks-View]{Modell-View-Controller: Tasks-View}
+\label{fig:MVC:Tasks-View}
+\end{figure}
 %
 % Beschreibung des Controllers und der Services
 %
@@ -198,7 +251,7 @@ Dem Nutzer werden seine aktuell erreichen Punkte angezeigt, die über den Player
 Ebenfalls vor dem Anzeigen der HTML-Seite prüft der Controller noch, ob bereits die Position des Geräts geprüft wird. Es könnte ja auch sein, dass der Nutzer die Aufgabe, die er gerade spielt abbricht und auf die Seite mit der übersichtlichen Aufgabenliste zurückkehrt. In diesem Fall wird die sogenannte Watch-ID, die mit der Positionsüberwachung vergeben und im Sessionstorage gespeichert wurde, gelöscht (clearWatchID(id)).
 \\
 Der Nutzer hat dann nach dem Laden der View die Möglichkeit eine Aufgabe auszuwählen, indem er auf einen der Buttons drückt. Damit stößt er im Controller die Funktion 'play' an, der er (über die Auswahl des Button) die entsprechende Aufgaben-ID übergibt. Der Controller startet diese Aufgabe über den Task Service, bzw. seine Funktion 'setActualTask(taskID)' während der Nutzer an die Task-View weitergeleitet wird.
-\subsubsection{Task-View}
+\paragraph{Task-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -206,7 +259,12 @@ Die Task-View ist die Übersichtsseite für eine Aufgabe. Dem Spieler wird die S
 %
 %Ablaufplan
 %
-\\ \includegraphics[width=1\textwidth]{ref/images/05-task-tab.png} \\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/05-task-tab.png}
+\caption[Modell-View-Controller: Task-View]{Modell-View-Controller: Task-View}
+\label{fig:MVC:Task-View}
+\end{figure}
 %
 % Beschreibung des Controllers und der Services
 %
@@ -225,9 +283,17 @@ Wenn die Distanz kleiner als zehn Meter beträgt, gilt die Aufgabe als ab<solvie
 Außerdem werden in diesem Fall die Aufgabe, bzw. der Score für diese Aufgabe und die Gesamtpunkte für den Spieler aktualisiert und gespeichert.
 \\
 Bei Fehlern bei der Positionsbestimmung erfolgt eine Fehlermeldung nachdem die Timeout-Zeit von 60 Sekunden abgelaufen ist. Die Zeit ist bei der 'watch'-Funktion doppelt so hoch eingestellt, wie bei der Erstbestimmung. Die Erstbestimmung muss für den Nutzer ersichtlich schnell geschehen. Wenn er erst einmal eine Aufgabe verfolgt, kann es schneller mal passieren, dass das Gerät die Position verliert. Sie sollte jedoch sehr robust gegen 'GPS-Löcher' sein und daher wurde die Zeit in dem Fall sehr hoch gewählt, sodass es zu keinem Aufgabenabbruch kommt. In diesem Fall wird natürlich auch die Watch-ID gelöscht.
-\subsection{Highscores-Tab}
+\subsubsection{Highscores-Tab}
 Der Highscores-Tab besteht im Gegensatz zum Spielen-Tab lediglich auch einer View - der Highscores-View.
-\subsubsection{Highscores-View}
+\\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/tabs_highscores.png}
+\caption[Tabaufbau Highscores-Tab]{Tabaufbau Highscores-Tab}
+\label{fig:Tabaufbau Highscores-Tab}
+\end{figure}
+
+\paragraph{Highscores-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -235,7 +301,12 @@ Diese View ist die Übersichtsseite für alle gespeicherten Highscores.
 %
 %Ablaufplan
 %
-\\ \includegraphics[width=1\textwidth]{ref/images/06-highscores-tab.png} \\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/06-highscores-tab.png}
+\caption[Modell-View-Controller: Highscores-View]{Modell-View-Controller: Highscores-View}
+\label{fig:MVC:Highscores-View}
+\end{figure}
 %
 % Beschreibung des Controllers und der Services
 %
@@ -244,9 +315,16 @@ Der Highscores-View wurde über app.js der Controller 'HighscoresCtrl' zugewiese
 Der Controller ist lediglich für die Anzeige von Highscore-Daten zuständig und besitzt daher keine Funktionen, die über die View aufgerufen werden können. Allerdings lädt er vor der Anzeige der View die Highscore-Daten, die der Player Service über die Funktion 'getHighscores' anbietet.
 \\
 Der Player Service lädt dafür das Spielerarray, welches im Localstorage des Geräts hinterlegt wurde und sortiert es absteigend. Die Highscore-View zeigt dann lediglich die Spieler des Arrays in dieser Reihenfolge an und gibt die Hintergrundinformationen Spielername, Radius, Zeitpunkt der letzten Änderung und Punktzahl mit an.
-\subsection{Account-Tab}
+\subsubsection{Account-Tab}
 Der Account-Tab besteht ebenfalls aus einer einzigen View - der Account-View.
-\subsubsection{Account-View}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/tabs_account.png}
+\caption[Tabaufbau Account-Tab]{Tabaufbau Account-Tab}
+\label{fig:Tabaufbau Account-Tab}
+\end{figure}
+
+\paragraph{Account-View}
 %
 %Beschreibung der HTML-Seite
 %
@@ -254,20 +332,42 @@ Die View ist für verschiedene Einstellungen gedacht, die der Spieler der Applik
 %
 %Ablaufplan
 %
-\\ \includegraphics[width=1\textwidth]{ref/images/07-account-tab.png} \\
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/07-account-tab.png}
+\caption[Modell-View-Controller: Account-View]{Modell-View-Controller: Account-View}
+\label{fig:MVC:Account-View}
+\end{figure}
 %
 % Beschreibung des Controllers und der Services
 %
 Der Account-View wurde über app.js der Controller 'AccountCtrl' zugewiesen, der Zugriff auf den Player Service hat.
 \\
 Mit Klick auf den Button 'Highscores löschen' werden über den Controller bzw. über den Player Service alle Daten aus dem lokalen und dem Sessionstorage gelöscht ('emptyHighscores'-Funktion). Im Anschluss daran wird der Nutzer auf die Startseite (Play-View) zurückgeleitet.
-\subsection{Credits-Tab}
+\subsubsection{Credits-Tab}
 Der Credits-Tab besteht ebenfalls aus einer einzigen View - der Credits-View.
-\subsubsection{Credits-View}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/tabs_credits.png}
+\caption[Tabaufbau Credits-Tab]{Tabaufbau Credits-Tab}
+\label{fig:Tabaufbau Credits-Tab}
+\end{figure}
+
+\paragraph{Credits-View}
 %
 %Beschreibung der HTML-Seite
 %
 Diese View ist besonders. Ihr wurde zwar ein Controller ('CreditsCtrl') zugewiesen. Da die Danksagungsseite jedoch keinerlei Funktionalität benötigt und auch keine Daten vor dem Laden erhalten muss, kann man sie als einfache HTML-Seite betrachten, die textuellen Inhalt im Original wiedergibt. Es existiert demnach auch kein Ablaufplan.
+\subsubsection{Übersicht}
+Die drei Services Player, Location und Task werden je nach Aufgabenstellung von den Controllern benötigt. Jeder Funktionsaufruf eines Service brauch dafür eine feste Verbindung zu dem Service. Die Abhängigkeitsstruktur der Applikation sieht so aus:
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{ref/images/controller_services.png}
+\caption[Übersicht Controller-Services Verbindungen]{Übersicht Controller-Services Verbindungen}
+\label{fig:Controller-Services}
+\end{figure} 
+
+Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsaustausch zwischen den Views, den Controllern und Services. Dieser ist symptomatisch für die Modell-View-Controller-Architektur, wie bereits in Kapitel XXX beschrieben und sorgt für größtmögliche Unabhängigkeit zwischen den Elementen, da lediglich die Schnittstellen(Funktionsparameter) von Bedeutung sind und somit auch große Wiederverwertbarkeit gegeben ist.
 \subsection{Umsetzung iBeacons}
 Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden.Damit diese die Genauigkeit der Entfernung verbessern.
 Hierfür muss die App Signale des iBeacons empfangen. Deshalb läuft während der gesamten Ortungsphase im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.

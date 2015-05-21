@@ -1,4 +1,5 @@
-\subsection{Technologien und Entscheidungen}
+\subsection[Technologien und Entscheidungen]{Technologien und Entscheidungen
+ \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
 
 Aus den Anforderungen heraus wurde sich im Rahmen dieser Arbeit für diverse Technologien entschieden, welche eine Umsetzung der Anforderungen des Prototypen ermöglichen.
 %Eine dieser Anforderungen ist es, die Funktionen über ein Smartphone zu nutzen. Um möglichst vielen Anwendern die %Möglichkeit der Nutzung zu geben, fiel die Wahl auf Phonegap und Apache Cordova.
@@ -214,17 +215,21 @@ Das Fazit dieser Gegenüberstellung ist, dass eine Hybride Applikation genau die
 \\
 In diesem Zusammenhang sind auch die Technologien Apache Cordova, Ionic, HTML5, CSS und Angular-JS relevant. Außerdem ist es wichtig, die verwendbaren Kartenmaterialien zu unterscheiden und zu bewerten, sowie die in Kapitel XXX verwendete Technologie der iBeacons.
 
-\subsubsection{Phonegap und Apache Cordova}
-PhoneGap entstand als Framework zur Entwicklung von Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft, die das Produkt weiter unter dem Namen Apache Cordova fokussierten. 
-\\
+\subsubsection[Phonegap und Apache Cordova]{Phonegap und Apache Cordova
+ \\ \textnormal{\small{\textit {Verfasst von ??}}}}
+
+PhoneGap entstand als Framework zur Entwicklung von Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft, die das Produkt weiter unter dem Namen Apache Cordova fokussierten. \\
 Im Rahmen der hier vorgestellten Arbeit wurde Cordova genutzt, um eine hybride App zu entwickeln. Da der Vorteil des Frameworks vor allem aus seiner Wiederverwendbarkeit besteht. Der geschriebene HTML-, CSS- und JavaScript-Code kann nämlich über Cordova entsprechend der verschiedenen Mobilplattformen unterschiedlich transformiert werden, um die entsprechende Applikation im richtigen Format zu erstellen. Unterstützt werden dabei die verbreitetsten Betriebssysteme Andorid und iOS, aber auch weitere wie Windows Phones, Blackberrys oder sogar FirefoxOS. Damit ist die fertige App später für alle zuvor vorgestellten Betriebssysteme verfügbar.
 
 
-\subsubsection{Ionic}
+\subsubsection[Ionic]{Ionic
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+
 Ein weiteres genutztes Framework ist Ionic. Es handelt sich dabei um ein HTML5-Framework, das sich um das Benutzerinterface einer Web-Applikation kümmert. Der Fokus des Frameworks liegt dabei speziell auf mobilen Endgeräten.
 Ionic bietet, in Zusammenarbeit mit Angular JS, einige UI-Komponenten, die eine Oberfläche leicht in modernem Licht erscheinen lassen.
 
-\subsubsection{HTML5}
+\subsubsection[HTML 5]{HTML5
+ \\ \textnormal{\small{\textit {Verfasst von ??}}}}
 
 Durch die Entscheidung für Cordova und Ionic ist die Verwendung von HTML5 vorgegeben. Um eine Hybride App über Cordova erstellen lassen zu können, müssen die Texte in HTML-Seiten beschrieben werden, damit sie dann bei der Erstellung interpretiert werden können. In diesem Abschnitt wird die Technologie HTML5 im Allgemeinen erläutert.
 
@@ -236,15 +241,22 @@ HTML liegt aktuell in der 5. Version vor, weshalb der Name HTML5 gewählt wurde.
 
 
 
-\subsubsection{CSS}
+\subsubsection[CSS]{CSS
+ \\ \textnormal{\small{\textit {Verfasst von ??}}}}
+
 CSS steht für Cascading Style Sheets (gestufte Gestaltungsbögen). Es handelt sich um eine Gestaltungssprache welche unter anderen in Verbindung mit HTML genutzt wird. CSS werden genutzt um Design für Webseiten zu gestalten. Zu einem Design können mit CSS Farben, Formen, Schriftarten und vieles mehr gehören. Durch die Trennung von Text mit HTML und Design durch CSS ist es möglich mehrere Webseiten mit ähnlichem oder gleichen Design zu gestalten. Realisiert wird dies mit einer CSS-Datei. In einer CSS Datei sind meist mehrere Klassen vorhanden. Jede Klasse besitzt verschiedene Eigenschaften wie Farbe, Schriftart oder Schriftgröße. Möchte man diese Klassen in einem HTML Dokument verwenden, so verknüpft man die CSS-Datei mit einem speziellen Tag mit der HTML Seite und kann dann beispielsweise Textabschnitten oder Überschriften die definierten Klassen zuweisen.
+
+TODO!!!
 
 http://www.w3.org/standards/webdesign/htmlcss
 
-\subsubsection{Angular-JS}
+\subsubsection[Angular-JS]{Angular-JS
+ \\ \textnormal{\small{\textit {Verfasst von ??}}}}
 Angular JS ist ein Framwork, das voll auf JavaScript aufbaut und komplett klientenseitig ausgeführt wird.
 
-\subsubsection{Kartenmaterial}
+\subsubsection[Kartenmaterial]{Kartenmaterial
+ \\ \textnormal{\small{\textit {Verfasst von Patrick Senneka}}}}
+ 
 Kartenmaterial im Browser bzw. einer Hybrid-App ist ein essentieller Bestandteil von Location based Services. Durch eine Positionsbestimmung alleine erhält man nur Daten die für den Nutzer nicht anschaulich sind. Diese liegen normalerweise als geografische Koordinaten vor, die in geografischer Breite und geografischer Länge angegeben werden. Eine Beispielposition soll die Bedeutung von Kartenmaterial für den Nutzer von Location based Services verdeutlichen.
 
 
@@ -769,7 +781,9 @@ Im Vergleich der Vor und Nachteile und den nichtfunktionalen Anforderungen über
 
 Das Fazit ist, dass sich OpenStreetMaps am besten für den Einsatzzweck dieser Studienarbeit und der damit verbundenen Location-based Services App eignet.
 
-\subsubsection{iBeacons}
+\subsubsection[iBeacons]{iBeacons
+ \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
+
 Umsetzung der Anforderung X.X "Erkennen des Ziels mit einer Abweichung von einem Meter".
 \\Dieser Abschnitt erläutert die Umsetzung der Anforderung X.X. Wie bereits erläutert wird GPS zur Abstandsermittlung des Prototypen verwendet. Das bedeutet, während der Nutzer sich auf das Ziel zubewegt wird der Standort über GPS bestimmt. Bereits in Kapitel X ist die Genauigkeit von GPS Positionen angegeben.  Sie liegt bei x Metern. Um mit dieser Genauigkeit erkennen zu können, ob sich ein Spieler am Ziel befindet wurde ein Radius von 10 Metern um den Zielpunkt gewählt. Nach einigen Praxistests wurde deutlich, dass dieser Radius nicht ausreicht. Die Testkandidaten konnten den Zielpunkt trotz des Radius nicht erreichen. Aus diesem Grund entschied man sich dazu die Genauigkeit am Zielpunkt deutlich zu erhöhen, mit iBeacons. In Kapitel X ist bereits auf RadioButtons eingegangen worden. Eine Unterkategorie bilden von diesen, bilden die iBeacons.
 

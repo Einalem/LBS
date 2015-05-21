@@ -1,5 +1,6 @@
 \newpage
 \section{Implementierung}
+
 Wie in Abschnitt 4.2 bereits erwähnt ist die Applikation dem Design-Pattern Model-View-Controller nachempfunden. Im Folgenden wird nun die konkrete Implementierung beschrieben und die Architektur mittels Codebeispielen konkretisiert.
 \\
 Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite index.html vor. In diese wird mittels Javascript der jeweilige Inhalt (eine View) geladen und mit Daten und Funktionen (Controller) versorgt.
@@ -11,7 +12,9 @@ Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite 
 \end{figure}
 
 App.js ist eine Javascript-Datei, die unter Anderem die Zuordnung der Views zu ihrem jeweiligen Controller durchführt. 
-\subsection{App.js}
+\subsection[App.js]{App.js
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 In der app.js ist pro View ein Status (state) hinterlegt, der alle folgenden Informationen definiert:
 \begin{itemize}
 \item Name des Status
@@ -44,7 +47,9 @@ Diese folgende Codezeile wird demnach dann aufgerufen, wenn der URL-Provider kei
   $urlRouterProvider.otherwise('/tab/play');
 \end{lstlisting}
 
-\subsection{Controller und Services}
+\subsection[Controller und Services]{Controller und Services
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+
 Für jede View existiert ein Controller, der dann die alleinige Macht über Model-Aufrufe für die View hat. Der Begriff Model wird im Folgenden durch den Cordova-spezifischen Begriff Service ersetzt. Insgesamt wurden für die Applikation drei Services entwickelt:
 \begin{itemize}
 \item \emph{Player Service}: Zuständig für die Behandlung von Spielerdaten
@@ -53,7 +58,9 @@ Für jede View existiert ein Controller, der dann die alleinige Macht über Mode
 \end{itemize}
 Alle folgenden Statusbeschreibungen trennen View, Controller und Model bildlich voneinander.
 \\
-\subsection{Applikationsaufbau}
+\subsection[Applikationsaufbau]{Applikationsaufbau
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 Die App besitzt einen getabbten Aufbau, das heißt es existiert eine Kopfzeile, die dem Nutzer vier verschiedene Tabs anbietet: Spielen, Highscores, Account und Credits. 
 \\
 Die angezeigten Tabs der Applikation sind ein Spezialstatus, der in app.js als abstrakt gekennzeichnet ist und ständig im Hintergrund aktiv ist. Die Tabs sind auch wieder als HTML-Template definiert.
@@ -74,7 +81,9 @@ Alle folgenden Tabs bauen auf diesem abstrakten Status auf.
 
 Jeder der Tabs wird im Folgenden näher beschrieben werden.
 \newpage
-\subsubsection{Spielen-Tab}
+\subsubsection[Spielen-Tab]{Spielen-Tab
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 Der Spielen-Tab bietet dem Nutzer die Möglichkeit ein Spiel zu starten. Er gibt dafür einen Namen und einen Spielradius an. Unter dieser Kombination wird er später seinen Highscore dieses Spiels finden können. 
 \\
 Die View, die dahinter steht ist anfangs die Play-View, welche prinzipiell im Spielen-Tab als Startseite der Applikation angezeigt wird. Im Verlauf des Spiels wird der Nutzer auf verschiedene View weitergeleitet, die im Folgenden näher beschrieben werden. 
@@ -313,7 +322,9 @@ Wenn die Distanz kleiner als zehn Meter beträgt, gilt die Aufgabe als absolvier
 
 
 Bei Fehlern bei der Positionsbestimmung erfolgt eine Fehlermeldung nachdem die Timeout-Zeit von 60 Sekunden abgelaufen ist. Die Zeit ist bei der 'watch'-Funktion doppelt so hoch eingestellt, wie bei der Erstbestimmung. Die Erstbestimmung muss für den Nutzer ersichtlich schnell geschehen. Wenn er erst einmal eine Aufgabe verfolgt, kann es schneller mal passieren, dass das Gerät die Position verliert. Sie sollte jedoch sehr robust gegen 'GPS-Löcher' sein und daher wurde die Zeit in dem Fall sehr hoch gewählt, sodass es zu keinem Aufgabenabbruch kommt. In diesem Fall wird natürlich auch die Watch-ID gelöscht.
-\subsubsection{Highscores-Tab}
+\subsubsection[Highscores-Tab]{Highscores-Tab
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 Der Highscores-Tab besteht im Gegensatz zum Spielen-Tab lediglich aus einer View - der Highscores-View.
 \begin{figure}[h]
 \centering
@@ -345,7 +356,9 @@ Der Highscores-View wurde über app.js der Controller 'HighscoresCtrl' zugewiese
 Der Controller ist lediglich für die Anzeige von Highscore-Daten zuständig und besitzt daher keine Funktionen, die über die View aufgerufen werden können. Allerdings lädt er vor der Anzeige der View die Highscore-Daten, die der \emph{Player Service} über die Funktion 'getHighscores' anbietet.
 \\
 Der \emph{Player Service} lädt dafür das Spielerarray, welches im Localstorage des Geräts hinterlegt wurde und sortiert es absteigend. Die Highscore-View zeigt dann lediglich die Spieler des Arrays in dieser Reihenfolge an und gibt die Hintergrundinformationen Spielername, Radius, Zeitpunkt der letzten Änderung und Punktzahl mit an.
-\subsubsection{Account-Tab}
+\subsubsection[Account-Tab]{Account-Tab
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 Der Account-Tab besteht ebenfalls aus einer einzigen View - der Account-View.
 \begin{figure}[h]
 \centering
@@ -376,7 +389,9 @@ Die View ist für verschiedene Einstellungen gedacht, die der Spieler der Applik
 Der Account-View wurde über app.js der Controller 'AccountCtrl' zugewiesen, der Zugriff auf den \emph{Player Service} hat.
 \\
 Mit Klick auf den Button 'Highscores löschen' werden über den Controller bzw. über den \emph{Player Service} alle Daten aus dem lokalen und dem Sessionstorage gelöscht ('emptyHighscores'-Funktion). Im Anschluss daran wird der Nutzer auf die Startseite (Play-View) zurückgeleitet.
-\subsubsection{Credits-Tab}
+\subsubsection[Credits-Tab]{Credits-Tab
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 Der Credits-Tab besteht ebenfalls aus einer einzigen View - der Credits-View.
 \begin{figure}[h]
 \centering
@@ -391,7 +406,9 @@ Der Credits-Tab besteht ebenfalls aus einer einzigen View - der Credits-View.
 %
 Diese View ist besonders. Ihr wurde zwar ein Controller ('CreditsCtrl') zugewiesen. Da die Danksagungsseite jedoch keinerlei Funktionalität benötigt und auch keine Daten vor dem Laden erhalten muss, kann man sie als einfache HTML-Seite betrachten, die textuellen Inhalt im Original wiedergibt. Es existiert demnach auch kein Ablaufplan.
 \newpage
-\subsubsection{Übersicht}
+\subsubsection[Übersicht]{Übersicht
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 Die drei Services \emph{Player}, \emph{Location} und \emph{Task} werden je nach Aufgabenstellung von den Controllern benötigt. Jeder Funktionsaufruf eines Service brauch dafür zuerst eine feste Verbindung vom Controller zu dem Service. Die Abhängigkeitsstruktur der Applikation sieht so aus:
 \begin{figure}[h]
 \centering
@@ -402,9 +419,13 @@ Die drei Services \emph{Player}, \emph{Location} und \emph{Task} werden je nach 
 
 Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsaustausch zwischen den Views, den Controllern und Services. Dieser ist symptomatisch für die Model-View-Controller-Architektur, wie bereits in Kapitel 4.2 beschrieben und sorgt für größtmögliche Unabhängigkeit zwischen den Elementen, da lediglich die Schnittstellen(Funktionsparameter) von Bedeutung sind und somit auch große Wiederverwertbarkeit gegeben ist.
 
-\subsubsection{Bewertung der Architektur}
+\subsubsection[Bewertung der Architektur]{Bewertung der Architektur
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
+ 
 \textbf{TODO}: Rückbezug der fertigen Architektur zu den gemachten Anforderungen (fachlich + technisch) + Bewertung.
-\subsection{Umsetzung iBeacons}
+\subsection[Umsetzung iBeacons]{Umsetzung iBeacons
+ \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
+
 Ziel der Umsetzung in dieser Arbeit ist, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden.Damit diese die Genauigkeit der Entfernung verbessern.
 Hierfür muss die App Signale des iBeacons empfangen. Deshalb läuft während der gesamten Ortungsphase im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
 

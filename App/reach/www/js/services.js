@@ -169,6 +169,9 @@
                         document.getElementById("infotext").innerHTML = "Deine Position ist hier: <br/>[" + latitude + ", " + longitude + "]";
 
                         //Initialisieren der Map auf diesen Punkt
+						
+						
+					
                         document.getElementById('mapDiv').innerHTML = "<div id='map' style='height: 180px;'></div>";
                         map = L.map('map', {
                             center: [latitude, longitude],
@@ -184,7 +187,7 @@
                             color: 'red',
                             fillColor: '#f03',
                             fillOpacity: 0.3
-                        }).addTo(map);
+                        }).addTo(map);  
 
                         //Speichern der Position
                         setStartPositionCallback(latitude, longitude);
@@ -223,7 +226,136 @@
                 document.getElementById("distance").innerHTML = "";
                 document.getElementById("color").innerHTML = "";
                 document.getElementById("scores").innerHTML = "";
+				
+				
+				
+				//----------------Start: Implementierung iBeacons
+								
+				
+				var mRegions =
+				[
+					{
+						id: 'region1',
+						uuid: '95F428B1-4A3A-4E39-B086-21BFF38DEB6D',
+						major: 0,
+						minor: 304
+					}
+				];
+				
+				var zahler=0;
+				var globalBeacons;
+				
+				
+				
+				
+				startMonitoringAndRanging();
+				
+				function startMonitoringAndRanging()
+				{
+					//document.getElementById("iBeacon").innerHTML = "Monitoring gestartet";
+					function onDidDetermineStateForRegion(result)
+					{
+						//saveRegionEvent(result.state, result.region.identifier);
+						//displayRecentRegionEvent();
+					}
 
+					function onDidRangeBeaconsInRegion(result)
+					{
+						
+						//document.getElementById("iBeacon2").innerHTML = result.beacons.length;
+						globalBeacons = result.beacons;
+						displayNearestBeacon(result.beacons);
+					}
+
+					function onError(errorMessage)
+					{
+						console.log('Monitoring beacons did fail: ' + errorMessage);
+					}
+
+					// Request permission from user to access location info.
+					cordova.plugins.locationManager.requestAlwaysAuthorization();
+
+					// Create delegate object that holds beacon callback functions.
+					var delegate = new cordova.plugins.locationManager.Delegate();
+					cordova.plugins.locationManager.setDelegate(delegate);
+
+					// Set delegate functions.
+					delegate.didDetermineStateForRegion = onDidDetermineStateForRegion;
+					delegate.didRangeBeaconsInRegion = onDidRangeBeaconsInRegion;
+
+					// Start monitoring and ranging beacons.
+					startMonitoringAndRangingRegions(mRegions, onError);
+					
+				}
+				
+				function startMonitoringAndRangingRegions(regions, errorCallback)
+				{
+					// Start monitoring and ranging regions.
+					for (var i in regions)
+					{
+						startMonitoringAndRangingRegion(regions[i], errorCallback);
+						
+					}
+				}
+				
+
+				function startMonitoringAndRangingRegion(region, errorCallback)
+				{
+					// Create a region object.
+					
+					var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(
+						region.id,
+						region.uuid,
+						region.major,
+						region.minor);
+
+					// Start ranging.
+					cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
+						.fail(errorCallback)
+						.done();
+
+					// Start monitoring.
+					cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+						.fail(errorCallback)
+						.done();
+				}
+				
+				
+				function displayNearestBeacon(beacons)
+				{
+					zahler=zahler+1;
+					//document.getElementById("iBeacon").innerHTML = zahler;
+					if(beacons.length ==0){
+					//document.getElementById("iBeacon").innerHTML = "kein BEacon in der Nähe"+zahler;
+					
+					
+					}
+					else{
+					
+					 mNearestBeacon = beacons[0];
+					
+					
+					
+					// Clear element.
+				
+
+					// Update element.
+					/*document.getElementById("iBeacon2").innerHTML = 
+						'<li>'
+						+	'<strong>Nearest Beacon</strong><br />'
+						+	'UUID: ' + mNearestBeacon.uuid + '<br />'
+						+	'Major: ' + mNearestBeacon.major + '<br />'
+						+	'Minor: ' + mNearestBeacon.minor + '<br />'
+						+	'Proximity: ' + mNearestBeacon.proximity + '<br />'
+						+	'Distance: ' + mNearestBeacon.accuracy + '<br />'
+						+	'RSSI: ' + mNearestBeacon.rssi + '<br />'
+						+ '</li>';
+						*/
+						}
+				}
+				
+				//-------------Ende iBeacons
+				
                 if (navigator.geolocation) {
                     var id = navigator.geolocation.watchPosition(
                         //Successfunktion
@@ -240,10 +372,30 @@
                             //setzen der Koordinaten
                             var latitude = pos.coords.latitude;
                             var longitude = pos.coords.longitude;
-                            var distance = getDistance(latitude, longitude, task.taskPosLat, task.taskPosLong);
+                            var distance; 
+							var beaconfound;
+							
+							if(globalBeacons.length ==0){
+							distance = getDistance(latitude, longitude, task.taskPosLat, task.taskPosLong);
                             distance = distance.toFixed(3);
-
-                            var diff = (task.distance - distance).toFixed(3);
+							beaconfound = false;
+							document.getElementById("iBeacon").innerHTML = "GPS/WLAN";
+							}
+							else{
+							distance=mNearestBeacon.accuracy;
+							beaconfound=true;
+							document.getElementById("iBeacon").innerHTML = "Beacon";
+							}
+							
+							var diff;
+							if(beaconfound)
+							{		
+                            diff = (task.distance - (distance/1000)).toFixed(4);
+							}
+							else
+							{
+							var diff = (task.distance - distance).toFixed(4);
+							}
 /*                            document.getElementById("distTitel").innerHTML =
                                 date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" +
                                 date.getMilliseconds() + " [" + latitude.toFixed(3) + "," + longitude.toFixed(3) + "]";
@@ -251,8 +403,9 @@
                             document.getElementById("distTitel").innerHTML =
                                 "Geschafft (" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" +
                                 date.getMilliseconds() + ")";
-
+							
                             document.getElementById("distance").innerHTML = diff + " km";
+							
                             /*
                             document.getElementById("distance").innerHTML =
                                 distance + " km<br/>Geschafft: " + diff + " Meter";
@@ -277,8 +430,15 @@
                                 navigator.geolocation.clearWatch(id);
                             } else {
                                 if (distance <= player.lastDist) {
-                                    document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: green;'>"+ distance + " km</h1></center>";
-                                    //Bonus für korrekte Richtung
+								
+									if(beaconfound){
+                                    document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: green;'>"+ distance + " m</h1></center>";
+                                    }
+									else
+									{
+									 document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: green;'>"+ distance + " km</h1></center>";
+									}
+									//Bonus für korrekte Richtung
                                     task.score++;
                                     /*
                                      var myPopup = $ionicPopup.alert({
@@ -290,7 +450,13 @@
                                      }, 900);
                                      */
                                 } else {
-                                    document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: red;'>"+ distance + " km</h1></center>";
+                                    if(beaconfound){
+                                    document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: red;'>"+ distance + " m</h1></center>";
+                                    }
+									else
+									{
+									 document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: red;'>"+ distance + " km</h1></center>";
+									}
                                     //Abzug für falsche Richtung
                                     task.score--;
                                     /*
@@ -484,6 +650,13 @@
                 //difficulty: 0,
                 taskPosLat: 50.115111500,
                 taskPosLong: 8.6387480
+            },
+            {
+                id: 18,
+                name: "Flörsheim",
+                //difficulty: 0,
+                taskPosLat: 50.01166666666,
+                taskPosLong: 8.428055555555690
             }
 
         ];

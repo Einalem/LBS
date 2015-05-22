@@ -460,13 +460,89 @@ aus. Draufhin erfolgt die Automatische Installation im Ordner "plugin" der App u
 Der allgemeine Ablauf besteht aus mehreren Schritten:
 \begin{enumerate}
 \item Schritt Anlegen eines Arrays mit iBeacon Informationen
-\item Schritt Hauptfunktion mit for-Schleife aufrufen
+\item Schritt Hauptfunktion aufrufen
 \item Schritt Warten auf einen iBeacon in Reichweite
 \item Schritt Gefundenes iBeacon-Objekt in Variable schreiben
 \item Schritt Daten aus Objekt auslesen und anzeigen
 \end{enumerate}
+Diese Schritte werden im folgenden mit Quellcode-Listings aus der App erläutert:
+
+1. Anlegen eines Arrays mit iBeacon Information
+\\Wie bereits in Kapitel XX erläutert, senden Beacons mehrere Informationen in einem definierten Zeitabstand. Hierzu zählt die UUID, eine eindeutige Zahlen und Buchstabenkombination sowie eine Major und Minor Nummer. Mit Hilfe dieser Daten lässt sich ein Beacon identifizieren. Da jedes Ziel mit einem iBeacon ausgestatte werden soll, muss die App hierfür jeweils diese Daten kennen. Aus diesem Grund gibt es ein Objekt mit diesen Daten.
+ 
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+var mRegions =
+				[
+					{
+						id: 'region1',
+						uuid: '95F428B1-4A3A-4E39-B086-21BFF38DEB6D',
+						major: 0,
+						minor: 304
+					}
+				];
+\end{lstlisting}
 
 
+2. Hauptfunktion aufrufen
+\\Damit nach dem iBeacon durch die App gesucht wird, muss 'Ranging' und 'Monitoring' gestartet werden. Dieses überwacht ob sich der iBeacon in Reichweite befindet. Hierfür wird die Funktion 'startMonitoringAndRangingRegion' aufgerufen. Beim Aufruf dieser Funktion wird das Objekt mit den iBeacon Daten 'mRegions' mit übergeben. Mit diesen Daten wird ein neues Objekt vom Typ BeaconRegion erstellt. Dieses Obejekt wird von den Funktionen  cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion) und cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion) verwendet um das Ranging und Monitoring nach diesem iBeacon zu starten.
+
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+function startMonitoringAndRangingRegion(region, errorCallback)
+				{
+					// Create a region object.
+					
+					var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(
+						region.id,
+						region.uuid,
+						region.major,
+						region.minor);
+
+					// Start ranging.
+					cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
+						.fail(errorCallback)
+						.done();
+
+					// Start monitoring.
+					cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+						.fail(errorCallback)
+						.done();
+				}
+\end{lstlisting}
+
+
+3. Warten auf iBeacon in Reichweite
+\\Die im vorherigen Schritt beschriebene Funktion lässt die App im Hintergrund nach dem iBeacon suchen. Befindet sich der gesuchte iBeacon in Reichweite und das Bluetooth Modul des Smartphones empfängt Signale wird folgende Funktion aufgerufen:
+
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+function onDidRangeBeaconsInRegion(result)
+					{
+						globalBeacons = result.beacons;
+					}
+\end{lstlisting}
+
+Diese Funktion enthält die empfangenen Informationen des iBeacons in der Variable 'result'. Damit die Informationen global verwendet werden können, werden diese in die Variable 'globalBeacons' geschrieben. Der Vorteil ist, im Gesamten Dokument kann nun auf diese Informationen zugegriffen werden. Somit ist es möglich eine Fallunterscheidung zu treffen ob die Entfernung für das Spiel per GPS/Wlan bestimmt oder über einen iBeacon ermittelt werden kann.
+
+
+4. Daten aus dem Objekt auslesen
+\\Nachdem die Daten des iBeacons im Objekt globalBeacons abgespeichert wurden kann auf die übermittelte Distanz wie folgt zugegriffen werden:
+
+\begin{lstlisting}[frame=single]  % Start your code-block
+
+					dist = globalBeacons.accuracy;
+					
+\end{lstlisting}
+
+
+Mit diesen Funktionen und Daten kann eine Fallunterscheidung erfolgen ob die Distanz per GPS/Wlan oder mit den Daten des iBeacon bereit gestellt wird.
+Mit einer zusätzlichen Variable 'beaconfound' wird die Fallunterscheidung vereinfacht. Diese Variable ist entweder 'false' oder 'true', je nachdem ob der gesuchte iBeacon in Reichweite ist oder nicht. Die beiden folgenden Screenshots zeigen auf, welche Unterscheidungen und Veränderungen in der App angezeigt werden, wenn GPS/Wlan oder iBeacons verwendet werden.
+
+\includegraphics[width=0.3\textwidth]{ref/images/screenshot1.png} 
+\includegraphics[width=0.3\textwidth]{ref/images/screenshot2.png} 
+\\Auf beiden Bilder (XX und XX) ist die App abgebildet. Sie zeigt jeweils an wie weit das Ziel noch entfernt ist. Im linken Bild wird die Entfernung mit Hilfe von GPS bestimmt. Im rechten Bild findet die Bestimmung der Entfernung per Beacon statt.
+Per Fallunterscheidung wird das Anzeigefeld angepasst. Damit weiß der Nutzer, mit welchem System der Abstand bestimmt wird. Des Weiteren wird die Entfernung nicht in km angegeben sondern in Metern, da die Enfernungsbestimmtung mit einem iBeacon wesentlich genauer ist als mit GPS.
 
 \underline{TODO: An dieser Stelle wird mit Code-Listings die Umsetzung dieser Schritte }\\
 \underline{detailliert erläutert werden.}

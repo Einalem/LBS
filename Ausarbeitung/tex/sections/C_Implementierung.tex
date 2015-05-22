@@ -421,8 +421,31 @@ Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsau
 
 \subsubsection[Bewertung der Architektur]{Bewertung der Architektur
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
- 
-\textbf{TODO}: Rückbezug der fertigen Architektur zu den gemachten Anforderungen (fachlich + technisch) + Bewertung.
+Nach der Implementierung ist der Rückbezug auf die anfangs gemachten Anforderungen relevant.
+\\
+Die fachlichen Anforderungen wurden großteils erfüllt. Pro Spieler wird in Speicher des Geräts ein Objekt gespeichert, das die Grundeinstellungen (Name, Spielradius, Startposition) hält. Diese Anforderungen werden vom Player Service übernommen.
+\\
+Auch die Aufgabenerstellung wird anhand der Startposition und des Radius ermittelt. Das war ebenfalls eine fachliche Aufgabenstellung und wird in der Architektur vom Task Service übernommen. Der Ansatz des steigenden Schwierigkeitsgrads wurde im Prototypen nicht weiter verfolgt, ebenso wie das Verfolgen der Höhe des Spielers.
+\\
+Die Höhe war technisch betrachtet zu schwer festzulegen. Die Angaben der Testgeräte waren zu ungenau, um daraus ein wiederholbares, einfaches Konzept zu implementieren. Der steigende Schwierigkeitsgrad könnte durch ein weiteres Detail in der Aufgabendefinition (Schwierigkeitsgrad) implementiert werden und die Aufgaben daher bei der Ermittlung über die jeweilige Entfernung in beispielsweise drei Kategorien eingeteilt werden. Dementsprechend könnten dann auch mehr Punkte bei Erreichen des Ziels verrechnet werden.
+Dies ist nur ein Beispiel für Erweiterungen des Prototypen bevor er zu einer produktiven Applikation würde.
+\\
+Bei der Aufgabendurchführung wurden alle Anforderungen erfüllt. Die Aufgaben werden beim Spielen ständig verfolgt und der Prototyp gibt ständig Rückmeldung. Außerdem ist die Möglichkeit, das Spiel zu pausieren sowie die Tatsache einer immer aktuelle Highscoreberechnung gegeben.
+\\
+\\
+Die Bewertung der technischen, nicht-funktionalen Anforderungen fällt ebenfalls sehr positiv aus. Die Plattformunabhängigkeit ist durch die Umstände der hybriden Architektur gegeben.
+\\
+Um die tatsächliche Benutzbarkeit des Prototypen zu testen wäre eine umfassende Usability-Prüfung nötig. Die Auffassung der Entwickler und einzelner Tester der Umgebung ist jedoch, dass die Applikation übersichtlich zu steuern war. Dies ist gegeben durch den getabbten Aufbau der Anwendung. 
+\\
+Die Selbstbeschreibungsfähigkeit ist dadurch gewährleistet, dass bei der Entwicklung darauf geachtet wurde, dem Nutzer ständig Rückmeldung zu geben. Außerdem ist die Architektur möglichst einfach gehalten, was ebenfalls zu einer erleichterten Bedienung beiträgt.
+\\
+Durch vergleichbare Applikationen ist auch die Erwartungskonformität hoch, da bei der Entwicklung auch vergleichbare Applikationen im Vorfeld hinzugezogen wurden.
+\\
+Die Fehlertoleranz einer Applikation, die auf Location Based Services aufbaut muss unbedingt hoch sein. Bei fehlerhafter Lokalisierung muss die Applikation unbedingt eine entsprechende Fehlerroutine durchlaufen. Dies ist im Prototypen gegeben, der jeden technischen Fehler abfängt und dem Nutzer der Anwendung schriftlich aufbereitet. Außerdem muss in solch einem Fall die Lokalisierung beendet werden, da man sonst in eine Endlosschleife geraten könnte.
+\\
+Die Animation des '"Wünschelrouteneffekts'" ist im Prototypen noch relativ einfach implementiert. Es wird dem Nutzer lediglich die Entfernung in entsprechender Farbe (rot für weiter weg und grün für näher dran) dargestellt. Eine Optimierung der Animation einer zu verkaufender Applikation wäre noch wünschenswert, für einen Prototypen, der die technischen Fähigkeiten einer Location Based Services Applikation werden daher aber auch schon schön veranschaulicht.
+\\
+Abschliessend lässt sich sagen, dass der Aufbau der Applikation, wie in der Architektur beschrieben sehr strukturiert durchgezogen wurde, was vor allem an dem speziellen Angular JS Aufbau mittels Views, Controller und Services liegt. Das einfache Austauschen einzelner Komponenten hat die Entwicklung des Rahmenwerks vereinfacht, was den kreativen Teil der Implementierung gestärkt hat. Auch die gelungene Betriebssystemunabhängigkeit passt sich in das allgemein positive Resumee ein.
 \subsection[Umsetzung iBeacons]{Umsetzung iBeacons
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
 

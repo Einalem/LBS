@@ -206,16 +206,22 @@ Möchte man eine App für verschiedene Betriebssysteme entwickeln und den Aufwan
 %Fazit IN dieser Arbeit wird eine Hybrid umgestetzt, da unerfahren was Frameworks angeht und meiste entwicklung mit %Cordova und Plug ins  Wahl fiel auf Apache Cordova mit Ionic
 
 Fasst man die gewonnen Erkenntnisse über die Technologien zusammen ergibt sich folgende Tabelle:
-\begin{table}[h]
-\begin{tabular}{ p{3cm}|l|l|l|l }
-\textbf{}                         & Web App                                                                    & Native App                                                                                                   & Hybrid App                                                                                                                 \\
-Zugriff auf Hardware              & Schlecht,,nur auf wenige Hardware Komponenten kann zugegriffen werdne      & Voller,Zugriff auf gesamte Hardware möglich                                                                  &                                                                                                                            \\
-Vorraussetzungen und Vorkentnisse & durch,die Vorlesung "Web Engineering" sind ausreichend Kentnisse,vorhanden & Kentinnes,für Android Programmierung durch Java vorhanden. Kentnisse über iOS,programmierung nicht vorhanden & Hybrid,App wird mit Web Technologien programmiert, welche vorhanden sind.                                                  \\
-Aufwand                           & Gering,,da eine Webseite auf alles Betriebssystem lauffähig ist            & Hoher,Aufwand, da zwei unabhängige native Apps entwickelt werden müssen                                      & Gering,,es wird eine App geschrieben welche auf mehreren Betriebssysteme lauffähig,ist, wie beispielsweise Android und iOS
-\end{tabular}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|p{3.5cm}|p{3.5cm} p{3.5cm} p{3.5cm}|} 
+	\hline
+		\rowcolor{black} & \textcolor{white} { \textbf{Web App} } & \textcolor{white}{\textbf{Native App}} & \textcolor{white}{\textbf{Hybrid App}}\\ 
+		\rowcolor[gray]{.75}  Zugriff auf Hardware & Schlecht, nur auf wenige Hardware Komponenten kann zugegriffen werden & Voller, Zugriff auf gesamte Hardware möglich & \\ 
+		\rowcolor[gray]{.9} Vorraussetzungen und Vorkentnisse & durch, die Vorlesung "Web Engineering" sind ausreichend Kentnisse, vorhanden & Kentinnes,für Android Programmierung durch Java vorhanden. Kentnisse über iOS,programmierung nicht vorhanden & Hybrid,App wird mit Web Technologien programmiert, welche vorhanden sind. \\ 
+		\rowcolor[gray]{.75} Aufwand & Gering, da eine Webseite auf alles Betriebssystem lauffähig ist & Hoher,Aufwand, da zwei unabhängige native Apps entwickelt werden müssen & Gering, es wird eine App geschrieben welche auf mehreren Betriebssysteme lauffähig, ist, wie beispielsweise Android und iOS \\ \hline
+	\end{tabular}
+\end{center}
+\caption{Zusammenfassung } \label{Zusammenfassung }
 \end{table}
 
-Betrachtet man diese Tabelle wird deutlich, dass eine Möglichkeit am besten zu dieser Studienarbeit passt, die Umsetzung des Prototypen als Hybrid App.
+
+Betrachtet man Tabelle \ref{Zusammenfassung } wird deutlich, dass eine Möglichkeit am besten zu dieser Studienarbeit passt, die Umsetzung des Prototypen als Hybrid App.
 Eine Hybrid App vereint die Vorteile der WebApp mit den Vorteilen einer Native App. Durch den schlechten Hardware Zugriff der Web App ist die Möglichkeit ungeeignet. Bei einer nativen App ist der Aufwand zu groß, da für jedes Betriebssystem eine eigene App implementiert werden muss. Durch Plug-Ins bietet eine Hybride App viele Möglichkeiten, die Hardware von Smartphones anzusteuern. Über ein Framework kann in wenigen Minuten der geschriebene Quellcode für mehrere Betriebssysteme genutzt werden um ein App zu generieren.
 Aus diesen Gründen ist der Prototyp als Hybride App entwickelt worden. Verwendet wurde ein Framework von Adobe, dieses wird im nächsten Abschnitt erläutert. Drauf aufbauend findet eine kurze Vorstellung der Web Technologien statt. 
 

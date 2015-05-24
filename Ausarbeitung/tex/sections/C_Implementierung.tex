@@ -1,9 +1,9 @@
 \newpage
 \section{Implementierung}
 
-Wie in Abschnitt 4.2 bereits erwähnt ist die Applikation dem Design-Pattern Model-View-Controller nachempfunden. Im Folgenden wird nun die konkrete Implementierung beschrieben und die Architektur mittels Codebeispielen konkretisiert.
+Wie in Kapitel \ref{sec:Architektur} bereits erwähnt ist die Applikation dem Design-Pattern Model-View-Controller nachempfunden. Im Folgenden wird die konkrete Implementierung beschrieben und die Architektur mittels Codebeispielen konkretisiert.
 \\
-Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite index.html vor. In diese wird mittels Javascript der jeweilige Inhalt (eine View) geladen und mit Daten und Funktionen (Controller) versorgt.
+Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite index.html vor. In diese wird mittels Javascript der jeweilige Inhalt (eine View) geladen und mit Daten und Funktionen (über den Controller) versorgt.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\textwidth]{ref/images/index.png}
@@ -21,6 +21,8 @@ In der app.js ist pro View ein Status (state) hinterlegt, der alle folgenden Inf
 \item URL (innerhalb der App)
 \item View-Bezeichnung (URL der View/Vorlage, Controllername)
 \end{itemize}
+
+\newpage
 Konfiguriert wird ein solcher Status beispielsweise wie folgt:
 \begin{lstlisting}
 .state('tab.play', {
@@ -39,10 +41,7 @@ Die Informationen über die aktuell gewählte View gibt app.js an index.html zur
 
 App.js wird bei jedem Start der Applikation zuerst geladen. Dabei findet auch immer eine Prüfung der aktuellen Internetverbindung statt. Internet wird für die Darstellung des Kartenmaterials benötigt. Die Konsequenz einer fehlenden Internetverbindung ist demnach ein Abbruch der Applikation.
 
-
-Standardmäßig wird bei korrektem Startverhalten die play-View in die index.html geladen. Das ist eine ebenfalls in app.js definierte Defaulteinstellung.
-\\
-Diese folgende Codezeile wird demnach dann aufgerufen, wenn der URL-Provider keine zu einem Status passende URL finden kann. Dann wird die URL auf die des tab.play-Status gesetzt.
+Standardmäßig wird bei korrektem Startverhalten die play-View in die index.html geladen. Das ist eine ebenfalls in app.js definierte Defaulteinstellung. Die folgende Codezeile wird demnach dann aufgerufen, wenn der URL-Provider keine zu einem Status passende URL finden kann. In diesem Fall wird die URL auf die des tab.play-Status gesetzt.
 \begin{lstlisting}
   $urlRouterProvider.otherwise('/tab/play');
 \end{lstlisting}
@@ -50,18 +49,16 @@ Diese folgende Codezeile wird demnach dann aufgerufen, wenn der URL-Provider kei
 \subsection[Controller und Services]{Controller und Services
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
 
-Für jede View existiert ein Controller, der dann die alleinige Macht über Model-Aufrufe für die View hat. Der Begriff Model wird im Folgenden durch den Cordova-spezifischen Begriff Service ersetzt. Insgesamt wurden für die Applikation drei Services entwickelt:
+Für jede View existiert ein Controller, der dann die alleinige Macht über Model-Aufrufe für die View hat. Der Begriff Model wird im Folgenden durch den Cordova-spezifischen Begriff Service ersetzt. Alle folgenden Statusbeschreibungen trennen View, Controller und Model bildlich voneinander. Insgesamt wurden für die Applikation drei Services entwickelt:
 \begin{itemize}
 \item \emph{Player Service}: Zuständig für die Behandlung von Spielerdaten
 \item \emph{Location Service}: Zuständig für Positionierungsaufgaben und die Handhabung der Lokalisierung
 \item \emph{Task Service}: Zuständig für Aufgabenerstellung und -management
 \end{itemize}
-Alle folgenden Statusbeschreibungen trennen View, Controller und Model bildlich voneinander.
-\\
 \subsection[Applikationsaufbau]{Applikationsaufbau
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
  
-Die App besitzt einen getabbten Aufbau, das heißt es existiert eine Kopfzeile, die dem Nutzer vier verschiedene Tabs anbietet: Spielen, Highscores, Account und Credits. 
+Die App besitzt einen getabbten Aufbau. Das heißt es existiert eine Kopfzeile, die dem Nutzer vier verschiedene Tabs anbietet: Spielen, Highscores, Account und Credits. 
 \\
 Die angezeigten Tabs der Applikation sind ein Spezialstatus, der in app.js als abstrakt gekennzeichnet ist und ständig im Hintergrund aktiv ist. Die Tabs sind auch wieder als HTML-Template definiert.
 \begin{lstlisting}
@@ -168,7 +165,7 @@ im Sessionstorage aktualisiert und der Spieler in das Spielerarray des Localstor
 \\
 Wenn es bei der Positionierung zu Problemen kommt, erhält der Nutzer Rückmeldung nachdem die Timeout-Zeit von 30 Sekunden abgelaufen ist.
 \\
-Bei erfolgreicher Positionierung werden die Koordinaten über das mapDiv, einem Bereich der Game-View, in einer Open Street Map dargestellt (vgl. Kapitel XXX). Außerdem wird in diesem Fall der Button 'Aufgaben spielen' eingeblendet.
+Bei erfolgreicher Positionierung werden die Koordinaten über das mapDiv, einem Bereich der Game-View, in einer Open Street Map dargestellt (vgl. Kapitel \ref{sec:kartenmaterial}). Außerdem wird in diesem Fall der Button 'Aufgaben spielen' eingeblendet.
 \\
 Wird dieser Button daraufhin gedrückt, startet der Controller die Erstellung der Aufgaben für den Spieler.
 \\
@@ -417,7 +414,7 @@ Die drei Services \emph{Player}, \emph{Location} und \emph{Task} werden je nach 
 \label{fig:Controller-Services}
 \end{figure} 
 
-Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsaustausch zwischen den Views, den Controllern und Services. Dieser ist symptomatisch für die Model-View-Controller-Architektur, wie bereits in Kapitel 4.2 beschrieben und sorgt für größtmögliche Unabhängigkeit zwischen den Elementen, da lediglich die Schnittstellen(Funktionsparameter) von Bedeutung sind und somit auch große Wiederverwertbarkeit gegeben ist.
+Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsaustausch zwischen den Views, den Controllern und Services. Dieser ist symptomatisch für die Model-View-Controller-Architektur, wie bereits in Kapitel \ref{sec:Architektur} beschrieben und sorgt für größtmögliche Unabhängigkeit zwischen den Elementen, da lediglich die Schnittstellen(Funktionsparameter) von Bedeutung sind und somit auch große Wiederverwertbarkeit gegeben ist.
 
 \subsubsection[Bewertung der Architektur]{Bewertung der Architektur
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}

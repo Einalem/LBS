@@ -210,7 +210,7 @@ Fasst man die gewonnen Erkenntnisse über die Technologien zusammen ergibt sich 
 \begin{tabular}{|p{3.5cm}|p{3.5cm} p{3.5cm} p{3.5cm}|} 
 	\hline
 		\rowcolor{black} & \textcolor{white} { \textbf{Web App} } & \textcolor{white}{\textbf{Native App}} & \textcolor{white}{\textbf{Hybrid App}}\\ 
-		\rowcolor[gray]{.75}  Zugriff auf Hardware & Schlecht, nur auf wenige Hardware Komponenten kann zugegriffen werden & Voller Zugriff auf gesamte Hardware möglich & Zugriff auf Hardware durch Framework und externe Plug-Ins möglich\\ 
+		\rowcolor[gray]{.75}  Zugriff auf Hardware & Nur auf wenige Hardware Komponenten kann zugegriffen werden & Voller Zugriff auf gesamte Hardware möglich & Zugriff auf Hardware durch Framework und externe Plug-Ins möglich\\ 
 		\rowcolor[gray]{.9} Vorraussetzungen und Vorkentnisse & Durch die Vorlesung "Web Engineering" sind ausreichend Kentnisse vorhanden & Kentnisse für Android Programmierung durch Java vorhanden. Kentnisse über iOS Programmierung nicht vorhanden & Hybrid App wird mit Web Technologien programmiert, welche vorhanden sind. \\ 
 		\rowcolor[gray]{.75} Aufwand & Gering, da eine Webseite auf alles Betriebssystem lauffähig ist & Hoher Aufwand, da zwei unabhängige native Apps entwickelt werden müssen & Gering, es wird eine App geschrieben welche auf mehreren Betriebssysteme lauffähig ist, wie beispielsweise Android und iOS \\ \hline
 	\end{tabular}
@@ -245,7 +245,7 @@ Durch die Entscheidung für Cordova und Ionic ist die Verwendung von HTML5 vorge
 
 HTML steht für Hypertext Markup Language (Übersetzt: Hypertext Auszeichnungssprache). Es handelt sich um eine textbasierte Auszeichnungssprache zur Strukturierung von Elementen auf einer Webseite. 
 Über Tags werden Elemente differenziert und identifiziert. Für diverse Anwendungsfälle gibt es HTML-Tags wie beispielsweise: Überschriften, Absätze, Tabellen, Grafikelemente.
-Diese Tags werden mit den Zeichen < und > umschlossen. Mit der Beschreibung <TagName> wird ein Tag geöffnet.  Die meisten geöffnete Tags müssen mit dem Element </TagName> geschlossen werden. 
+Diese Tags werden mit kleiner und größer Zeichen.
 
 HTML liegt aktuell in der 5. Version vor, weshalb der Name HTML5 gewählt wurde. Im Laufe der Zeit (1992- bis heute) wurden immer mehr Funktionen hinzugefügt. In den Anfängen von HTML war es nur möglich Text darzustellen. Mittlerweile gehören Bilder und Farben zum Standard, mit HTML5 können mittlerweile auch komplexe Animationen erstellt werden. Durch die Standardisierung von HTML durch das W3C können nahezu alle Browser in HTML5 entwickelte Webseiten anzeigen. Diese Funktionalitäten werden für den Prototypen verwendet.
 
@@ -798,16 +798,17 @@ Das Fazit ist, dass sich OpenStreetMaps am besten für den Einsatzzweck dieser S
 \subsubsection[iBeacons]{iBeacons
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
 
-Dieser Abschnitt erläutert die Technologie "iBeacons". GPS wird zur Abstandsermittlung des Prototypen verwendet. Das bedeutet, während der Nutzer sich auf das Ziel zubewegt wird der Standort über GPS bestimmt. Dieser Standort weißt eine gewisse Ungenauigkeit auf. Um mit dieser Ungenauigkeit trotzdem erkennen zu können, ob sich ein Spieler am Ziel befindet wurde ein Radius von 10 Metern um den Zielpunkt gewählt. Betritt der Spieler diesen Radius gilt das Ziel als erreicht. Nach einigen Praxistests wurde deutlich, dass dieser Radius nicht ausreicht. Die Testkandidaten konnten den Zielpunkt trotz des Radius nicht erreichen. Aus diesem Grund entschied man sich dazu die Genauigkeit am Zielpunkt deutlich zu erhöhen, mit iBeacons. In Kapitel \ref{sec:radio} ist bereits auf RadioButtons eingegangen worden. Eine Unterkategorie bilden von diesen, bilden die iBeacons.
+Dieser Abschnitt erläutert die Technologie `iBeacons'. GPS wird zur Abstandsermittlung des Prototypen verwendet. Das bedeutet, während der Nutzer sich auf das Ziel zubewegt wird der Standort über GPS bestimmt. Dieser Standort weißt eine gewisse Ungenauigkeit auf. Um mit dieser Ungenauigkeit trotzdem erkennen zu können, ob sich ein Spieler am Ziel befindet wurde ein Radius von 10 Metern um den Zielpunkt gewählt. Betritt der Spieler diesen Radius gilt das Ziel als erreicht. Nach einigen Praxistests wurde deutlich, dass dieser Radius nicht ausreicht. Die Testkandidaten konnten den Zielpunkt trotz des Radius nicht erreichen. Aus diesem Grund entschied man sich dazu die Genauigkeit am Zielpunkt deutlich zu erhöhen, mit iBeacons. In Kapitel \ref{sec:radio} ist bereits auf RadioButtons eingegangen worden. Eine Unterkategorie  von diesen, bilden die iBeacons.
 
-iBeacons \label{sec:ibeacons}
+\underbar{iBeacons} \label{sec:ibeacons}
 
 Bei iBeacons handelt es sich um eine neue Technologie zur Abstands bzw. Standortbestimmung von Smartphones welche vom Hersteller Apple stammt. Auf Materieller Ebene betrachtet ist ein iBeacon ein kleines Gerät welches ständig Bluetooth Signale sendet. Die verwendete Technik ist Bluetooth Low Energy (BLE). Das Gerät besteht aus
 
 \glqq einer kleinen Platine mit Bluetooth-Sender und einer Knopfzelle. Beides steckt in einem Kunststoffgehäuse, das in der Größe zwischen einem dicken 2-Euro-Stück und einer PC-Maus rangiert.\grqq
 \cite{BeaconGolem}
+Beispielhaft sind in Abbildung \ref{fig:iBeacons} iBeacons der Firma Estimote abgebildet.
 
-Übertragen werden mit dem Signal nur eine eindeutige ID sowie zwei Zahlen. Vorteil der BLE Technologie ist der geringe Stromverbrauch. Laut Hersteller soll ein iBeacon zwischen sechs und vierundzwanzig Monaten ein Signal senden können. Abhängig ist dies von der Signalstärke und dem Sendeintervall. Mit dem 2,4 GHz Signal werden Reichweiten von bis zu 50 Metern erreicht. Ein Smartphones welches das Signal empfängt kann einen ungefähren Abstand zum iBeacon ermitteln. Verwendet man mehrere iBeacons, kann über Triangulation ein genauer Standort bestimmt werden. Besonders an dieser Standortbestimmung ist, dass sie auch in Gebäuden funktioniert. Hier ist GPS teilweise gar nicht oder nur schlecht empfangbar. Daraus resultieren diverse Anwendungsbereich im folgenden sind ein paar aufgelistet:
+Übertragen werden mit dem Signal nur eine eindeutige UUID (universally unique identifier) sowie zwei Zahlen. Vorteil der BLE Technologie ist der geringe Stromverbrauch. Laut Hersteller soll ein iBeacon zwischen sechs und vierundzwanzig Monaten ein Signal senden können. Abhängig ist dies von der Signalstärke und dem Sendeintervall. Mit dem 2,4 GHz Signal werden Reichweiten von bis zu 50 Metern erreicht. Ein Smartphones welches das Signal empfängt kann einen ungefähren Abstand zum iBeacon ermitteln. Verwendet man mehrere iBeacons, kann über Triangulation ein genauer Standort bestimmt werden. Besonders an dieser Standortbestimmung ist, dass sie auch in Gebäuden funktioniert. Hier ist GPS teilweise gar nicht oder nur schlecht empfangbar. Daraus resultieren diverse Anwendungsbereich im folgenden sind ein paar aufgelistet:
 
 \glqq 
 \begin{description}

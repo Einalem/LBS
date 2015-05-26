@@ -448,10 +448,10 @@ Abschliessend lässt sich sagen, dass der Aufbau der Applikation, wie in der Arc
 \subsection[Umsetzung iBeacons]{Umsetzung iBeacons
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
 
-Unter der Voraussetzung, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden. Können diese, die Genauigkeit der Entfernung verbessern.
-Hierfür muss die App Signale des iBeacons empfangen. Deshalb läuft während der gesamten Ortungsphase im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel durch den iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
+Unter der Voraussetzung, dass die definierten Zielpunkte der App mit jeweils einem iBeacon ausgestattet werden. Können diese iBeacons, die Genauigkeit der angegebenen Entfernung verbessern.
+Hierfür muss die App Signale des iBeacons empfangen. Deshalb läuft während der gesamten Ortungsphase im Hintergrund ein iBeacon Scanner. Sobald dieser Scanner den gewünschten iBeacon entdeckt hat wird die Distanz zum Ziel mit Hilfe des iBeacon bestimmt und nicht per GPS, dadurch wird eine höhere Genauigkeit im Zielgebiet erreicht.
 
-Um dies zu implementieren, muss das Zielpunkt Objekt angepasst werden. Standortobjekte benötigen neben Namen und Positionen noch eine iBeacon ID sowie Major und Minor Werte.
+Um dies zu implementieren, muss das Zielpunkt Objekt angepasst werden. Standortobjekte benötigen neben Namen und Positionen noch eine iBeacon ID sowie Major und Minor Werte, des iBeacons.
 
 Mit den neuen Werten sind alle Vorraussetzungen geschaffen um einen iBeacon Scanner zu implementieren. Hierfür wird das Plug-In "Cordova / Phonegap iBeacon plugin" von Peter Metz verwendet. \cite{petermetz} Es ist open Source und kann von Git Hub heruntergeladen werden.
 
@@ -478,7 +478,7 @@ cordova plugin add com.unarin.cordova.beacon
 
 aus. Draufhin erfolgt die automatische Installation im Ordner "plugin" der App und es kann auf die Schnittstellen zugegriffen werden.
 
-Der allgemeine Ablauf besteht aus mehreren Schritten:
+Der allgemeine Ablauf zum Finden eines iBeacons besteht aus mehreren Schritten:
 \begin{enumerate}
 \item Schritt Anlegen eines Obejkt mit iBeacon Informationen
 \item Schritt Hauptfunktion aufrufen
@@ -492,7 +492,7 @@ Diese Schritte werden im folgenden mit Quellcode-Listings aus der App erläutert
  
 \begin{lstlisting}[frame=single]  % Start your code-block
 
-var mRegions =
+var region =
 				[
 					{
 						id: 'region1',
@@ -505,7 +505,7 @@ var mRegions =
 
 
 2. Hauptfunktion aufrufen
-\\Damit nach dem iBeacon durch die App gesucht wird, muss 'Ranging' und 'Monitoring' gestartet werden. Dieses überwacht ob sich der iBeacon in Reichweite befindet. Hierfür wird die Funktion 'startMonitoringAndRangingRegion' aufgerufen. Beim Aufruf dieser Funktion wird das Objekt mit den iBeacon Daten 'mRegions' mit übergeben. Mit diesen Daten wird ein neues Objekt vom Typ BeaconRegion erstellt. Dieses Obejekt wird von den Funktionen  cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion) und cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion) verwendet um das Ranging und Monitoring nach diesem iBeacon zu starten.
+\\Damit nach dem iBeacon durch die App gesucht wird, muss 'Ranging' und 'Monitoring' gestartet werden. Dieses überwacht ob sich der iBeacon in Reichweite befindet. Hierfür wird die Funktion 'startMonitoringAndRangingRegion' aufgerufen. Beim Aufruf dieser Funktion wird das Objekt mit den iBeacon Daten 'region' mit übergeben. Mit diesen Daten wird ein neues Objekt vom Typ BeaconRegion erstellt. Dieses Obejekt wird von den Funktionen  cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion) und cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion) verwendet um das Ranging und Monitoring nach diesem iBeacon zu starten.
 
 \begin{lstlisting}[frame=single]  % Start your code-block
 
@@ -574,6 +574,6 @@ Mit einer zusätzlichen Variable 'beaconfound' wird die Fallunterscheidung verei
 \end{figure} 
 %\includegraphics[width=0.3\textwidth]{ref/images/screenshot1.png} 
 %\includegraphics[width=0.3\textwidth]{ref/images/screenshot2.png} 
-Auf beiden Bilder (\ref{fig:screenshotapp1} und \ref{fig:screenshotapp2}) ist die App abgebildet. Sie zeigt jeweils an wie weit das Ziel noch entfernt ist. Im linken Bild wird die Entfernung mit Hilfe von GPS bestimmt. Im rechten Bild findet die Bestimmung der Entfernung per Beacon statt.
-Per Fallunterscheidung wird das Anzeigefeld angepasst. Damit weiß der Nutzer, mit welchem System der Abstand bestimmt wird. Des Weiteren wird die Entfernung nicht in km angegeben sondern in Metern, da die Enfernungsbestimmtung mit einem iBeacon wesentlich genauer ist als mit GPS.
+Auf beiden Bildern (\ref{fig:screenshotapp1} und \ref{fig:screenshotapp2}) ist die App abgebildet. Sie zeigt jeweils an wie weit das Ziel noch entfernt ist. Im linken Bild wird die Entfernung mit Hilfe von GPS bestimmt. Im rechten Bild findet die Bestimmung der Entfernung per Beacon statt.
+Per Fallunterscheidung wird das Anzeigefeld angepasst. Damit weiß der Nutzer, mit welchem System der Abstand bestimmt wird. Des Weiteren wird die Entfernung nicht in Kilometern angegeben sondern in Metern, da die Entfernungsbestimmung mit einem iBeacon wesentlich genauer ist als mit GPS.
 

@@ -233,14 +233,14 @@ bookmarksdepth=3]{hyperref} %Kreiert Links von der Table of Content zu Kapiteln 
 
 \onehalfspacing 
 
-\opt{intro}{
-	\phantomsection
-	\headAndTocENDE{Introduction}{Vorwort}
-	\opt{en}{\section*{Introduction}}
-	\opt{de}{\section*{Vorwort}}
-	\input{sections/Vorwort}
-	\clearpage
-}
+%\opt{intro}{
+%	\phantomsection
+%	\headAndTocENDE{Introduction}{Vorwort}
+%	\opt{en}{\section*{Introduction}}
+%	\opt{de}{\section*{Vorwort}}
+%	\input{sections/Vorwort}
+%	\clearpage
+%}
 %\shipout\null
 
 \setcounter{table}{0}
@@ -265,13 +265,13 @@ bookmarksdepth=3]{hyperref} %Kreiert Links von der Table of Content zu Kapiteln 
 	\bibliography{ref/bib}{} 
 	\bibliographystyle{phcpcDE}
 }
-\opt{appendix}{
-	\appendix
-	\head{\nouppercase{\leftmark}}
-	\opt{en}{\pdfbookmark[0]{Appendix}{appendix}}
-	\opt{de}{\pdfbookmark[0]{Anhang}{appendix}}
-	\include{sections/appendix}
-}
+%\opt{appendix}{
+%	\appendix
+%	\head{\nouppercase{\leftmark}}
+%	\opt{en}{\pdfbookmark[0]{Appendix}{appendix}}
+%	\opt{de}{\pdfbookmark[0]{Anhang}{appendix}}
+%	\include{sections/appendix}
+%}
 
 \pagestyle{empty}
 %\include{sections/abstractSeperatePages}

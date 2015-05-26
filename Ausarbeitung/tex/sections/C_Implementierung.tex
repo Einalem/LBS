@@ -415,7 +415,9 @@ Die drei Services \emph{Player}, \emph{Location} und \emph{Task} werden je nach 
 \end{figure} 
 
 Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsaustausch zwischen den Views, den Controllern und Services. Dieser ist symptomatisch für die Model-View-Controller-Architektur, wie bereits in Kapitel \ref{sec:Architektur} beschrieben und sorgt für größtmögliche Unabhängigkeit zwischen den Elementen, da lediglich die Schnittstellen(Funktionsparameter) von Bedeutung sind und somit auch große Wiederverwertbarkeit gegeben ist.
-
+\\
+Von der Applikation werden für die in den vorherigen Kapiteln vorgestellten Funktionen verschiedene Plugins genutzt.
+Standardmäßig ist das Plugin für Console, Keyboard und Device für Zugriff auf die Grundfunktionen des genutzten Geräts installiert. Für die LBS-spezifischen Funktionen wurde noch das Plugin Geolocation und für die Informationen über die Internetverbindung das Plugin Network Information hinzugefügt. Jedes Plugin muss dafür in der Form '"cordova plugin add ...'" über die Konsole Cordova bekannt gegeben werden.
 \subsubsection[Bewertung der Architektur]{Bewertung der Architektur
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
 Nach der Implementierung ist der Rückbezug auf die anfangs gemachten Anforderungen relevant.

@@ -297,7 +297,7 @@ Die geographischen Koordinaten geben die Position am genausten an, sind aber fü
 
 Die Adresse ist im Alltag am geläufigsten und somit für Nutzer am verständlichsten. Allerdings ist die Angabe nicht so genau wie die geographischen Koordinaten, denn die Angabe Hausnummer 1-9 gibt einen relativ großen Bereich an.
 
-Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel den eigene Standort, an denen sich ein Nutzer orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte eine Abhängigkeit von externen Quellen und einem höheren Programmieraufwand mit sich bringen.
+Die Vorteile eines Kartenausschnitts sind, dass die Detaillierung vom Nutzer angepasst werden kann. Des Weiteren werden viele grafische Informationen angezeigt, wie zum Beispiel den eigene Standort, an denen sich ein Nutzer orientieren kann. Der Nachteil dieser Variante ist, dass die Kartenausschnitte eine Abhängigkeit von externen Quellen und einem höheren Programmieraufwand gegenüber geographischen Koordinaten mit sich bringen.
 
 
 Auf Smartphones gehört Kartenmaterial und dessen Integration in Apps mittlerweile zum Standard, an welchen sich Nutzer gewöhnt haben. Und über die Hälfte der Deutschen, 44 Millionen nutzen schon ein Smartphone. Die Tendenz ist dabei steigend. Dies ist das Ergebnis einer Bitkom Studie. \cite{bitkom} Aus diesem Grund sollte auch Kartenmaterial in die Location based Services App integriert werden, welche die Autoren bei dieser Studienarbeit prototypisch entwickeln. 
@@ -339,7 +339,7 @@ Die Nutzung ohne Account vereinfacht den Einstieg für das Kartenmaterial und so
 %Zudem würden dann alle Teammitglieder dieser Studienarbeit mit dem selben Account eines Teammitglieds arbeiten. 
 
 \item Gute Dokumentation mit Codebeispielen\\
-Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da die Teammitglieder dieser Studienarbeit noch keine Erfahrung mit Kartenmaterial haben, ist dies eine besonders wichtige Anforderung. 
+Eine gute Dokumentation der API des Kartenmaterials mit vielen Codebeispielen erleichtert den Einstieg deutlich. Da die Teammitglieder dieser Studienarbeit zu Beginn noch keine Erfahrung mit Kartenmaterial hatten, ist dies eine besonders wichtige Anforderung. 
 
 
 \end{enumerate}
@@ -383,7 +383,7 @@ Zunächst wird Google Maps anhand der nichtfunktionalen Anforderungen bewertet, 
 Die Google Maps API steht generell als kostenloser Dienst zur Verfügung. Dieser darf in Webseiten, sowie mobile Apps eingebaut werden. Als Voraussetzung für die kostenlose Nutzung gilt allerdings, dass die eigene Webseite oder mobile App für alle Endnutzer kostenlos ist und öffentlich zugänglich sein muss.\\
 Unter der kostenlosen Lizenz dürfen bis zu 25.000 Kartenladevorgänge pro Tag erfolgen. Ein Kartenladevorgang ist als initiales Laden der Karte definiert. Das bedeutet, dass Nutzerinteraktion mit der Karten nicht als erneuter Ladevorgang gewertet wird. 
 In den Nutzungsbedingungen von Google wird darauf verwiesen, dass eine Sperre von mehr als 25.000 Abfragen pro Tag erst dann durchgeführt wird, wenn die Begrenzung mehr als 90 Tage in Folge überschritten werden sollte.
-Diese Auslegung erscheint sehr nutzerfreundlich. Für diese Studienarbeit sollten die 25.000 Abfragen pro Tag in jedem Fall völlig ausreichen. \cite[Nutzungsbedingungen]{googlemaps}\cite[Lizenzierung]{googlemaps}
+Diese Auslegung erscheint sehr nutzerfreundlich. Für diese Studienarbeit sollten die 25.000 Abfragen pro Tag in jedem Fall ausreichen. \cite[Nutzungsbedingungen]{googlemaps}\cite[Lizenzierung]{googlemaps}
 
 
 \item Ohne Account nutzbar\\
@@ -405,7 +405,7 @@ Neben der Dokumentation von Google selbst gibt es auch andere Tutorials im Netz.
 \item JavaScript API\\
 Mit der Google Maps JavaScript API Version 3 bietet Google eine JavaScript API die sich sehr leicht in Webseiten integrieren lässt. 
 
-Bei einer HTML-Webseite muss lediglich ein Script Tag eingefügt werden, in dem als Quelle (src) die Google Maps API zu finden ist. Vergleiche Listing Zeile 1. Danach können mit JavaScript Karten von Google Maps erstellt werden. Vergleiche Listing Zeile 2 - 12.
+Bei HTML muss lediglich ein Skript Tag eingefügt werden, in dem als Quelle (src) die Google Maps API zu finden ist. Vergleiche Listing Zeile 1. Danach können mit JavaScript Karten von Google Maps erstellt werden. Vergleiche Listing Zeile 2 - 12.
 \begin{lstlisting}
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
@@ -476,13 +476,13 @@ Markierungen könne mit der API sehr leicht gesetzt werden. Neben der Position d
 
 \end{lstlisting} \cite[Codebeispiel Simple Markers]{googlemaps}
 
-Den Markierungen auf der Karte können allerdings auch Bilder mit dem Attribut \glqq icon \grqq zugeordnet werden. Des Weiteren kann man mit dem Attribut \glqq draggable \grqq einstellen, ob man die Markierung verschieben kann oder nicht.
+Den Markierungen auf der Karte können auch Bilder mit dem Attribut \glqq icon \grqq zugeordnet werden. Des Weiteren kann man mit dem Attribut \glqq draggable \grqq einstellen, ob man die Markierung verschieben kann oder nicht.
 
 \item Markierungen bündeln (optional)\\
 Markierungen können in der Standard JavaScript API in Version 3 nicht gebündelt werden. 
 
 Mit einer zusätzlichen Bibliothek  von Google kann diese Funktionalität allerdings ergänzt werden. Die Bibliothek heißt \glqq google-maps-utility-library-v3 \grqq. 
-Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf die Karte, sowie Markercluster-Einstellungen.
+Mit Hilfe dieser Bibliothek kann ein \glqq Markercluster \grqq erstellt werden, dass Markierungen bei einer gewissen Zoomstufe bündelt. Hierbei wird dem Markercluster ein Array der Markierungen, eine Refernz auf die Karte, sowie Markercluster-Einstellungen übergeben.
 %TODO: Formulierung an Listing anpassen ? markers anstatt Markierungen
 
 \begin{lstlisting}
@@ -521,7 +521,7 @@ Zusätzlich gibt es über 200 Codebeispiele, die man direkt im Browser ausprobie
 \textbf{funktionale Anforderungen}
 \begin{enumerate}
 \item JavaScript API\\
-Bing Maps bietet eine JavaScript API, die \glqq Bing Maps AJAX Control Version 7.0 \grqq. Es ist möglich diese einfach in einem script-Tag in eine Webseite einzubinden (Listing Zeile 1). Danach kann man eine Karte erstellen, indem man ein neues Map Objekt erzeugt. (Listing Zeile 6) 
+Bing Maps bietet eine JavaScript API, die \glqq Bing Maps AJAX Control Version 7.0 \grqq. Es ist möglich diese einfach in einem script-Tag in eine HTML-Seite einzubinden (Listing Zeile 1). Danach kann man eine Karte erstellen, indem man ein neues Map Objekt erzeugt. (Listing Zeile 6) 
 \begin{lstlisting}
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
       <script type="text/javascript">
@@ -567,7 +567,6 @@ geoLocationProvider.getCurrentPosition();
 \end{lstlisting}\cite[Codebeispiel GetUserLocation1]{bingmaps}
 
 \item Markierungen auf der Karte setzen\\
-
 Mit Bing Maps ist es möglich Markierungen auf der Karte zu platzieren. Dieser werden hierbei PushPins genannt. Diese Pushpins werden zum Anzeigen dem Map Objekt übergeben (Listing Zeile 3). Eine nachträgliche Positionsänderung der gesetzten Pushpins ist einfach möglich, indem man diesem eine neue Position zuweist (Listing Zeile 4).
 
 \begin{lstlisting}
@@ -687,7 +686,7 @@ map.on('locationerror', onLocationError);
 map.locate({setView: true, maxZoom: 16});
 \end{lstlisting}  \cite{leaflet}
 
-Dieses Beispiel zeigt gut, wie die Leaflet JavaScript API aufgebaut ist. Hier ist alle Funktion separat und können einzeln genutzt werden. So kann man als Programmierer genau die Funktionalitäten nutzen, die man braucht. In diesem Beispiel ist es auch Möglich die Karte stets auf den eigenen Standort zu zentrieren und diesen nicht zusätzlich grafisch anzuzeigen.
+Dieses Beispiel zeigt gut, wie die Leaflet JavaScript API aufgebaut ist. Hier sind alle Funktion separat und können einzeln genutzt werden. So kann man als Programmierer genau die Funktionalitäten nutzen, die man braucht. In diesem Beispiel ist es auch möglich die Karte stets auf den eigenen Standort zu zentrieren und diesen nicht zusätzlich grafisch anzuzeigen.
 
 \item Markierungen auf der Karte setzen\\
 Markierungen können mit der Funktion \glqq marker(latitude, longitude) \grqq erstellt werden und der Karte hinzugefügt werden. Ein Beispiel dafür ist schon im Listing der Funktionalen Anforderung 3 in Zeile 5 bis 6 enthalten.
@@ -789,7 +788,7 @@ Auch hierbei überzeugen alle drei Anbieter gleichermaßen.
 Google Maps liefert alles aus einer Hand sowohl bei Bing Maps, als auch bei OpenStreetMap muss auf Bibliotheken dritter zurückgegriffen werden.
 \end{enumerate}
 
-Durch die fehlende offizielle Unterstützung von Google Maps für den Windows Phone Browser ist es nicht für diese Studienarbeit geeignet, die Möglichkeit zu haben eine plattformübergreifende mobile LBS App zu entwickeln.
+Durch die fehlende offizielle Unterstützung von Google Maps für den Windows Phone Browser ist es nicht für diese Studienarbeit geeignet, da man sich die Möglichkeit offen halten möchte, eine plattformübergreifende mobile LBS App zu entwickeln.
 
 Im Vergleich der Vor und Nachteile und den nichtfunktionalen Anforderungen überzeugt OpenStreetMaps bei den gewählten Anforderungen deutlich mehr als Bing Maps.
 

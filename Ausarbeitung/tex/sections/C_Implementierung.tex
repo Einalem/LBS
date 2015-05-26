@@ -490,8 +490,7 @@ Diese Schritte werden im folgenden mit Quellcode-Listings aus der App erläutert
 1. Anlegen eines Objekt mit iBeacon Information
 \\Wie bereits in Kapitel \ref{sec:ibeacons} erläutert, senden Beacons mehrere Informationen in einem definierten Zeitabstand. Hierzu zählt die UUID, eine eindeutige Zahlen und Buchstabenkombination sowie eine Major und Minor Nummer. Mit Hilfe dieser Daten lässt sich ein Beacon identifizieren. Da jedes Ziel mit einem iBeacon ausgestatte werden soll, muss die App hierfür jeweils diese Daten kennen. Aus diesem Grund gibt es ein Objekt mit diesen Daten.
  
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 var region =
 				[
 					{
@@ -507,8 +506,7 @@ var region =
 2. Hauptfunktion aufrufen
 \\Damit nach dem iBeacon durch die App gesucht wird, muss 'Ranging' und 'Monitoring' gestartet werden. Dieses überwacht ob sich der iBeacon in Reichweite befindet. Hierfür wird die Funktion 'startMonitoringAndRangingRegion' aufgerufen. Beim Aufruf dieser Funktion wird das Objekt mit den iBeacon Daten 'region' mit übergeben. Mit diesen Daten wird ein neues Objekt vom Typ BeaconRegion erstellt. Dieses Obejekt wird von den Funktionen  cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion) und cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion) verwendet um das Ranging und Monitoring nach diesem iBeacon zu starten.
 
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 function startMonitoringAndRangingRegion(region, errorCallback)
 				{
 					// Create a region object.
@@ -535,8 +533,7 @@ function startMonitoringAndRangingRegion(region, errorCallback)
 3. Warten auf iBeacon in Reichweite
 \\Die im vorherigen Schritt beschriebene Funktion lässt die App im Hintergrund nach dem iBeacon suchen. Befindet sich der gesuchte iBeacon in Reichweite und das Bluetooth Modul des Smartphones empfängt Signale wird folgende Funktion aufgerufen:
 
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 function onDidRangeBeaconsInRegion(result)
 					{
 						globalBeacons = result.beacons;
@@ -549,8 +546,7 @@ Diese Funktion enthält die empfangenen Informationen des iBeacons in der Variab
 4. Daten auslesen
 \\Nachdem die Daten des iBeacons im Objekt globalBeacons abgespeichert wurden kann auf die übermittelte Distanz wie folgt zugegriffen werden:
 
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 					dist = globalBeacons.accuracy;
 					
 \end{lstlisting}

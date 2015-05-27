@@ -1,3 +1,4 @@
+//Melanie Hammerschmidt
 angular.module('starter.controllers', [])
 
     .controller('PlayCtrl', function($scope, Player) {

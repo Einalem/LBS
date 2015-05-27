@@ -1,3 +1,4 @@
+//Melanie Hammerschmidt ( + Victor Schwartz: IBeacons in watch-Funktion des Location Service)
 (angular.module('starter.services', [])
     .factory('Player', function ($state) {
         var player = {};

@@ -33,8 +33,8 @@ Es handelt sich um folgende Betriebssysteme:
 \end{description}
 
 
-Um den Implementieraufwand geringer zu halten, wurde entschieden die Applikation auf den zwei Betriebssystemen mit dem größten Marktanteil lauffähig zu halten. 
-Android und iOS haben gemeinsam einen Anteil von über 50 Prozent. Aus dieser 
+Um den Implementieraufwand geringer zu halten, wurde entschieden, die Applikation nur für die zwei Betriebssysteme mit dem größten Marktanteil zu implementieren. 
+Android und iOS haben gemeinsam einen Anteil von über 50 Prozent. Prototypisch soll die App für Android entwickelt werden inklusive der Möglichkeit iOS in der Zukunft zu unterstützen. Aus dieser 
 Anforderung ergaben sich drei verschiedene Möglichkeiten zur Entwicklung:
 \begin{itemize}
 \item Implementierung als WebApp:
@@ -70,7 +70,7 @@ entwickeln zu können.
 
 
 \item \underline{Aufwand}
-\\Dieses Kriterium ergänzt das vorhergehende. Lässt sich aber auch klar abgrenzen. Da die Zeit für diese Studienarbeit begrenzt ist, darf die Implementierung nicht zu 
+\\Dieses Kriterium ergänzt das vorhergehende, lässt sich aber auch klar abgrenzen. Da die Zeit für diese Studienarbeit begrenzt ist, darf die Implementierung nicht zu 
 viel Zeit in Anspruch nehmen, da sonst die Anforderungen nicht umgesetzt werden 
 können. Betrachtet wird hierbei der Aufwand um die Anforderungen zu 
 Implementieren und die App betriebssystemunabhängig zu entwickeln.
@@ -818,7 +818,7 @@ Das Fazit ist, dass sich OpenStreetMaps am besten für den Einsatzzweck dieser S
 \subsubsection[iBeacons]{iBeacons
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
 
-Dieser Abschnitt erläutert die Technologie `iBeacons'. GPS wird zur Abstandsermittlung des Prototypen verwendet. Das bedeutet, während der Nutzer sich auf das Ziel zubewegt wird der Standort über GPS bestimmt. Dieser Standort weißt eine gewisse Ungenauigkeit auf. Um mit dieser Ungenauigkeit trotzdem erkennen zu können, ob sich ein Spieler am Ziel befindet wurde ein Radius von 10 Metern um den Zielpunkt gewählt. Betritt der Spieler diesen Radius gilt das Ziel als erreicht. Nach einigen Praxistests wurde deutlich, dass dieser Radius nicht ausreicht. Die Testkandidaten konnten den Zielpunkt trotz des Radius nicht erreichen. Aus diesem Grund entschied man sich dazu die Genauigkeit am Zielpunkt deutlich zu erhöhen, mit iBeacons. In Kapitel \ref{sec:radio} ist bereits auf RadioButtons eingegangen worden. Eine Unterkategorie  von diesen, bilden die iBeacons.
+Dieser Abschnitt erläutert die Technologie `iBeacons'. GPS wird zur Abstandsermittlung des Prototypen verwendet. Das bedeutet, während der Nutzer sich auf das Ziel zubewegt wird der Standort über GPS bestimmt. Dieser Standort weißt eine gewisse Ungenauigkeit auf. Um mit dieser Ungenauigkeit trotzdem erkennen zu können, ob sich ein Spieler am Ziel befindet wurde ein Radius von 10 Metern um den Zielpunkt gewählt. Betritt der Spieler diesen Radius gilt das Ziel als erreicht. Nach einigen Praxistests wurde deutlich, dass dieser Radius nicht ausreicht. Die Testkandidaten konnten den Zielpunkt trotz des Radius nicht erreichen. Aus diesem Grund entschied man sich dazu die Genauigkeit am Zielpunkt deutlich zu erhöhen, mit iBeacons. Auf Seite \pageref{radiobutton} ist bereits auf RadioButtons eingegangen worden. Eine Unterkategorie  von diesen, bilden die iBeacons.
 
 \underbar{iBeacons} \label{sec:ibeacons}
 

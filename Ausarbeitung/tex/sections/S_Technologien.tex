@@ -273,14 +273,12 @@ Im Prototypen werden lediglich die Positionspunkte (Längen- und Breitengrad) ge
 \\
 Wie bereits erwähnt, bricht ein Lokationsversuch dann ab, wenn die angegebene Timeout-Zeit überschritten wurde. Zudem kann man das maximale Alter einer Positionsinformation beschränken, d.h. wenn aktuell keine Informationen ermittelt werden können werden gecachte Positionsdaten bis zu einem gewissen Alter (maximumAge) zurückgegeben. Über die dritte Option '"enableHighAccuracy'" wird die Fähigkeit freigeschalten, die Positionsbestimmungsmethode zu wählen, die die genauesten Ergebnisse findet. Es wird dann z.B. nicht automatisch über GPS gesucht, was viel Energie verbraucht.
 \cite{geoloc}
-
+\\
+Die eigentliche Positionsbestimmung funktioniert mithilfe des Cordova-Plugins Geolocation, die die GPS-Funktion des Geräts zugänglich macht. Diesen Zugriff muss der Nutzer natürlich bei Installation zuvor genehmigen.
 \subsubsection[CSS]{CSS
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
 
 CSS steht für Cascading Style Sheets (gestufte Gestaltungsbögen). Es handelt sich um eine Gestaltungssprache welche unter anderen in Verbindung mit HTML genutzt wird. CSS werden genutzt um das Design für Webseiten zu gestalten. Zu einem Design können mit CSS Farben, Formen, Schriftarten und vieles mehr gehören. Durch die Trennung von Text mit HTML und Design durch CSS ist es möglich mehrere Webseiten mit ähnlichem oder gleichen Design zu gestalten. Realisiert wird dies mit einer CSS-Datei. In einer CSS Datei sind meist mehrere Klassen vorhanden. Jede Klasse besitzt verschiedene Eigenschaften wie Farbe, Schriftart oder Schriftgröße. Möchte man diese Klassen in einem HTML Dokument verwenden, so verknüpft man die CSS-Datei mit einem speziellen Tag mit der HTML Seite und kann dann beispielsweise Textabschnitten oder Überschriften die definierten Klassen zuweisen.
-
-
-
 %http://www.w3.org/standards/webdesign/htmlcss
 
 \subsubsection[Angular-JS]{Angular-JS
@@ -291,7 +289,6 @@ Es ist das Framewort, welches die "'Zwei-Wege-Datenbindung"'\cite{angular} unter
 \\
 Außerdem werden durch Angular JS die Trennung von Darstellungssschicht (View) und Datenschichten (Controller und Model) unterstützt. Diese Trennung ist im Verlauf der Entwicklung von großer Bedeutung (vgl. Architektur). Angular JS bietet also kurz gesagt viele weitere Alternativen zu den herkömmlichen HTML-Tags. Nähere Implementierungsdetails zu Views, Controllern und Models folgen im Kapitel Implementierung.
 
-\newpage
 \subsubsection[Kartenmaterial]{Kartenmaterial \label{sec:kartenmaterial}
  \\ \textnormal{\small{\textit {Verfasst von Patrick Senneka}}}}
  

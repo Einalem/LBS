@@ -263,9 +263,16 @@ Neben den darstellenden Funktionen bietet HTML auch eine Geolocation API, die du
 	\item Geschwindigkeit
 	\item Zeitstempel
 \end{itemize}
-\cite{geoloc}
-!!HILFE!!
+Was die Positionsbestimmung über derartige Schnittstellen so interessant macht ist, dass den jeweiligen Funktionen zusätzlich drei verschiedene Optionsparameter übergeben werden können.
+\begin{itemize}
+	\item timeout
+	\item enableHighAccuracy
+	\item maximumAge
+\end{itemize}
 Im Prototypen werden lediglich die Positionspunkte (Längen- und Breitengrad) genutzt.
+\\
+Wie bereits erwähnt, bricht ein Lokationsversuch dann ab, wenn die angegebene Timeout-Zeit überschritten wurde. Zudem kann man das maximale Alter einer Positionsinformation beschränken, d.h. wenn aktuell keine Informationen ermittelt werden können werden gecachte Positionsdaten bis zu einem gewissen Alter (maximumAge) zurückgegeben. Über die dritte Option '"enableHighAccuracy'" wird die Fähigkeit freigeschalten, die Positionsbestimmungsmethode zu wählen, die die genauesten Ergebnisse findet. Es wird dann z.B. nicht automatisch über GPS gesucht, was viel Energie verbraucht.
+\cite{geoloc}
 
 \subsubsection[CSS]{CSS
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}

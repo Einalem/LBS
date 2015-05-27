@@ -228,8 +228,8 @@ Aus diesen Gründen ist der Prototyp als Hybride App entwickelt worden. Verwende
 \subsubsection[Phonegap und Apache Cordova]{Phonegap und Apache Cordova
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
 
-PhoneGap entstand als Framework zur Entwicklung von Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft, die das Produkt weiter unter dem Namen Apache Cordova fokussierten. \\
-Im Rahmen der hier vorgestellten Arbeit wurde Cordova genutzt, um eine hybride App zu entwickeln. Da der Vorteil des Frameworks vor allem aus seiner Wiederverwendbarkeit besteht. Der geschriebene HTML-, CSS- und JavaScript-Code kann nämlich über Cordova entsprechend der verschiedenen Mobilplattformen unterschiedlich transformiert werden, um die entsprechende Applikation im richtigen Format zu erstellen. Unterstützt werden dabei die verbreitetsten Betriebssysteme Andorid und iOS, aber auch weitere wie Windows Phones, Blackberrys oder sogar FirefoxOS. Damit ist die fertige App später für alle zuvor vorgestellten Betriebssysteme verfügbar.
+PhoneGap entstand als Framework zur Entwicklung von Hybriden Apps auf Basis von Web-Technologien wie HTML, CSS und JavaScript. 2011 wurde die Firma Nitobi Software, die PhoneGap einst entwickelte, von Adobe Systems aufgekauft, die das Produkt weiter unter dem Namen Apache Cordova fokussierten. \\
+Im Rahmen der hier vorgestellten Arbeit wurde Cordova genutzt, um eine hybride App zu entwickeln. Da der Vorteil des Frameworks vor allem aus seiner Wiederverwendbarkeit besteht. Der geschriebene HTML-, CSS- und JavaScript-Code kann nämlich über Cordova entsprechend der verschiedenen Mobilplattformen unterschiedlich transformiert werden, um die entsprechende Applikation im richtigen Format zu erstellen. Unterstützt werden dabei die verbreitetsten Betriebssysteme Andorid und iOS, aber auch weitere wie Windows Phones, Blackberrys oder sogar FirefoxOS. Damit ist die fertige Applikation später für alle zuvor vorgestellten Betriebssysteme verfügbar.
 
 
 \subsubsection[Ionic]{Ionic
@@ -249,7 +249,23 @@ Diese Tags werden mit kleiner und größer Zeichen.
 
 HTML liegt aktuell in der 5. Version vor, weshalb der Name HTML5 gewählt wurde. Im Laufe der Zeit (1992- bis heute) wurden immer mehr Funktionen hinzugefügt. In den Anfängen von HTML war es nur möglich Text darzustellen. Mittlerweile gehören Bilder und Farben zum Standard, mit HTML5 können mittlerweile auch komplexe Animationen erstellt werden. Durch die Standardisierung von HTML durch das W3C können nahezu alle Browser in HTML5 entwickelte Webseiten anzeigen. Diese Funktionalitäten werden für den Prototypen verwendet.
 
+\subsubsection[HTML Geolocation API]{HTML Geolocation API
+ \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
 
+Neben den darstellenden Funktionen bietet HTML auch eine Geolocation API, die durch den Prototypen genutzt werden wird. Sie wird auch von allen gängigen Browsern unterstützt bietet aber vor allem auf mobilen Geräten eine sehr hohe Präzision. Die API bietet die Funktionen getCurrentPosition und watchPosition an, welche jeweils die aktuelle Position über GPS bestimmen und durch die Funktion watchPosition auch verfolgen können. Es existiert eine gute Fehlerbehandlung. Wenn z.B. keine Position in einer vorgegebenen Zeit bestimmt werden kann, erfolgt ein Timeout. Die Rückgabedaten beider Funktionen sind:
+\begin{itemize}
+	\item Längengrad
+	\item Breitengrad
+	\item Genauigkeit
+	\item Höhe
+	\item Höhen-Genauigkeit
+	\item Orientierung
+	\item Geschwindigkeit
+	\item Zeitstempel
+\end{itemize}
+\cite{geoloc}
+!!HILFE!!
+Im Prototypen werden lediglich die Positionspunkte (Längen- und Breitengrad) genutzt.
 
 \subsubsection[CSS]{CSS
  \\ \textnormal{\small{\textit {Verfasst von Victor Schwartz}}}}
@@ -268,6 +284,7 @@ Es ist das Framewort, welches die "'Zwei-Wege-Datenbindung"'\cite{angular} unter
 \\
 Außerdem werden durch Angular JS die Trennung von Darstellungssschicht (View) und Datenschichten (Controller und Model) unterstützt. Diese Trennung ist im Verlauf der Entwicklung von großer Bedeutung (vgl. Architektur). Angular JS bietet also kurz gesagt viele weitere Alternativen zu den herkömmlichen HTML-Tags. Nähere Implementierungsdetails zu Views, Controllern und Models folgen im Kapitel Implementierung.
 
+\newpage
 \subsubsection[Kartenmaterial]{Kartenmaterial \label{sec:kartenmaterial}
  \\ \textnormal{\small{\textit {Verfasst von Patrick Senneka}}}}
  

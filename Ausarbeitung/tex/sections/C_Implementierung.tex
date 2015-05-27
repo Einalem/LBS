@@ -11,7 +11,7 @@ Der allgemeine Ablauf der Anwendung sieht lediglich einen Aufruf der HTML-Seite 
 \label{fig:HTML-Darstellung}
 \end{figure}
 
-App.js ist eine Javascript-Datei, die unter Anderem die Zuordnung der Views zu ihrem jeweiligen Controller durchführt. 
+App.js ist eine Javascript-Datei namens '"app'", die unter Anderem die Zuordnung der Views zu ihrem jeweiligen Controller durchführt. Im Folgenden wird lediglich die Abkürzung '"App.js'" als Bezug zu dieser Datei genutzt.
 \subsection[App.js]{App.js
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
  
@@ -160,7 +160,7 @@ Nach dem Laden der View kann der Nutzer dann über den Button 'Startposition fin
 %Dafür werden ihr die Spielerdaten über das Objekt 'player' übergeben und die Funktion zur Speicherung der Daten als Javascript-%Callback Funktion im Falle einer korrekten Ermittlung.
 \\
 \\
-Der Befehl 'navigator.geolocation.getCurrentPosition()' ist der Weg, um auf die Geolokationsfunktionen von Cordova, bzw. des Geräts zuzugreifen. Nach diesem Aufruf werden die Felder der Game-View (Infotext, mapDiv und playTasks) entsprechend gefüllt und bei erfolgreicher Durchführung die Startpositionsdaten des Spielers %(vgl. Callbackfunktion) 
+Der Befehl 'navigator.geolocation.getCurrentPosition()' ist der Weg, um auf die Geolokationsfunktionen von HTML5, bzw. des Geräts zuzugreifen. Nach diesem Aufruf werden die Felder der Game-View (Infotext, mapDiv und playTasks) entsprechend gefüllt und bei erfolgreicher Durchführung die Startpositionsdaten des Spielers %(vgl. Callbackfunktion) 
 im Sessionstorage aktualisiert und der Spieler in das Spielerarray des Localstorage integriert. Der Localstorage des Geräts enthält im Vergleich zum Sessionstorage zu jeder Zeit seine Daten und wird nicht automatisch gelöscht. Das Array enthält also alle Spieler, die dann später auch im Highscore aufgelistet werden können.
 \\
 Wenn es bei der Positionierung zu Problemen kommt, erhält der Nutzer Rückmeldung nachdem die Timeout-Zeit von 30 Sekunden abgelaufen ist.
@@ -288,7 +288,7 @@ Der Nutzer hat dann nach dem Laden der View die Möglichkeit eine Aufgabe auszuw
 %
 %Beschreibung der HTML-Seite
 %
-Die Task-View ist die Übersichtsseite für eine Aufgabe. Dem Spieler wird die Startentfernung, sein aktueller Punktestand für diese eine Aufgabe genannt. Außerdem bekommt er, wie bei einer Wünschelrute einen Hinweis, ob er sich vom Ziel entfernt oder ob er sich ihm nähert. Dieser Hinweis erscheint nur, wenn er sich auch bewegt, das heißt, wenn sich der Abstand zum Ziel ändert. Ab diesem Moment findet die Positionierung durch die Applikation durchgängig statt.
+Die Task-View ist die Übersichtsseite für eine Aufgabe. Dem Spieler wird die Startentfernung, sein aktueller Punktestand für diese eine Aufgabe genannt. Außerdem bekommt er, wie bei einer Wünschelroute einen Hinweis, ob er sich vom Ziel entfernt oder ob er sich ihm nähert. Dieser Hinweis erscheint nur, wenn er sich auch bewegt, das heißt, wenn sich der Abstand zum Ziel ändert. Ab diesem Moment findet die Positionierung durch die Applikation durchgängig statt.
 %
 %Ablaufplan
 %
@@ -417,7 +417,9 @@ Die drei Services \emph{Player}, \emph{Location} und \emph{Task} werden je nach 
 Wie in den vorherigen Abschnitten beschrieben existiert ein reger Informationsaustausch zwischen den Views, den Controllern und Services. Dieser ist symptomatisch für die Model-View-Controller-Architektur, wie bereits in Kapitel \ref{sec:Architektur} beschrieben und sorgt für größtmögliche Unabhängigkeit zwischen den Elementen, da lediglich die Schnittstellen(Funktionsparameter) von Bedeutung sind und somit auch große Wiederverwertbarkeit gegeben ist.
 \\
 Von der Applikation werden für die in den vorherigen Kapiteln vorgestellten Funktionen verschiedene Plugins genutzt.
-Standardmäßig ist das Plugin für Console, Keyboard und Device für Zugriff auf die Grundfunktionen des genutzten Geräts installiert. Für die LBS-spezifischen Funktionen wurde noch das Plugin Geolocation und für die Informationen über die Internetverbindung das Plugin Network Information hinzugefügt. Jedes Plugin muss dafür in der Form '"cordova plugin add ...'" über die Konsole Cordova bekannt gegeben werden.
+Standardmäßig ist das Plugin für Console, Keyboard und Device für Zugriff auf die Grundfunktionen des genutzten Geräts installiert. Für die Informationen über die Internetverbindung wird noch das Plugin '"Network Information'" hinzugefügt. Jedes Plugin muss dafür in der Form '"cordova plugin add ...'" über die Konsole Cordova bekannt gegeben werden.
+
+\newpage
 \subsubsection[Bewertung der Architektur]{Bewertung der Architektur
  \\ \textnormal{\small{\textit {Verfasst von Melanie Hammerschmidt}}}}
 Nach der Implementierung ist der Rückbezug auf die anfangs gemachten Anforderungen relevant.
@@ -490,8 +492,7 @@ Diese Schritte werden im folgenden mit Quellcode-Listings aus der App erläutert
 1. Anlegen eines Objekt mit iBeacon Information
 \\Wie bereits in Kapitel \ref{sec:ibeacons} erläutert, senden Beacons mehrere Informationen in einem definierten Zeitabstand. Hierzu zählt die UUID, eine eindeutige Zahlen und Buchstabenkombination sowie eine Major und Minor Nummer. Mit Hilfe dieser Daten lässt sich ein Beacon identifizieren. Da jedes Ziel mit einem iBeacon ausgestatte werden soll, muss die App hierfür jeweils diese Daten kennen. Aus diesem Grund gibt es ein Objekt mit diesen Daten.
  
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 var region =
 				[
 					{
@@ -507,8 +508,7 @@ var region =
 2. Hauptfunktion aufrufen
 \\Damit nach dem iBeacon durch die App gesucht wird, muss 'Ranging' und 'Monitoring' gestartet werden. Dieses überwacht ob sich der iBeacon in Reichweite befindet. Hierfür wird die Funktion 'startMonitoringAndRangingRegion' aufgerufen. Beim Aufruf dieser Funktion wird das Objekt mit den iBeacon Daten 'region' mit übergeben. Mit diesen Daten wird ein neues Objekt vom Typ BeaconRegion erstellt. Dieses Obejekt wird von den Funktionen  cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion) und cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion) verwendet um das Ranging und Monitoring nach diesem iBeacon zu starten.
 
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 function startMonitoringAndRangingRegion(region, errorCallback)
 				{
 					// Create a region object.
@@ -535,8 +535,7 @@ function startMonitoringAndRangingRegion(region, errorCallback)
 3. Warten auf iBeacon in Reichweite
 \\Die im vorherigen Schritt beschriebene Funktion lässt die App im Hintergrund nach dem iBeacon suchen. Befindet sich der gesuchte iBeacon in Reichweite und das Bluetooth Modul des Smartphones empfängt Signale wird folgende Funktion aufgerufen:
 
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 function onDidRangeBeaconsInRegion(result)
 					{
 						globalBeacons = result.beacons;
@@ -549,8 +548,7 @@ Diese Funktion enthält die empfangenen Informationen des iBeacons in der Variab
 4. Daten auslesen
 \\Nachdem die Daten des iBeacons im Objekt globalBeacons abgespeichert wurden kann auf die übermittelte Distanz wie folgt zugegriffen werden:
 
-\begin{lstlisting}[frame=single]  % Start your code-block
-
+\begin{lstlisting}
 					dist = globalBeacons.accuracy;
 					
 \end{lstlisting}

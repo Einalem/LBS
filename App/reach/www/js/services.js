@@ -230,9 +230,11 @@
 				
 				
 				
-				//----------------Start: Implementierung iBeacons
+				//---------------- Implementierung iBeacon
+				//Verwendet wurde das "Cordova / Phonegap iBeacon plugin" sowie die Code
+				//Beispiele von Peter Metz (https://github.com/petermetz/cordova-plugin-ibeacon)
+				//Weitere Quelle: https://github.com/divineprog/evo-demos/tree/master/Demos2015/cordova-ibeacon
 								
-				
 				var mRegions =
 				[
 					{
@@ -243,27 +245,21 @@
 					}
 				];
 				
-				var zahler=0;
 				var globalBeacons;
-				
-				
-				
-				
+								
 				startMonitoringAndRanging();
 				
 				function startMonitoringAndRanging()
 				{
-					//document.getElementById("iBeacon").innerHTML = "Monitoring gestartet";
+					
 					function onDidDetermineStateForRegion(result)
 					{
-						//saveRegionEvent(result.state, result.region.identifier);
-						//displayRecentRegionEvent();
+												
 					}
 
 					function onDidRangeBeaconsInRegion(result)
 					{
-						
-						//document.getElementById("iBeacon2").innerHTML = result.beacons.length;
+						//Abspeichern der iBeacon Daten in einer globalen Variable
 						globalBeacons = result.beacons;
 						displayNearestBeacon(result.beacons);
 					}
@@ -273,36 +269,30 @@
 						console.log('Monitoring beacons did fail: ' + errorMessage);
 					}
 
-					// Request permission from user to access location info.
 					cordova.plugins.locationManager.requestAlwaysAuthorization();
 
-					// Create delegate object that holds beacon callback functions.
 					var delegate = new cordova.plugins.locationManager.Delegate();
 					cordova.plugins.locationManager.setDelegate(delegate);
 
-					// Set delegate functions.
 					delegate.didDetermineStateForRegion = onDidDetermineStateForRegion;
 					delegate.didRangeBeaconsInRegion = onDidRangeBeaconsInRegion;
 
-					// Start monitoring and ranging beacons.
 					startMonitoringAndRangingRegions(mRegions, onError);
 					
 				}
 				
 				function startMonitoringAndRangingRegions(regions, errorCallback)
 				{
-					// Start monitoring and ranging regions.
 					for (var i in regions)
 					{
 						startMonitoringAndRangingRegion(regions[i], errorCallback);
-						
 					}
 				}
 				
 
 				function startMonitoringAndRangingRegion(region, errorCallback)
 				{
-					// Create a region object.
+					// Übergabe der iBeacon Daten und Starten der Suche
 					
 					var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(
 						region.id,
@@ -310,12 +300,12 @@
 						region.major,
 						region.minor);
 
-					// Start ranging.
+					
 					cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
 						.fail(errorCallback)
 						.done();
 
-					// Start monitoring.
+					
 					cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
 						.fail(errorCallback)
 						.done();
@@ -324,38 +314,19 @@
 				
 				function displayNearestBeacon(beacons)
 				{
-					zahler=zahler+1;
-					//document.getElementById("iBeacon").innerHTML = zahler;
+					
+					
 					if(beacons.length ==0){
-					//document.getElementById("iBeacon").innerHTML = "kein BEacon in der Nähe"+zahler;
-					
-					
+					//Möglichkeit der Ausführung wenn kein iBeacon in Reichweite ist
 					}
-					else{
-					
-					 mNearestBeacon = beacons[0];
-					
-					
-					
-					// Clear element.
-				
-
-					// Update element.
-					/*document.getElementById("iBeacon2").innerHTML = 
-						'<li>'
-						+	'<strong>Nearest Beacon</strong><br />'
-						+	'UUID: ' + mNearestBeacon.uuid + '<br />'
-						+	'Major: ' + mNearestBeacon.major + '<br />'
-						+	'Minor: ' + mNearestBeacon.minor + '<br />'
-						+	'Proximity: ' + mNearestBeacon.proximity + '<br />'
-						+	'Distance: ' + mNearestBeacon.accuracy + '<br />'
-						+	'RSSI: ' + mNearestBeacon.rssi + '<br />'
-						+ '</li>';
-						*/
-						}
+					else
+					{
+					//Wenn ein iBeacon in Reichweite ist, werden seine Daten abgespeichert
+					mNearestBeacon = beacons[0];
+					}
 				}
 				
-				//-------------Ende iBeacons
+				
 				
                 if (navigator.geolocation) {
                     var id = navigator.geolocation.watchPosition(
@@ -376,14 +347,14 @@
                             var distance; 
 							var beaconfound;
 							
-							if(globalBeacons.length ==0){
+							if(globalBeacons.length ==0){//Abfrage, ob ein Beacon gefunden wurde
 							distance = getDistance(latitude, longitude, task.taskPosLat, task.taskPosLong);
                             distance = distance.toFixed(3);
 							beaconfound = false;
 							document.getElementById("iBeacon").innerHTML = "GPS/WLAN";
 							}
-							else{
-							distance=mNearestBeacon.accuracy;
+							else{ //Wenn der gesuchte iBeacon in Reichweite ist, wird der Abstand darüber bestimmt
+							distance=mNearestBeacon.accuracy; //Auslesen der iBeacon Abstandsdaten
 							beaconfound=true;
 							document.getElementById("iBeacon").innerHTML = "Beacon";
 							}
@@ -432,7 +403,7 @@
                             } else {
                                 if (distance <= player.lastDist) {
 								
-									if(beaconfound){
+									if(beaconfound){ //Abfrage, ob Abstandsangabe in Kilometer oder Meter stattfindet
                                     document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: green;'>"+ distance + " m</h1></center>";
                                     }
 									else
@@ -451,7 +422,7 @@
                                      }, 900);
                                      */
                                 } else {
-                                    if(beaconfound){
+                                    if(beaconfound){//Abfrage, ob Abstandsangabe in Kilometer oder Meter stattfindet
                                     document.getElementById("color").innerHTML = "<h2>Restentfernung:</h2> <br/><center><h1 style='color: red;'>"+ distance + " m</h1></center>";
                                     }
 									else

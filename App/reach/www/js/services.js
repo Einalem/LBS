@@ -1,4 +1,4 @@
-//Melanie Hammerschmidt ( + Victor Schwartz: IBeacons in watch-Funktion des Location Service)
+//Melanie Hammerschmidt ( + Victor Schwartz: IBeacons in watch-Funktion des Location Service) ( + Patrick Senneka: Kartenmaterial, map Object )
 (angular.module('starter.services', [])
     .factory('Player', function ($state) {
         var player = {};
@@ -154,7 +154,7 @@
                     showBackdrop: false
                 });
 
-                //Initialisierungen
+                //Initialisierungen 
                 var map = null;
                 var latitude = 0;
                 var longitude = 0;
@@ -169,10 +169,9 @@
                         longitude = pos.coords.longitude;
                         document.getElementById("infotext").innerHTML = "Deine Position ist hier: <br/>[" + latitude + ", " + longitude + "]";
 
-                        //Initialisieren der Map auf diesen Punkt
-						
-						
-					
+                        //Initialisieren der Map auf diesen Punkt	
+						//Verwendet wurde LeafletJS mit dem Kartenmaterial von OpenStreetMaps
+						//Erstellt under Zuhilfenahme von den Tutorials auf http://leafletjs.com/examples.html
                         document.getElementById('mapDiv').innerHTML = "<div id='map' style='height: 180px;'></div>";
                         map = L.map('map', {
                             center: [latitude, longitude],
